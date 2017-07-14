@@ -22,9 +22,10 @@ es:
       user_permission_debates: Participar en debates
       user_permission_info: Con tu cuenta ya puedes...
       user_permission_proposal: Crear nuevas propuestas
-      user_permission_support_proposal: Apoyar propuestas*
+      user_permission_design: "Inscribirte y asistir a los talleres de diseño*"
+      user_permission_support_proposal: Apoyar propuestas
       user_permission_title: Participación
-      user_permission_verify: Para poder realizar todas las acciones verifica tu cuenta.
+      user_permission_verify: "*Para poder realizar todas las acciones verifica tu cuenta."
       user_permission_verify_info: "* Sólo usuarios empadronados."
       user_permission_votes: Participar en las votaciones finales*
       username_label: Nombre de usuario
@@ -721,8 +722,9 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       user_permission_debates: Participar en debates
       user_permission_info: Con tu cuenta ya puedes...
       user_permission_proposal: Crear nuevas propuestas
-      user_permission_support_proposal: Apoyar propuestas*
-      user_permission_verify: Para poder realizar todas las acciones, verifica tu cuenta.
+      user_permission_support_proposal: Apoyar propuestas
+      user_permission_design: "Inscribirte y asistir a los talleres de diseño*"
+      user_permission_verify: "*Para poder realizar todas las acciones, verifica tu cuenta."
       user_permission_verify_info: "* Sólo usuarios empadronados."
       user_permission_verify_my_account: Verificar mi cuenta
       user_permission_votes: Participar en las votaciones finales*
