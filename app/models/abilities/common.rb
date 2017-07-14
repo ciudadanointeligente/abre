@@ -39,8 +39,11 @@ module Abilities
         can :vote, Comment
       end
 
-      if user.level_two_or_three_verified?
+      if user
         can :vote, Proposal
+      end
+
+      if user.level_two_or_three_verified?
         can :vote_featured, Proposal
         can :vote, SpendingProposal
         can :create, SpendingProposal
