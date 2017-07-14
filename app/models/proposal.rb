@@ -122,7 +122,7 @@ class Proposal < ActiveRecord::Base
     user
   end
 
-  def supported_by(user)
+  def supported_by?(user)
     user
   end
 
