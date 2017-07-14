@@ -44,7 +44,9 @@ es:
       info-epigraph: Epígrafe de sección derecha
       info-title: Título de sección derecha
       info-go_to: Subtítulo de sección derecha
+      info-go_to2: Subtítulo de sección derecha
       info-go_to_link: Link al que lleva el subtitulo de sección derecha
+      info-go_to_link2: Link al que lleva el subtitulo de sección derecha
       info-date: Destacado de sección derecha
     mailer_from_name: Nombre email remitente
     mailer_from_address: Dirección email remitente
