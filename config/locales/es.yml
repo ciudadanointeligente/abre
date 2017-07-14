@@ -697,18 +697,18 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       most_voted: Más apoyadas
       most_activated: Más activas
       newest: Más nuevas
-    project:
-      description: Todos los involucrados participan en el seguimiento y la evaluación del proceso
-      title: Debates
+    proposal:
+      description: "En la primera etapa, los vecinos crean propuestas y apoyan las más atractivas"
+      title: Propones
     design:
-      description: En una segunda etapa, vecinos y funcionarios participan en talleres para elaborar el proyecto definitivo
+      description: "Luego de elegir la mejor propuesta, vecinos y funcionarios participan en talleres para elaborar el proyecto definitivo"
       title: Decides
     do:
-      description: Los vecinos colaboran en la implementación y seguimiento del proyecto
+      description: "Al momento de ejecutar, los vecinos colaboran en la implementación del proyecto"
       title: Se hace
-    proposal:
-      description: En la primera etapa, los vecinos crean propuestas y apoyan las ms atractivas
-      title: Propones
+    project:
+      description: "Finalmente, todos los involucrados participan en el seguimiento y la evaluación del proceso"
+      title: Debates
     verification:
       i_dont_have_an_account: No tengo cuenta, quiero crear una y verificarla
       i_have_an_account: Ya tengo una cuenta que quiero verificar
