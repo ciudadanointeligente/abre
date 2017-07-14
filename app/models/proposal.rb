@@ -131,7 +131,9 @@ class Proposal < ActiveRecord::Base
   end
 
   def register_vote(user, vote_value)
-    if votable_by?(user) && !archived?
+    p "Entre a register_vote"
+    if supported_by?(user) && !archived?
+      p "Puedo votar"
       vote_by(voter: user, vote: vote_value)
     end
   end
