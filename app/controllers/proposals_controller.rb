@@ -61,7 +61,6 @@ class ProposalsController < ApplicationController
 
   def vote
     @proposal.register_vote(current_user, 'yes')
-    p "Pase register_vote"
     set_proposal_votes(@proposal)
   end
 
