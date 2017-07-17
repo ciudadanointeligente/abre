@@ -43,11 +43,11 @@
     <% end %>
     <% if @problem.cause? %>
       <h4> Causas </h1>
-      <p> <%= @problem.cause%> </p>
+      <p> <%= simple_format(@problem.cause)%> </p>
     <% end %>
     <% if @problem.consequence? %>
       <h4> Consecuencias </h1>
-      <p> <%= @problem.consequence%> </p>
+      <p> <%= simple_format(@problem.consequence)%> </p>
     <% end %>
     <% if @problem.restriction? %>
       <h4> Restricciones </h1>
