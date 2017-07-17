@@ -27,7 +27,6 @@ h3 {
 h4 {
   font-size: 24px;
   color: $gray-two;
-  font-weight: 500;
 }
 
 h4 a {
@@ -74,7 +73,7 @@ p {
   font-size: 14px;
   padding-left: 25px;
   position: relative;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   &:before {
     content: '_';
     font-size: 36px;
@@ -106,7 +105,7 @@ h4.page-title {
     border-radius: 0;
     color: white;
     font-size: 14px;
-    padding: 0.1vw 0.6rem;
+    padding: 0.2vw 1vw 0.1vw;
 }
 
 
@@ -176,6 +175,10 @@ h4.page-title {
 
 .bg-blue {
   background: $light-blue;
+}
+
+.bg-orange {
+  background: $orange;
 }
 
 // Form
@@ -318,13 +321,42 @@ form li {
   text-align: -webkit-right;
 }
 
+// Social buttons
 
-.proposal .supports .button-support {
-  background: $brand;
-  color: white;
-  display: inline-block;
-  font-size: 0.875rem;
-  margin-top: 0.75rem;
+.share-supported .ssb-facebook {
+    background: rgba(63, 169, 245, 0);
+    border-radius: 4vw;
+    border: 1px solid white;
+    margin-bottom: -14px;
+    margin-left: 1vw;
+}
+
+.share-supported .ssb-facebook:before {
+    font-size: 16px;
+    line-height: 2.5rem;
+    margin-left: -0.5rem;
+}
+
+.ssb-facebook {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+}
+
+// Menu
+
+.submenu a {
+    color: $gray-two;
+    font-weight: 400;
+}
+
+// Proposals
+
+.proposal {
+    border-bottom: 1px solid $gray-four;
+}
+
+.proposal .tags {
+    margin-top: -15px;
 }
 
 .meter{
@@ -334,11 +366,6 @@ form li {
 .progress{
   background: $gray-three !important;
   margin-top: 1rem;
-}
-
-.proposal .supports {
-  padding: inherit;
-  position: relative;
 }
 
 ul, ol, dl {
@@ -371,10 +398,6 @@ ul, ol, dl {
   line-height: 2rem;
   font-weight: 400;
   color: $gray-two;
-}
-
-.submenu h2 {
-    font-size: 0.9rem;
 }
 
 .text-width{

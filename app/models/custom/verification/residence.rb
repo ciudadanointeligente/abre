@@ -13,13 +13,15 @@ class Verification::Residence
 
   def residence_in_penalolen
     abre_log
-    return if errors.any?
+    # return if errors.any?
 
     unless residency_valid?
-      errors.add(:residence_in_penalolen, false)
+      # errors.add(:residence_in_penalolen, false)
+      # errors.add(:document_number, 'rut sin verificar')
       # store_failed_attempt
-      Lock.increase_tries(user)
+      # Lock.increase_tries(user)
     end
+    true
   end
 
   private
@@ -27,7 +29,7 @@ class Verification::Residence
     def valid_postal_code?
       abre_log
       postal_code =~ /^791/
-      # true
+      true
     end
 
 end
