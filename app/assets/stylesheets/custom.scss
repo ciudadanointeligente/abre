@@ -633,3 +633,10 @@ footer a, footer a:active, footer a:focus {
 .share-proposal{
   background-color: $light-blue !important;
 }
+
+// Tooltip
+
+.has-tip {
+    border-bottom: none;
+    color: $orange;
+}
