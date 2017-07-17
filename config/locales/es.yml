@@ -22,9 +22,10 @@ es:
       user_permission_debates: Participar en debates
       user_permission_info: Con tu cuenta ya puedes...
       user_permission_proposal: Crear nuevas propuestas
-      user_permission_support_proposal: Apoyar propuestas*
+      user_permission_design: "Inscribirte y asistir a los talleres de diseño*"
+      user_permission_support_proposal: Apoyar propuestas
       user_permission_title: Participación
-      user_permission_verify: Para poder realizar todas las acciones verifica tu cuenta.
+      user_permission_verify: "*Para poder realizar todas las acciones verifica tu cuenta."
       user_permission_verify_info: "* Sólo usuarios empadronados."
       user_permission_votes: Participar en las votaciones finales*
       username_label: Nombre de usuario
@@ -694,21 +695,21 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
     proposals:
       title: propuestas
       link_to: Ver todas
-      most_voted: Más votadas
+      most_voted: Más apoyadas
       most_activated: Más activas
       newest: Más nuevas
-    project:
-      description: Los involucrados dan seguimiento y evalúan el proyecto
-      title: Debates
+    proposal:
+      description: "En la primera etapa, los vecinos crean propuestas y apoyan las más atractivas"
+      title: Propones
     design:
-      description: En talleres de diseño, vecinos y funcionarios desarrollana las propuestas
+      description: "Luego de elegir la mejor propuesta, vecinos y funcionarios participan en talleres para elaborar el proyecto definitivo"
       title: Decides
     do:
-      description: El proyecto es implementado de forma colaborativa
+      description: "Al momento de ejecutar, los vecinos colaboran en la implementación del proyecto"
       title: Se hace
-    proposal:
-      description: Los vecinos ingresan las propuestas y votan por su favorita
-      title: Propones
+    project:
+      description: "Finalmente, todos los involucrados participan en el seguimiento y la evaluación del proceso"
+      title: Debates
     verification:
       i_dont_have_an_account: No tengo cuenta, quiero crear una y verificarla
       i_have_an_account: Ya tengo una cuenta que quiero verificar
@@ -721,8 +722,9 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       user_permission_debates: Participar en debates
       user_permission_info: Con tu cuenta ya puedes...
       user_permission_proposal: Crear nuevas propuestas
-      user_permission_support_proposal: Apoyar propuestas*
-      user_permission_verify: Para poder realizar todas las acciones, verifica tu cuenta.
+      user_permission_support_proposal: Apoyar propuestas
+      user_permission_design: "Inscribirte y asistir a los talleres de diseño*"
+      user_permission_verify: "*Para poder realizar todas las acciones, verifica tu cuenta."
       user_permission_verify_info: "* Sólo usuarios empadronados."
       user_permission_verify_my_account: Verificar mi cuenta
       user_permission_votes: Participar en las votaciones finales*

@@ -12,7 +12,7 @@ es:
     email_verification:
       click_here_to_verify: en este enlace
       instructions_2_html: Este email es para verificar tu cuenta con <b>%{document_type} %{document_number}</b>. Si esos no son tus datos, por favor no pulses el enlace anterior e ignora este email.
-      instructions_html: Para terminar de verificar tu cuenta de usuario en el Portal de Gobierno Abierto, necesitamos que pulses %{verification_link}.
+      instructions_html: Para terminar de verificar tu cuenta de usuario en Abre, necesitamos que pulses %{verification_link}.
       subject: Verifica tu email
       thanks: Muchas gracias.
       title: Verifica tu cuenta con el siguiente enlace
@@ -25,7 +25,7 @@ es:
       hi: "Estimado usuario,"
       new_html: "Por todo ello, te invitamos a que elabores una <strong>nueva propuesta</strong> que se ajuste a las condiciones de este proceso. Esto lo puedes hacer en este enlace: %{url}."
       new_href: "nueva propuesta de inversión"
-      reconsider_html: "Si consideras que la propuesta rechazada cumple los requisitos para mantenerla como propuesta de inversión, podrás comunicarlo, en el plazo de 48 horas, al correo example@consul.es, indicando necesariamente para su tramitación el código %{code} como asunto del correo, correspondiente a tu propuesta."
+      reconsider_html: "Si consideras que la propuesta rechazada cumple los requisitos para mantenerla como propuesta de inversión, podrás comunicarlo, en el plazo de 48 horas, al correo abre@penalolen.cl, indicando necesariamente para su tramitación el código %{code} como asunto del correo, correspondiente a tu propuesta."
       sincerely: "Atentamente"
       signatory: "DIRECCIÓN GENERAL DE PARTICIPACIÓN CIUDADANA"
       sorry: "Sentimos las molestias ocasionadas y volvemos a darte las gracias por tu inestimable participación."
@@ -50,7 +50,7 @@ es:
       ignore: "Si no has solicitado esta invitación no te preocupes, puedes ignorar este correo."
       text: "¡Gracias por solicitar unirte a %{org}! En unos segundos podrás empezar a decidir la ciudad que quieres, sólo tienes que rellenar el siguiente formulario:"
       thanks: "Muchas gracias."
-      title: "Bienvenido a %{org}"
+      title: "Bienvenido a Abre"
       button: Completar registro
       subject: "Invitación a %{org_name}"
     budget_investment_created:
@@ -67,7 +67,7 @@ es:
       hi: "Estimado usuario,"
       new_html: "Por todo ello, te invitamos a que elabores un <strong>nuevo proyecto de gasto</strong> que se ajuste a las condiciones de este proceso. Esto lo puedes hacer en este enlace: %{url}."
       new_href: "nueva propuesta de inversión"
-      reconsider_html: "Si consideras que el proyecto rechazado cumple los requisitos para mantenerlo como proyecto de gasto, podrás comunicarlo, en el plazo de 48 horas, al correo example@consul.es, indicando necesariamente para su tramitación el código %{code} como asunto del correo, correspondiente a tu proyecto."
+      reconsider_html: "Si consideras que el proyecto rechazado cumple los requisitos para mantenerlo como proyecto de gasto, podrás comunicarlo, en el plazo de 48 horas, al correo abre@penalolen.cl, indicando necesariamente para su tramitación el código %{code} como asunto del correo, correspondiente a tu proyecto."
       sincerely: "Atentamente"
       signatory: "DIRECCIÓN GENERAL DE PARTICIPACIÓN CIUDADANA"
       sorry: "Sentimos las molestias ocasionadas y volvemos a darte las gracias por tu inestimable participación."
