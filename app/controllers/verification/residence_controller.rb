@@ -13,7 +13,7 @@ class Verification::ResidenceController < ApplicationController
     abre_log
     @residence = Verification::Residence.new(residence_params.merge(user: current_user))
     if @residence.save
-      redirect_to verified_user_path, notice: t('verification.residence.create.flash.success')
+      redirect_to proposals_path, notice: t('verification.residence.create.flash.success')
     else
       @residence.errors.add(:document_number, 'rut sin verificar')
       render :new
