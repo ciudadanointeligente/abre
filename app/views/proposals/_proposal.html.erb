@@ -11,9 +11,7 @@
           <h4 class="small blue total-votes-text">
             <span class="total-votes-count" style="font-size:1.1rem;"><%= proposal.total_votes %> </span> vecinos apoyan esta propuesta
             <% if proposal.for_challenge && proposal.successful? %>
-              <!-- <i data-tooltip aria-haspopup="true" class="fa fa-heart has-tip" style="font-size:1.2rem;" title="Fancy word for a beetle."> </i> -->
-              <i class="fa fa-heart has-tip" style="font-size:1.2rem;"> </i> 
-              <span class="home-info-dates label"> Propuesta dentro de las 3 más votadas </span>
+              <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse" style="font-size:1rem;"> </i></span>
             <% end %>
           </h4>
           <h4><%= link_to proposal.title, namespaced_proposal_path(proposal) %></h3>
