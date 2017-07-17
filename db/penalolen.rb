@@ -22,12 +22,12 @@ Setting.create(key: 'facebook_handle', value: 'consul')
 Setting.create(key: 'youtube_handle', value: 'consul')
 Setting.create(key: 'telegram_handle', value: 'consul')
 Setting.create(key: 'blog_url', value: '/blog')
-Setting.create(key: 'url', value: 'http://abre.penalolen.cl')
+Setting.create(key: 'url', value: 'https://abre.penalolen.cl')
 Setting.create(key: 'org_name', value: 'Abre')
 Setting.create(key: 'place_name', value: 'City')
 Setting.create(key: 'feature.debates', value: "false")
 Setting.create(key: 'feature.polls', value: "true")
-Setting.create(key: 'feature.spending_proposals', value: nil)
+Setting.create(key: 'feature.spending_proposals', value: nil
 Setting.create(key: 'feature.spending_proposal_features.voting_allowed', value: nil)
 Setting.create(key: 'feature.budgets', value: "false")
 Setting.create(key: 'feature.twitter_login', value: "false")
@@ -41,7 +41,7 @@ Setting.create(key: 'mailer_from_name', value: 'Abre Peñalolen')
 Setting.create(key: 'mailer_from_address', value: 'abre@penalolen.cl')
 Setting.create(key: 'meta_description', value: 'Citizen Participation and Open Government Application')
 Setting.create(key: 'meta_keywords', value: 'citizen participation, open government')
-Setting.create(key: 'verification_offices_url', value: 'http://oficinas-atencion-ciudadano.url/')
+Setting.create(key: 'verification_offices_url', value: 'https://oficinas-atencion-ciudadano.url/')
 Setting.create(key: 'min_age_to_participate', value: '16')
 
 # Feature flags
@@ -58,11 +58,11 @@ Setting['feature.signature_sheets'] = false
 # Home
 Setting.create(key: 'home.main-title', value: "Construyamos soluciones para nuestra comuna")
 Setting.create(key: 'home.main-subtitle', value: "Quiero saber más")
-Setting.create(key: 'home.main-subtitle-link', value: "http://abre.penalolen.cl/more-information")
+Setting.create(key: 'home.main-subtitle-link', value: "https://abre.penalolen.cl/more-information")
 Setting.create(key: 'home.info-epigraph', value: "Recepción de propuestas")
 Setting.create(key: 'home.info-title', value: "Parque de ideas: Soñemos en conjunto el Parque San Luis.")
 Setting.create(key: 'home.info-go_to', value: "Quiero subir una propuesta")
-Setting.create(key: 'home.info-go_to_link', value: "http://abre.penalolen.cl/proposals/new")
+Setting.create(key: 'home.info-go_to_link', value: "https://abre.penalolen.cl/proposals/new")
 Setting.create(key: 'home.info-date', value: "17 DE JULIO - 15 DE AGOSTO")
 
 puts " ✅"

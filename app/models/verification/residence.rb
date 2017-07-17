@@ -4,7 +4,7 @@ class Verification::Residence
   include ActiveModel::Validations::Callbacks
   include ApplicationHelper
 
-  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service
+  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :address
 
   before_validation :call_rut_api
   # before_validation :call_census_api
@@ -15,6 +15,7 @@ class Verification::Residence
   validates_presence_of :postal_code
   validates :terms_of_service, acceptance: { allow_nil: false }
   validates :postal_code, length: { is: 7 }
+  validates :address, presence: true
 
   validate :allowed_age
   validate :document_number_uniqueness
@@ -41,7 +42,17 @@ class Verification::Residence
                   geozone:               Geozone.first,
                   date_of_birth:         date_of_birth.to_datetime,
                   gender:                1,
-                  residence_verified_at: Time.current)
+                  residence_verified_at: Time.current,
+                  rut_verified:          true)
+    else
+      user.update(document_number:       document_number,
+                  document_type:         document_type,
+                  geozone:               Geozone.first,
+                  date_of_birth:         date_of_birth.to_datetime,
+                  gender:                1,
+                  residence_verified_at: Time.current,
+                  rut_verified:          false)
+
 
     end
     #

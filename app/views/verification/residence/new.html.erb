@@ -43,12 +43,13 @@
         <div class="small-12 medium-8">
           <div class="small-12 medium-3 column">
           <%= f.label t("verification.residence.new.document_type_label") %>
-          <%= f.select :document_type, document_types, prompt: "", label: false %>
+          <%= f.select :document_type, document_types, prompt: "", selected: 1, label: false %>
           </div>
           <div class="small-12 medium-5 column end">
 
           <div class="inline-block">
             <%= f.label t("verification.residence.new.document_number") %>
+            <%= f.text_field :document_number, label: false %>
           </div>
 
           <div class="inline-block" data-toggle="info-document-number">
@@ -60,8 +61,10 @@
                data-hover="true" data-hover-pane="true">
             <%= t("verification.residence.new.document_number_help_text_html") %>
           </div>
-
-          <%= f.text_field :document_number, label: false %>
+          <div class="inline-block">
+            <%= f.label t("verification.residence.new.address") %>
+            <%= f.text_field :address, label: false %>
+          </div>
           </div>
         </div>
       </div>
@@ -99,6 +102,7 @@
         <% abre_log %>
         <%= f.submit t("verification.residence.new.verify_residence"), class: "button success expanded" %>
       </div>
+      <%= @residence.errors.messages %>
     <% end %>
   </div>
 </div>
