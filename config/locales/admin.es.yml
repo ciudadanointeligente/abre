@@ -221,6 +221,8 @@ es:
         budget: "Presupuesto máximo"
         problem_title: "*¿Por qué estás creando este desafío?"
         restriction: "Restricciones"
+        restriction_summary: "Resume tus restricciones"
+        note_restriction_summary: "Escribe de manera concisa las restricciones (260 carácteres máx.)"
         cause: "Causas"
         consequence: "Consecuencias"
         call_to_action: "*Invitación a crear propuestas"

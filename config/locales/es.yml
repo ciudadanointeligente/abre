@@ -307,6 +307,7 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       problem:
         budget: "Presupuesto máximo: "
         community: "Comunidad afectada: "
+        restriction_summary: "Restricciones: "
       geozone: "Ámbito de actuación"
       proposal_external_url: Enlace a documentación adicional
       proposal_question: Pregunta de la propuesta
