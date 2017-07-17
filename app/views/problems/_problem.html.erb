@@ -16,12 +16,15 @@
     <div class="small-12 medium-10 large-10 column">
       <div class="summary padding">
         <h5 class="white"><%= @problem.call_to_action%> </h5>
-        <p class="white"> <%= @problem.description %> </p>
+        <p class="white"> <%= simple_format(@problem.description) %> </p>
         <p class="white">
           <% if @problem.budget? %>
             <i class="fa fa-usd" aria-hidden="true"></i> <%= t("proposals.form.problem.budget") %> <%= @problem.budget%> </br>
           <% end %>
-          <i class="fa fa-map-marker" aria-hidden="true"></i> <%= t("proposals.form.problem.community") %> <%= @problem.geozones_name %>
+          <i class="fa fa-map-marker" aria-hidden="true"></i> <%= t("proposals.form.problem.community") %> <%= @problem.geozones_name %> </br>
+          <% if @problem.restriction_summary? %>
+            <i class="fa fa-list" aria-hidden="true"></i> <%= t("proposals.form.problem.restriction_summary") %> <%= @problem.restriction_summary%> </br>
+          <% end %>
         </p>
       </div>
     </div>

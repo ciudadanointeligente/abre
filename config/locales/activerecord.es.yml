@@ -101,6 +101,7 @@ es:
         budget: "Presupuesto máximo"
         problem_title: Problema
         restriction: "Restricciones"
+        restriction_summary: "Resumen de las restricciones"
         cause: "Causas"
         consequence: "Consecuencias"
         call_to_action: "Invitación a crear propuestas"
