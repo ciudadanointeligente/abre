@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714153325) do
+ActiveRecord::Schema.define(version: 20170717214347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -596,11 +596,12 @@ ActiveRecord::Schema.define(version: 20170714153325) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.boolean  "geozone_restricted"
-    t.boolean  "active",             default: true
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.boolean  "active",              default: true
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "user_id"
     t.string   "call_to_action"
+    t.string   "restriction_summary"
   end
 
   add_index "problems", ["user_id"], name: "index_problems_on_user_id", using: :btree
@@ -871,7 +872,7 @@ ActiveRecord::Schema.define(version: 20170714153325) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-07-17 16:03:32', null: false
+    t.datetime "password_changed_at",                       default: '2017-07-11 15:32:14', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""
