@@ -51,7 +51,7 @@
     <% end %>
     <% if @problem.restriction? %>
       <h4> Restricciones </h1>
-      <p> <%= @problem.restriction%> </p>
+      <p> <%= simple_format(@problem.restriction)%> </p>
     <% end %>
   </div>
     <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button float-right' %>
