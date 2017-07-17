@@ -9,7 +9,7 @@
 <div class="text-width">
     <div class="small gray">DESAFÍO </div>
     <h2 class="page-title"><%= @problem.title %> </h2>
-    <h5> <%= @problem.summary%> </5>
+    <h5> <%= @problem.summary%> </h5>
 </div>
 
 <div class="row collapse">
@@ -54,4 +54,5 @@
       <p> <%= @problem.restriction%> </p>
     <% end %>
   </div>
+    <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button float-right' %>
 </div>
