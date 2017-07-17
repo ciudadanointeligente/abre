@@ -58,7 +58,12 @@
         <% if @proposal.cached_votes_up.present? %>
           <div class="bg-blue white padding text-center">
             <div class="counter">
-              <%= @proposal.cached_votes_up %> vecinos apoyan esta propuesta
+              <div class="row">
+                <span class="total-votes-text">
+                  <span class="total-votes-count"> <%= @proposal.cached_votes_up %> </span>
+                  vecinos apoyan esta propuesta
+                </span>
+              </div>
               <% if @proposal.successful? && !@proposal.for_challenge %>
                 <p>
                   <%= t("proposals.proposal.successful",
@@ -80,8 +85,10 @@
                 </div>
               <% elsif @proposal.successful? && @proposal.for_challenge && @proposal.problem.ends_at < Date.today %>
               <% else %>
-                <%= render 'votes',
+                <div class="row">
+                  <%= render 'votes',
                           { proposal: @proposal, vote_url: vote_proposal_path(@proposal, value: 'yes') } %>
+                </div>
               <% end %>
             </div>
           </div>
