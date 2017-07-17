@@ -16,11 +16,12 @@ class Verification::Residence
     # return if errors.any?
 
     unless residency_valid?
-      errors.add(:residence_in_penalolen, false)
-      errors.add(:document_number, 'rut sin verificar')
+      # errors.add(:residence_in_penalolen, false)
+      # errors.add(:document_number, 'rut sin verificar')
       # store_failed_attempt
       # Lock.increase_tries(user)
     end
+    true
   end
 
   private

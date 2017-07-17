@@ -27,7 +27,7 @@ Setting.create(key: 'org_name', value: 'Abre')
 Setting.create(key: 'place_name', value: 'City')
 Setting.create(key: 'feature.debates', value: "false")
 Setting.create(key: 'feature.polls', value: "true")
-Setting.create(key: 'feature.spending_proposals', value: nil
+Setting.create(key: 'feature.spending_proposals', value: nil)
 Setting.create(key: 'feature.spending_proposal_features.voting_allowed', value: nil)
 Setting.create(key: 'feature.budgets', value: "false")
 Setting.create(key: 'feature.twitter_login', value: "false")

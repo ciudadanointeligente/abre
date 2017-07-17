@@ -6,15 +6,15 @@ class Verification::Residence
 
   attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :address
 
-  before_validation :call_rut_api
+  # before_validation :call_rut_api
   # before_validation :call_census_api
 
   validates_presence_of :document_number
   validates_presence_of :document_type
   validates_presence_of :date_of_birth
-  validates_presence_of :postal_code
+  # validates_presence_of :postal_code
   validates :terms_of_service, acceptance: { allow_nil: false }
-  validates :postal_code, length: { is: 7 }
+  # validates :postal_code, presence: true
   validates :address, presence: true
 
   validate :allowed_age
@@ -33,6 +33,7 @@ class Verification::Residence
     return false unless valid?
     abre_log 2
     user.take_votes_if_erased_document(document_number, document_type)
+    call_rut_api
 
     if @rut_api_response
       abre_log

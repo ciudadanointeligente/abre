@@ -76,15 +76,15 @@
                         label: false %>
       </div>
 
-      <div class="small-12 medium-5 clear">
+      <!-- <div class="small-12 medium-5 clear">
         <%= f.label t("verification.residence.new.postal_code") %>
         <p class="note"><%= t("verification.residence.new.postal_code_note") %></p>
         <div class="medium-6">
           <%= f.text_field :postal_code, label: false %>
         </div>
-      </div>
+      </div> -->
 
-      <div class="small-12">
+      <div class="small-12 medium-6 clear">
         <%= f.label :terms_of_service do %>
           <%= f.check_box :terms_of_service, title: t('verification.residence.new.accept_terms_text_title'), label: false %>
           <span class="checkbox">
@@ -101,7 +101,7 @@
         <% abre_log %>
         <%= f.submit t("verification.residence.new.verify_residence"), class: "button success expanded" %>
       </div>
-      <%= @residence.errors.messages %>
+
     <% end %>
   </div>
 </div>
