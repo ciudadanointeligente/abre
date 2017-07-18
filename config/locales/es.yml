@@ -365,7 +365,7 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       select_order: Ordenar por
       select_order_long: Estas viendo las propuestas
       start_proposal: Crea una propuesta
-      remaining_time: Quedan %{days} para crear propuestas
+      remaining_time: '%{days}'
       title: Propuestas ciudadanas
       top: Top semanal
       top_link_proposals: Propuestas más apoyadas por categoría

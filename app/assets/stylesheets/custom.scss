@@ -139,18 +139,16 @@ h4.page-title {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 4px;
+}
 
-  // p{
-  //   font-size: 1rem;
-  //   font-family: $body-font-family;
-  //   letter-spacing: 0px;
-  //   text-align: center;
-  //   color: $gray-one;
-  // }
-  //
-  // a{
-  //   color: $gray-one;
-  // }
+.counter-bg {
+  background: $gray-one;
+  font-family: "Dosis", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 2px 9px;
+  border-radius: 3px;
 }
 
 // Text color
@@ -304,11 +302,6 @@ form li {
   border-radius: 2rem;
 }
 
-.button-proposal{
-  background: white;
-  color: black;
-}
-
 .button.secondary {
     background-color: $gray-two;
     color: #ffffff;
@@ -325,7 +318,7 @@ form li {
     &:hover {
       border: 1px solid #fff;
       color: #fff;
-      background: rgba(216, 0, 23, 0);
+      background: rgba(34, 34, 34, 0.1);
     }
 }
 
@@ -356,9 +349,18 @@ form li {
 
 // Menu
 
+.submenu {
+    margin-bottom: 0rem;
+}
+
 .submenu a {
     color: $gray-two;
+    margin-bottom: -2px;
     font-weight: 400;
+}
+
+.submenu a.active {
+  border-bottom: 4px solid #D80017;
 }
 
 // Proposals
@@ -369,6 +371,32 @@ form li {
 
 .proposal .tags {
     margin-top: -15px;
+}
+
+#proposals .bg-orange .button {
+    margin-bottom: 1px;
+    margin-left: 10px;
+}
+
+.advanced-search {
+  margin-bottom: 2vw;
+  margin-top: 1.75rem;
+  float: right;
+  position: relative;
+}
+
+.advanced-search-form {
+  clear: both;
+  padding-left: 2.5vw;
+}
+
+.advanced-search-form form label {
+    font-size: 16px;
+    color: #6C798A;
+}
+
+.advanced-search-form .button {
+    margin-top: 23px;
 }
 
 .meter{
