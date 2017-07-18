@@ -82,7 +82,7 @@
           <% else %>
             <div class="small-12 medium-12 column ">
               <%= render 'votes',
-                      { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes') } %>
+                      { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: '' } %>
             </div>
           <% end %>
         </div>
