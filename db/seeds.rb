@@ -37,11 +37,11 @@ Setting.create(key: 'feature.signature_sheets', value: "true")
 Setting.create(key: 'per_page_code_head', value: "")
 Setting.create(key: 'per_page_code_body', value: "")
 Setting.create(key: 'comments_body_max_length', value: '1000')
-Setting.create(key: 'mailer_from_name', value: 'Consul')
+Setting.create(key: 'mailer_from_name', value: 'Abre')
 Setting.create(key: 'mailer_from_address', value: 'abre@penalolen.cl')
 Setting.create(key: 'meta_description', value: 'Citizen Participation and Open Government Application')
 Setting.create(key: 'meta_keywords', value: 'citizen participation, open government')
-Setting.create(key: 'verification_offices_url', value: 'http://oficinas-atencion-ciudadano.url/')
+Setting.create(key: 'verification_offices_url', value: 'https://oficinas-atencion-ciudadano.url/')
 Setting.create(key: 'min_age_to_participate', value: '16')
 
 # Feature flags
@@ -58,11 +58,11 @@ Setting['feature.signature_sheets'] = false
 # Home
 Setting.create(key: 'home.main-title', value: "Construyamos soluciones para nuestra comuna")
 Setting.create(key: 'home.main-subtitle', value: "Quiero saber más")
-Setting.create(key: 'home.main-subtitle-link', value: "http://abre.penalolen.cl/more-information")
+Setting.create(key: 'home.main-subtitle-link', value: "https://abre.penalolen.cl/more-information")
 Setting.create(key: 'home.info-epigraph', value: "Recepción de propuestas")
 Setting.create(key: 'home.info-title', value: "Parque de ideas: Soñemos en conjunto el Parque San Luis.")
 Setting.create(key: 'home.info-go_to', value: "Quiero subir una propuesta")
-Setting.create(key: 'home.info-go_to_link', value: "http://abre.penalolen.cl/proposals/new")
+Setting.create(key: 'home.info-go_to_link', value: "https://abre.penalolen.cl/proposals/new")
 Setting.create(key: 'home.info-date', value: "17 DE JULIO - 15 DE AGOSTO")
 
 

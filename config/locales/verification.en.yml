@@ -50,6 +50,7 @@ en:
       new:
         accept_terms_text: I accept %{terms_url} of the Census
         accept_terms_text_title: I accept the terms and conditions of access of the Census
+        address: "Address"
         date_of_birth: Date of birth
         document_number: Document number
         document_number_help_title: Help
@@ -58,6 +59,7 @@ en:
           passport: Passport
           residence_card: Residence card
           spanish_id: DNI
+          chilean_id: RUT
         document_type_label: Document type
         error_not_allowed_age: You don't have the required age to participate
         error_not_allowed_postal_code: In order to be verified, you must be registered.

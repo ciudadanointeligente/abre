@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
 
     def after_sign_in_path_for(resource)
       if !verifying_via_email? && resource.show_welcome_screen?
-        welcome_path
+        proposals_path
       else
         super
       end

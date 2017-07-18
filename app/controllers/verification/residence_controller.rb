@@ -13,9 +13,10 @@ class Verification::ResidenceController < ApplicationController
     abre_log
     @residence = Verification::Residence.new(residence_params.merge(user: current_user))
     if @residence.save
-      redirect_to verified_user_path, notice: t('verification.residence.create.flash.success')
+      redirect_to proposals_path, notice: t('verification.residence.create.flash.success')
     else
-      @residence.errors.add(:document_number, 'rut sin verificar')
+      # @residence.errors.add(:document_number, 'rut sin verificar')
+      abre_log p @residence.errors.messages
       render :new
       # redirect_to new_residence_path, notice: 'rut not valid'
     end
@@ -24,6 +25,6 @@ class Verification::ResidenceController < ApplicationController
   private
 
     def residence_params
-      params.require(:residence).permit(:document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service)
+      params.require(:residence).permit(:document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :address)
     end
 end

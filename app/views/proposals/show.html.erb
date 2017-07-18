@@ -58,7 +58,13 @@
         <% if @proposal.cached_votes_up.present? %>
           <div class="bg-blue white padding text-center">
             <div class="counter">
-              <%= @proposal.cached_votes_up %> vecinos apoyan esta propuesta
+              <div class="row">
+                <span class="total-votes-text">
+                  <span class="total-votes-count"> <%= @proposal.cached_votes_up %> </span>
+                  vecinos apoyan esta propuesta
+                </span>
+              </div>
+              <!-- La propuesta no responde a un desafío y ha alcanzado los apoyos necesarios para pasar a la fase de votación  -->
               <% if @proposal.successful? && !@proposal.for_challenge %>
                 <p>
                   <%= t("proposals.proposal.successful",
@@ -71,6 +77,7 @@
                                 class: "button hollow primary" %>
                   </p>
                 <% end %>
+              <!-- La propuesta ya estuvo más del tiempo permitido para alcanzar los apoyos (12 meses) -->
               <% elsif @proposal.archived? %>
                 <div class="padding text-center">
                   <p>
@@ -79,9 +86,12 @@
                   <p><%= t("proposals.proposal.archived") %></p>
                 </div>
               <% elsif @proposal.successful? && @proposal.for_challenge && @proposal.problem.ends_at < Date.today %>
+              <!--  -->
               <% else %>
-                <%= render 'votes',
-                          { proposal: @proposal, vote_url: vote_proposal_path(@proposal, value: 'yes') } %>
+                <div class="row">
+                  <%= render 'votes',
+                          { proposal: @proposal, vote_url: vote_proposal_path(@proposal, value: 'yes'), button_support_class: 'hollow' } %>
+                </div>
               <% end %>
             </div>
           </div>

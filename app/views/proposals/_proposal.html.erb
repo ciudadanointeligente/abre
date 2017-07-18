@@ -8,7 +8,7 @@
         <div class="proposal-content">
           <% cache [locale_and_user_status(proposal), 'index', proposal, proposal.author] do %>
           <h4 class="small blue total-votes-text">
-            <span class="total-votes-count" style="font-size:1.1rem;"><%= proposal.total_votes %> </span> vecinos apoyan esta propuesta
+            <span class="total-votes-count"><%= proposal.total_votes %> </span> vecinos apoyan esta propuesta
             <% if proposal.for_challenge && proposal.successful? %>
               <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse" style="font-size:1rem;"> </i></span>
             <% end %>
@@ -82,7 +82,7 @@
           <% else %>
             <div class="small-12 medium-12 column ">
               <%= render 'votes',
-                      { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes') } %>
+                      { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: '' } %>
             </div>
           <% end %>
         </div>

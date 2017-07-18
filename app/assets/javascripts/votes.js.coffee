@@ -15,9 +15,7 @@ App.Votes =
       $(this).hide()
       element = $(this).closest(".row").siblings().children(".total-votes-text").children(".total-votes-count")
       count = (parseInt(element.text()) + 1)
-      console.log(element)
-      console.log(count)
-      element.replaceWith('<span class="total-votes-count" style="font-size:1.1rem;">' + count + "</span>")
+      element.replaceWith('<span class="total-votes-count">' + count + "</span>")
       $(this).remove()
       return
 
