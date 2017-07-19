@@ -15,9 +15,8 @@
   <%= render "pages/more_info/menu" %>
 </div>
 
-<div id="more-info" class="more-info-content">
+<div id="more-info" class="more-info-content text-width">
   <div class="row">
-    <div class="small-12 medium-7 large-8 column">
       <% if feature?(:debates) %>
         <%= render "pages/more_info/debates" %>
       <% end %>
@@ -35,17 +34,12 @@
       <% end %>
 
       <%= render "pages/more_info/design_phase" %>
-
-    </div>
-    <div class="small-12 medium-4 large-3 column more-info-sidebar">
-      <%= render "pages/more_info/sidebar" %>
-    </div>
   </div>
 
-  <div class="row">
+  <!-- <div class="row">
     <hr>
     <div class="small-12 column">
       <%= render "pages/more_info/other" %>
     </div>
-  </div>
+  </div> -->
 </div>

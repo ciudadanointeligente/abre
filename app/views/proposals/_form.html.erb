@@ -65,8 +65,6 @@
         </div>
   </div>
 
-
-
     <!-- TODO: Por ahora las gezones serán las mismas que del desafío por defceto  -->
     <% challenge.geozones.map(&:id).each do |id| %>
       <%= hidden_field_tag "proposal[geozone_ids][]", id %>
@@ -92,12 +90,6 @@
           <p class="note"><%= t("proposals.form.proposal_description_note") %></p>
           <%= f.text_area :description, rows: 5, label: false %>
         </li>
-      <!--
-      <div class="small-12 column column-with-margin">
-        <%= f.label :what, t("proposals.form.proposal_what") %>
-        <%= f.text_area :what, rows: 2, label: false,
-                        placeholder: "" %>
-      </div> -->
 
       <li class="small-12 medium-12 large-12 column column-with-margin">
         <%= f.label :why, t("proposals.form.proposal_why") %>
@@ -107,16 +99,6 @@
       </li>
 
         <div id="js-suggest"></div>
-
-        <!-- <div class="small-12 column">
-          <%= f.label :question, t("proposals.form.proposal_question") %>
-          <span class="note-marked">
-            <%= t("proposals.form.proposal_question_example_html") %>
-          </span>
-          <%= f.text_field :question, maxlength: Proposal.question_max_length, placeholder: t("proposals.form.proposal_question"), label: false %>
-        </div> -->
-
-
 
         <li class="small-12 medium-12 large-12 column">
           <%= f.label :video_url, t("proposals.form.proposal_video_url") %>
@@ -129,8 +111,6 @@
           <p class="note"><%= t("proposals.form.proposal_document_note") %></p>
           <%= f.text_field :external_url, placeholder: t("proposals.form.proposal_external_url"), label: false %>
         </li>
-
-
 
         <li class="small-12 medium-12 large-12 column">
           <%= f.label :tag_list, t("proposals.form.tags_label") %>
@@ -148,15 +128,15 @@
                             placeholder: t("proposals.form.tags_placeholder"),
                             class: 'js-tag-list' %>
         </li>
-      </ol>
 
-      <% if current_user.unverified? %>
-        <div class="small-12 column">
-          <%= f.label :responsible_name, t("proposals.form.proposal_responsible_name") %>
-          <p class="note"><%= t("proposals.form.proposal_responsible_name_note") %></p>
-          <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false %>
-        </div>
-      <% end %>
+        <% if current_user.unverified? %>
+          <li class="small-12 medium-12 large-12 column">
+            <%= f.label :responsible_name, t("proposals.form.proposal_responsible_name") %>
+            <p class="note"><%= t("proposals.form.proposal_responsible_name_note") %></p>
+            <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false %>
+          </li>
+        <% end %>
+      </ol>
 
       <div class="small-12 column">
         <% if @proposal.new_record? %>
@@ -169,8 +149,6 @@
           <% end %>
         <% end %>
       </div>
-
-
 
       <div class="actions small-12 column">
         <%= f.submit(class: "button float-center", value: t("proposals.#{action_name}.form.submit_button")) %>
