@@ -1,11 +1,13 @@
-<ul class="no-bullet submenu">
-  <% @valid_orders.each do |order| %>
-    <li class="inline-block">
-      <%= link_to current_path_with_query_params(order: order, page: 1), class: order == @current_order ? 'active' : '' do %>
-        <%= content_tag(order == @current_order ? :p : :span) do %>
-          <%= t("#{i18n_namespace}.orders.#{order}") %>
+<div class="padding">
+  <ul class="no-bullet submenu">
+    <% @valid_orders.each do |order| %>
+      <li class="inline-block">
+        <%= link_to current_path_with_query_params(order: order, page: 1), class: order == @current_order ? 'active' : '' do %>
+          <%= content_tag(order == @current_order ? :span : :span) do %>
+            <%= t("#{i18n_namespace}.orders.#{order}") %>
+          <% end %>
         <% end %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
+</div>

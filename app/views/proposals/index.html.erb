@@ -11,7 +11,7 @@
 <main>
   <h1 class="sr-only"><%= t("shared.outline.proposals") %></h1>
 
-  <div class="row">
+  <div class="row collapse">
     <div id="proposals" class="proposals-list small-12 medium-9 column">
 
       <div class="small-12 search-results">
@@ -32,8 +32,10 @@
         <% end %>
       </div>
 
-      <h1 class="title-page"><%= t("titles.proposals")%> </h1>
-      <p> <%=t("proposals.index.subtitle") %> </p>
+      <div class="padding">
+        <h1 class="title-page"><%= t("titles.proposals")%> </h1>
+        <p> <%=t("proposals.index.subtitle") %> </p>
+      </div>
       <!-- <% if has_banners? %>
         <%= render "shared/banner" %>
       <% end %> -->
@@ -70,7 +72,7 @@
     </div>
 
     <div class="small-12 medium-3 column">
-      <aside class="margin-bottom">
+      <aside class="margin-bottom padding">
         <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button expanded' %>
           <%= yield :header_addon %>
         <% if params[:retired].blank? %>
