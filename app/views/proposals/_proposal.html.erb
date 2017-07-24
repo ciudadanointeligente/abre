@@ -44,17 +44,17 @@
           <%= render "shared/tags", taggable: proposal, limit: 5 %>
         </div>
 
-        <div class="row">
+        <div class="">
           <% if proposal.successful? && !proposal.for_challenge%>
-            <div class="small-9 medium-9 column ">
-              <div class="padding text-left">
-                <p>
+            <div class="">
+              <div class="padding text-center bg-blue">
+                <p class="white">
                   <%= t("proposals.proposal.successful",
-                      voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe %>
+                      voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe %> <i class="fa fa-birthday-cake" aria-hidden="true"></i>
                 </p>
               </div>
             </div>
-            <div class="small-3 medium-3 column ">
+            <div class="">
               <% if can? :create, Poll::Question %>
                 <p class="text-center">
                   <%= link_to t('poll_questions.create_question'),

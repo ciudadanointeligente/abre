@@ -189,6 +189,10 @@ h4.page-title {
   background: $light-blue;
 }
 
+.bg-blue p {
+  margin: 0;
+}
+
 .bg-orange {
   background: $orange;
 }
@@ -648,6 +652,10 @@ ul, ol, dl {
 
 .white{
   color: $white;
+}
+
+.white a {
+  color: lighten( $orange, 25%);
 }
 
 // Vista propuesta
