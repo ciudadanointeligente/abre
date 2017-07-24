@@ -522,9 +522,13 @@ ul, ol, dl {
   color: #ffffff;
   background: #D80017;
   padding: 0.2vw 3vw 2vw;
-  margin-top: -22vw;
+  margin-top: -10vw;
   z-index: 1;
   position: relative;
+}
+
+.hero-quote h2 {
+    font-size: 2.5vw;
 }
 
 .home-img {

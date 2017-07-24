@@ -22,7 +22,7 @@
               <span><%= t("proposals.show.author_deleted") %></span>
             <% else %>
             <span class="line-text">|</span> <i class="fa fa-user-o"> </i>
-              <span class> <%= proposal.author.name %> </span>
+              <span class> <%= proposal.responsible_name %> </span>
             <% end %>
           </p>
            <% if !proposal.for_challenge %>
