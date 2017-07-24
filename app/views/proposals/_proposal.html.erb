@@ -26,7 +26,7 @@
             <% end %>
           </p>
            <% if !proposal.for_challenge %>
-            <div class="supports">
+              <div class="supports">
               <abbr title= "<%= proposal.total_votes %> votos">
                 <div class="progress small-12 round">
                   <span class="meter" style="width: <%= progress_bar_percentage(proposal) %>%;"></span>
@@ -34,7 +34,7 @@
                     <%= supports_percentage(proposal) %>&nbsp;/&nbsp;<%= t("proposals.proposal.total_percent") %>
                   </span>
                 </div>
-            </abbr>
+              </abbr>
             </div>
             <% end %>
             <div class="proposal-description">
@@ -64,7 +64,7 @@
               <% end %>
             </div>
           <% elsif proposal.successful? && proposal.for_challenge && proposal.problem.ends_at < Date.today %>
-          <div class="small-9 medium-9 column ">
+          <div class="small-12 medium-12 column ">
             <div class="padding text-left">
               <p>
                 <%= t("proposals.proposal.successful_for_challenge",
@@ -72,6 +72,15 @@
               </p>
             </div>
           </div>
+          <% elsif proposal.for_challenge && proposal.problem.ends_at < Date.today %>
+            <div class="small-12 medium-12 column ">
+              <div class="padding text-left">
+                <p>
+                  <%= t("proposals.proposal.unsuccesful_for_challenge",
+                      voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe  %>
+                </p>
+              </div>
+            </div>
           <% elsif proposal.archived? %>
             <div class="small-3 medium-3 column ">
               <div class="padding text-center">
