@@ -72,7 +72,7 @@ class Admin::Poll::PollsController < Admin::BaseController
     end
 
     def poll_params
-      params.require(:poll).permit(:name, :starts_at, :ends_at, :geozone_restricted, geozone_ids: [])
+      params.require(:poll).permit(:name, :starts_at, :ends_at, :geozone_restricted, :for_challenge, geozone_ids: [])
     end
 
     def search_params

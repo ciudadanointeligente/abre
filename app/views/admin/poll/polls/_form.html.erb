@@ -21,6 +21,12 @@
 
   <div class="row">
     <div class="small-6 medium-6 column">
+      <%= f.check_box :for_challenge, data: { checkbox_toggle: "#for_challenge" } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-6 medium-6 column">
       <%= f.check_box :geozone_restricted, data: { checkbox_toggle: "#geozones" } %>
     </div>
   </div>
