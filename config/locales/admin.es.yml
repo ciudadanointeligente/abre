@@ -202,6 +202,7 @@ es:
         tip_restrictions: ""
         tip_budget: ""
         tip_summary: ""
+        title: "Editar desafío"
       index:
         no_problems: "No hay desafíos agregados"
         create: "Crear desafío"
@@ -210,7 +211,7 @@ es:
         name: "Título"
       new:
         submit_button: "Crear desafío"
-        title: "Desafíos"
+        title: "Crear desafío"
         tip_description: ""
       edit:
         submit_button: "Editar desafío"

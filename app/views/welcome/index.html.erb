@@ -104,10 +104,10 @@
           <%= render "proposal", proposal: most_voted_proposals.first, proposal_type: "Más apoyadas", proposal_class: "proposal-type most-voted" %>
         </div>
         <div class="small-12 medium-4 column home-proposal">
-          <%= render "proposal", proposal: Proposal.sort_by_created_at.first, proposal_type: "Más activas", proposal_class: "proposal-type most-activated" %>
+          <%= render "proposal", proposal: Proposal.sort_by_created_at.first, proposal_type: "Más nuevas", proposal_class: "proposal-type most-activated" %>
         </div>
         <div class="small-12 medium-4 column home-proposal">
-          <%= render "proposal", proposal: Proposal.sort_by_most_commented.first, proposal_type: "Más nuevas", proposal_class: "proposal-type newest" %>
+          <%= render "proposal", proposal: Proposal.sort_by_most_commented.first, proposal_type: "Más activas", proposal_class: "proposal-type newest" %>
         </div>
       </div>
       <% end %>
