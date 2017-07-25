@@ -535,8 +535,10 @@ ul, ol, dl {
 
 .home-img {
     background-image: asset-url("foto1.jpg");
-    height: 42vw;
+    min-height: 30vw;
     background-size: cover;
+    margin-right: 3vw;
+    margin-top: 3vw;
 }
 
 .how-it-works {
@@ -669,8 +671,7 @@ ul, ol, dl {
 // Footer
 
 .footer {
-    background: white;
-    border-top: 1px solid $gray-four;
+    background: $gray-four;
     margin-top: 3rem;
     padding-top: 5vw;
 }
