@@ -1,0 +1,7 @@
+<div class="question-nested">
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :proposal_id, collection: Proposal.all %>
+  <%= f.input_field :author, value: current_user, as: :hidden %>
+  <%= link_to_remove_association "Eliminar propuesta de votación", f, {wrapper_class: 'question-nested'} %>
+</div>

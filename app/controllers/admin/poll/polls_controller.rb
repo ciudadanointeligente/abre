@@ -14,6 +14,8 @@ class Admin::Poll::PollsController < Admin::BaseController
   end
 
   def new
+    @poll = Poll.new
+    @poll.questions.build
   end
 
   def create
@@ -72,7 +74,7 @@ class Admin::Poll::PollsController < Admin::BaseController
     end
 
     def poll_params
-      params.require(:poll).permit(:name, :starts_at, :ends_at, :geozone_restricted, :for_challenge, geozone_ids: [])
+      params.require(:poll).permit(:name, :starts_at, :ends_at, :geozone_restricted, :for_challenge, geozone_ids: [], questions_attributes: [:title, :proposal_id, :description, :_destroy, :author_id])
     end
 
     def search_params

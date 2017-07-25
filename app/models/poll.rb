@@ -14,6 +14,7 @@ class Poll < ActiveRecord::Base
   validates :name, presence: true
 
   validate :date_range
+  accepts_nested_attributes_for :questions
 
   scope :current,  -> { where('starts_at <= ? and ? <= ends_at', Time.current, Time.current) }
   scope :incoming, -> { where('? < starts_at', Time.current) }
