@@ -14,7 +14,7 @@ class Poll::Question < ActiveRecord::Base
   belongs_to :proposal
 
   validates :title, presence: true
-  validates :author, presence: true
+  # validates :author, presence: true
 
   validates :title, length: { minimum: 4 }
   validates :description, length: { maximum: Poll::Question.description_max_length }
@@ -42,10 +42,10 @@ class Poll::Question < ActiveRecord::Base
   def description
     super.try :html_safe
   end
-
-  def valid_answers
-    (super.try(:split, ',').compact || []).map(&:strip)
-  end
+  #
+  # def valid_answers
+  #   (super.try(:split, ',').compact || []).map(&:strip)
+  # end
 
   def copy_attributes_from_proposal(proposal)
     if proposal.present?
