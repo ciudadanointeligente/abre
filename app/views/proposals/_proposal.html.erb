@@ -10,7 +10,7 @@
           <h4 class="small blue total-votes-text">
             <span class="total-votes-count"><%= proposal.total_votes %> </span> vecinos apoyan esta propuesta
             <% if proposal.for_challenge && proposal.successful? %>
-              <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse" style="font-size:1rem;"> </i></span>
+              <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse2" style="font-size:1rem;"> </i></span>
             <% end %>
           </h4>
           <h4><%= link_to proposal.title, namespaced_proposal_path(proposal) %></h3>

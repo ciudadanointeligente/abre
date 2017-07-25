@@ -16,7 +16,7 @@
             <% end %>
           </p>
         <div class="pull-right">
-          <p class="white"> <span>Quedan <span class="counter-bg"><%= t("proposals.index.remaining_time", days: distance_of_time_in_days(Problem.last.ends_at, Date.today)) %></span> días para crear propuestas <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button hollow primary' %> </p>
+          <p class="white"> <span>Quedan <span class="counter-bg"><%= t("proposals.index.remaining_time", days: distance_of_time_in_days(Problem.last.ends_at, Date.today)) %></span> días para crear y apoyar propuestas <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button hollow primary' %> </p>
         </div>
     </div>
 </div>
