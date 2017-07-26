@@ -197,6 +197,13 @@ h4.page-title {
   background: $orange;
 }
 
+.overlap {
+    margin-top: -4vw;
+    margin-bottom: 2vw;
+    z-index: 1;
+    position: relative;
+}
+
 // Form
 
 form label {
@@ -377,6 +384,7 @@ form li {
 
 .proposal {
     border-bottom: 1px solid $gray-four;
+    padding: 3vw 0;
 }
 
 .proposal .tags {
@@ -386,6 +394,14 @@ form li {
 #proposals .bg-orange .button {
     margin-bottom: 1px;
     margin-left: 10px;
+}
+
+.proposal .supports {
+    padding: 1vw 0 0;
+}
+
+.participation-not-allowed {
+    height: initial;
 }
 
 .advanced-search {

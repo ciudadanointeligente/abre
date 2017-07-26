@@ -11,8 +11,8 @@
 <main>
   <h1 class="sr-only"><%= t("shared.outline.proposals") %></h1>
 
-  <div class="row collapse">
-    <div id="proposals" class="proposals-list small-12 medium-9 column">
+  <div class="text-width">
+    <div id="proposals" class="proposals-list">
 
       <div class="small-12 search-results">
         <% if @search_terms || @advanced_search_terms %>
@@ -35,13 +35,17 @@
       <div class="padding">
         <h1 class="title-page"><%= t("titles.proposals")%> </h1>
         <p> <%=t("proposals.index.subtitle") %> </p>
+        <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button' %>
       </div>
+    </div>
+</div>
       <!-- <% if has_banners? %>
         <%= render "shared/banner" %>
       <% end %> -->
-      <% if has_active_problem? %>
-        <%= render "problem", problem: active_problem %>
-      <% end %>
+  <% if has_active_problem? %>
+    <%= render "problem", problem: active_problem %>
+  <% end %>
+  <div class="text-width">
       <% if @proposal_successful_exists %>
         <!-- <%= render "successful_banner" %> -->
       <% elsif @featured_proposals.present? %>
@@ -56,13 +60,13 @@
           <% end %>
         </div>
       <% end %>
-
+      <%= yield :header_addon %>
       <%= render("shared/advanced_search", search_path: proposals_path(page: 1)) unless params[:retired].present? %>
 
       <%= render 'shared/order_links', i18n_namespace: "proposals.index" %>
 
       <div class="show-for-small-only">
-        <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button expanded' %>
+        <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button' %>
       </div>
 
       <div id="proposals-list">
@@ -70,20 +74,4 @@
         <%= paginate @proposals %>
       </div>
     </div>
-
-    <div class="small-12 medium-3 column">
-      <aside class="margin-bottom padding">
-        <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button expanded' %>
-          <%= yield :header_addon %>
-        <% if params[:retired].blank? %>
-            <%= render "shared/tag_cloud", taggable: 'proposal' %>
-            <%= render 'categories' %>
-            <%= render 'geozones' %>
-            <!-- <%= render 'popular' %> -->
-          <% end %>
-          <!-- <%= render 'retired' %> -->
-      </aside>
-    </div>
-
-  </div>
 </main>

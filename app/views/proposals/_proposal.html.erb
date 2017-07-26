@@ -1,10 +1,10 @@
 <div id="<%= dom_id(proposal) %>"
-     class="proposal padding clear <%= ("successful" if proposal.total_votes > Proposal.votes_needed_for_success) %>"
+     class="proposal clear <%= ("successful" if proposal.total_votes > Proposal.votes_needed_for_success) %>"
      data-type="proposal">
     <div class="icon-successful"></div>
-    <div class="row">
+    <div class="">
 
-      <div class="small-12 medium-12 column">
+      <div class="">
         <div class="proposal-content">
           <% cache [locale_and_user_status(proposal), 'index', proposal, proposal.author] do %>
           <h4 class="small blue total-votes-text">
@@ -64,7 +64,7 @@
               <% end %>
             </div>
           <% elsif proposal.successful? && proposal.for_challenge && proposal.problem.ends_at < Date.today %>
-          <div class="small-12 medium-12 column ">
+          <div class="">
             <div class="padding text-left">
               <p>
                 <%= t("proposals.proposal.successful_for_challenge",
@@ -73,7 +73,7 @@
             </div>
           </div>
           <% elsif proposal.for_challenge && proposal.problem.ends_at < Date.today %>
-            <div class="small-12 medium-12 column ">
+            <div class="">
               <div class="padding text-left">
                 <p>
                   <%= t("proposals.proposal.unsuccesful_for_challenge",
@@ -82,14 +82,14 @@
               </div>
             </div>
           <% elsif proposal.archived? %>
-            <div class="small-3 medium-3 column ">
+            <div class="">
               <div class="padding text-center">
                 <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
                 <p><%= t("proposals.proposal.archived") %></p>
               </div>
             </div>
           <% else %>
-            <div class="small-12 medium-12 column ">
+            <div class="">
               <%= render 'votes',
                       { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: '' } %>
             </div>
