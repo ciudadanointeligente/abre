@@ -60,8 +60,14 @@
           <% end %>
         </div>
       <% end %>
-      <%= yield :header_addon %>
-      <%= render("shared/advanced_search", search_path: proposals_path(page: 1)) unless params[:retired].present? %>
+      <div class="row collapse">
+        <div class="small-12 medium-5 large-5 columns">
+          <%= yield :header_addon %>
+        </div>
+        <div class="small-12 medium-5 large-5 columns">
+          <%= render("shared/advanced_search", search_path: proposals_path(page: 1)) unless params[:retired].present? %>
+        </div>
+      </div>
 
       <%= render 'shared/order_links', i18n_namespace: "proposals.index" %>
 
