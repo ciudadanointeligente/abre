@@ -42,10 +42,10 @@ class Poll::Question < ActiveRecord::Base
   def description
     super.try :html_safe
   end
-  #
-  # def valid_answers
-  #   (super.try(:split, ',').compact || []).map(&:strip)
-  # end
+
+  def valid_answers
+    (super.try(:split, ',').compact || []).map(&:strip)
+  end
 
   def copy_attributes_from_proposal(proposal)
     if proposal.present?

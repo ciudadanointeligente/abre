@@ -2,7 +2,7 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :proposal_id, collection: Proposal.all %>
-  <%= f.input :valid_answers, as: :hidden, value: ["Si", "No"], multiple: true %>
+  <%= f.input_field :valid_answers, as: :hidden, value: "Si, No"%>
   <%= f.input_field :author_id, value: current_user.id, as: :hidden %>
   <%= link_to_remove_association "Eliminar propuesta de votación", f, {wrapper_class: 'question-nested'} %>
 </div>
