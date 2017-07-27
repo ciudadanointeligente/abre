@@ -129,9 +129,9 @@
         <strong><%= t("admin.menu.title_profiles") %></strong>
       </a>
       <ul <%= "class=is-active" if menu_profiles? %>>
-        <!-- <li <%= "class=active" if controller_name == "organizations" %>>
-          <%= link_to t("admin.menu.organizations"), admin_organizations_path %>
-        </li> -->
+        <li <%= "class=active" if controller_name == "organizations" %>>
+          <%= link_to "Usuarios", admin_users_path %>
+        </li>
 
         <li <%= "class=active" if controller_name == "officials" %>>
           <%= link_to t("admin.menu.officials"), admin_officials_path %>
