@@ -291,33 +291,7 @@ proposal4 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             for_challenge: true,
                             cached_votes_up: 74)
 
-proposal5 = Proposal.create!(author: User.reorder("RANDOM()").first,
-                            title: "Crear una zona de juegos para perros",
-                            summary: "Crear un espacio donde uno pueda ir con su perro y practicar con él. Esto crea un espacio donde muchos pueden compartir un gusto en común.",
-                            responsible_name: Faker::Name.name,
-                            external_url: Faker::Internet.url,
-                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-                            created_at: rand((Time.current - 1.week) .. Time.current),
-                            tag_list: tags.sample(3).join(','),
-                            terms_of_service: "1",
-                            problem: problem,
-                            geozones: problem.geozones,
-                            for_challenge: true,
-                            cached_votes_up: 89)
 
-proposal6 = Proposal.create!(author: User.reorder("RANDOM()").first,
-                            title: "PASADA - Crear una zona de juegos para perros",
-                            summary: "Crear un espacio donde uno pueda ir con su perro y practicar con él. Esto crea un espacio donde muchos pueden compartir un gusto en común.",
-                            responsible_name: Faker::Name.name,
-                            external_url: Faker::Internet.url,
-                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-                            tag_list: tags.sample(3).join(','),
-                            terms_of_service: "1",
-                            problem: problem,
-                            for_challenge: true,
-                            geozones: problem.geozones,
-                            created_at: 8.month.ago,
-                            cached_votes_up: 74)
 
 puts " ✅"
 print "Creando Proyecto"

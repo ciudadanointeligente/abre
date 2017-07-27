@@ -4,6 +4,8 @@ class Admin::Poll::PollsController < Admin::BaseController
   before_action :load_search, only: [:search_booths, :search_questions, :search_officers]
   before_action :load_geozones, only: [:new, :create, :edit, :update]
 
+  include ProposalsHelper
+
   def index
   end
 

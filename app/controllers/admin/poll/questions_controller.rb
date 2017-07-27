@@ -10,7 +10,7 @@ class Admin::Poll::QuestionsController < Admin::BaseController
 
     @questions = @questions.search(search_params).page(params[:page]).order("created_at DESC")
 
-    @proposals = most_voted_challenge_proposals + Proposal.successful
+    @proposals = most_voted_challenge_proposals
   end
 
   def new
