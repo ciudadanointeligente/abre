@@ -12,6 +12,8 @@ class Verification::ResidenceController < ApplicationController
   def create
     abre_log
     @residence = Verification::Residence.new(residence_params.merge(user: current_user))
+    p residence_params
+    p current_user.address
     if @residence.save
       redirect_to proposals_path, notice: t('verification.residence.create.flash.success')
     else

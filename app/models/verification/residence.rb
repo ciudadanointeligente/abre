@@ -43,6 +43,7 @@ class Verification::Residence
                   geozone:               Geozone.first,
                   date_of_birth:         date_of_birth.to_datetime,
                   gender:                1,
+                  address: address,
                   residence_verified_at: Time.current,
                   rut_verified:          true)
     else
@@ -52,6 +53,7 @@ class Verification::Residence
                   date_of_birth:         date_of_birth.to_datetime,
                   gender:                1,
                   residence_verified_at: Time.current,
+                  address: address,
                   rut_verified:          false)
 
 
