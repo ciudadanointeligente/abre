@@ -55,8 +55,6 @@ class Verification::Residence
                   residence_verified_at: Time.current,
                   address: address,
                   rut_verified:          false)
-
-
     end
     #
     # user.update(document_number:       document_number,
