@@ -38,13 +38,13 @@
       </ul>
     </div>
 
-    <%= form_for @residence, as: "residence", url: residence_path do |f| %>
+    <%= simple_form_for @residence, as: "residence", url: residence_path do |f| %>
       <%= render "errors" %>
 
       <div class="row">
         <div class="small-12 medium-4 column">
-        <%= f.label t("verification.residence.new.document_type_label") %>
-        <%= f.select :document_type, document_types, prompt: "", selected: 1, label: false %>
+          <%= f.label t("verification.residence.new.document_type_label") %>
+          <%= f.select :document_type, document_types, prompt: "", selected: 1, label: false %>
         </div>
 
         <div class="small-12 medium-8 column end">
@@ -52,20 +52,29 @@
           <%= f.text_field :document_number, label: false %>
         </div>
 
-        <div class="small-12 medium-12 column end">
+        <div class="small-12 medium-12 column">
+          <p class="note-marked"> Solamente serán validos los votos que correspondan a direcciones que son parte de la Unidad Vecinal 23 de Peñalolen. Puedes revisar qué Unidad Vecinal te corresponde <a href="http://observatorio.penalolen.cl/unidades" target="_blank">aquí</a></p>
+        </div>
+
+        <div class="small-12 medium-4 column">
+          <%= f.label "Unidad Vecinal" %>
+          <%= f.input :geozone, collection: Geozone.all, label: false %>
+        </div>
+
+        <div class="small-12 medium-8 column end">
           <%= f.label t("verification.residence.new.address") %>
           <%= f.text_field :address, label: false %>
         </div>
 
-          <!-- <div class="inline-block" data-toggle="info-document-number">
-            <span class="icon-help"></span>
-            <span class="sr-only"><%= t("verification.residence.new.document_number_help_title") %></span>
-          </div>
+        <!-- <div class="inline-block" data-toggle="info-document-number">
+          <span class="icon-help"></span>
+          <span class="sr-only"><%= t("verification.residence.new.document_number_help_title") %></span>
+        </div>
 
-          <div class="dropdown-pane" id="info-document-number" data-dropdown
-               data-hover="true" data-hover-pane="true">
-            <%= t("verification.residence.new.document_number_help_text_html") %>
-          </div> -->
+        <div class="dropdown-pane" id="info-document-number" data-dropdown
+             data-hover="true" data-hover-pane="true">
+          <%= t("verification.residence.new.document_number_help_text_html") %>
+        </div> -->
 
       </div>
 

@@ -14,7 +14,10 @@
       <p>Propuestas</p>
     </td>
     <td>
-      <p>Verificados</p>
+      <p>Verificado por rut</p>
+    </td>
+    <td>
+      <p>Dirección</p>
     </td>
   </tr>
   <% @users_all.all.each do |user| %>
@@ -34,7 +37,11 @@
         <p> <%= user.proposals.count %> </p>
       </td>
       <td>
-        <%= user.verified_at %>
+        <% if user.rut_verified.nil? || !user.rut_verified %>
+        <p> No </p> <% else %> <p> Si </p> <%end%>
+      </td>
+      <td>
+        <p> <%= user.address %> </p>
       </td>
     </tr>
   <% end %>
