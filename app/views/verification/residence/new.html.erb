@@ -23,6 +23,8 @@
       <%= t("verification.back") %>
     <% end %>
 
+    <div class="text-width">
+
     <h1><%= t("verification.residence.new.title") %></h1>
 
     <div class="user-permissions small-12">
@@ -39,17 +41,20 @@
       <%= render "errors" %>
 
       <div class="row">
-        <div class="small-12 medium-8">
-          <div class="small-12 medium-3 column">
-          <%= f.label t("verification.residence.new.document_type_label") %>
-          <%= f.select :document_type, document_types, prompt: "", selected: 1, label: false %>
-          </div>
-          <div class="small-12 medium-5 column end">
+        <div class="small-12 medium-4 column">
+        <%= f.label t("verification.residence.new.document_type_label") %>
+        <%= f.select :document_type, document_types, prompt: "", selected: 1, label: false %>
+        </div>
 
-          <div class="inline-block">
-            <%= f.label t("verification.residence.new.document_number") %>
-            <%= f.text_field :document_number, label: false %>
-          </div>
+        <div class="small-12 medium-8 column end">
+          <%= f.label t("verification.residence.new.document_number") %>
+          <%= f.text_field :document_number, label: false %>
+        </div>
+
+        <div class="small-12 medium-12 column end">
+          <%= f.label t("verification.residence.new.address") %>
+          <%= f.text_field :address, label: false %>
+        </div>
 
           <!-- <div class="inline-block" data-toggle="info-document-number">
             <span class="icon-help"></span>
@@ -60,12 +65,7 @@
                data-hover="true" data-hover-pane="true">
             <%= t("verification.residence.new.document_number_help_text_html") %>
           </div> -->
-          <div class="inline-block">
-            <%= f.label t("verification.residence.new.address") %>
-            <%= f.text_field :address, label: false %>
-          </div>
-          </div>
-        </div>
+
       </div>
 
       <div class="date-of-birth small-12 medium-6 clear">
@@ -103,5 +103,6 @@
       </div>
 
     <% end %>
+  </div>
   </div>
 </div>
