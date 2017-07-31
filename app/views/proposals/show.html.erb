@@ -22,7 +22,14 @@
           <% end %>
         <% end %>
 
-        <div class="small gray page-title">propuesta</div>
+        <div class="row">
+          <div class="small small-6 columns gray page-title">propuesta</div>
+          <div class="small-6 columns text-right">
+            <% if @proposal.for_challenge && @proposal.successful? %>
+              <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse" style="font-size:1rem;"> </i></span>
+            <% end %>
+          </div>
+        </div>
         <h2 class="page-title"><%= @proposal.title %></h2>
         <p>
           <i class="fa fa-map-marker"></i> <%= @proposal.geozones_name %> <span class="line-text">|</span>

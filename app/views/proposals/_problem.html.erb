@@ -1,22 +1,14 @@
-<div id="next-voting" class="row bg-orange padding collapse">
-    <div class="small-12 column">
-      <div class="small white">DESAFÍO</div>
-      <%= link_to problem_path(problem) do %>
-        <h4 class="white"><%= problem.title %></h4>
-      <% end %>
-      <p class="white"><%= problem.summary %></p>
-      <p class="white"><%= problem.call_to_action %></p>
-          <p class='p-small white'>
-            <% if problem.budget? %>
-              <i class="fa fa-usd" aria-hidden="true"></i> <%= t("proposals.form.problem.budget") %> <%= problem.budget%> </br>
-            <% end %>
-            <i class="fa fa-map-marker" aria-hidden="true"></i> <%= t("proposals.form.problem.community") %> <%= problem.geozones_name %> </br>
-            <% if problem.restriction_summary? %>
-              <i class="fa fa-list" aria-hidden="true"></i> <span class="white"><%= t("proposals.form.problem.restriction_summary") %> <%= problem.restriction_summary%> </span></br>
-            <% end %>
-          </p>
-        <div class="pull-right">
-          <p class="white"> <span>Quedan <span class="counter-bg"><%= t("proposals.index.remaining_time", days: distance_of_time_in_days(Problem.last.ends_at, Date.today)) %></span> días para crear propuestas <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button hollow primary' %> </p>
-        </div>
-    </div>
+<div class="row">
+  <div id="next-voting" class="bg-orange padding collapse small-12 medium-10 large-9 columns">
+        <div class="small white">DESAFÍO</div>
+        <%= link_to problem_path(problem) do %>
+          <h4 class="white"><%= problem.title %></h4>
+        <% end %>
+        <p class="white"><%= problem.summary %> <%= problem.call_to_action %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 medium-offset-7 medium-5 large-offset-7 large-5 columns bg-gray padding overlap white">
+    <span>Quedan <span class="counter-bg"><%= t("proposals.index.remaining_time", days: distance_of_time_in_days(Problem.last.ends_at, Date.today)) %></span> días para crear y apoyar propuestas <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button hollow primary' %>
+  </div>
 </div>

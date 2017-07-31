@@ -5,6 +5,7 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     @users = User.only_hidden.send(@current_filter).page(params[:page])
+    @users_all = User.all.page(params[:page])
   end
 
   def show
