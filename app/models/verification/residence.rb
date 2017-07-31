@@ -4,7 +4,7 @@ class Verification::Residence
   include ActiveModel::Validations::Callbacks
   include ApplicationHelper
 
-  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :address
+  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :address, :geozone
 
   # before_validation :call_rut_api
   # before_validation :call_census_api
@@ -40,21 +40,21 @@ class Verification::Residence
       abre_log 'rut_api_response is trueeeeeeeeeeeeeeeeeeeeeeeee'
       user.update(document_number:       document_number,
                   document_type:         document_type,
-                  geozone:               Geozone.first,
+                  geozone:               Geozone.find(geozone),
                   date_of_birth:         date_of_birth.to_datetime,
                   gender:                1,
+                  address: address,
                   residence_verified_at: Time.current,
                   rut_verified:          true)
     else
       user.update(document_number:       document_number,
                   document_type:         document_type,
-                  geozone:               Geozone.first,
+                  geozone:               Geozone.find(geozone),
                   date_of_birth:         date_of_birth.to_datetime,
                   gender:                1,
                   residence_verified_at: Time.current,
+                  address: address,
                   rut_verified:          false)
-
-
     end
     #
     # user.update(document_number:       document_number,
@@ -87,10 +87,10 @@ class Verification::Residence
     })
   end
 
-  def geozone
-    abre_log
-    Geozone.where(census_code: district_code).first
-  end
+  # def geozone
+  #   abre_log geozone
+  #   # Geozone.where(census_code: district_code).first
+  # end
 
   def district_code
     abre_log

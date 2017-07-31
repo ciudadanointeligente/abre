@@ -1,0 +1,8 @@
+<div class="question-nested">
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :proposal_id, collection: helper.most_voted_challenge_proposals %>
+  <%= f.input_field :valid_answers, as: :hidden, value: "Si, No"%>
+  <%= f.input_field :author_id, value: current_user.id, as: :hidden %>
+  <%= link_to_remove_association "Eliminar propuesta de votación", f, {wrapper_class: 'question-nested'} %>
+</div>
