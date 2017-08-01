@@ -6,37 +6,70 @@
     </div>
   </div> -->
 
-  <div class="expanded row">
+  <div class="row all-screen column">
     <div class="top-bar">
 
-      <%= link_to setting['org_name'], namespaced_root_path, class: "logo show-for-small-only" %>
+
+      <%= link_to root_path, class: "show-for-small-only", accesskey: "0" do %>
+        <%= image_tag(image_path_for('logo-header.svg'), class: 'movil-logo', alt: t("layouts.header.logo")) %>
+        <!-- <span class="header-title"> Peñalolen </span> -->
+      <% end %>
 
       <span data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right">
         <span class="menu-icon dark" data-toggle></span>
-        <%= t("application.menu")%>
+        <span class="menu-text gray"> <%= t("application.menu")%> </span>
       </span>
 
       <div id="responsive-menu">
         <div class="top-bar-title">
-          <h1>
-            <%= link_to namespaced_root_path, class: "hide-for-small-only" do %>
-              <%= image_tag(image_path_for('logo_header.png'), class: 'hide-for-small-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
-              <!-- <%= setting['org_name'] %>
-              &nbsp;|&nbsp;<%= namespaced_header_title %> -->
-            <% end %>
-          </h1>
+          <%= link_to root_path, class: "hide-for-small-only", accesskey: "0" do %>
+            <%= image_tag(image_path_for('logo-header.svg'), class: 'hide-for-small-only float-left', alt: t("layouts.header.logo")) %>
+          <% end %>
+          <span class="header-title hide-for-small-only"> Peñalolen </span>
         </div>
 
         <div class="top-bar-right">
-          <ul class="menu">
+          <div class="top-bar-title">
+            <%= link_to root_path, class: "hide-for-small-only", accesskey: "0" do %>
+              <%= image_tag(image_path_for('logo_pena.svg'), class: 'hide-for-small-only') %>
+              <!-- <%= setting['org_name'] %> -->
+            <% end %>
+          </div>
+        </div>
+
+        <div class="top-bar-right">
+          <div class="show-for-small-only">
+            <div class="subnavigation row">
+              <div class="small-12 column">
+                <%= render "shared/admin_login_items" %>
+                <%= render "devise/menu/login_items" %>
+                <%= link_to t("admin.dashboard.index.back") + " " + setting['org_name'],
+                            root_path, class: "float-right back-web" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="subnavigation expanded">
+    <div class="row large-12 medium-12 small-12 columns">
+      <div class="hide-for-small-only">
+        <div class="small-12 medium-12">
+          <ul>
             <%= render "shared/admin_login_items" %>
             <%= render "devise/menu/login_items" %>
             <%= link_to t("admin.dashboard.index.back") + " " + setting['org_name'],
                         root_path, class: "float-right back-web" %>
           </ul>
         </div>
-
       </div>
+
+
+
     </div>
   </div>
 </header>
