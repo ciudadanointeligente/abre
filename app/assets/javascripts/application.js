@@ -36,6 +36,7 @@
 //= require tags
 //= require users
 //= require votes
+//= require polls
 //= require allow_participation
 //= require annotatable
 //= require advanced_search
@@ -58,6 +59,7 @@ var initialize_modules = function() {
   App.Comments.initialize();
   App.Users.initialize();
   App.Votes.initialize();
+  App.Polls.initialize();
   App.AllowParticipation.initialize();
   App.Tags.initialize();
   App.Dropdown.initialize();

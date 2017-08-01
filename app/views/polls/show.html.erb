@@ -30,14 +30,14 @@
     </div>
   </div>
 
-  <div class="row margin-top">
-    <div class="small-12 medium-9 column">
+  <div class="text-width">
+    <div class="small-12 medium-12 column">
       <% @questions.each do |question| %>
         <%= render 'polls/questions/question', question: question %>
       <% end %>
     </div>
 
-    <aside class="small-12 medium-3 column">
+    <!-- <aside class="small-12 medium-3 column">
       <div id="social-share" class="sidebar-divider"></div>
       <h2><%= t("proposals.show.share") %></h2>
       <div class="social-share-full">
@@ -48,6 +48,6 @@
           </a>
         <% end %>
       </div>
-    </aside>
+    </aside> -->
   </div>
 </div>

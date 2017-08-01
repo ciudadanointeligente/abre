@@ -138,7 +138,7 @@ end
   user = create_user("user#{i}@consul.dev")
   level = [1, 2, 3].sample
   if level >= 1
-    user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" )
+    user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" , geozone: Geozone.find(23))
   end
 end
 
@@ -304,6 +304,31 @@ project = Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
   proposal: proposal1)
 
 puts " ✅"
+
+
+print "Crear votación"
+
+poll = Poll.create(name: "Mejoramiento Parque San Luis",
+                     starts_at: 1.month.ago,
+                     ends_at:   1.month.from_now,
+                     description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                     geozone_restricted: true,
+                     geozones: Geozone.where(:name => "Unidad Vecinal 23"))
+
+print "Creating Preguntas de la votación"
+
+(1..3).each do |i|
+  proposal = Proposal.reorder("RANDOM()").first
+  author = User.reorder("RANDOM()").first
+  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+  question = Poll::Question.create!(author: author,
+                                    title: Faker::Lorem.sentence(3).truncate(60),
+                                    description: description,
+                                    valid_answers: "Si",
+                                    poll: poll,
+                                    proposal: proposal)
+end
+
 # print "Creating polls"
 #
 # puts " ✅"
