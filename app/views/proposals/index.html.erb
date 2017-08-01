@@ -35,10 +35,14 @@
       <div class="padding">
         <h1 class="title-page"><%= t("titles.proposals")%> </h1>
         <p> <%=t("proposals.index.subtitle") %> </p>
+        <% if active_problem.ends_at > Date.today%>
         <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button' %>
+        <% else %>
+        <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button disabled' %>
+        <% end %>
       </div>
     </div>
-</div>
+  </div>
       <!-- <% if has_banners? %>
         <%= render "shared/banner" %>
       <% end %> -->
