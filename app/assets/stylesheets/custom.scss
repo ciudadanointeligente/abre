@@ -153,6 +153,11 @@ h4.page-title {
   border-radius: 3px;
 }
 
+h4.counter {
+    letter-spacing: 0;
+    margin-bottom: 0px;
+}
+
 // Text color
 
 .line-text {
@@ -490,23 +495,16 @@ ul, ol, dl {
   color: $white;
 }
 
-.img-poll{
-  clip: rect(0px, 900px, 220px, 0px);
+.img-poll {
+  position: relative;
+  height: 290px;
+}
+
+.img-poll img {
+  clip: rect(0px, 2000px, 420px, 0px);
   position: absolute;
   z-index: -1;
   width: 100%;
-}
-
-.end-poll{
-  border-bottom: 1px solid $gray-three;
-}
-
-.info-poll{
-  max-width: 500px;
-  margin-top: 5rem;
-  padding: 2rem;
-  background-color: $gray-two;
-  color: $white;
 }
 
 .menu-poll{
