@@ -62,6 +62,10 @@ a:hover {
   text-decoration: none;
 }
 
+.button:hover, .button:focus {
+  background: darken($brand, 10%);
+}
+
 p {
   color: $gray-two;
   font-size: 16px;
@@ -313,6 +317,7 @@ form li {
 
 .button{
   border-radius: 2rem;
+  padding: 13px 23px;
 }
 
 .button.secondary {
@@ -361,6 +366,10 @@ form li {
 }
 
 // Menu
+
+.admin-menu{
+  border-bottom: 1px solid $gray-four;
+}
 
 .submenu {
     margin-bottom: 0rem;
@@ -607,7 +616,7 @@ ul, ol, dl {
     padding: 6vw 0;
 }
 
-.home-proposal  {
+.home-proposal {
   padding: 0 3vw;
   &:nth-child(2)  {
     border-left: 1px solid $gray-four;
@@ -615,11 +624,15 @@ ul, ol, dl {
   }
 }
 
-.proposal-type{
+.proposal-type {
   font-family: $body-font-family-title;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.9rem;
+}
+
+.proposals-list {
+  margin-bottom: 0;
 }
 
 .most-voted{
