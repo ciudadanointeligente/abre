@@ -246,6 +246,7 @@ a {
 
 .close-button {
   top: $line-height/2;
+  color: $white;
 }
 
 .back, .icon-angle-left {
@@ -887,9 +888,9 @@ form {
   }
 
   &.success, &.notice {
-    background-color: $success-bg;
-    border-color: $success-border;
-    color: $color-success;
+    background-color: $light-blue;
+    border-color: $light-blue;
+    color: $white;
   }
 
   &.primary {

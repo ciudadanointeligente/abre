@@ -12,7 +12,7 @@ h1 {
 }
 
 h2 {
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   font-size: 3.5vw;
   text-transform: uppercase;
   font-family: $body-font-family-title;
@@ -20,8 +20,10 @@ h2 {
 }
 
 h3 {
-  font-size: 36px;
-  font-weight: 500;
+  font-size: 30px;
+  font-family: $body-font-family-title;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
 h4 {
@@ -58,6 +60,10 @@ h5 {
 
 a:hover {
   text-decoration: none;
+}
+
+.button:hover, .button:focus {
+  background: darken($brand, 10%);
 }
 
 p {
@@ -187,8 +193,19 @@ h4.page-title {
   background: $light-blue;
 }
 
+.bg-blue p {
+  margin: 0;
+}
+
 .bg-orange {
   background: $orange;
+}
+
+.overlap {
+    margin-top: -4vw;
+    margin-bottom: 2vw;
+    z-index: 1;
+    position: relative;
 }
 
 // Form
@@ -300,6 +317,7 @@ form li {
 
 .button{
   border-radius: 2rem;
+  padding: 13px 23px;
 }
 
 .button.secondary {
@@ -363,10 +381,15 @@ form li {
   border-bottom: 4px solid #D80017;
 }
 
+.movil-logo {
+    height: 37px;
+}
+
 // Proposals
 
 .proposal {
     border-bottom: 1px solid $gray-four;
+    padding: 3vw 0;
 }
 
 .proposal .tags {
@@ -376,6 +399,14 @@ form li {
 #proposals .bg-orange .button {
     margin-bottom: 1px;
     margin-left: 10px;
+}
+
+.proposal .supports {
+    padding: 1vw 0 0;
+}
+
+.participation-not-allowed {
+    height: initial;
 }
 
 .advanced-search {
@@ -521,21 +552,21 @@ ul, ol, dl {
 .hero-quote {
   color: #ffffff;
   background: #D80017;
-  padding: 0.2vw 3vw 2vw;
-  margin-top: -22vw;
+  padding: 2vw 2vw 1vw;
+  margin-top: -23vw;
   z-index: 1;
   position: relative;
 }
 
 .home-img {
     background-image: asset-url("foto1.jpg");
-    height: 42vw;
+    min-height: 30vw;
     background-size: cover;
+    margin-top: 3vw;
 }
 
 .how-it-works {
   background: $gray-two;
-  margin-top: -3vw;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -581,7 +612,7 @@ ul, ol, dl {
     padding: 6vw 0;
 }
 
-.home-proposal  {
+.home-proposal {
   padding: 0 3vw;
   &:nth-child(2)  {
     border-left: 1px solid $gray-four;
@@ -589,11 +620,15 @@ ul, ol, dl {
   }
 }
 
-.proposal-type{
+.proposal-type {
   font-family: $body-font-family-title;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.9rem;
+}
+
+.proposals-list {
+  margin-bottom: 0;
 }
 
 .most-voted{
@@ -649,6 +684,10 @@ ul, ol, dl {
   color: $white;
 }
 
+.white a {
+  color: lighten( $orange, 25%);
+}
+
 // Vista propuesta
 
 .back, .icon-angle-left {
@@ -660,7 +699,7 @@ ul, ol, dl {
 // Footer
 
 .footer {
-    background: white;
+    background: $gray-four;
     border-top: 1px solid $gray-four;
     margin-top: 3rem;
     padding-top: 5vw;
@@ -702,4 +741,25 @@ footer a, footer a:active, footer a:focus {
 .has-tip {
     border-bottom: none;
     color: $orange;
+    padding-left: 4px;
+}
+
+// Animation
+
+@keyframes pulse2 {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(2, 2, 2);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse2 {
+  animation-name: pulse2;
 }

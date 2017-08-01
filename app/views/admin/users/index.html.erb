@@ -1,6 +1,59 @@
+<h2>Vecinos</h2>
+
+<table>
+    <td>
+      <p>Nombre</p>
+    </td>
+    <td>
+      <p>Email </p>
+    </td>
+    <td>
+      <p> Unidad vecinal</p>
+    </td>
+    <td>
+      <p>Propuestas</p>
+    </td>
+    <td>
+      <p>Verificado por rut</p>
+    </td>
+    <td>
+      <p>Dirección</p>
+    </td>
+  </tr>
+  <% @users_all.all.each do |user| %>
+    <tr id="<%= dom_id(user) %>">
+      <td>
+        <p><%= link_to user.name, admin_user_path(user) %></p>
+      </td>
+      <td>
+        <p> <%= user.email %> </p>
+      </td>
+      <td>
+        <% if !user.geozone.nil? %>
+        <p> <%= user.geozone.name %> </p>
+        <% end %>
+      </td>
+      <td>
+        <p> <%= user.proposals.count %> </p>
+      </td>
+      <td>
+        <% if user.rut_verified.nil? || !user.rut_verified %>
+        <p> No </p> <% else %> <p> Si </p> <%end%>
+      </td>
+      <td>
+        <p> <%= user.address %> </p>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @users_all %>
+
+
 <h2><%= t("admin.users.index.title") %></h2>
 
 <%= render 'shared/filter_subnav', i18n_namespace: "admin.users.index" %>
+
 
 <h3><%= page_entries_info @users %></h3>
 
@@ -29,5 +82,3 @@
 </table>
 
 <%= paginate @users %>
-
-

@@ -176,7 +176,7 @@ problem = Problem.create(title: "Mejoramiento Parque San Luis",
   budget: "$60.000.000",
   restriction: nil,
   starts_at: 1.day.ago,
-  ends_at: 10.day.from_now,
+  ends_at: 1.day.ago,
   active: true,
   geozones: Geozone.reorder("RANDOM()").limit(3),
   user: admin,
@@ -338,59 +338,59 @@ project = Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
   proposal: proposal1)
 
 puts " ✅"
-print "Creating polls"
-
-puts " ✅"
-print "Active Polls"
-(1..2).each do |i|
-  poll = Poll.create(name: "Active Poll #{i}",
-                     starts_at: 1.month.ago,
-                     ends_at:   1.month.from_now,
-                     description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-                     geozone_restricted: false)
-end
-
-(3..4).each do |i|
-  poll = Poll.create(name: "Active Poll #{i}",
-                     starts_at: 1.month.ago,
-                     ends_at:   1.month.from_now,
-                     geozone_restricted: true,
-                     description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-                     geozones: Geozone.reorder("RANDOM()").limit(3)
-                    )
-end
-
-
-
-
-
-puts " ✅"
-print "Upcoming Poll"
-poll = Poll.create(name: "Upcoming Poll",
-                   starts_at: 1.month.from_now,
-                   ends_at:   2.months.from_now)
-
-puts " ✅"
-print "Expired Poll"
-poll = Poll.create(name: "Expired Poll",
-                     starts_at: 2.months.ago,
-                     ends_at:   1.months.ago)
-
-puts " ✅"
-
-print "Creating Poll Questions"
-
-(1..10).each do |i|
-  poll = Poll.reorder("RANDOM()").first
-  author = User.reorder("RANDOM()").first
-  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
-  open_at = rand(2.months.ago .. 2.months.from_now)
-  question = Poll::Question.create!(author: author,
-                                    title: Faker::Lorem.sentence(3).truncate(60),
-                                    description: description,
-                                    valid_answers: Faker::Lorem.words((2..7).to_a.sample).join(', '),
-                                    poll: poll)
-end
+# print "Creating polls"
+#
+# puts " ✅"
+# print "Active Polls"
+# (1..2).each do |i|
+#   poll = Poll.create(name: "Active Poll #{i}",
+#                      starts_at: 1.month.ago,
+#                      ends_at:   1.month.from_now,
+#                      description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+#                      geozone_restricted: false)
+# end
+#
+# (3..4).each do |i|
+#   poll = Poll.create(name: "Active Poll #{i}",
+#                      starts_at: 1.month.ago,
+#                      ends_at:   1.month.from_now,
+#                      geozone_restricted: true,
+#                      description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+#                      geozones: Geozone.reorder("RANDOM()").limit(3)
+#                     )
+# end
+#
+#
+#
+#
+#
+# puts " ✅"
+# print "Upcoming Poll"
+# poll = Poll.create(name: "Upcoming Poll",
+#                    starts_at: 1.month.from_now,
+#                    ends_at:   2.months.from_now)
+#
+# puts " ✅"
+# print "Expired Poll"
+# poll = Poll.create(name: "Expired Poll",
+#                      starts_at: 2.months.ago,
+#                      ends_at:   1.months.ago)
+#
+# puts " ✅"
+#
+# print "Creating Poll Questions"
+#
+# (1..10).each do |i|
+#   poll = Poll.reorder("RANDOM()").first
+#   author = User.reorder("RANDOM()").first
+#   description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+#   open_at = rand(2.months.ago .. 2.months.from_now)
+#   question = Poll::Question.create!(author: author,
+#                                     title: Faker::Lorem.sentence(3).truncate(60),
+#                                     description: description,
+#                                     valid_answers: Faker::Lorem.words((2..7).to_a.sample).join(', '),
+#                                     poll: poll)
+# end
 
 # puts " ✅"
 # print "Creating Poll Booths"

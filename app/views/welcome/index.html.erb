@@ -2,25 +2,24 @@
 
     <div class="hero">
       <div class="row all-screen collapse">
-        <div class="small-12 medium-12 large-6 columns">
+        <div class="small-12 medium-12 large-7 columns">
           <div class="home-info">
             <p class="home-info-dates label float-right"> <%= Setting["home.info-date"] %> </p>
             <h4 class="small blue"> <%= Setting["home.info-epigraph"] %> </h4>
             <h1 class="home-info-title"> <%= Setting["home.info-title"] %> </h1>
-            <%= link_to Setting["home.info-go_to"], Setting["home.info-go_to_link"], class: "button primary" %>
-            <%= link_to Setting["home.info-go2_to"], Setting["home.info-go2_to_link"], class: "button secondary" %>
+            <%= link_to Setting["home.info-go_to"], Setting["home.info-go_to_link"], class: "button primary large" %>
+            <%= link_to Setting["home.info-go2_to"], Setting["home.info-go2_to_link"], class: "button secondary large" %>
 
           </div>
         </div>
-        <div class="small-12 medium-12 large-6 columns home-img">
-          <!-- <%= image_tag(image_path_for('foto1.jpg')) %> -->
+        <div class="small-12 medium-12 large-5 columns home-img">
         </div>
       </div>
 
       <div class="row all-screen collapse">
-        <div class="small-12 medium-12 large-5 large-offset-7 columns">
+        <div class="small-12 medium-12 large-3 large-offset-9 columns">
           <div class="hero-quote">
-            <h2> <%= Setting["home.main-title"] %> </h2>
+            <h3> <%= Setting["home.main-title"] %> </h3>
             <div class="">
               <%= link_to Setting["home.main-subtitle"], Setting["home.main-subtitle-link"], class: "hollow button primary" %>
             </div>
@@ -104,10 +103,10 @@
           <%= render "proposal", proposal: most_voted_proposals.first, proposal_type: "Más apoyadas", proposal_class: "proposal-type most-voted" %>
         </div>
         <div class="small-12 medium-4 column home-proposal">
-          <%= render "proposal", proposal: Proposal.sort_by_created_at.first, proposal_type: "Más activas", proposal_class: "proposal-type most-activated" %>
+          <%= render "proposal", proposal: Proposal.sort_by_created_at.first, proposal_type: "Más nuevas", proposal_class: "proposal-type most-activated" %>
         </div>
         <div class="small-12 medium-4 column home-proposal">
-          <%= render "proposal", proposal: Proposal.sort_by_most_commented.first, proposal_type: "Más nuevas", proposal_class: "proposal-type newest" %>
+          <%= render "proposal", proposal: Proposal.sort_by_most_commented.first, proposal_type: "Más activas", proposal_class: "proposal-type newest" %>
         </div>
       </div>
       <% end %>

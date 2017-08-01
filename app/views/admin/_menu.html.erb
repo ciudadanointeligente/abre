@@ -26,6 +26,9 @@
         <strong><%= t("admin.menu.title_moderated_content") %></strong>
       </a>
       <ul <%= "class=is-active" if menu_moderated_content? %>>
+        <li <%= "class=active" if controller_name == "users" %>>
+          <%= link_to "Vecinos", admin_users_path %>
+        </li>
         <li <%= "class=active" if controller_name == "proposals" %>>
           <%= link_to t("admin.menu.hidden_proposals"), admin_proposals_path %>
         </li>
@@ -38,10 +41,6 @@
 
         <li <%= "class=active" if controller_name == "comments" %>>
           <%= link_to t("admin.menu.hidden_comments"), admin_comments_path %>
-        </li>
-
-        <li <%= "class=active" if controller_name == "users" %>>
-          <%= link_to t("admin.menu.hidden_users"), admin_users_path %>
         </li>
       </ul>
     </li>
@@ -129,10 +128,6 @@
         <strong><%= t("admin.menu.title_profiles") %></strong>
       </a>
       <ul <%= "class=is-active" if menu_profiles? %>>
-        <!-- <li <%= "class=active" if controller_name == "organizations" %>>
-          <%= link_to t("admin.menu.organizations"), admin_organizations_path %>
-        </li> -->
-
         <li <%= "class=active" if controller_name == "officials" %>>
           <%= link_to t("admin.menu.officials"), admin_officials_path %>
         </li>
