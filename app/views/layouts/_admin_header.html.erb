@@ -42,7 +42,6 @@
             <div class="subnavigation row">
               <div class="small-12 column">
                 <%= render "shared/admin_login_items" %>
-                <%= render "devise/menu/login_items" %>
                 <%= link_to t("admin.dashboard.index.back") + " " + setting['org_name'],
                             root_path, class: "float-right back-web" %>
               </div>
@@ -61,7 +60,6 @@
         <div class="small-12 medium-12">
           <ul>
             <%= render "shared/admin_login_items" %>
-            <%= render "devise/menu/login_items" %>
             <%= link_to t("admin.dashboard.index.back") + " " + setting['org_name'],
                         root_path, class: "float-right back-web" %>
           </ul>
