@@ -17,7 +17,7 @@
   <div class="proposal-description">
     <p><%= question.description %><span><a href="#"><%= link_to ' Ver más', namespaced_proposal_path(question.proposal) %></a></span></p>
   </div>
-  <div id="<%= dom_id(question) %>_answers" class="">
+  <div id="<%= dom_id(question) %>_answers" class="answer-container">
     <%= render 'polls/questions/answers', question: question %>
   </div>
 </div>

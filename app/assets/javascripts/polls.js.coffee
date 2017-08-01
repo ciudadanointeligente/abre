@@ -2,16 +2,10 @@ App.Polls =
 
   vote: ->
     $('.vote-question').click ->
-      console.log("HAz clicjeado el boton")
-      console.log(this)
-      $(this).hide()
-      element = $(this).closest(".row").siblings().children(".total-votes-text").children(".total-votes-count")
-      count = (parseInt(element.text()) + 1)
-      element.replaceWith('<span class="total-votes-count">' + count + "</span>")
-      $(this).remove()
+      container = $(this).closest(".poll-question").siblings().children(".answer-container")
+      container.replaceWith('<div class="poll-question-answers"><div class="share-supported"> <div class="bg-gray padding"> <span>Ya has votado en esta votación</span></div></div></div>')
       return
 
   initialize: ->
-    console.log("ENTRADO A INITIAILIZE")
     App.Polls.vote ""
     false
