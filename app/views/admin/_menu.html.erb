@@ -8,6 +8,7 @@
       <% end %>
     </li>
 
+
     <li class="section-title">
       <a href="#">
         <span class="icon-tag"></span>
@@ -182,6 +183,15 @@
         <strong><%= t('admin.menu.geozones') %></strong>
       <% end %>
     </li>
+
+
+    <li class="section-title">
+      <%= link_to admin_stats_path do %>
+      <span class="icon-settings"></span>
+        <strong>Estadísticas</strong>
+      <% end %>
+    </li>
+
 
     <% if feature?(:signature_sheets) %>
       <li class="section-title" <%= "class=active" if controller_name == "signature_sheets" %>>
