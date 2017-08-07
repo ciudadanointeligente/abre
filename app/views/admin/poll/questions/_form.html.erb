@@ -1,11 +1,8 @@
 <%= form_for(@question, url: form_url) do |f| %>
-
   <%= render 'shared/errors', resource: @question %>
-
   <%= f.hidden_field :proposal_id %>
 
   <div class="row">
-
     <div class="small-12 column">
       <div class="small-12 medium-6 large-4">
         <%= f.select :poll_id,
@@ -14,11 +11,11 @@
                       label: t("admin.questions.new.poll_label") %>
       </div>
 
-      <%= f.text_field :title, maxlength: Poll::Question.title_max_length %>
+      <%= f.label :title %>
+      <p class="note"><%= t("admin.questions.new.title_question_note") %></p>
+      <%= f.text_field :title, maxlength: Poll::Question.title_max_length, label: false %>
 
-      <%= f.label :valid_answers %>
-      <p class="note"><%= t("admin.questions.new.valid_answers_note") %></p>
-      <%= f.text_field :valid_answers, label: false %>
+      <%= f.hidden_field :valid_answers, :value => 'Sí, No' %>
 
       <div class="ckeditor">
         <%= f.cktext_area :description,
@@ -33,5 +30,4 @@
       </div>
     </div>
   </div>
-
 <% end %>

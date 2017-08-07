@@ -14,7 +14,7 @@ class Poll::Question < ActiveRecord::Base
   belongs_to :proposal
 
   validates :title, presence: true
-  validates :author, presence: true
+  # validates :author, presence: true
 
   validates :title, length: { minimum: 4 }
   validates :description, length: { maximum: Poll::Question.description_max_length }

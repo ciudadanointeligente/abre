@@ -138,7 +138,7 @@ end
   user = create_user("user#{i}@consul.dev")
   level = [1, 2, 3].sample
   if level >= 1
-    user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" )
+    user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" , geozone: Geozone.find(23))
   end
 end
 
@@ -211,7 +211,6 @@ tags = Faker::Lorem.words(25)
 
 proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             title: "Tenencia responsable de animales para ambientes más sanos y seguros",
-                            question: "¿Quieres que se promueva la tenencia resonsable?",
                             summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
                             responsible_name: Faker::Name.name,
                             external_url: Faker::Internet.url,
@@ -226,7 +225,6 @@ proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
 
 proposal0b = Proposal.create!(author: User.reorder("RANDOM()").first,
                             title: "Tenencia responsable de animales para ambientes más sanos y seguros",
-                            question: "¿Quieres que se promueva la tenencia resonsable?",
                             summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
                             responsible_name: Faker::Name.name,
                             external_url: Faker::Internet.url,
@@ -240,7 +238,6 @@ proposal0b = Proposal.create!(author: User.reorder("RANDOM()").first,
 
 proposal1 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             title: "Quinchos en el Parque San Luis",
-                            question: "¿Quieres agregar quinchos al Parque San Luis?",
                             summary: "Agregar al menos 5 quinchos con mesas para que los vecinos puedan juntarse a compartir",
                             responsible_name: Faker::Name.name,
                             external_url: Faker::Internet.url,
@@ -255,7 +252,6 @@ proposal1 = Proposal.create!(author: User.reorder("RANDOM()").first,
 
 proposal2 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             title: "Mejorar la cancha",
-                            question: "¿Quieres mejorar la cancha?",
                             summary: "Se busca comprar arcos de fútbol y mejorar la cancha para que esta sea realmente útil",
                             responsible_name: Faker::Name.name,
                             external_url: Faker::Internet.url,
@@ -270,7 +266,6 @@ proposal2 = Proposal.create!(author: User.reorder("RANDOM()").first,
 
 proposal3 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             title: "Crear un huerto",
-                            question: "¿Quieres crear un huerto en el Parque?",
                             summary: "La idea es crear un huerto, donde todos puedan tener un espacio donde plantar",
                             responsible_name: Faker::Name.name,
                             external_url: Faker::Internet.url,
@@ -285,7 +280,6 @@ proposal3 = Proposal.create!(author: User.reorder("RANDOM()").first,
 
 proposal4 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             title: "Crear un espacio cultural en el espacio del Parque",
-                            question: "¿Te gustaría crear un espacio culturan?",
                             summary: "La finalidad es que el Parque pueda ser utilizado en todo momento, incluso cuando llueve. Generando este espacio se podría tener esto, y potenciar las actividades culturales organizadas por los vecinos",
                             responsible_name: Faker::Name.name,
                             external_url: Faker::Internet.url,
@@ -297,35 +291,7 @@ proposal4 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             for_challenge: true,
                             cached_votes_up: 74)
 
-proposal5 = Proposal.create!(author: User.reorder("RANDOM()").first,
-                            title: "Crear una zona de juegos para perros",
-                            question: "¿Quieres crear una zona para ir con tu perro?",
-                            summary: "Crear un espacio donde uno pueda ir con su perro y practicar con él. Esto crea un espacio donde muchos pueden compartir un gusto en común.",
-                            responsible_name: Faker::Name.name,
-                            external_url: Faker::Internet.url,
-                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-                            created_at: rand((Time.current - 1.week) .. Time.current),
-                            tag_list: tags.sample(3).join(','),
-                            terms_of_service: "1",
-                            problem: problem,
-                            geozones: problem.geozones,
-                            for_challenge: true,
-                            cached_votes_up: 89)
 
-proposal6 = Proposal.create!(author: User.reorder("RANDOM()").first,
-                            title: "PASADA - Crear una zona de juegos para perros",
-                            question: "¿Quieres crear una zona para ir con tu perro?",
-                            summary: "Crear un espacio donde uno pueda ir con su perro y practicar con él. Esto crea un espacio donde muchos pueden compartir un gusto en común.",
-                            responsible_name: Faker::Name.name,
-                            external_url: Faker::Internet.url,
-                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-                            tag_list: tags.sample(3).join(','),
-                            terms_of_service: "1",
-                            problem: problem,
-                            for_challenge: true,
-                            geozones: problem.geozones,
-                            created_at: 8.month.ago,
-                            cached_votes_up: 74)
 
 puts " ✅"
 print "Creando Proyecto"
@@ -338,6 +304,31 @@ project = Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
   proposal: proposal1)
 
 puts " ✅"
+
+
+print "Crear votación"
+
+poll = Poll.create(name: "Mejoramiento Parque San Luis",
+                     starts_at: 1.month.ago,
+                     ends_at:   1.month.from_now,
+                     description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                     geozone_restricted: true,
+                     geozones: Geozone.where(:name => "Unidad Vecinal 23"))
+
+print "Creating Preguntas de la votación"
+
+(1..3).each do |i|
+  proposal = Proposal.reorder("RANDOM()").first
+  author = User.reorder("RANDOM()").first
+  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+  question = Poll::Question.create!(author: author,
+                                    title: Faker::Lorem.sentence(3).truncate(60),
+                                    description: description,
+                                    valid_answers: "Si",
+                                    poll: poll,
+                                    proposal: proposal)
+end
+
 # print "Creating polls"
 #
 # puts " ✅"

@@ -1,9 +1,23 @@
 <div id="<%= dom_id(question) %>" class="poll-question">
-  <h3>
-    <%= link_to question.title, question_path(question) %>
-  </h3>
-
-  <div id="<%= dom_id(question) %>_answers" class="padding">
+  <p class="small blue"> PROPUESTA </p>
+  <h4>
+    <%= question.title %>
+  </h4>
+  <p class="">
+    <i class="fa fa-map-marker"></i> <%= question.proposal.geozones_name %> <span class="line-text">|</span>
+    <i class="fa fa-calendar"> </i> <%= l question.proposal.created_at.to_date %>
+    <% if question.proposal.author.hidden? || question.proposal.author.erased? %>
+      <span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+      <span><%= t("proposals.show.author_deleted") %></span>
+    <% else %>
+    <span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+      <span class> <%= question.proposal.responsible_name %> </span>
+    <% end %>
+  </p>
+  <div class="proposal-description">
+    <p><%= question.description %><span><a href="#"><%= link_to ' Ver más', namespaced_proposal_path(question.proposal) %></a></span></p>
+  </div>
+  <div id="<%= dom_id(question) %>_answers" class="answer-container">
     <%= render 'polls/questions/answers', question: question %>
   </div>
 </div>

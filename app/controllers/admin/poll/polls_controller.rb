@@ -4,6 +4,8 @@ class Admin::Poll::PollsController < Admin::BaseController
   before_action :load_search, only: [:search_booths, :search_questions, :search_officers]
   before_action :load_geozones, only: [:new, :create, :edit, :update]
 
+  include ProposalsHelper
+
   def index
   end
 
@@ -14,6 +16,8 @@ class Admin::Poll::PollsController < Admin::BaseController
   end
 
   def new
+    @poll = Poll.new
+    @poll.questions.build
   end
 
   def create
@@ -72,7 +76,7 @@ class Admin::Poll::PollsController < Admin::BaseController
     end
 
     def poll_params
-      params.require(:poll).permit(:name, :starts_at, :ends_at, :geozone_restricted, geozone_ids: [])
+      params.require(:poll).permit(:name, :starts_at, :ends_at, :geozone_restricted, :for_challenge, geozone_ids: [], questions_attributes: [:title, :proposal_id, :description, :_destroy, :author_id, :valid_answers])
     end
 
     def search_params

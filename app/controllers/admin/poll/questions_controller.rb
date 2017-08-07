@@ -2,13 +2,15 @@ class Admin::Poll::QuestionsController < Admin::BaseController
   load_and_authorize_resource :poll
   load_and_authorize_resource :question, class: 'Poll::Question'
 
+  include ProposalsHelper
+
   def index
     @polls = Poll.all
     @search = search_params[:search]
 
     @questions = @questions.search(search_params).page(params[:page]).order("created_at DESC")
 
-    @proposals = Proposal.successful.sort_by_confidence_score
+    @proposals = most_voted_challenge_proposals
   end
 
   def new

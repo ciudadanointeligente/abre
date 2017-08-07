@@ -1,18 +1,21 @@
-<%= form_for [:admin, @poll] do |f| %>
+<%= simple_form_for [:admin, @poll] do |f| %>
+
   <div class="row">
     <div class="small-12 medium-6 column">
-      <%= f.text_field :name %>
+      <%= f.input :name %>
     </div>
   </div>
 
   <div class="row">
     <div class="small-12 medium-6 column">
+      <%= f.label "Fecha de apertura" %>
       <%= f.text_field :starts_at,
                         value: @poll.starts_at.present? ? l(@poll.starts_at.to_date) : nil,
                         class: "js-calendar-full" %>
     </div>
 
     <div class="small-12 medium-6 column">
+      <%= f.label "Fecha de cierre" %>
       <%= f.text_field :ends_at,
                         value: @poll.ends_at.present? ? l(@poll.ends_at.to_date) : nil,
                         class: "js-calendar-full" %>
@@ -20,7 +23,8 @@
   </div>
 
   <div class="row">
-    <div class="small-6 medium-6 column">
+    <div class="small-12 medium-12 column">
+      <%= f.label "Restringida por unidad vecinal" %>
       <%= f.check_box :geozone_restricted, data: { checkbox_toggle: "#geozones" } %>
     </div>
   </div>
@@ -38,9 +42,24 @@
   </div>
 
   <div class="row">
+    <div class="small-6 medium-6 column">
+      <%= f.input :for_challenge, data: { checkbox_toggle: "#for_challenge" } %>
+    </div>
+  </div>
+
+  <div class="form-input">
+    <%= f.simple_fields_for :questions do |q| %>
+      <%= render 'question_fields', f: q %>
+    <% end %>
+    <%= link_to_add_association 'Agregar propuesta a votación', f, :questions %>
+  </div>
+
+
+  <div class="row">
     <div class="small-12 medium-4 column">
-      <%= f.submit t("admin.polls.#{admin_submit_action(@poll)}.submit_button"),
+      <%= f.button :submit, t("admin.polls.#{admin_submit_action(@poll)}.submit_button"),
                    class: "button success expanded" %>
     </div>
   </div>
+
 <% end %>

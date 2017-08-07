@@ -1,18 +1,46 @@
-<%= link_to admin_settings_path, class: "button float-right" do %>
-  <span class="icon-settings"></span>
-  <%= t("admin.menu.settings") %>
-<% end %>
-
-<%= link_to admin_stats_path, class: "button float-right" do %>
-  <span class="icon-stats"></span>
-  <%= t("admin.menu.stats") %>
-<% end %>
+<!-- # <%= link_to admin_settings_path, class: "button float-right" do %>
+#   <span class="icon-settings"></span>
+#   <%= t("admin.menu.settings") %>
+# <% end %>
+#
+# <%= link_to admin_stats_path, class: "button float-right" do %>
+#   <span class="icon-stats"></span>
+#   <%= t("admin.menu.stats") %>
+# <% end %> -->
 
 <h2 class="inline-block"><%= t("admin.dashboard.index.title") %></h2>
 
-<p>Desde aquí puedes administrar el sistema, a través de las siguientes acciones:</p>
+<div class="row stats-numbers">
+  <div class="small-12 medium-3 column">
+    <p class="small featured">
+      Desafíos<br>
+      <span class="number"><%= Problem.count %></span>
+    </p>
+  </div>
+  <div class="small-12 medium-3 column">
+    <p class="featured small">
+      Propuestas<br>
+      <span class="number"><%= Proposal.count %></span>
+    </p>
+  </div>
+  <div class="small-12 medium-3 column">
+    <p class="featured small">
+      Apoyos<br>
+      <span class="number"><%= Proposal.sum(:cached_votes_up) %></span>
+    </p>
+  </div>
+  <div class="small-12 medium-3 column">
+    <p class="featured small">
+      Comentarios<br>
+      <span class="number"><%= Comment.count %></span>
+    </p>
+  </div>
+</div>
 
-<div class="small-12 medium-9">
+<br><br>
+
+<h4> Conoce qué puedes hacer desde el panel de Aministración</h4>
+<div class="small-12 medium-12">
   <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
 
     <li class="accordion-item" data-accordion-item>
@@ -51,9 +79,44 @@
     </li>
 
     <li class="accordion-item" data-accordion-item>
-      <a href="#" class="accordion-title">Usuarios bloqueados</a>
+      <a href="#" class="accordion-title">Desafíos</a>
       <div class="accordion-content" data-tab-content>
-        <p>Cuando un moderador o un administrador bloquea a un usuario aparecerá en esta lista. Al <strong>bloquear a un usuario, éste deja de poder utilizarlo para ninguna acción de la web</strong>. Los administradores pueden desbloquearlos pulsando el botón al lado del nombre del usuario en la lista.</p>
+      <p> Desde esta sección puedes crear desafíos para que los vecinos puedan crear propuestas para resolverlos.</p>
+      </div>
+    </li>
+
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class="accordion-title">Proyectos</a>
+      <div class="accordion-content" data-tab-content>
+      <p>Una vez que una propuesta ha ganado la fase de votación ya puedes crear un proyecto asociado, donde podrás crear los eventos para los talleres de diseño y comenzar el seguimiento.</p>
+      </div>
+    </li>
+
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class="accordion-title">Votaciones</a>
+      <div class="accordion-content" data-tab-content>
+      <p>En esta sección puedes crear una votación con las propuestas que hayan obtenido más apoyos.</p>
+      </div>
+    </li>
+
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class="accordion-title">Perfiles</a>
+      <div class="accordion-content" data-tab-content>
+      <p></p>
+      </div>
+    </li>
+
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class="accordion-title">Gestionar distritos</a>
+      <div class="accordion-content" data-tab-content>
+      <p></p>
+      </div>
+    </li>
+
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class="accordion-title">Estadística</a>
+      <div class="accordion-content" data-tab-content>
+      <p></p>
       </div>
     </li>
 <!--
@@ -72,7 +135,7 @@
       </div>
     </li> -->
 
-    <li class="accordion-item" data-accordion-item>
+    <!-- <li class="accordion-item" data-accordion-item>
       <a href="#" class="accordion-title">Cargos Públicos</a>
       <div class="accordion-content" data-tab-content>
         <p>En la web, los usuarios individuales pueden ser usuarios normales, o cargos públicos. Estos últimos se diferencian de los primeros únicamente en que al lado de sus nombres aparece una <strong>etiqueta que les identifica</strong>, y cambia ligeramente el estilo de sus comentarios. Esto permite que los usuarios les identifiquen más fácilmente. Al lado de cada usuario vemos la identificación que aparece en su etiqueta, y <strong>su nivel</strong> (la manera que internamente usa la web para diferenciar entre un tipo de cargos y otros). Pulsando el botón <strong>"Editar"</strong> al lado del usuario, se puede modificar su información. Los cargos públicos que no aparecen en la lista pueden ser encontrados para actuar sobre ellos por medio del buscador en la parte superior.</p>
@@ -84,7 +147,7 @@
       <div class="accordion-content" data-tab-content>
         <p>Mediante el buscador de la parte superior se pueden buscar usuarios, para activarlos o desactivarlos como moderadores de la web. Los moderadores al acceder a la web con su usuario ven en la parte superior una nueva sección llamada <strong>"Moderar"</strong></p>
       </div>
-    </li>
+    </li> -->
 
     <!-- <li class="accordion-item" data-accordion-item>
       <a href="#" class="accordion-title">Actividad de moderadores</a>
@@ -93,11 +156,5 @@
       </div>
     </li> -->
 
-    <li class="accordion-item" data-accordion-item>
-      <a href="#" class="accordion-title">Estadísticas</a>
-      <div class="accordion-content" data-tab-content>
-        <p>Estadísticas generales del sistema.</p>
-      </div>
-    </li>
   </ul>
 </div>

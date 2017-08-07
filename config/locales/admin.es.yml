@@ -280,6 +280,7 @@ es:
       poll_booths: Ubicación de urnas
       officials: Cargos públicos
       organizations: Organizaciones
+      administrators: Administradores
       settings: Configuración global
       spending_proposals: Propuestas de inversión
       stats: Estadísticas
@@ -300,6 +301,16 @@ es:
       title_profiles: Perfiles
       title_banners: Banners
       title_site_customization: Personalizar sitio
+    administrators:
+      index:
+        title: Administradores
+      administrator:
+        add: Añadir como Administrador
+        delete: Borrar
+      search:
+        email_placeholder: Buscar usuario por email
+        search: Buscar
+        user_not_found: Usuario no encontrado
     moderators:
       index:
         title: Moderadores
@@ -436,7 +447,7 @@ es:
         filter_poll: "Filtrar por votación"
         select_poll: "Seleccionar votación"
         questions_tab: "Preguntas ciudadanas"
-        successful_proposals_tab: "Propuestas que han superado el umbral"
+        successful_proposals_tab: "Propuestas que han pasado a votación"
         create_question: "Crear pregunta para votación"
         table_proposal: "Propuesta"
         table_question: "Pregunta"
@@ -446,6 +457,7 @@ es:
         title: "Crear pregunta ciudadana"
         poll_label: "Votación"
         valid_answers_note: "Escribe las respuestas separadas por comas (,)"
+        title_question_note: Debe ser resumida en una pregunta cuya respuesta sea Sí o No
       show:
         proposal: Propuesta ciudadana original
         author: Autor

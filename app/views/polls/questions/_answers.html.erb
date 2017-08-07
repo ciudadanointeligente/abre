@@ -2,21 +2,38 @@
   <% if can? :answer, question %>
     <% question.valid_answers.each do |answer| %>
       <% if @answers_by_question_id[question.id] == answer %>
-        <span class="button answered" title="<%= t("poll_questions.show.voted", answer: answer)%>">
-          <%= answer %>
-        </span>
+      <div class="share-supported">
+        <div class="bg-blue padding">
+          <span>¡Muchas gracias por votar por esta propuesta!</span>
+        </div>
+      </div>
+
+      <% elsif Poll.find(question.poll_id).voters.where(:document_number => current_user.document_number).any? %>
+      <div class="share-supported">
+        <div class="bg-gray padding">
+          <span>Ya has votado en esta votación</span>
+        </div>
+      </div>
       <% else %>
-        <%= link_to answer,
-          answer_question_path(question, answer: answer),
-          method: :post,
-          remote: true,
-          title: t("poll_questions.show.vote_answer", answer: answer),
-          class: "button secondary hollow" %>
+        <div class="row">
+          <div class="float-right">
+            <%= link_to "Votar por esta propuesta",
+              answer_question_path(question, answer: answer),
+              method: :post,
+              remote: true,
+              title: t("poll_questions.show.vote_answer", answer: answer),
+              class: "button vote-question" %>
+          </div>
+        </div>
       <% end %>
     <% end %>
   <% else %>
-    <% question.valid_answers.each do |answer| %>
-      <span class="button secondary hollow disabled"><%= answer %></span>
+    <div class="row">
+      <div class="float-right">
+      <% question.valid_answers.each do |answer| %>
+        <span class="button secondary hollow disabled">Votar por esta propuesta</span>
+      </div>
+    </div>
     <% end %>
   <% end %>
 </div>

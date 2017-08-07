@@ -133,6 +133,7 @@ es:
         starts_at: "Fecha de apertura"
         ends_at: "Fecha de cierre"
         geozone_restricted: "Restringida por zonas"
+        for_challenge: "Votación que responde a un desafío"
       poll/question:
         title: "Pregunta"
         valid_answers: "Posibles respuestas"
