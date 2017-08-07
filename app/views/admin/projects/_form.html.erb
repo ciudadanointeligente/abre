@@ -15,11 +15,13 @@
         </div>
       </div>
 
-      <div id="select-proposal" class="row" >
-        <div class="small-12 medium-6 column">
-          <%= f.association :proposal, as: :select, collection: Proposal.all %>
+      <div class="row">
+        <div class="small-12 medium-12 column">
+          <%= f.association :proposals, collection: Proposal.all, input_html: { class: 'multiselect'} %>
         </div>
       </div>
+
+    </div>
 
       <div class="row">
         <div class="small-12 medium-12 column">
