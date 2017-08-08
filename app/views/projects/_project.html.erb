@@ -1,32 +1,50 @@
 <div class="text-width" id="<%= dom_id(project) %>">
-	<p class="small blue tex-center"> proyecto </p>
-	<h3 class="text-center"><%= project.name %></h3>
+	<p class="small-without-line blue text-center"> proyecto </p>
+	<h2 class="text-center"><%= project.name %></h2>
+	<p class="text-center"> Funcionario encargado: </p>
 
 	<ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
-	  <li class="tabs-title is-active"><a href="#<%= dom_id(project) %>panel1d" aria-selected="true"> Propuesta inicial </a></li>
-	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel2d">Propuesta inicial</a></li>
+	  <li class="tabs-title is-active"><a href="#<%= dom_id(project) %>panel1d" aria-selected="true"> <%= title_proposals_section(project) %> </a></li>
+	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel2d">Talleres de Diseño</a></li>
 	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel3d"><%= t("admin.projects.edit.menu.implementation") %></a></li>
 	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel4d"><%= t("admin.projects.edit.menu.evaluation") %></a></li>
 	</ul>
 
 	<div class="tabs-content" data-tabs-content="deeplinked-tabs">
-	  <div class="tabs-panel is-active" id="<%= dom_id(project) %>panel1d">
-			Hola
 
+		<div class="tabs-panel is-active" id="<%= dom_id(project) %>panel1d">
+			<div class="row">
+				<h4><%= title_proposals_section(project) %>  </h2>
+				<% project.proposals.each do |p| %>
+					<p> <strong> <%= p.title %>: </strong> <%= p.summary %> | <%= p.cached_votes_up %> votos</p>
+				<% end %>
+			</div>
 		</div>
 
 	  <div class="tabs-panel" id="<%= dom_id(project) %>panel2d">
 	    <div class="row">
-	      <p>Propuesta con más apoyo: <%= project.proposals %></p>
+				<h4>Talleres de Diseño </h2>
+				<% project.design_events.each do |d| %>
+					<p> <strong> <%= d.starts_at %> | <%= d.pax %> </p>
+				<% end %>
 	    </div>
 	  </div>
 
 	  <div class="tabs-panel" id="<%= dom_id(project) %>panel3d">
+			<div class="row">
+				<h4>Implementación</h2>
+
+	    </div>
 	  </div>
 
 	  <div class="tabs-panel" id="<%= dom_id(project) %>panel4d">
-	    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<div class="row">
+				<h4>Evaluación</h2>
+
+			</div>
 	  </div>
 
 	</div>
 </div>
+
+<hr>
