@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807155044) do
+ActiveRecord::Schema.define(version: 20170808201251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -270,9 +270,10 @@ ActiveRecord::Schema.define(version: 20170807155044) do
     t.datetime "starts_at"
     t.string   "place"
     t.integer  "pax"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "project_id"
+    t.text     "description"
   end
 
   add_index "design_events", ["project_id"], name: "index_design_events_on_project_id", using: :btree
@@ -616,8 +617,10 @@ ActiveRecord::Schema.define(version: 20170807155044) do
     t.datetime "ends_at"
     t.boolean  "geozone_restricted"
     t.integer  "proposal_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "responsible_official_name"
+    t.string   "responsible_official_mail"
   end
 
   add_index "projects", ["proposal_id"], name: "index_projects_on_proposal_id", using: :btree

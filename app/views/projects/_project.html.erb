@@ -1,8 +1,9 @@
 <div class="text-width" id="<%= dom_id(project) %>">
 	<p class="small-without-line blue text-center"> proyecto </p>
 	<h2 class="text-center"><%= project.name %></h2>
-	<p class="text-center"> Funcionario encargado: </p>
-
+	<% if project.responsible_official_name %>
+		<p class="text-center"> Funcionario encargado: <%= project.responsible_official_name %> <a href="mailto:<%= project.responsible_official_mail%>?Subject=Abre"><%= project.responsible_official_mail%> </a></p>
+	<% end %>
 	<ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
 	  <li class="tabs-title is-active"><a href="#<%= dom_id(project) %>panel1d" aria-selected="true"> <%= title_proposals_section(project) %> </a></li>
 	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel2d">Talleres de Diseño</a></li>
@@ -25,8 +26,17 @@
 	    <div class="row">
 				<h4>Talleres de Diseño </h2>
 				<% project.design_events.each do |d| %>
-					<p> <strong> <%= d.starts_at %> | <%= d.pax %> </p>
+					<p>
+						<i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
+							| <i class="fa fa-map-marker"> </i> <%= d.place %>
+						<% if d.pax > 0 %>
+							| <i class="fa fa-users"> </i> <%= d.pax %> asistentes
+						<% end %>
+					</p>
+					<p> <%= d.description %> </p>
 				<% end %>
+
+
 	    </div>
 	  </div>
 
@@ -46,5 +56,3 @@
 
 	</div>
 </div>
-
-<hr>

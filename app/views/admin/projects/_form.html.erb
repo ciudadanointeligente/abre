@@ -16,6 +16,15 @@
       </div>
 
       <div class="row">
+        <div class="small-12 medium-6 column">
+          <%= f.input :responsible_official_name %>
+        </div>
+        <div class="small-12 medium-6 column">
+          <%= f.input :responsible_official_mail %>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="small-12 medium-12 column">
           <%= f.association :proposals, collection: Proposal.all, input_html: { class: 'multiselect'} %>
         </div>
@@ -28,15 +37,6 @@
           <%= f.input :description %>
         </div>
       </div>
-
-
-
-      <!-- <div class="row">
-
-        <div class="small-12 medium-6 column">
-          <%= f.input :ends_at, input_html: {value: @project.ends_at.present? ? l(@project.ends_at.to_date) : nil} %>
-        </div>
-      </div> -->
 
       <div class="row">
         <div class="small-6 medium-6 column">
