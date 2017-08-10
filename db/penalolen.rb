@@ -301,7 +301,7 @@ project = Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
   id: 3,
   starts_at: "2017-03-28 22:00:00",
   ends_at: "2017-06-24 22:00:00",
-  proposal: proposal1)
+  proposals: Proposal.all)
 
 puts " ✅"
 

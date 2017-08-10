@@ -86,6 +86,19 @@ es:
         description: "Opinión"
         terms_of_service: "Términos de servicio"
         title: "Título"
+      project:
+        name: Título
+        responsible_official_name: Nombre funcionario responsable
+        responsible_official_mail: Mail funcionario responsable
+        proposals: Propuestas
+        description: Descripción
+      design_event:
+        name: Nombre
+        place: Lugar
+        pax: Asistentes
+        starts_at: Fecha y hora
+        description: Descripción
+        summary: Resumen de lo que fue el taller de diseño
       proposal:
         author: "Autor"
         title: "Título"
