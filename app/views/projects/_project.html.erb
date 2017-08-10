@@ -1,7 +1,7 @@
 <div class="text-width" id="<%= dom_id(project) %>">
 	<p class="small-without-line blue text-center"> proyecto </p>
 	<h2 class="text-center"><%= project.name %></h2>
-	<% if project.responsible_official_name %>
+	<% unless project.responsible_official_name.empty? %>
 		<p class="text-center"> Funcionario encargado: <%= project.responsible_official_name %> <a href="mailto:<%= project.responsible_official_mail%>?Subject=Abre"><%= project.responsible_official_mail%> </a></p>
 	<% end %>
 	<ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
@@ -29,7 +29,7 @@
 					<p>
 						<i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
 							| <i class="fa fa-map-marker"> </i> <%= d.place %>
-						<% if d.pax > 0 %>
+						<% unless d.pax.nil? %>
 							| <i class="fa fa-users"> </i> <%= d.pax %> asistentes
 						<% end %>
 					</p>
