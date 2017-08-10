@@ -30,8 +30,6 @@
         </div>
       </div>
 
-    </div>
-
       <div class="row">
         <div class="small-12 medium-12 column">
           <%= f.input :description %>
@@ -55,10 +53,12 @@
           <% end %>
         </div>
       </div>
+
     </div>
 
+
     <div class="tab-panel" id="panel2d">
-      <div class="form-input">
+      <div class="form-input" >
         <%= f.fields_for :design_events do |de| %>
           <%= render 'design_event_fields', f: de  %>
         <% end %>
@@ -74,6 +74,7 @@
     </div>
 
   </div>
+
 
   <div class="row">
     <div class="small-12 medium-4 column">
