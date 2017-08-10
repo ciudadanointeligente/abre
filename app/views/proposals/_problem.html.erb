@@ -15,7 +15,7 @@
     <% if active_problem.ends_at > Date.today%>
     <span>Quedan <span class="counter-bg"><%= t("proposals.index.remaining_time", days: distance_of_time_in_days(Problem.last.ends_at, Date.today)) %></span> días para crear y apoyar propuestas
     <% else %>
-    Proceso de recepeción de propuestas cerrado
+    Proceso de recepción de propuestas cerrado
     <% end %>
   </div>
 </div>
