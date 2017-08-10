@@ -7,8 +7,8 @@
 	<ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
 	  <li class="tabs-title is-active"><a href="#<%= dom_id(project) %>panel1d" aria-selected="true"> <%= title_proposals_section(project) %> </a></li>
 	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel2d">Talleres de Diseño</a></li>
-	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel3d"><%= t("admin.projects.edit.menu.implementation") %></a></li>
-	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel4d"><%= t("admin.projects.edit.menu.evaluation") %></a></li>
+	  <!-- <li class="tabs-title"><a href="#<%= dom_id(project) %>panel3d"><%= t("admin.projects.edit.menu.implementation") %></a></li>
+	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel4d"><%= t("admin.projects.edit.menu.evaluation") %></a></li> -->
 	</ul>
 
 	<div class="tabs-content" data-tabs-content="deeplinked-tabs">
@@ -33,14 +33,16 @@
 							| <i class="fa fa-users"> </i> <%= d.pax %> asistentes
 						<% end %>
 					</p>
-					<p> <%= d.description %> </p>
+					<p> <strong> <%= d.name %>: </strong>
+					<% if !d.summary.empty? %> <%= d.summary %>
+					<% else %> <%= d.description %>  <% end %> </p>
 				<% end %>
 
 
 	    </div>
 	  </div>
 
-	  <div class="tabs-panel" id="<%= dom_id(project) %>panel3d">
+	  <!-- <div class="tabs-panel" id="<%= dom_id(project) %>panel3d">
 			<div class="row">
 				<h4>Implementación</h2>
 
@@ -52,7 +54,7 @@
 				<h4>Evaluación</h2>
 
 			</div>
-	  </div>
+	  </div> -->
 
 	</div>
 </div>
