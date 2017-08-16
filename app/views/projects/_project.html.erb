@@ -17,7 +17,11 @@
 			<div class="row">
 				<h4><%= title_proposals_section(project) %>  </h2>
 				<% project.proposals.each do |p| %>
-					<p> <strong> <%= p.title %>: </strong> <%= p.summary %> | <%= p.cached_votes_up %> votos</p>
+					<p> <strong>
+						<%= link_to proposal_path(p) do %>
+						<%= p.title %>:
+					  <% end %>
+					</strong> <%= p.summary %> | <%= p.cached_votes_up %> votos</p>
 				<% end %>
 			</div>
 		</div>
@@ -33,9 +37,10 @@
 							| <i class="fa fa-users"> </i> <%= d.pax %> asistentes
 						<% end %>
 					</p>
-					<p> <strong> <%= d.name %>: </strong>
-					<% if !d.summary.empty? %> <%= d.summary %>
-					<% else %> <%= d.description %>  <% end %> </p>
+					<p> <%= d.name %>:
+						<% if !d.summary.empty? %> <%= d.summary %>
+						<% else %> <%= d.description %>  <% end %>
+					</p>
 				<% end %>
 
 
