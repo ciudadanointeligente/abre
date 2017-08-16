@@ -65,19 +65,17 @@
             </div>
           <% elsif proposal.successful? && proposal.for_challenge && proposal.problem.ends_at < Date.today %>
           <div class="">
-            <div class="padding text-left">
-              <p>
-                <%= t("proposals.proposal.successful_for_challenge",
-                    voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe  %>
+            <div class="padding text-left bg-blue">
+              <p class="white">
+                Ha finalizado el tiempo de recepción de propuestas, y esta propuesta ha estado dentro de las 3 más votadas y pasará a la próxima votación.
               </p>
             </div>
           </div>
           <% elsif proposal.for_challenge && proposal.problem.ends_at < Date.today %>
             <div class="">
-              <div class="padding text-left">
-                <p>
-                  <%= t("proposals.proposal.unsuccesful_for_challenge",
-                      voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe  %>
+              <div class="padding text-left bg-blue">
+                <p class="white">
+                  Ha finalizado el tiempo de recepeción de propuestas.
                 </p>
               </div>
             </div>

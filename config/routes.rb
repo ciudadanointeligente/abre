@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects
-  
+
   resources :proposals do
     member do
       post :vote
@@ -202,6 +202,10 @@ Rails.application.routes.draw do
 
     resources :settings, only: [:index, :update]
     resources :moderators, only: [:index, :create, :destroy] do
+      get :search, on: :collection
+    end
+
+    resources :administrators, only: [:index, :create, :destroy] do
       get :search, on: :collection
     end
 

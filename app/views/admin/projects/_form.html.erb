@@ -15,9 +15,18 @@
         </div>
       </div>
 
-      <div id="select-proposal" class="row" >
+      <div class="row">
         <div class="small-12 medium-6 column">
-          <%= f.association :proposal, as: :select, collection: Proposal.all %>
+          <%= f.input :responsible_official_name %>
+        </div>
+        <div class="small-12 medium-6 column">
+          <%= f.input :responsible_official_mail %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 medium-12 column">
+          <%= f.association :proposals, collection: most_voted_challenge_proposals, input_html: { class: 'multiselect'} %>
         </div>
       </div>
 
@@ -26,16 +35,6 @@
           <%= f.input :description %>
         </div>
       </div>
-
-      <!-- <div class="row">
-        <div class="small-12 medium-6 column">
-          <%= f.input :starts_at, input_html: {value: @project.starts_at.present? ? l(@project.starts_at.to_date) : nil} %>
-        </div>
-
-        <div class="small-12 medium-6 column">
-          <%= f.input :ends_at, input_html: {value: @project.ends_at.present? ? l(@project.ends_at.to_date) : nil} %>
-        </div>
-      </div> -->
 
       <div class="row">
         <div class="small-6 medium-6 column">
@@ -54,10 +53,12 @@
           <% end %>
         </div>
       </div>
+
     </div>
 
+
     <div class="tab-panel" id="panel2d">
-      <div class="form-input">
+      <div class="form-input" >
         <%= f.fields_for :design_events do |de| %>
           <%= render 'design_event_fields', f: de  %>
         <% end %>
@@ -73,6 +74,7 @@
     </div>
 
   </div>
+
 
   <div class="row">
     <div class="small-12 medium-4 column">

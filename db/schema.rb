@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724201300) do
+ActiveRecord::Schema.define(version: 20170808212854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -270,9 +270,11 @@ ActiveRecord::Schema.define(version: 20170724201300) do
     t.datetime "starts_at"
     t.string   "place"
     t.integer  "pax"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "project_id"
+    t.text     "description"
+    t.text     "summary"
   end
 
   add_index "design_events", ["project_id"], name: "index_design_events_on_project_id", using: :btree
@@ -616,8 +618,10 @@ ActiveRecord::Schema.define(version: 20170724201300) do
     t.datetime "ends_at"
     t.boolean  "geozone_restricted"
     t.integer  "proposal_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "responsible_official_name"
+    t.string   "responsible_official_mail"
   end
 
   add_index "projects", ["proposal_id"], name: "index_projects_on_proposal_id", using: :btree
@@ -660,6 +664,7 @@ ActiveRecord::Schema.define(version: 20170724201300) do
     t.string   "retired_reason"
     t.text     "retired_explanation"
     t.integer  "problem_id"
+    t.integer  "project_id"
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree

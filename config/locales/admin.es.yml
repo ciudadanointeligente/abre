@@ -280,6 +280,7 @@ es:
       poll_booths: Ubicación de urnas
       officials: Cargos públicos
       organizations: Organizaciones
+      administrators: Administradores
       settings: Configuración global
       spending_proposals: Propuestas de inversión
       stats: Estadísticas
@@ -300,6 +301,16 @@ es:
       title_profiles: Perfiles
       title_banners: Banners
       title_site_customization: Personalizar sitio
+    administrators:
+      index:
+        title: Administradores
+      administrator:
+        add: Añadir como Administrador
+        delete: Borrar
+      search:
+        email_placeholder: Buscar usuario por email
+        search: Buscar
+        user_not_found: Usuario no encontrado
     moderators:
       index:
         title: Moderadores

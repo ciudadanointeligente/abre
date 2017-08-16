@@ -8,6 +8,7 @@
       <% end %>
     </li>
 
+
     <li class="section-title">
       <a href="#">
         <span class="icon-tag"></span>
@@ -127,20 +128,18 @@
         <span class="icon-organizations"></span>
         <strong><%= t("admin.menu.title_profiles") %></strong>
       </a>
-      <ul <%= "class=is-active" if menu_profiles? %>>
-        <li <%= "class=active" if controller_name == "officials" %>>
-          <%= link_to t("admin.menu.officials"), admin_officials_path %>
-        </li>
 
+      <ul <%= "class=is-active" if menu_profiles? %>>
+        <li <%= 'class=active' if controller_name == 'administrators' %>>
+          <%= link_to t('admin.menu.administrators'), admin_administrators_path %>
+        </li>
         <li <%= 'class=active' if controller_name == 'moderators' %>>
           <%= link_to t('admin.menu.moderators'), admin_moderators_path%>
         </li>
-
-        <!-- <li <%= 'class=active' if controller_name == 'valuators' %>>
-          <%= link_to t('admin.menu.valuators'), admin_valuators_path %>
+        <li <%= "class=active" if controller_name == "officials" %>>
+          <%= link_to t("admin.menu.officials"), admin_officials_path %>
         </li>
-
-        <li <%= 'class=active' if controller_name == 'managers' %>>
+        <!-- <li <%= 'class=active' if controller_name == 'managers' %>>
           <%= link_to t('admin.menu.managers'), admin_managers_path %>
         </li> -->
       </ul>
@@ -182,6 +181,15 @@
         <strong><%= t('admin.menu.geozones') %></strong>
       <% end %>
     </li>
+
+
+    <li class="section-title">
+      <%= link_to admin_stats_path do %>
+      <span class="icon-settings"></span>
+        <strong>Estadísticas</strong>
+      <% end %>
+    </li>
+
 
     <% if feature?(:signature_sheets) %>
       <li class="section-title" <%= "class=active" if controller_name == "signature_sheets" %>>
