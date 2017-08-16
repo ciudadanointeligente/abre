@@ -3,49 +3,43 @@
   <%= render "shared/canonical", href: polls_url %>
 <% end %>
 
-
-
-
-<div class="row">
-
-  <div class="small-12">
-    <%= render 'subnav', i18n_namespace: "polls.index" %>
-  </div>
-
-  <h1 class="text-center title-page">
+<div class="text-width">
+  <h1 class="page-title">
     <%= t("polls.index.title") %>
   </h1>
-  <div class="small-12 column">
+</div>
+
+<div class="row collapse">
+  <div class="small-12 medium-9 column">
       <!-- TODO: Acá se debe mostrar el problema elegido -->
-      <div class="float-left">
-        <div class="img-poll">
-          <%= image_tag(image_path_for('foto1.jpg')) %>
-        </div>
-      </div>
-      <div class="info-poll float-right">
-        <span> <%= t("polls.index.description") %> </span>
+      <div class="img-poll">
+        <%= image_tag(image_path_for('foto1.jpg')) %>
       </div>
   </div>
 </div>
-
-<div class="row">
-
-
-  <div class="text-width">
-  <div class="small-12 column column-with-margin">
-    <% polls_by_geozone_restriction = @polls.group_by(&:geozone_restricted) %>
-
-    <% if polls_by_geozone_restriction[false].present? %>
-      <!-- <h3 class="section-title-divider"><%= t("polls.index.no_geozone_restricted") %></h3> -->
-      <%= render partial: 'poll_group', locals: {poll_group: polls_by_geozone_restriction[false]} %>
-    <% end %>
-
-    <% if polls_by_geozone_restriction[true].present? %>
-      <!-- <h3 class="section-title-divider"><%= t("polls.index.geozone_restricted") %></h3> -->
-      <%= render partial: 'poll_group', locals: {poll_group: polls_by_geozone_restriction[true]} %>
-    <% end %>
-
-    <%= paginate @polls %>
+<div class="row collapse">
+  <div class="small-12 medium-offset-8 medium-4 info-poll overlap bg-gray padding white">
+    <span> <%= t("polls.index.description") %> </span>
   </div>
 </div>
+
+<div class="text-width">
+  <div class="row collapse">
+    <%= render 'subnav', i18n_namespace: "polls.index" %>
+    <div class="small-12 column column-with-margin">
+      <% polls_by_geozone_restriction = @polls.group_by(&:geozone_restricted) %>
+
+      <% if polls_by_geozone_restriction[false].present? %>
+        <!-- <h3 class="section-title-divider"><%= t("polls.index.no_geozone_restricted") %></h3> -->
+        <%= render partial: 'poll_group', locals: {poll_group: polls_by_geozone_restriction[false]} %>
+      <% end %>
+
+      <% if polls_by_geozone_restriction[true].present? %>
+        <!-- <h3 class="section-title-divider"><%= t("polls.index.geozone_restricted") %></h3> -->
+        <%= render partial: 'poll_group', locals: {poll_group: polls_by_geozone_restriction[true]} %>
+      <% end %>
+
+      <%= paginate @polls %>
+    </div>
+  </div>
 </div>

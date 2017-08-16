@@ -1,5 +1,5 @@
 <% poll_group.each do |poll| %>
-  <div class="poll">
+  <div class="proposal">
     <% if poll.answerable_by?(current_user) && poll.votable_by?(current_user) %>
       <%= link_to poll,
               class: "icon-poll-answer can-answer",
@@ -33,10 +33,11 @@
         <span class="sr-only"><%= t("polls.index.cant_answer") %></span>
       </div>
     <% end %>
-    <div class="row">
-      <div class="small-12 medium-2 column">
-        <h3> <%= distance_of_time_in_days(poll.ends_at, Date.today) %> </h3>
-        <p> dias para votar </p>
+    <div class="row collapse">
+      <div class="small-3 medium-2 column">
+        <h4 class="blue counter"> <%= distance_of_time_in_days(poll.ends_at, Date.today) %> </h4>
+        <i class="fa fa-minus blue" aria-hidden="true"></i>
+        <p class="blue"> dias para votar </p>
       </div>
       <div class="small-12 medium-10 column">
         <h3> <%= poll.name %> </h3>
