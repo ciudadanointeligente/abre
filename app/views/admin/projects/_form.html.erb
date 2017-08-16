@@ -56,13 +56,12 @@
 
     </div>
 
-
     <div class="tab-panel" id="panel2d">
       <div class="form-input" >
         <%= f.fields_for :design_events do |de| %>
-          <%= render 'design_event_fields', f: de  %>
+          <%= render 'design_event_fields', {f: de, c: $count}  %>
         <% end %>
-          <%= link_to_add_association 'Agregar taller de diseño', f, :design_events %>
+        <%= link_to_add_association 'Agregar taller de diseño', f, :design_events %>
       </div>
     </div>
 

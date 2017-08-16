@@ -5,9 +5,15 @@
   <%= f.input :starts_at %>
   <%= f.input :description %>
   <%= f.input :summary %>
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :image %>
     <%= f.file_field :image %>
+  </div> -->
+
+  <div class="controls">
+    <%= file_field_tag ("images[" + ($count+=1).to_s + "][]"), type: :file, multiple: true, label: false %>
   </div>
+
+
   <%= link_to_remove_association "Eliminar taller de diseño", f, {wrapper_class: 'design-event-nested'} %>
 </div>
