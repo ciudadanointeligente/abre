@@ -180,6 +180,8 @@ es:
         no_projects: "No hay proyectos activos"
         create: "Crear proyecto"
         title: "Seguimiento de Proyectos"
+        name: Título
+        proposal: Propuesta/s
       new:
         submit_button: "Crear proyecto"
         title: "Proyectos"
@@ -191,6 +193,9 @@ es:
           design: "Talleres de diseño"
           implementation: "Implementación"
           evaluation: "Evaluación"
+      flash:
+        actions:
+          update: "Proyecto actualizado con éxito"
     problems:
       flash:
         actions:

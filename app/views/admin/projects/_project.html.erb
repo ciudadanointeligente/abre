@@ -11,9 +11,8 @@
     <%= link_to t("admin.actions.edit"),
                 edit_admin_project_path(project),
                 class: "button hollow" %>
-    <%= link_to t("admin.actions.destroy"),
-          admin_project_path(project),
-          method: :delete,
+    <%= link_to "Ver en la web",
+          projects_path,
           class: "button hollow warning" %>
   </td>
 
