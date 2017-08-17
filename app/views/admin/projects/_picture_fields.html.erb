@@ -5,8 +5,8 @@
   </div> -->
 
   <div class="controls">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.input :image %>
   </div>
+  <%= link_to_remove_association "Eliminar imagen", f, {wrapper_class: 'picture-nested'} %>
 
 </div>
