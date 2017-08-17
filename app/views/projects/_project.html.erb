@@ -1,65 +1,97 @@
 <div class="text-width" id="<%= dom_id(project) %>">
 	<p class="small-without-line blue text-center"> proyecto </p>
 	<h2 class="text-center"><%= project.name %></h2>
-	<% unless project.responsible_official_name.empty? %>
+	<% unless project.responsible_official_name.nil? %>
 		<p class="text-center"> Funcionario encargado: <%= project.responsible_official_name %> <a href="mailto:<%= project.responsible_official_mail%>?Subject=Abre"><%= project.responsible_official_mail%> </a></p>
 	<% end %>
-	<ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
-	  <li class="tabs-title is-active"><a href="#<%= dom_id(project) %>panel1d" aria-selected="true"> <%= title_proposals_section(project) %> </a></li>
-	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel2d">Talleres de Diseño</a></li>
-	  <!-- <li class="tabs-title"><a href="#<%= dom_id(project) %>panel3d"><%= t("admin.projects.edit.menu.implementation") %></a></li>
-	  <li class="tabs-title"><a href="#<%= dom_id(project) %>panel4d"><%= t("admin.projects.edit.menu.evaluation") %></a></li> -->
-	</ul>
 
-	<div class="tabs-content" data-tabs-content="deeplinked-tabs">
+	<!-- Timeline -->
+<section class="cd-horizontal-timeline">
+	<div class="timeline">
+		<div class="events-wrapper">
+			<div class="events" style="width:100%">
+				<ol class="no-bullet">
+					<li><a href="#0" data-date="01/01/2017" class="selected">Propuesta</a></li>
+					<li><a href="#0" data-date="01/06/2017">Diseño</a></li>
+					<li><a href="#0" data-date="01/08/2017">Implementación</a></li>
+					<li><a href="#0" data-date="01/12/2017">Evaluación</a></li>
+					<!-- other dates here -->
+				</ol>
 
-		<div class="tabs-panel is-active" id="<%= dom_id(project) %>panel1d">
-			<div class="row">
-				<h4><%= title_proposals_section(project) %>  </h2>
+				<span class="filling-line" aria-hidden="true"></span>
+			</div> <!-- .events -->
+		</div> <!-- .events-wrapper -->
+
+		<ul class="cd-timeline-navigation no-bullet">
+			<li><a href="#0" class="prev inactive">Prev</a></li>
+			<li><a href="#0" class="next">Next</a></li>
+		</ul> <!-- .cd-timeline-navigation -->
+	</div> <!-- .timeline -->
+
+	<div class="events-content">
+		<ol class="no-bullet">
+			<li class="selected" data-date="01/01/2017">
+				<h2><%= title_proposals_section(project) %></h2>
 				<% project.proposals.each do |p| %>
-					<p> <strong>
+					<h4><%= p.title %></h4>
+					<p>
+						<i class="fa fa-map-marker"></i> <%= p.geozones_name %> <span class="line-text">|</span>
+						<i class="fa fa-calendar"> </i> <%= l p.created_at.to_date %>
+						<% if p.author.hidden? || p.author.erased? %>
+							<span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+							<span><%= t("proposals.show.author_deleted") %></span>
+						<% else %>
+						<span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+							<span class> <%= p.responsible_name %> </span>
+						<% end %>
+						<span class="line-text">|</span> <%= p.cached_votes_up %> votos
+					</p>
+					<p>
+						<%= p.summary %>...
 						<%= link_to proposal_path(p) do %>
-						<%= p.title %>:
-					  <% end %>
-					</strong> <%= p.summary %> | <%= p.cached_votes_up %> votos</p>
+							Ver más
+						<% end %>
+					</p>
+					<hr>
 				<% end %>
-			</div>
-		</div>
+			</li>
 
-	  <div class="tabs-panel" id="<%= dom_id(project) %>panel2d">
-	    <div class="row">
-				<h4>Talleres de Diseño </h2>
+			<li data-date="01/06/2017">
+				<h3>Diseño</h3>
 				<% project.design_events.each do |d| %>
 					<p>
 						<i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
-							| <i class="fa fa-map-marker"> </i> <%= d.place %>
+							<span class="line-text">|</span> <i class="fa fa-map-marker"> </i> <%= d.place %>
 						<% unless d.pax.nil? %>
-							| <i class="fa fa-users"> </i> <%= d.pax %> asistentes
+							<span class="line-text">|</span> <i class="fa fa-users"> </i> <%= d.pax %> asistentes
 						<% end %>
 					</p>
 					<p> <%= d.name %>:
 						<% if !d.summary.empty? %> <%= d.summary %>
 						<% else %> <%= d.description %>  <% end %>
 					</p>
+					<hr>
 				<% end %>
+			</li>
 
+			<li data-date="01/08/2017">
+				<h3>Implementación</h3>
+				<p>
+					Este proyecto aún no ha comenzado su implementación.
+				</p>
+			</li>
 
-	    </div>
-	  </div>
+			<li data-date="01/12/2017">
+				<h3>Evaluación</h3>
+				<p>
+					Una vez se termine la implementación comenzará la etapa de evaluación del proyecto.
+				</p>
+			</li>
 
-	  <!-- <div class="tabs-panel" id="<%= dom_id(project) %>panel3d">
-			<div class="row">
-				<h4>Implementación</h2>
+			<!-- other descriptions here -->
+		</ol>
+	</div> <!-- .events-content -->
+</section>
+<!-- End timeline -->
 
-	    </div>
-	  </div>
-
-	  <div class="tabs-panel" id="<%= dom_id(project) %>panel4d">
-			<div class="row">
-				<h4>Evaluación</h2>
-
-			</div>
-	  </div> -->
-
-	</div>
 </div>
