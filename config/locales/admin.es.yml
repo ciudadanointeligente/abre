@@ -175,11 +175,11 @@ es:
         back: Volver a
         title: Administración
     projects:
-      title: "Proyecto"
+      title: "Seguimiento"
       index:
         no_projects: "No hay proyectos activos"
         create: "Crear proyecto"
-        title: "Proyectos"
+        title: "Seguimiento de Proyectos"
       new:
         submit_button: "Crear proyecto"
         title: "Proyectos"
@@ -293,9 +293,9 @@ es:
       title_categories: Categorías
       title_moderated_content: Contenido moderado
       title_problems: Desafíos
-      title_projects: Proyectos
+      title_projects: Seguimiento
       view_problems: Ver desafíos
-      view_projects: Ver proyectos
+      view_projects: Ver seguimiento de proyectos
       title_budgets: Presupuestos
       title_polls: Votaciones
       title_profiles: Perfiles

@@ -44,7 +44,7 @@ private
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :responsible_official_name, :responsible_official_mail, :starts_at, :ends_at, :geozone_restricted, geozone_ids: [], proposal_ids: [], design_events_attributes: [:starts_at, :name, :place, :pax, :_destroy, :id, :description, :summary, :document, pictures_attributes: [:id, :_destroy] ] )
+    params.require(:project).permit(:name, :description, :responsible_official_name, :responsible_official_mail, :responsible_neighbour_name, :responsible_neighbour_mail, :responsible_neighbour_phone, :starts_at, :ends_at, :geozone_restricted, geozone_ids: [], proposal_ids: [], design_events_attributes: [:starts_at, :name, :place, :pax, :_destroy, :id, :description, :summary, :document, pictures_attributes: [:id, :_destroy] ], reports_attributes: [:description, :id, :_destroy, pictures_attributes: [:id, :_destroy]] )
   end
 
 end

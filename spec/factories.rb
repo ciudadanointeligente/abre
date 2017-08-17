@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :report do
+    description "MyText"
+  end
   factory :picture do
     
   end
