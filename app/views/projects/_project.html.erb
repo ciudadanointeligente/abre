@@ -34,7 +34,7 @@
 				<h2><%= title_proposals_section(project) %></h2>
 				<% project.proposals.each do |p| %>
 					<h4><%= p.title %></h4>
-					<p class="details">
+					<p>
 						<i class="fa fa-map-marker"></i> <%= p.geozones_name %> <span class="line-text">|</span>
 						<i class="fa fa-calendar"> </i> <%= l p.created_at.to_date %>
 						<% if p.author.hidden? || p.author.erased? %>
@@ -58,21 +58,19 @@
 
 			<li data-date="01/06/2017">
 				<h3>Diseño</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
 				<% project.design_events.each do |d| %>
 					<p>
 						<i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
-							| <i class="fa fa-map-marker"> </i> <%= d.place %>
+							<span class="line-text">|</span> <i class="fa fa-map-marker"> </i> <%= d.place %>
 						<% unless d.pax.nil? %>
-							| <i class="fa fa-users"> </i> <%= d.pax %> asistentes
+							<span class="line-text">|</span> <i class="fa fa-users"> </i> <%= d.pax %> asistentes
 						<% end %>
 					</p>
 					<p> <%= d.name %>:
 						<% if !d.summary.empty? %> <%= d.summary %>
 						<% else %> <%= d.description %>  <% end %>
 					</p>
+					<hr>
 				<% end %>
 			</li>
 
