@@ -31,17 +31,28 @@
 	<div class="events-content">
 		<ol class="no-bullet">
 			<li class="selected" data-date="01/01/2017">
-				<h3><%= title_proposals_section(project) %></h3>
-				<p>Porcentaje de aprobación: </p>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-				</p>
+				<h2><%= title_proposals_section(project) %></h2>
 				<% project.proposals.each do |p| %>
-					<p> <strong>
-						<%= link_to proposal_path(p) do %>
-						<%= p.title %>:
+					<h4><%= p.title %></h4>
+					<p class="details">
+						<i class="fa fa-map-marker"></i> <%= p.geozones_name %> <span class="line-text">|</span>
+						<i class="fa fa-calendar"> </i> <%= l p.created_at.to_date %>
+						<% if p.author.hidden? || p.author.erased? %>
+							<span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+							<span><%= t("proposals.show.author_deleted") %></span>
+						<% else %>
+						<span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+							<span class> <%= p.responsible_name %> </span>
 						<% end %>
-					</strong> <%= p.summary %> | <%= p.cached_votes_up %> votos</p>
+						<span class="line-text">|</span> <%= p.cached_votes_up %> votos
+					</p>
+					<p>
+						<%= p.summary %>...
+						<%= link_to proposal_path(p) do %>
+							Ver más
+						<% end %>
+					</p>
+					<hr>
 				<% end %>
 			</li>
 
