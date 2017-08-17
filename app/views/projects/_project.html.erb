@@ -2,7 +2,9 @@
 	<p class="small-without-line blue text-center"> proyecto </p>
 	<h2 class="text-center"><%= project.name %></h2>
 	<% unless project.responsible_official_name.nil? %>
+		<% unless project.responsible_official_name.empty? %>
 		<p class="text-center"> Funcionario encargado: <%= project.responsible_official_name %> <a href="mailto:<%= project.responsible_official_mail%>?Subject=Abre"><%= project.responsible_official_mail%> </a></p>
+		<% end %>
 	<% end %>
 
 	<!-- Timeline -->
