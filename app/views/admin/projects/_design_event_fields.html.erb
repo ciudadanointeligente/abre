@@ -10,8 +10,12 @@
     <%= f.file_field :image %>
   </div> -->
 
-  <div class="controls">
-    <%= file_field_tag ("images[" + ($count+=1).to_s + "][]"), type: :file, multiple: true, label: false %>
+
+  <div class="form-input" >
+    <%= f.fields_for :pictures do |ph| %>
+      <%= render 'picture_fields', f: ph  %>
+    <% end %>
+    <%= link_to_add_association 'Agregar foto', f, :pictures %>
   </div>
 
 

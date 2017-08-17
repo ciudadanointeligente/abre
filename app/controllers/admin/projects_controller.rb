@@ -23,21 +23,12 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def edit
-    @project.design_events.build
+    designevent = @project.design_events.build
+    designevent.pictures.build
   end
 
   def update
-    $count = 0
     if @project.update(project_params)
-      p params[:images]
-      if params[:images]
-         params[:images].each { |de|
-           de.each { |image|
-             p image
-           }
-         }
-      end
-      p "PARAAAAAAA"
       redirect_to admin_projects_url, notice: t("flash.actions.update.project")
     else
       render :edit
@@ -53,7 +44,7 @@ private
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :responsible_official_name, :responsible_official_mail, :starts_at, :ends_at, :geozone_restricted, geozone_ids: [], proposal_ids: [], design_events_attributes: [:starts_at, :name, :place, :pax, :_destroy, :id, :description, :summary, pictures: []] )
+    params.require(:project).permit(:name, :description, :responsible_official_name, :responsible_official_mail, :starts_at, :ends_at, :geozone_restricted, geozone_ids: [], proposal_ids: [], design_events_attributes: [:starts_at, :name, :place, :pax, :_destroy, :id, :description, :summary, pictures_attributes: [:image] ] )
   end
 
 end

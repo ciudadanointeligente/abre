@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816190905) do
+ActiveRecord::Schema.define(version: 20170817134541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -408,9 +408,13 @@ ActiveRecord::Schema.define(version: 20170816190905) do
   add_index "organizations", ["user_id"], name: "index_organizations_on_user_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "design_event_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "pictures", ["design_event_id"], name: "index_pictures_on_design_event_id", using: :btree
@@ -886,7 +890,7 @@ ActiveRecord::Schema.define(version: 20170816190905) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-08-16 18:46:55', null: false
+    t.datetime "password_changed_at",                       default: '2017-08-17 13:45:26', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""
