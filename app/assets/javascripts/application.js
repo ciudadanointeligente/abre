@@ -53,6 +53,7 @@
 //= require checkbox_toggle
 //= require custom
 //= require cocoon
+//= require projects
 
 
 var initialize_modules = function() {

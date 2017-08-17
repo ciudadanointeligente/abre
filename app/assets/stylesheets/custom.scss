@@ -113,6 +113,10 @@ h4.page-title {
     border-radius: 0;
 }
 
+hr {
+    border-bottom: 1px solid #E1EAF7;
+}
+
 .tags a, .tag-cloud a, .categories a, .geozone a, .sidebar-links a, .tags span {
     background: $gray-two;
     border-radius: 0;
@@ -162,6 +166,11 @@ h4.page-title {
   letter-spacing: 3px;
   padding: 2px 9px;
   border-radius: 3px;
+}
+
+h4.counter {
+    letter-spacing: 0;
+    margin-bottom: 0px;
 }
 
 // Text color
@@ -511,23 +520,16 @@ ul, ol, dl {
   color: $white;
 }
 
-.img-poll{
-  clip: rect(0px, 900px, 220px, 0px);
+.img-poll {
+  position: relative;
+  height: 290px;
+}
+
+.img-poll img {
+  clip: rect(0px, 2000px, 420px, 0px);
   position: absolute;
   z-index: -1;
   width: 100%;
-}
-
-.end-poll{
-  border-bottom: 1px solid $gray-three;
-}
-
-.info-poll{
-  max-width: 500px;
-  margin-top: 5rem;
-  padding: 2rem;
-  background-color: $gray-two;
-  color: $white;
 }
 
 .menu-poll{
