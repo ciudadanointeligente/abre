@@ -1,10 +1,9 @@
 <div class="text-width" id="<%= dom_id(project) %>">
 	<p class="small-without-line blue text-center"> proyecto </p>
 	<h2 class="text-center"><%= project.name %></h2>
-	<% unless project.responsible_official_name.nil? %>
-		<% unless project.responsible_official_name.empty? %>
+
+	<% unless project.responsible_official_name.nil? || project.responsible_official_name.empty? %>
 		<p class="text-center"> Funcionario encargado: <%= project.responsible_official_name %> <a href="mailto:<%= project.responsible_official_mail%>?Subject=Abre"><%= project.responsible_official_mail%> </a></p>
-		<% end %>
 	<% end %>
 
 	<!-- Timeline -->
@@ -70,11 +69,24 @@
 						<% unless d.pax.nil? %>
 							<span class="line-text">|</span> <i class="fa fa-users"> </i> <%= d.pax %> asistentes
 						<% end %>
+						<% if d.document.exists?  %>
+							<span class="line-text">|</span>
+							<%= link_to "Registro del taller", d.document.url%>
+						<% end %>
 					</p>
 					<p> <%= d.name %>:
 						<% if !d.summary.empty? %> <%= d.summary %>
 						<% else %> <%= d.description %>  <% end %>
 					</p>
+					<div class="gallery row">
+						<% d.pictures.each do |pic| %>
+						<% if pic.image.exists?  %>
+							<div class="small-12 medium-4 column">
+								<%= image_tag pic.image.url(:big) %>
+							</div>
+						<% end %>
+						<% end %>
+					</div>
 					<hr>
 				<% end %>
 			</li>

@@ -90,8 +90,15 @@ es:
         name: Título
         responsible_official_name: Nombre funcionario responsable
         responsible_official_mail: Mail funcionario responsable
+        responsible_neighbour_phone: Teléfono vecino/a responsable
+        responsible_neighbour_name: Nombre vecino/a responsable
+        responsible_neighbour_mail: Mail vecino/a responsable
         proposals: Propuestas
         description: Descripción
+      report:
+        description: Descripción
+      picture:
+        image: Imagen
       design_event:
         name: Nombre
         place: Lugar

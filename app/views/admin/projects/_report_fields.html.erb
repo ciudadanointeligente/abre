@@ -1,0 +1,13 @@
+<div class="report-nested" id="panel2d">
+  <h4> Reporte </h4>
+  <%= f.input :description, input_html: { rows: 3} %>
+
+  <div class="form-input" >
+    <%= f.fields_for :pictures do |ph| %>
+      <%= render 'picture_fields', f: ph  %>
+    <% end %>
+    <%= link_to_add_association 'Agregar foto', f, :pictures %>
+  </div>
+
+  <%= link_to_remove_association "Eliminar reporte", f, {wrapper_class: 'report-nested'} %>
+</div>
