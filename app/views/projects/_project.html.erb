@@ -65,11 +65,22 @@
 						<% unless d.pax.nil? %>
 							<span class="line-text">|</span> <i class="fa fa-users"> </i> <%= d.pax %> asistentes
 						<% end %>
+						<span class="line-text">|</span>
+						<% unless d.document.nil?  %>
+							<%= link_to "Registro del taller", d.document.url%>
+						<% end %>
 					</p>
 					<p> <%= d.name %>:
 						<% if !d.summary.empty? %> <%= d.summary %>
 						<% else %> <%= d.description %>  <% end %>
 					</p>
+					<div class="gallery row">
+						<% d.pictures.each do |pic| %>
+						<div class="small-12 medium-4 column">
+							<%= image_tag pic.image.url(:big) %>
+						</div>
+						<% end %>
+					</div>
 					<hr>
 				<% end %>
 			</li>
