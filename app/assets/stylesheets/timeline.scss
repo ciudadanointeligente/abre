@@ -111,6 +111,7 @@ Main Components
   text-align: center;
   padding-bottom: 15px;
   color: $gray-two;
+  font-size: 14px;
   /* fix bug on Safari - text flickering while timeline translates */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -193,8 +194,8 @@ Main Components
   position: absolute;
   height: 16px;
   width: 16px;
-	left: 62%;
-	top: 54%;
+	left: 50%;
+	top: 50%;
   bottom: auto;
   right: auto;
   -webkit-transform: translateX(-50%) translateY(-50%);
