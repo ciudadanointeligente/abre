@@ -44,6 +44,10 @@
             <% if @proposal.problem.present? %>
             <span class="line-text">|</span> Desafío: <%= link_to @proposal.problem.title, problem_path(@proposal.problem) %></strong>
             <% end %>
+            <% if current_user %>
+              <span class="bullet">&nbsp;&bull;&nbsp;</span>
+              <%= render 'proposals/flag_actions', proposal: @proposal %>
+            <% end %>
         </p>
         <% if @proposal.retired? %>
           <div data-alert class="callout alert margin-top proposal-retired">

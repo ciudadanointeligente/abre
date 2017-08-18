@@ -753,5 +753,8 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
     create_proposal: Crea una propuesta para el desafío de la Municipalidad de Peñalolen
   flash:
     actions:
+      update:
+        project: "Proyecto actualizado exitosamente"
       create:
         problem: "Desafío creado exitosamente"
+        project: "Proyecto creado exitosamente"

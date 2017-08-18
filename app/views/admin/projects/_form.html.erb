@@ -32,7 +32,7 @@
 
       <div class="row">
         <div class="small-12 medium-12 column">
-          <%= f.input :description %>
+          <%= f.input :description, input_html: { rows: 4} %>
         </div>
       </div>
 
@@ -56,17 +56,38 @@
 
     </div>
 
-
-    <div class="tab-panel" id="panel2d">
+    <div class="tabs-panel" id="panel2d">
       <div class="form-input" >
         <%= f.fields_for :design_events do |de| %>
-          <%= render 'design_event_fields', f: de  %>
+          <%= render 'design_event_fields', f: de %>
         <% end %>
-          <%= link_to_add_association 'Agregar taller de diseño', f, :design_events %>
+        <%= link_to_add_association 'Agregar taller de diseño', f, :design_events %>
       </div>
     </div>
 
     <div class="tabs-panel" id="panel3d">
+      <div class="row">
+        <div class="small-12 medium-12 column">
+          <%= f.input :responsible_neighbour_name %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 medium-6 column">
+          <%= f.input :responsible_neighbour_mail %>
+        </div>
+        <div class="small-12 medium-6 column">
+          <%= f.input :responsible_neighbour_phone %>
+        </div>
+      </div>
+
+      <div class="form-input" >
+        <%= f.fields_for :reports do |r| %>
+          <%= render 'report_fields', f: r  %>
+        <% end %>
+        <%= link_to_add_association 'Agregar reporte', f, :reports %>
+      </div>
+
     </div>
 
     <div class="tabs-panel" id="panel4d">

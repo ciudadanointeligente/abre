@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808212854) do
+ActiveRecord::Schema.define(version: 20170817162013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -270,11 +270,15 @@ ActiveRecord::Schema.define(version: 20170808212854) do
     t.datetime "starts_at"
     t.string   "place"
     t.integer  "pax"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "project_id"
     t.text     "description"
     t.text     "summary"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   add_index "design_events", ["project_id"], name: "index_design_events_on_project_id", using: :btree
@@ -406,6 +410,20 @@ ActiveRecord::Schema.define(version: 20170808212854) do
   end
 
   add_index "organizations", ["user_id"], name: "index_organizations_on_user_id", using: :btree
+
+  create_table "pictures", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "design_event_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "report_id"
+  end
+
+  add_index "pictures", ["design_event_id"], name: "index_pictures_on_design_event_id", using: :btree
+  add_index "pictures", ["report_id"], name: "index_pictures_on_report_id", using: :btree
 
   create_table "poll_answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -618,10 +636,15 @@ ActiveRecord::Schema.define(version: 20170808212854) do
     t.datetime "ends_at"
     t.boolean  "geozone_restricted"
     t.integer  "proposal_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "responsible_official_name"
     t.string   "responsible_official_mail"
+    t.date     "implementation_starts_at"
+    t.date     "implementation_ends_at"
+    t.string   "responsible_neighbour_name"
+    t.string   "responsible_neighbour_mail"
+    t.string   "responsible_neighbour_phone"
   end
 
   add_index "projects", ["proposal_id"], name: "index_projects_on_proposal_id", using: :btree
@@ -678,6 +701,15 @@ ActiveRecord::Schema.define(version: 20170808212854) do
   add_index "proposals", ["summary"], name: "index_proposals_on_summary", using: :btree
   add_index "proposals", ["title"], name: "index_proposals_on_title", using: :btree
   add_index "proposals", ["tsv"], name: "index_proposals_on_tsv", using: :gin
+
+  create_table "reports", force: :cascade do |t|
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "project_id"
+  end
+
+  add_index "reports", ["project_id"], name: "index_reports_on_project_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string "key"
@@ -878,7 +910,7 @@ ActiveRecord::Schema.define(version: 20170808212854) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-07-11 15:32:14', null: false
+    t.datetime "password_changed_at",                       default: '2017-08-17 13:45:26', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""
@@ -986,6 +1018,8 @@ ActiveRecord::Schema.define(version: 20170808212854) do
   add_foreign_key "moderators", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "organizations", "users"
+  add_foreign_key "pictures", "design_events"
+  add_foreign_key "pictures", "reports"
   add_foreign_key "poll_answers", "poll_questions", column: "question_id"
   add_foreign_key "poll_booth_assignments", "polls"
   add_foreign_key "poll_final_recounts", "poll_booth_assignments", column: "booth_assignment_id"
@@ -1007,6 +1041,7 @@ ActiveRecord::Schema.define(version: 20170808212854) do
   add_foreign_key "poll_white_results", "poll_officer_assignments", column: "officer_assignment_id"
   add_foreign_key "problems", "users"
   add_foreign_key "proposals", "problems"
+  add_foreign_key "reports", "projects"
   add_foreign_key "users", "geozones"
   add_foreign_key "valuators", "users"
 end

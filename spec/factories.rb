@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :report do
+    description "MyText"
+  end
+  factory :picture do
+    
+  end
   factory :design_event do
     name "MyString"
     date "2017-05-31 11:33:15"

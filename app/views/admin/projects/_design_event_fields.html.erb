@@ -1,9 +1,29 @@
 <div class="design-event-nested" id="panel2d">
+  <h4> Taller de diseño </h4>
   <%= f.input :name %>
-  <%= f.input :place %>
-  <%= f.input :pax %>
-  <%= f.input :starts_at %>
-  <%= f.input :description %>
-  <%= f.input :summary %>
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.input :place %>
+    </div>
+    <div class="small-12 medium-6 column">
+      <%= f.input :pax %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-12 column">
+    <%= f.input :starts_at, input_html: { class: 'small-6 medium-2'} %>
+    </div>
+  </div>
+  <%= f.input :description, input_html: { rows: 3} %>
+  <%= f.input :summary, input_html: { rows: 3}  %>
+  <%= f.input :document %>
+  <div class="form-input" >
+    <%= f.fields_for :pictures do |ph| %>
+      <%= render 'picture_fields', f: ph  %>
+    <% end %>
+    <%= link_to_add_association 'Agregar foto', f, :pictures %>
+  </div>
+
+
   <%= link_to_remove_association "Eliminar taller de diseño", f, {wrapper_class: 'design-event-nested'} %>
 </div>
