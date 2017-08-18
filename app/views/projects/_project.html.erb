@@ -14,9 +14,9 @@
 			<div class="events" style="width:100%">
 				<ol class="no-bullet">
 					<li><a href="#0" data-date="01/01/2017" class="selected">Propuesta</a></li>
-					<li><a href="#0" data-date="01/06/2017">Diseño</a></li>
-					<li><a href="#0" data-date="01/08/2017">Implementación</a></li>
-					<li><a href="#0" data-date="01/12/2017">Evaluación</a></li>
+					<li><a href="#0" data-date="01/03/2017">Diseño</a></li>
+					<li><a href="#0" data-date="01/05/2017">Implementación</a></li>
+					<li><a href="#0" data-date="01/07/2017">Evaluación</a></li>
 					<!-- other dates here -->
 				</ol>
 
@@ -58,8 +58,11 @@
 				<% end %>
 			</li>
 
-			<li data-date="01/06/2017">
+			<li data-date="01/03/2017">
 				<h3>Diseño</h3>
+				<p>
+					A través de talleres participativos, la comunidad y el municipio diseñarán una propuesta final y un plan de trabajo para llevar a cabo su implementación en conjunto.
+				</p>
 				<% project.design_events.each do |d| %>
 					<p>
 						<i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
@@ -76,17 +79,17 @@
 				<% end %>
 			</li>
 
-			<li data-date="01/08/2017">
+			<li data-date="01/05/2017">
 				<h3>Implementación</h3>
 				<p>
-					Este proyecto aún no ha comenzado su implementación.
+					Infórmate de los avances del proyecto, revisa el cumplimiento de las tareas o contacta a tu encargado vecinal para tener más información de esta etapa.
 				</p>
 			</li>
 
-			<li data-date="01/12/2017">
+			<li data-date="01/07/2017">
 				<h3>Evaluación</h3>
 				<p>
-					Una vez se termine la implementación comenzará la etapa de evaluación del proyecto.
+					¿Qué te pareció la implementación del proyecto? ¿Crees que hay algo que se pudo hacer mejor? Al terminar el proceso aquí tendrás un espacio para dejar tu opinión y compartirla con la comunidad.
 				</p>
 			</li>
 
