@@ -4,7 +4,7 @@
 
 Abre is a project of Ciudadano Inteligente to open up local governments to their citizens. It consists of a methodology that includes raising and prioritizing proposals, designing workshops, monitoring and implementation, and evaluation of the process.
 
-The platform is an adaptation of Consul (https://github.com/consul/consul), and allows uploading, modifying and monitoring a proposal through the different steps of the methodology.
+The platform is an adaptation of [Consul](https://github.com/consul/consul), and allows uploading, modifying and monitoring a proposal through the different steps of the methodology.
 
 
 ## Tech stack
