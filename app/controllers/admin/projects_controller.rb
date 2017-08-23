@@ -31,6 +31,7 @@ class Admin::ProjectsController < Admin::BaseController
     if @project.update(project_params)
       redirect_to admin_projects_url, notice: t("flash.actions.update.project")
     else
+      p @project.errors
       render :edit
     end
   end

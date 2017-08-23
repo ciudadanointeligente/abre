@@ -99,6 +99,8 @@ es:
         description: Descripción
       picture:
         image: Imagen
+      document:
+        document: Registro del taller
       design_event:
         name: Nombre
         place: Lugar
@@ -106,6 +108,7 @@ es:
         starts_at: Fecha y hora
         description: Descripción
         summary: Resumen de lo que fue el taller de diseño
+        document: Registro del taller
       proposal:
         author: "Autor"
         title: "Título"
@@ -183,6 +186,10 @@ es:
         body: Contenido
     errors:
       models:
+        picture:
+            attributes:
+              image_file_size:
+                in_between: "La imagen no debe superar los 500 KB"
         user:
           attributes:
             email:
