@@ -17,6 +17,8 @@
   <%= f.input :description, input_html: { rows: 3} %>
   <%= f.input :summary, input_html: { rows: 3}  %>
   <%= f.input :document %>
+  <%= f.label "Imagenes"%>
+  <p class="note">Las imagenes no deben superar los 500 kilobytes </p>
   <div class="form-input" >
     <%= f.fields_for :pictures do |ph| %>
       <%= render 'picture_fields', f: ph  %>
