@@ -94,8 +94,21 @@
 			<li data-date="01/05/2017">
 				<h3>Implementación</h3>
 				<p>
+					<% unless project.implementation_starts_at.nil? || project.implementation_starts_at.empty? %>
+						<i class="fa fa-calendar"> </i> Fecha inicio: <%= project.implementation_starts_at %>
+					<% end %>
+					<% unless project.implementation_ends_at.nil? || project.implementation_ends_at.empty? %>
+						<span class="line-text">|</span> <i class="fa fa-calendar"> </i> Fecha término: <%= project.implementation_ends_at %>
+					<% end %>
+					<% unless project.responsible_neighbour_name.nil? || project.responsible_neighbour_name.empty? %>
+						<span class="line-text">|</span> <i class="fa fa-calendar"> </i> Encargado vecinal: <%= project.responsible_neighbour_name %>
+					<% end %>
+					<hr>
+				</p>
+				<p>
 					Infórmate de los avances del proyecto, revisa el cumplimiento de las tareas o contacta a tu encargado vecinal para tener más información de esta etapa.
 				</p>
+
 			</li>
 
 			<li data-date="01/07/2017">
