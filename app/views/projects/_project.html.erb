@@ -105,6 +105,22 @@
 					<% end %>
 					<hr>
 				</p>
+
+				<% project.reports.each do |report|%>
+					<h4 class="small blue"> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h4>
+					<p> <%= report.description %> </p>
+
+
+					<div class="gallery row">
+						<% report.pictures.each do |pic| %>
+							<% if pic.image.exists?  %>
+								<div class="small-12 medium-4 column">
+									<%= image_tag pic.image.url(:big) %>
+								</div>
+							<% end %>
+						<% end %>
+					</div>
+				<% end %>
 				<p>
 					Infórmate de los avances del proyecto, revisa el cumplimiento de las tareas o contacta a tu encargado vecinal para tener más información de esta etapa.
 				</p>
@@ -113,6 +129,7 @@
 
 			<li data-date="01/07/2017">
 				<h3>Evaluación</h3>
+
 				<p>
 					¿Qué te pareció la implementación del proyecto? ¿Crees que hay algo que se pudo hacer mejor? Al terminar el proceso aquí tendrás un espacio para dejar tu opinión y compartirla con la comunidad.
 				</p>
