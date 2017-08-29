@@ -16,6 +16,14 @@ module AdminHelper
     ["tags"].include? controller_name
   end
 
+  def menu_settings?
+    ["settings"].include? controller_name
+  end
+
+  def menu_images?
+    ["images"].include? controller_name
+  end
+
   def menu_moderated_content?
     ["proposals", "debates", "comments", "users"].include? controller_name
   end

@@ -14,26 +14,28 @@
   <div class="text-width">
     <div id="proposals" class="proposals-list">
 
-      <div class="small-12 search-results">
-        <% if @search_terms || @advanced_search_terms %>
-          <h2>
-            <%= page_entries_info @proposals %>
-            <% if !@advanced_search_terms %>
-              <%= t("proposals.index.search_results", count: @proposals.size, search_term: @search_terms) %>
-            <% end %>
-          </h2>
-        <% elsif @tag_filter %>
-          <h2>
-            <%= page_entries_info @proposals %>
-            <%= t("proposals.index.filter_topic", count: @proposals.size, topic: @tag_filter) %>
-          </h2>
-        <% elsif params[:retired].present? %>
-          <h2><%= t("proposals.index.retired_proposals") %>
-        <% end %>
-      </div>
-
       <div class="padding">
+
+        <div class="small-12 search-results">
+          <% if @search_terms || @advanced_search_terms %>
+            <p class="padding bg-light-gray">
+              <%= page_entries_info @proposals %>
+              <% if !@advanced_search_terms %>
+                <%= t("proposals.index.search_results", count: @proposals.size, search_term: @search_terms) %>
+              <% end %>
+            </p>
+          <% elsif @tag_filter %>
+            <p class="padding bg-light-gray">
+              <%= page_entries_info @proposals %>
+              <%= t("proposals.index.filter_topic", count: @proposals.size, topic: @tag_filter) %>
+            </p>
+          <% elsif params[:retired].present? %>
+            <p class="padding bg-light-gray"><%= t("proposals.index.retired_proposals") %></p>
+          <% end %>
+        </div>
+
         <h1 class="title-page"><%= t("titles.proposals")%> </h1>
+
         <p> <%=t("proposals.index.subtitle") %> </p>
         <% if active_problem.ends_at > Date.today%>
         <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button' %>

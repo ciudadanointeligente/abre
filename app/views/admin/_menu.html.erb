@@ -2,19 +2,24 @@
   <ul id="admin_menu" data-accordion-menu>
 
     <li class="section-title">
-      <%= link_to admin_settings_path do %>
-      <span class="icon-settings"></span>
-        <strong><%= t('admin.menu.site_customization.home') %></strong>
-      <% end %>
+      <a href="#">
+        <span class="icon-settings"></span>
+        <strong><%= t("admin.menu.site_customization.title") %></strong>
+      </a>
+      <ul <%= "class=is-active" if (menu_settings? || menu_images?) %>>
+        <li <%= "class=active" if (request.path.include? "texts" ) %>>
+          <%= link_to t("admin.menu.site_customization.texts"), texts_admin_settings_path %>
+        </li>
+        <li <%= "class=active" if controller_name == "images" %>>
+          <%= link_to t("admin.menu.site_customization.images"), admin_site_customization_images_path %>
+        <li <%= "class=active" if request.path.include? "features" %>>
+          <%= link_to t("admin.menu.site_customization.features"), features_admin_settings_path %>
+        </li>
+        <li>
+          <%= link_to "Otros", admin_settings_path %>
+        </li>
+      </ul>
     </li>
-
-    <li class="section-title">
-      <%= link_to admin_site_customization_images_path do %>
-      <i class="fa fa-picture-o brand" aria-hidden="true"></i>
-        <strong>Personalizar imágenes</strong>
-      <% end %>
-    </li>
-
 
     <li class="section-title">
       <a href="#">

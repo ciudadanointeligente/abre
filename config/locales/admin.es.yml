@@ -291,10 +291,14 @@ es:
       stats: Estadísticas
       signature_sheets: Hojas de firmas
       site_customization:
+        title: Personalizar sitio
         pages: Personalizar páginas
+        texts: Personalizar textos
+        features: Configurar funcionalidades
         images: Personalizar imágenes
         content_blocks: Personalizar bloques
         home: Personalizar sitio
+        images: Personalizar imagenes
       title_categories: Categorías
       title_moderated_content: Contenido moderado
       title_problems: Desafíos
@@ -557,6 +561,7 @@ es:
         banners: Banner style
         banner_imgs: Banner images
         title: Personalizar sitio
+        title_texts: Personalizar textos
         update_setting: Actualizar
         feature_flags: Funcionalidades
         features:

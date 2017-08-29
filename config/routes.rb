@@ -200,7 +200,12 @@ Rails.application.routes.draw do
       get :search, on: :collection
     end
 
-    resources :settings, only: [:index, :update]
+    resources :settings, only: [:index, :update] do
+      get :texts, on: :collection
+      get :features, on: :collection
+    end
+
+
     resources :moderators, only: [:index, :create, :destroy] do
       get :search, on: :collection
     end
