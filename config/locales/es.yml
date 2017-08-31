@@ -345,7 +345,7 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
         most_commented: Más comentadas
         relevance: Más relevantes
         archival_date: Archivadas
-        data_challenges: Desafíos
+        date_challenges: Desafíos
       retired_proposals: Propuestas retiradas
       retired_proposals_link: "Propuestas retiradas por sus autores"
       retired_links:
@@ -365,7 +365,8 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       select_order: Ordenar por
       select_order_long: Estas viendo las propuestas
       start_proposal: Crea una propuesta
-      remaining_time: '%{days}'
+      remaining_time_1: Quedan
+      remaining_time_2: días para crear y apoyar propuestas
       title: Propuestas ciudadanas
       top: Top semanal
       top_link_proposals: Propuestas más apoyadas por categoría

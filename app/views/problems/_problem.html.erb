@@ -32,8 +32,8 @@
 <div class="row collapse">
   <div class="small-12 medium-5 medium-offset-7 large-5 large-offset-7">
     <div class="deadline-problem bg-gray padding white">
-      <% if active_problem.ends_at > Date.today%>
-        <h4 class="white text-center">Quedan <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> días para crear y apoyar propuestas</h4>
+      <% if @problem.ends_at > Date.today%>
+        <h4 class="white text-center"><%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %></h4>
       <% else %>
         <h4 class="white text-center"> Proceso de recepción de propuestas cerrado </h4>
       <% end %>
@@ -60,7 +60,7 @@
       <p> <%= simple_format(@problem.restriction)%> </p>
     <% end %>
   </div>
-  <% if active_problem.ends_at > Date.today%>
+  <% if @problem.ends_at > Date.today%>
     <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button float-right' %>
   <% end %>
 </div>

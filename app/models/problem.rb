@@ -28,4 +28,15 @@ class Problem < ActiveRecord::Base
     end
   end
 
+  def self.valid
+    self.where('"starts_at" < ? AND "ends_at" > ?', Date.today, Date.today)
+  end
+
+  def self.pop
+    self.first
+  end
+
+  def self.clip
+    self.where('"id" != ?', self.pop.id)
+  end
 end

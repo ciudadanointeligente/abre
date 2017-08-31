@@ -51,7 +51,7 @@ class Proposal < ActiveRecord::Base
   scope :sort_by_relevance,        -> { all }
   scope :sort_by_flags,            -> { order(flags_count: :desc, updated_at: :desc) }
   scope :sort_by_archival_date,    -> { archived.sort_by_confidence_score }
-  scope :sort_by_data_challenges,   -> { proposals_for_challenges.sort_by_created_at }
+  scope :sort_by_date_challenges,   -> { proposals_for_challenges.sort_by_created_at }
   scope :archived,                 -> { where("proposals.created_at <= ?", Setting["months_to_archive_proposals"].to_i.months.ago) }
   scope :proposals_for_challenges,  -> { where(for_challenge: true) }
   scope :not_archived,             -> { where("proposals.created_at > ?", Setting["months_to_archive_proposals"].to_i.months.ago) }

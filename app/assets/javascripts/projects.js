@@ -5,7 +5,6 @@
 
 	var ready;
 	ready = function($){
-		console.log("HOLA");
 		var timelines = jQuery('.cd-horizontal-timeline'),
 			eventsMinDistance = 110;
 
