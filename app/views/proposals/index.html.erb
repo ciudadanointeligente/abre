@@ -34,59 +34,55 @@
         </div>
 
         <h1 class="title-page"><%= t("titles.proposals")%> </h1>
-        <p> <%=t("proposals.index.subtitle") %> </p>
-        <!-- Solo  se pueden crear propuestas sin hay un desafio activo o se permite la creación de propuestas que no tengan un desafío asociado -->
-        <% if Setting["feature.proposal_creating_problem"] || Problem.valid.any?  %>
-          <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button' %>
-        <% end %>
+        <p> <%= Setting["section.proposal_subtitle"] %> </p>
       </div>
     </div>
   </div>
 
-
-  <div class="text-width">
-
-    <div class="row collapse">
-      <div class="small-12 medium-4 large-4 columns">
-        <%= yield :header_addon %>
+  <% if Proposal.any? %>
+    <div class="text-width">
+      <div class="row collapse">
+        <div class="small-12 medium-4 large-4 columns">
+          <%= yield :header_addon %>
+        </div>
+        <div class="small-12 medium-8 large-8 columns">
+          <%= render("shared/advanced_search", search_path: proposals_path(page: 1)) unless params[:retired].present? %>
+        </div>
       </div>
-      <div class="small-12 medium-8 large-8 columns">
-        <%= render("shared/advanced_search", search_path: proposals_path(page: 1)) unless params[:retired].present? %>
+      <%= render 'shared/order_links', i18n_namespace: "proposals.index" %>
+      <div class="show-for-small-only">
+        <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button' %>
       </div>
     </div>
-
-    <%= render 'shared/order_links', i18n_namespace: "proposals.index" %>
-
-    <div class="show-for-small-only">
-      <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button' %>
-    </div>
-  </div>
+  <% end %>
 
   <div id="proposals-list">
     <% if Problem.any? %>
-    <div class="text-width">
-      <ul class="tabs" data-tabs id="challenges-tabs">
-        <li class="tabs-title is-active"><a href="#panel<%=Problem.pop.id%>" aria-selected="true"><%= Problem.pop.title %></a></li>
-        <% Problem.clip.each do |problem| %>
-          <li class="tabs-title"><a href="#panel<%=problem.id%>" aria-selected="true"><%= problem.title %></a></li>
-        <% end %>
-      </ul>
-      <div class="tabs-content row no-gutter" data-tabs-content="challenges-tabs">
-        <div class="tabs-panel is-active" id="panel<%=Problem.pop.id%>">
-          <%= render "problem", problem: Problem.pop %>
-        </div>
-        <% Problem.clip.each do |problem| %>
-          <div class="tabs-panel" id="panel<%=problem.id%>">
-            <%= render "problem", problem: problem %>
-          </div>
-        <% end %>
+      <div class="text-width">
+        <ul class="tabs" data-tabs id="challenges-tabs">
+          <li class="tabs-title is-active subtitle"><a href="#panel<%=Problem.pop.id%>" aria-selected="true"><%= Problem.pop.title %></a></li>
+          <% Problem.clip.each do |problem| %>
+            <li class="tabs-title"><a href="#panel<%=problem.id%>" aria-selected="true"><%= problem.title %></a></li>
+          <% end %>
+        </ul>
       </div>
-    </div>
 
+        <div class="tabs-content row no-gutter" data-tabs-content="challenges-tabs">
+          <div class="tabs-panel is-active" id="panel<%=Problem.pop.id%>">
+            <%= render "problem", problem: Problem.pop %>
+          </div>
+          <% Problem.clip.each do |problem| %>
+            <div class="tabs-panel" id="panel<%=problem.id%>">
+              <%= render "problem", problem: problem %>
+            </div>
+          <% end %>
+        </div>
     <% end %>
     <div class="text-width">
       <%= render partial: 'proposals/proposal', collection: @proposals %>
       <%= paginate @proposals %>
     </div>
   </div>
+
+
 </main>
