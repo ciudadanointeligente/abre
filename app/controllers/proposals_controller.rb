@@ -30,32 +30,6 @@ class ProposalsController < ApplicationController
     @proposal.build_problem
   end
 
-  # def create
-  #   if !proposal_params[:problem_id].blank?
-  #     p "PARAMETROS DE PROPUESTAS ANTES DE CREAR"
-  #     p proposal_params
-  #     params[:proposal].delete :problem_attributes
-  #     p proposal_params
-  #     p "user id"
-  #     p params[:user_id]
-  #     p proposal_params[:user_id]
-  #     userid = params[:proposal][:user_id]
-  #     params[:proposal][:author_id] = userid
-  #     params[:proposal].merge(:author_id => params[:user_id])
-  #     p "PARAMETROS DE PROPUESTAS DESPUES DEL IF"
-  #     p proposal_params
-  #   end
-  #   @proposal = Proposal.new(proposal_params)
-  #   p "PARAMETROS DE PROPUESTAS DESPUES DEL NEW"
-  #   p proposal_params
-  #   if @proposal.save
-  #     redirect_to proposal_path(@proposal)
-  #   else
-  #     p @proposal.errors
-  #     render :new
-  #   end
-  # end
-
   def index_customization
     discard_archived
     load_retired
