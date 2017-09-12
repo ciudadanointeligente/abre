@@ -37,11 +37,6 @@ module ProposalsHelper
     Proposal.all
   end
 
-  #TODO: Tomar el desafío activo (debe ser solo uno)
-  def challenge
-    Problem.last
-  end
-
   def most_voted_proposals
     Proposal.all.reorder(cached_votes_up: :desc).first(3)
   end

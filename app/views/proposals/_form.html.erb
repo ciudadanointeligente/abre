@@ -37,28 +37,28 @@
         <div class="small-12 medium-10 large-10">
             <!-- TODO: Acá se debe mostrar el problema elegido -->
             <div class="summary padding">
-              <%= link_to problem_path(challenge) do %>
-                <h3 class="title-challenge white"><%= challenge.title%> </h3>
-                <%= f.hidden_field :problem_id, :value => challenge.id %>
-                <p class="white"> <%= challenge.summary%> </p>
-                <p> <%= challenge.call_to_action %> </p>
+              <%= link_to problem_path(@problem) do %>
+                <h3 class="title-challenge white"><%= @problem.title%> </h3>
+                <%= f.hidden_field :problem_id, :value => @problem.id %>
+                <p class="white"> <%= @problem.summary%> </p>
+                <p> <%= @problem.call_to_action %> </p>
                 <p class="white">
-                  <% if challenge.budget? %>
-                    <i class="fa fa-usd" aria-hidden="true"></i> <%= t("proposals.form.problem.budget") %> <%= challenge.budget%></br>
+                  <% if @problem.budget? %>
+                    <i class="fa fa-usd" aria-hidden="true"></i> <%= t("proposals.form.problem.budget") %> <%= @problem.budget%></br>
                   <% end %>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> <%= t("proposals.form.problem.community") %> <%= challenge.geozones_name %>
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> <%= t("proposals.form.problem.community") %> <%= @problem.geozones_name %>
                 </p>
               <% end %>
               <div class="show-for-small-only">
                 <span> Quedan</span> <strong class="mark-days">
-                <%=distance_of_time_in_days(challenge.ends_at, Date.today)%></strong><span> días para crear propuestas </span>
+                <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></strong><span> días para crear propuestas </span>
               </div>
             </div>
           </div>
           <div class="row collapse">
             <div class="small-12 medium-5 medium-offset-7 large-5 large-offset-7">
               <div class="deadline-problem bg-gray padding">
-                <h4 class="white text-center">Quedan <span class="counter num"><%=distance_of_time_in_days(challenge.ends_at, Date.today)%></span> días para crear propuestas</h4>
+                <h4 class="white text-center">Quedan <span class="counter num"><%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> días para crear propuestas</h4>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@
   </div>
 
     <!-- TODO: Por ahora las gezones serán las mismas que del desafío por defceto  -->
-    <% challenge.geozones.map(&:id).each do |id| %>
+    <% @problem.geozones.map(&:id).each do |id| %>
       <%= hidden_field_tag "proposal[geozone_ids][]", id %>
     <% end %>
 

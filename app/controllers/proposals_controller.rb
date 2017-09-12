@@ -24,6 +24,9 @@ class ProposalsController < ApplicationController
   end
 
   def new
+    if params[:problem].present?
+      @problem = Problem.find(params[:problem].to_i)
+    end
     @proposal.build_problem
   end
 

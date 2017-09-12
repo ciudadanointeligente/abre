@@ -16,11 +16,11 @@ Setting.create(key: 'votes_for_proposal_success', value: '100')
 Setting.create(key: 'months_to_archive_proposals', value: '12')
 Setting.create(key: 'comments_body_max_length', value: '1000')
 
-Setting.create(key: 'twitter_handle', value: '@consul_dev')
-Setting.create(key: 'twitter_hashtag', value: '#consul_dev')
-Setting.create(key: 'facebook_handle', value: 'consul')
-Setting.create(key: 'youtube_handle', value: 'consul')
-Setting.create(key: 'telegram_handle', value: 'consul')
+Setting.create(key: 'twitter_handle', value: '@abre_dev')
+Setting.create(key: 'twitter_hashtag', value: '#abre_dev')
+Setting.create(key: 'facebook_handle', value: 'abre')
+Setting.create(key: 'youtube_handle', value: 'abre')
+Setting.create(key: 'telegram_handle', value: 'abre')
 
 Setting.create(key: 'blog_url', value: '/blog')
 Setting.create(key: 'url', value: 'https://abre.tumunicipio.org')
@@ -104,33 +104,33 @@ def create_user(email, username = Faker::Name.name)
 end
 
 
-admin = create_user('admin@consul.dev', 'admin')
+admin = create_user('admin@abre.dev', 'admin')
 admin.create_administrator
 admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
 
-moderator = create_user('mod@consul.dev', 'mod')
+moderator = create_user('mod@abre.dev', 'mod')
 moderator.create_moderator
 
-manager = create_user('manager@consul.dev', 'manager')
+manager = create_user('manager@abre.dev', 'manager')
 manager.create_manager
 
-valuator = create_user('valuator@consul.dev', 'valuator')
+valuator = create_user('valuator@abre.dev', 'valuator')
 valuator.create_valuator
 
-poll_officer = create_user('poll_officer@consul.dev', 'Paul O. Fisher')
+poll_officer = create_user('poll_officer@abre.dev', 'Paul O. Fisher')
 poll_officer.create_poll_officer
 
-level_2 = create_user('leveltwo@consul.dev', 'level 2')
+level_2 = create_user('leveltwo@abre.dev', 'level 2')
 level_2.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: "2222222222", document_type: "1" )
 
-verified = create_user('verified@consul.dev', 'verified')
+verified = create_user('verified@abre.dev', 'verified')
 verified.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "3333333333")
 
-verified2 = create_user('unverified@consul.dev', 'unverified')
+verified2 = create_user('unverified@abre.dev', 'unverified')
 
 (1..10).each do |i|
   org_name = Faker::Company.name
-  org_user = create_user("org#{i}@consul.dev", org_name)
+  org_user = create_user("org#{i}@abre.dev", org_name)
   org_responsible_name = Faker::Name.name
   org = org_user.create_organization(name: org_name, responsible_name: org_responsible_name)
 
@@ -143,12 +143,12 @@ verified2 = create_user('unverified@consul.dev', 'unverified')
 end
 
 (1..3).each do |i|
-  official = create_user("official#{i}@consul.dev")
+  official = create_user("official#{i}@abre.dev")
   official.update(official_level: i, official_position: "Official position #{i}")
 end
 
 (1..3).each do |i|
-  user = create_user("user#{i}@consul.dev")
+  user = create_user("user#{i}@abre.dev")
   level = [1, 2, 3].sample
   if level >= 1
     user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" , geozone: Geozone.find(23))
@@ -233,67 +233,66 @@ problem = Problem.create(title: "Mejoramiento Parque San Luis",
   geozones: Geozone.reorder("RANDOM()").limit(1) )
 
 
-# # puts ""
-# #
-# puts " ✅"
-# print "Creando propuestas"
+# puts ""
 #
-# tags = Faker::Lorem.words(25)
-#
-# proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
-#                             title: "Tenencia responsable de animales para ambientes más sanos y seguros",
-#                             summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
-#                             responsible_name: Faker::Name.name,
-#                             external_url: Faker::Internet.url,
-#                             description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
-#                             created_at: rand((Time.current - 1.week) .. Time.current),
-#                             tag_list: tags.sample(3).join(','),
-#                             terms_of_service: "1",
-#                             problem: problem2,
-#                             geozones: problem2.geozones,
-#                             cached_votes_up: Setting["votes_for_proposal_success"])
-#
-#
-# proposal0b = Proposal.create!(author: User.reorder("RANDOM()").first,
-#                             title: "Tenencia responsable de animales para ambientes más sanos y seguros",
-#                             summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
-#                             responsible_name: Faker::Name.name,
-#                             external_url: Faker::Internet.url,
-#                             description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
-#                             created_at: rand((Time.current - 1.week) .. Time.current),
-#                             tag_list: tags.sample(3).join(','),
-#                             terms_of_service: "1",
-#                             geozones: problem2.geozones,
-#                             problem: problem2)
-#
-#
-# proposal1 = Proposal.create!(author: User.reorder("RANDOM()").first,
-#                             title: "Quinchos en el Parque San Luis",
-#                             summary: "Agregar al menos 5 quinchos con mesas para que los vecinos puedan juntarse a compartir",
-#                             responsible_name: Faker::Name.name,
-#                             external_url: Faker::Internet.url,
-#                             description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-#                             created_at: rand((Time.current - 1.week) .. Time.current),
-#                             tag_list: tags.sample(3).join(','),
-#                             terms_of_service: "1",
-#                             problem: problem,
-#                             geozones: problem.geozones,
-#                             for_challenge: true,
-#                             cached_votes_up: 75)
-#
-# proposal2 = Proposal.create!(author: User.reorder("RANDOM()").first,
-#                             title: "Mejorar la cancha",
-#                             summary: "Se busca comprar arcos de fútbol y mejorar la cancha para que esta sea realmente útil",
-#                             responsible_name: Faker::Name.name,
-#                             external_url: Faker::Internet.url,
-#                             description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-#                             created_at: rand((Time.current - 1.week) .. Time.current),
-#                             tag_list: tags.sample(3).join(','),
-#                             for_challenge: true,
-#                             geozones: problem.geozones,
-#                             terms_of_service: "1",
-#                             problem: problem,
-#                             cached_votes_up: 33)
+puts " ✅"
+print "Creando propuestas"
+
+tags = Faker::Lorem.words(25)
+
+proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Tenencia responsable de animales para ambientes más sanos y seguros",
+                            summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            problem: problem2,
+                            geozones: problem2.geozones,
+                            cached_votes_up: Setting["votes_for_proposal_success"])
+
+
+proposal0b = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Tenencia responsable de animales para ambientes más sanos y seguros",
+                            summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            geozones: problem2.geozones,
+                            problem: problem2)
+
+proposal1 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Quinchos en el Parque San Luis",
+                            summary: "Agregar al menos 5 quinchos con mesas para que los vecinos puedan juntarse a compartir",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.para graphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            problem: problem,
+                            geozones: problem.geozones,
+                            for_challenge: true,
+                            cached_votes_up: 75)
+
+proposal2 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Mejorar la cancha",
+                            summary: "Se busca comprar arcos de fútbol y mejorar la cancha para que esta sea realmente útil",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            for_challenge: true,
+                            geozones: problem.geozones,
+                            terms_of_service: "1",
+                            problem: problem,
+                            cached_votes_up: 33)
 #
 # proposal3 = Proposal.create!(author: User.reorder("RANDOM()").first,
 #                             title: "Crear un huerto",
