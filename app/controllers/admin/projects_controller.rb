@@ -15,7 +15,6 @@ class Admin::ProjectsController < Admin::BaseController
     $count = 0
     if @project.save
       p project_params[:design_events_attributes][:pictures]
-      p "PARAAAAAAA"
       redirect_to admin_projects_url, notice: t("flash.actions.create.problem")
     else
       render :new
