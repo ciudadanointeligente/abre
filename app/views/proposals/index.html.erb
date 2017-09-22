@@ -45,23 +45,8 @@
   </div>
 
 
-  <ul class="tabs" data-tabs id="example-tabs">
-    <li class="tabs-title is-active"><a href="#panel<%=Problem.first.id%>" aria-selected="true"><%= Problem.first.title %></a></li>
-    <% Problem.all.each do |problem| %>
-        <li class="tabs-title"><a href="#panel<%=problem.id%>" aria-selected="true"><%= problem.title %></a></li>
-    <% end %>
-  </ul>
 
-  <div class="tabs-content" data-tabs-content="example-tabs">
-    <div class="tabs-panel is-active" id="panel<%=Problem.first.id%>">
-      <%= render "problem", problem: Problem.first %>
-    </div>
-    <% Problem.all.each do |problem| %>
-      <div class="tabs-panel" id="panel<%=problem.id%>">
-        <%= render "problem", problem: problem %>
-      </div>
-    <% end %>
-  </div>
+  <%= render "problem", problem: Problem.first %>
 
 
   <div class="text-width">
