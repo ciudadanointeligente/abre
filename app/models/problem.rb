@@ -32,6 +32,10 @@ class Problem < ActiveRecord::Base
     self.where('"starts_at" < ? AND "ends_at" > ?', Date.today, Date.today)
   end
 
+  def valid
+    self.starts_at <= Date.today && self.ends_at > Date.today
+  end
+
   def self.pop
     self.first
   end

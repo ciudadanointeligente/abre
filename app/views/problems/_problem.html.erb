@@ -61,6 +61,6 @@
     <% end %>
   </div>
   <% if @problem.ends_at > Date.today%>
-    <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button float-right' %>
+    <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => @problem.id), class: 'button float-right' %>
   <% end %>
 </div>
