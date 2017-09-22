@@ -175,8 +175,14 @@ class Proposal < ActiveRecord::Base
     end
   end
 
+  # TODO: Revisar si esto será útil, hoy no se está utilizando, ya que las propuestas archivadas son aquellas que tienen un desafío vencido
   def archived?
     self.created_at <= Setting["months_to_archive_proposals"].to_i.months.ago
+  end
+
+  # TODO: Definir
+  def previous?
+
   end
 
   def notifications
