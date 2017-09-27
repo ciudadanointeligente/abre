@@ -1,13 +1,15 @@
-<div class="text-width" id="<%= dom_id(project) %>">
+<div class="text-width" id="<%= dom_id(@project) %>">
 	<p class="small-without-line blue text-center"> proyecto </p>
-	<h2 class="text-center"><%= project.name %></h2>
+	<h2 class="text-center"><%= @project.name %></h2>
 
-	<% unless project.responsible_official_name.nil? || project.responsible_official_name.empty? %>
-		<p class="text-center"> Funcionario encargado: <%= project.responsible_official_name %> <a href="mailto:<%= project.responsible_official_mail%>?Subject=Abre"><%= project.responsible_official_mail%> </a></p>
+	<% unless @project.responsible_official_name.nil? || @project.responsible_official_name.empty? %>
+		<p class="text-center"> Funcionario encargado: <%= @project.responsible_official_name %> <a href="mailto:<%= @project.responsible_official_mail%>?Subject=Abre"><%= @project.responsible_official_mail%> </a></p>
 	<% end %>
 
 	<!-- Timeline -->
 <section class="cd-horizontal-timeline">
+
+
 	<div class="timeline">
 		<div class="events-wrapper">
 			<div class="events" style="width:100%">
@@ -32,8 +34,9 @@
 	<div class="events-content">
 		<ol class="no-bullet">
 			<li class="selected" data-date="01/01/2017">
-				<h2><%= title_proposals_section(project) %></h2>
-				<% project.proposals.each do |p| %>
+
+				<h2><%= title_proposals_section(@project) %></h2>
+				<% @project.proposals.each do |p| %>
 					<h4><%= p.title %></h4>
 					<p>
 						<i class="fa fa-map-marker"></i> <%= p.geozones_name %> <span class="line-text">|</span>
@@ -59,10 +62,11 @@
 
 			<li data-date="01/03/2017">
 				<h3>Diseño</h3>
+
 				<p>
 					A través de talleres participativos, la comunidad y el municipio diseñarán una propuesta final y un plan de trabajo para llevar a cabo su implementación en conjunto.
 				</p>
-				<% project.design_events.each do |d| %>
+				<% @project.design_events.each do |d| %>
 					<p>
 						<i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
 							<span class="line-text">|</span> <i class="fa fa-map-marker"> </i> <%= d.place %>
@@ -78,7 +82,7 @@
 						<% if !d.summary.empty? %> <%= d.summary %>
 						<% else %> <%= d.description %>  <% end %>
 					</p>
-					<div class="gallery row">
+					<!-- <div class="gallery row">
 						<% d.pictures.each do |pic| %>
 						<% if pic.image.exists?  %>
 							<div class="small-12 medium-4 column">
@@ -86,7 +90,7 @@
 							</div>
 						<% end %>
 						<% end %>
-					</div>
+					</div> -->
 					<hr>
 				<% end %>
 			</li>
@@ -94,19 +98,19 @@
 			<li data-date="01/05/2017">
 				<h3>Implementación</h3>
 				<p>
-					<% unless project.implementation_starts_at.nil? || project.implementation_starts_at.empty? %>
-						<i class="fa fa-calendar"> </i> Fecha inicio: <%= project.implementation_starts_at %>
+					<% unless @project.implementation_starts_at.nil? || @project.implementation_starts_at.empty? %>
+						<i class="fa fa-calendar"> </i> Fecha inicio: <%= @project.implementation_starts_at %>
 					<% end %>
-					<% unless project.implementation_ends_at.nil? || project.implementation_ends_at.empty? %>
-						<span class="line-text">|</span> <i class="fa fa-calendar"> </i> Fecha término: <%= project.implementation_ends_at %>
+					<% unless @project.implementation_ends_at.nil? || @project.implementation_ends_at.empty? %>
+						<span class="line-text">|</span> <i class="fa fa-calendar"> </i> Fecha término: <%= @project.implementation_ends_at %>
 					<% end %>
-					<% unless project.responsible_neighbour_name.nil? || project.responsible_neighbour_name.empty? %>
-						<span class="line-text">|</span> <i class="fa fa-calendar"> </i> Encargado vecinal: <%= project.responsible_neighbour_name %>
+					<% unless @project.responsible_neighbour_name.nil? || @project.responsible_neighbour_name.empty? %>
+						<span class="line-text">|</span> <i class="fa fa-calendar"> </i> Encargado vecinal: <%= @project.responsible_neighbour_name %>
 					<% end %>
 					<hr>
 				</p>
 
-				<% project.reports.each do |report|%>
+				<% @project.reports.each do |report|%>
 					<h4 class="small blue"> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h4>
 					<p> <%= report.description %> </p>
 

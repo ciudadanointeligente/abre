@@ -323,16 +323,16 @@ proposal2 = Proposal.create!(author: User.reorder("RANDOM()").first,
 # #
 # #
 # #
-# # puts " ✅"
-# # print "Creando Proyecto"
-# #
-# # project = Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
-# #   description: "Durante 3 semanas los vecinos de Peñalolen, de la unidad vecinal de la Unidad Vecinal 23, levantaron propuestas para mejorar el parque San Luis. Durante este tiempo los vecinos también tuvieron la posibilidad de apoyar diferentes propuestas. La",
-# #   id: 3,
-# #   starts_at: "2017-03-28 22:00:00",
-# #   ends_at: "2017-06-24 22:00:00",
-# #   proposals: Proposal.all)
-# #
+puts " ✅"
+print "Creando Proyecto"
+
+project = Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
+  description: "Durante 3 semanas los vecinos de Peñalolen, de la unidad vecinal de la Unidad Vecinal 23, levantaron propuestas para mejorar el parque San Luis. Durante este tiempo los vecinos también tuvieron la posibilidad de apoyar diferentes propuestas. La",
+  id: 3,
+  starts_at: "2017-03-28 22:00:00",
+  ends_at: "2017-06-24 22:00:00",
+  proposals: Proposal.all)
+
 # # puts " ✅"
 # #
 # #
