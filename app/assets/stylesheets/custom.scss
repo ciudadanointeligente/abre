@@ -525,6 +525,18 @@ ul, ol, dl {
   height: 290px;
 }
 
+.img-projects {
+  position: relative;
+  height: 290px;
+}
+
+.img-projects img {
+  clip: rect(0px, 2000px, 420px, 0px);
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+}
+
 .img-poll img {
   clip: rect(0px, 2000px, 420px, 0px);
   position: absolute;

@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :restriction do
+    description "MyString"
+  end
   factory :report do
     description "MyText"
   end
