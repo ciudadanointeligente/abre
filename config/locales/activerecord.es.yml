@@ -4,6 +4,9 @@ es:
       activity:
         one: "actividad"
         other: "actividades"
+      restriction:
+        one: "Restricción"
+        other: "Restricciones"
       budget:
         one: "Presupuesto participativo"
         other: "Presupuestos participativos"
@@ -59,6 +62,8 @@ es:
         one: Bloque
         other: Bloques
     attributes:
+      restriction:
+        description: Descripción
       budget:
         name: "Nombre"
         description_accepting: "Descripción durante la fase de presentación de proyectos"

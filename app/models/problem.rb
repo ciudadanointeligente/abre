@@ -10,6 +10,9 @@ class Problem < ActiveRecord::Base
   has_and_belongs_to_many :geozones
   belongs_to :user
   has_many :proposals
+  has_many :restrictions
+
+  accepts_nested_attributes_for :restrictions
 
   def geozones_name
     if self.geozones.any?

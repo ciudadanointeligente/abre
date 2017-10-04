@@ -61,7 +61,7 @@ es:
           on_debates: Debates
           on_proposals: Propuestas
           on_users: Usuarios
-        title: Actividad de los Moderadores
+        title: Actividad de los Moderadores y Administradores
         type: Tipo
     budgets:
       index:
@@ -207,7 +207,7 @@ es:
         tip_restrictions: ""
         tip_budget: ""
         tip_summary: ""
-        title: "Editar desafío"
+        titulo: "Editar desafío"
       index:
         no_problems: "No hay desafíos agregados"
         create: "Crear desafío"
@@ -266,7 +266,7 @@ es:
         search: Buscar
         user_not_found: Usuario no encontrado
     menu:
-      activity: Actividad de moderadores
+      activity: Actividad de moderadores y administradores
       admin: Menú de administración
       banner: Gestionar banners
       proposals_topics: Temas de propuestas
