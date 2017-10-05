@@ -125,6 +125,9 @@ en:
         summary: "Summary"
         description: "Description"
         external_url: "Link to additional documentation"
+      problem:
+        verification_required: "Verificación requerida"
+        geozone_restricted: "Restringir zona territorial"
       signature_sheet:
         signable_type: "Signable type"
         signable_id: "Signable ID"

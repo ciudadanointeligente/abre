@@ -123,7 +123,11 @@ class Proposal < ActiveRecord::Base
   end
 
   def supported_by?(user)
-    user
+    if self.problem.verification_required
+      user && user.level_two_or_three_verified?
+    else
+      user
+    end
   end
 
   def retired?
@@ -175,14 +179,8 @@ class Proposal < ActiveRecord::Base
     end
   end
 
-  # TODO: Revisar si esto será útil, hoy no se está utilizando, ya que las propuestas archivadas son aquellas que tienen un desafío vencido
   def archived?
-    self.created_at <= Setting["months_to_archive_proposals"].to_i.months.ago
-  end
-
-  # TODO: Definir
-  def previous?
-
+    self.problem.ends_at < Date.today
   end
 
   def notifications
@@ -209,7 +207,9 @@ class Proposal < ActiveRecord::Base
   protected
 
     def set_responsible_name
-      if author && author.document_number?
+      if self.responsible_name?
+        p ''
+      elsif author && author.document_number?
         self.responsible_name = author.document_number
       end
     end

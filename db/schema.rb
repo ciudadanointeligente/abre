@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004144033) do
+ActiveRecord::Schema.define(version: 20171005155234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -617,12 +617,13 @@ ActiveRecord::Schema.define(version: 20171004144033) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.boolean  "geozone_restricted"
-    t.boolean  "active",              default: true
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.boolean  "active",                default: true
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "user_id"
     t.string   "call_to_action"
     t.string   "restriction_summary"
+    t.boolean  "verification_required"
   end
 
   add_index "problems", ["user_id"], name: "index_problems_on_user_id", using: :btree
@@ -688,6 +689,8 @@ ActiveRecord::Schema.define(version: 20171004144033) do
     t.text     "retired_explanation"
     t.integer  "problem_id"
     t.integer  "project_id"
+    t.string   "responsible_phone"
+    t.string   "responsible_id"
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree

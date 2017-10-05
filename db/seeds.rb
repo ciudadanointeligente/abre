@@ -198,7 +198,7 @@ problem = Problem.create(title: "Mejoramiento Parque San Luis",
   restriction: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   )
 
-  problem = Problem.create(title: "Rediseño de las mesas barriales",
+  problem2 = Problem.create(title: "Rediseño de las mesas barriales",
     summary: "Actualmente el Parque San Luis no está siendo útil para los vecinos ya que no cumple con las necesidades y expectativas de estos.",
     call_to_action: "Invitamos a los vecinos a proponer acerca de cómo quieren el Parque San Luis",
     description: "El Parque San Luis, ubicado en la Unidad Vecinal 23, ha sido desde hace muchos años un lugar donde los vecinos de la comuna se congregan. Pero, a pesar de ello, no esta satisfaciendo las necesidades actuales de los vecinos, que a través de las mesas barriales han manifestado su interés por mejorar este, con la finalidad que las familias se puedan congregar en este espacio.",
@@ -209,28 +209,12 @@ problem = Problem.create(title: "Mejoramiento Parque San Luis",
     active: true,
     geozones: Geozone.reorder("RANDOM()").limit(3),
     user: admin,
+    verification_required: true,
     cause: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     consequence: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     problem_title: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     restriction: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     )
-
-
-  problem2 = Problem.create(title: "Muchos perros callejeros en mi barrio",
-  cause: "Las causas de que haya muchos perros callejeros son:
-1.- Poca capacidad en perreras municipales
-2.- Muchos perros no esterilizados
-3.- Poca educación sobre tenencia responsable de animales",
-  consequence: "1.- Plazas con perros agresivos que pueden morder a niños
-2.- Mi barrio está sucio y poco salubre con fecas
-3.- Perros sufren y tienen muy mala salud por tener que vivir en la calle",
-  user: admin,
-  call_to_action: "Crea propuestas",
-  starts_at: 1.day.ago,
-  ends_at: 10.day.from_now,
-  description: "Description",
-  summary: "Summary",
-  geozones: Geozone.reorder("RANDOM()").limit(1) )
 
 
 # puts ""
@@ -250,6 +234,7 @@ proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             tag_list: tags.sample(3).join(','),
                             terms_of_service: "1",
                             problem: problem2,
+                            for_challenge: true,
                             geozones: problem2.geozones,
                             cached_votes_up: Setting["votes_for_proposal_success"])
 
@@ -259,6 +244,7 @@ proposal0b = Proposal.create!(author: User.reorder("RANDOM()").first,
                             summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
                             responsible_name: Faker::Name.name,
                             external_url: Faker::Internet.url,
+                            for_challenge: true,
                             description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
                             created_at: rand((Time.current - 1.week) .. Time.current),
                             tag_list: tags.sample(3).join(','),

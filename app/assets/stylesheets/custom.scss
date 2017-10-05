@@ -242,7 +242,13 @@ form label {
 
 ol {
     list-style-type: decimal-leading-zero;
+
+  &.admin{
+    list-style-type: lower-alpha;
+  }
+
 }
+
 
 form li {
     font-size: 24px;
