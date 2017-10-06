@@ -62,6 +62,33 @@
                       { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: '' } %>
             </div>
           <% end %>
+
+
+<!-- Si es administrador puede apoyar propuestas en nombre de otro -->
+
+  <% if !current_user.nil? && current_user.administrator? %>
+    <p><button class="button" data-open="exampleModal1">Click me for a modal</button></p>
+
+    <div class="reveal" id="exampleModal1" data-reveal>
+      <p class="label float-left"> Apoyo de propuestas </p>
+      <h4><%= proposal.title %> </h4>
+
+      <%= form_for(:vote, url: vote_proposal_path(proposal, value: 'yes')) do |f| %>
+        <%= f.text_field :nombre %> 
+        <%= f.text_field :rut %>
+        <%= f.text_field :telefono %>
+        <%= f.submit(class: "button float-right", value: "Apoyar esta propuesta") %>
+        <!-- <%= render 'votes',
+                { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: '' } %> -->
+
+      <% end %>
+      <button class="close-button gray" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+
+
         </div>
       </div>
 

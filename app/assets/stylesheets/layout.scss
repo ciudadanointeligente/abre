@@ -247,6 +247,10 @@ a {
 .close-button {
   top: $line-height/2;
   color: $white;
+
+  &.gray {
+    color: $gray-one;
+  }
 }
 
 .back, .icon-angle-left {
