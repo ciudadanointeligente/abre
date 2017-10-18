@@ -57,6 +57,7 @@
     </div>
 
     <div class="tabs-panel" id="panel2d">
+      <p> Descarga <a href="/docs/Formato_registro_taller_2.docx"> formato de registro de talleres </a> y <a href="/docs/Lista_asistentes.docx"> formato lista de asistentes </a> </p>
       <div class="form-input" >
         <%= f.fields_for :design_events do |de| %>
           <%= render 'design_event_fields', f: de %>
@@ -101,6 +102,5 @@
                    class: "button success expanded" %>
     </div>
   </div>
-
 
 <% end %>
