@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :municipality do
+    name "MyString"
+    subdomain "MyString"
+  end
   factory :restriction do
     description "MyString"
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005155234) do
+ActiveRecord::Schema.define(version: 20171025195353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -390,6 +390,13 @@ ActiveRecord::Schema.define(version: 20171005155234) do
   end
 
   add_index "moderators", ["user_id"], name: "index_moderators_on_user_id", using: :btree
+
+  create_table "municipalities", force: :cascade do |t|
+    t.string   "name"
+    t.string   "subdomain"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
@@ -920,7 +927,7 @@ ActiveRecord::Schema.define(version: 20171005155234) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-08-17 13:45:26', null: false
+    t.datetime "password_changed_at",                       default: '2017-07-17 16:03:32', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""
