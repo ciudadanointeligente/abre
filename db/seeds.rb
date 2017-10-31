@@ -1,124 +1,73 @@
-require 'database_cleaner'
-
-DatabaseCleaner.clean_with :truncation
-
-print "Creando configuraciones"
-Setting.create(key: 'official_level_1_name', value: 'Empleados públicos')
-Setting.create(key: 'official_level_2_name', value: 'Organización Municipal')
-Setting.create(key: 'official_level_3_name', value: 'Directores generales')
-Setting.create(key: 'official_level_4_name', value: 'Concejales')
-Setting.create(key: 'official_level_5_name', value: 'Alcaldesa')
-Setting.create(key: 'max_ratio_anon_votes_on_debates', value: '50')
-Setting.create(key: 'max_votes_for_debate_edit', value: '1000')
-Setting.create(key: 'max_votes_for_proposal_edit', value: '1000')
-Setting.create(key: 'proposal_code_prefix', value: 'PROP')
-Setting.create(key: 'votes_for_proposal_success', value: '100')
-Setting.create(key: 'months_to_archive_proposals', value: '12')
-Setting.create(key: 'comments_body_max_length', value: '1000')
-
-Setting.create(key: 'twitter_handle', value: '@abre_dev')
-Setting.create(key: 'twitter_hashtag', value: '#abre_dev')
-Setting.create(key: 'facebook_handle', value: 'abre')
-Setting.create(key: 'youtube_handle', value: 'abre')
-Setting.create(key: 'telegram_handle', value: 'abre')
-
-Setting.create(key: 'blog_url', value: '/blog')
-Setting.create(key: 'url', value: 'https://abre.tumunicipio.org')
-Setting.create(key: 'org_name', value: 'Abre')
-Setting.create(key: 'municipality_name', value: 'Municipio')
-Setting.create(key: 'place_name', value: 'Municipio')
-
-#Features habilitados
-Setting.create(key: 'feature.debates', value: false)
-Setting['feature.debates'] = false
-
-Setting.create(key: 'feature.polls', value: "true")
-Setting['feature.polls'] = true
-
-  # Opciones para creación de propuestas
-Setting.create(key: 'feature.proposal_for_challenge', value: "true")
-Setting['feature.proposal_for_challenge'] = true
-
-Setting.create(key: 'feature.proposal_creating_problem', value: "true")
-Setting['feature.proposal_creating_problem'] = false
-
-# Login - por defecto solo esta habilitado el login con Facebook
-Setting.create(key: 'feature.twitter_login', value: "false")
-Setting['feature.twitter_login'] = false
-Setting.create(key: 'feature.facebook_login', value: "true")
-Setting['feature.facebook_login'] = true
-Setting.create(key: 'feature.google_login', value: "false")
-Setting['feature.google_login'] = false
-
-
-Setting.create(key: 'per_page_code_head', value: "")
-Setting.create(key: 'per_page_code_body', value: "")
-Setting.create(key: 'comments_body_max_length', value: '1000')
-
-# Opciones para el envio de mails
-Setting.create(key: 'mailer_from_name', value: 'Abre Municipio')
-Setting.create(key: 'mailer_from_address', value: 'hola@abre.tumunicipio.org')
-
-# Opciones de web
-Setting.create(key: 'meta_description', value: 'Plataforma de Participación Ciudadana y Gobierno Abierto')
-Setting.create(key: 'meta_keywords', value: 'gobierno abierto, participación ciudadana')
-
-Setting.create(key: 'verification_offices_url', value: 'https://oficinas-atencion-ciudadano.url/')
-
-Setting.create(key: 'min_age_to_participate', value: '16')
-
-
-# Home
-Setting.create(key: 'home.main-title', value: "Titulo sección derecha")
-Setting.create(key: 'home.main-subtitle', value: "Texto botón sección derecha")
-Setting.create(key: 'home.main-subtitle-link', value: "Link de botón sección derecha")
-Setting.create(key: 'home.info-epigraph', value: "Texto sobre frase principal en sección izquierda")
-Setting.create(key: 'home.info-title', value: "Título sección izquierda")
-Setting.create(key: 'home.info-go_to', value: "Texto primer botón sección izquierda")
-Setting.create(key: 'home.info-go_to_link', value: "Link de primer botón sección izquierda")
-Setting.create(key: 'home.info-go_to2', value: "Texto segundo botón sección izquierda")
-Setting.create(key: 'home.info-go_to_link2', value: "Link segundo botón sección izquierda")
-Setting.create(key: 'home.info-date', value: "Fechas/plazos relevantes sección izquierda")
-
-#Proposal texts
-Setting.create(key: 'section.proposal_subtitle', value: "ABRE permite a la comunidad participar de las soluciones para los problemas que la afectan. El municipio propondrá desafíos a resolver en conjunto con la comunidad, para construir soluciones participativas. En esta sección, una vez que el municipio plantee un desafío, podrás crear propuestas.")
-
-puts " ✅"
-print "Creando usuarios"
-
-def create_user(email, username = Faker::Name.name)
-  pwd = '12345678'
-  User.create!(username: username, email: email, password: pwd, password_confirmation: pwd, confirmed_at: Time.current, terms_of_service: "1")
-end
-
-
-admin = create_user('admin@abre.dev', 'admin')
-admin.create_administrator
-admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
-
-# local_admin = create_user('admin@' + Apartment::Tenant.current_tenant + '.abre.dev', 'admin')
-# local_admin.create_administrator
-# local_admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
-#
-# unless Apartment::Tenant.current_tenant == 'public'
-#   #Insert seed data
-# end
-
-puts " ✅"
-print "Creando categorias"
-
-ActsAsTaggableOn::Tag.create!(name:  "Asociaciones", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Cultura", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Deportes", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Derechos Sociales", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Economía", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Empleo", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Equidad", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Sostenibilidad", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Participación", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Movilidad", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Medios", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Salud", featured: true , kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Transparencia", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Seguridad y Emergencias", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!([
+  {name: "Asociaciones", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Cultura", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Deportes", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Derechos Sociales", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Economía", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Empleo", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Equidad", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Sostenibilidad", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Participación", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Movilidad", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Medios", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Salud", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Transparencia", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Seguridad y Emergencias", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0},
+  {name: "Medio Ambiente", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", 'budget/investments_count': 0}
+])
+Setting.create!([
+  {key: "official_level_1_name", value: "Empleados públicos"},
+  {key: "official_level_2_name", value: "Organización Municipal"},
+  {key: "official_level_3_name", value: "Directores generales"},
+  {key: "official_level_4_name", value: "Concejales"},
+  {key: "official_level_5_name", value: "Alcaldesa"},
+  {key: "max_ratio_anon_votes_on_debates", value: "50"},
+  {key: "max_votes_for_debate_edit", value: "1000"},
+  {key: "max_votes_for_proposal_edit", value: "1000"},
+  {key: "proposal_code_prefix", value: "PROP"},
+  {key: "votes_for_proposal_success", value: "100"},
+  {key: "months_to_archive_proposals", value: "12"},
+  {key: "comments_body_max_length", value: "1000"},
+  {key: "twitter_handle", value: "@abre_dev"},
+  {key: "twitter_hashtag", value: "#abre_dev"},
+  {key: "facebook_handle", value: "abre"},
+  {key: "youtube_handle", value: "abre"},
+  {key: "telegram_handle", value: "abre"},
+  {key: "blog_url", value: "/blog"},
+  {key: "url", value: "https://abre.tumunicipio.org"},
+  {key: "org_name", value: "Abre"},
+  {key: "municipality_name", value: "Municipio"},
+  {key: "place_name", value: "Municipio"},
+  {key: "feature.debates", value: nil},
+  {key: "feature.polls", value: "t"},
+  {key: "feature.proposal_for_challenge", value: "t"},
+  {key: "feature.proposal_creating_problem", value: nil},
+  {key: "feature.twitter_login", value: nil},
+  {key: "feature.facebook_login", value: "t"},
+  {key: "feature.google_login", value: nil},
+  {key: "per_page_code_head", value: ""},
+  {key: "per_page_code_body", value: ""},
+  {key: "mailer_from_name", value: "Abre Municipio"},
+  {key: "mailer_from_address", value: "hola@abre.tumunicipio.org"},
+  {key: "meta_description", value: "Plataforma de Participación Ciudadana y Gobierno Abierto"},
+  {key: "meta_keywords", value: "gobierno abierto, participación ciudadana"},
+  {key: "verification_offices_url", value: "https://oficinas-atencion-ciudadano.url/"},
+  {key: "min_age_to_participate", value: "16"},
+  {key: "home.main-title", value: "Titulo sección derecha"},
+  {key: "home.main-subtitle", value: "Texto botón sección derecha"},
+  {key: "home.main-subtitle-link", value: "Link de botón sección derecha"},
+  {key: "home.info-epigraph", value: "Texto sobre frase principal en sección izquierda"},
+  {key: "home.info-title", value: "Título sección izquierda"},
+  {key: "home.info-go_to", value: "Texto primer botón sección izquierda"},
+  {key: "home.info-go_to_link", value: "Link de primer botón sección izquierda"},
+  {key: "home.info-go_to2", value: "Texto segundo botón sección izquierda"},
+  {key: "home.info-go_to_link2", value: "Link segundo botón sección izquierda"},
+  {key: "home.info-date", value: "Fechas/plazos relevantes sección izquierda"},
+  {key: "section.proposal_subtitle", value: "ABRE permite a la comunidad participar de las soluciones para los problemas que la afectan. El municipio propondrá desafíos a resolver en conjunto con la comunidad, para construir soluciones participativas. En esta sección, una vez que el municipio plantee un desafío, podrás crear propuestas."}
+])
+User.create!([
+  {email: "admin@abre.dev", encrypted_password: "$2a$10$w//mkLoU.WV/8VRKUe3i..PFS73sCsgn/Ki6KbEaXFwTZQy7Gbcqq", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2017-10-30 19:27:43", last_sign_in_at: "2017-10-30 19:27:43", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2017-10-30 19:16:20", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "admin", document_number: "1111111111", document_type: "1", residence_verified_at: "2017-10-30 19:16:20", email_verification_token: nil, verified_at: "2017-10-30 19:16:20", unconfirmed_phone: nil, confirmed_phone: "939700534", letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-30 19:16:20", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil}
+])
+Administrator.create!([
+  {user_id: 1}
+])
