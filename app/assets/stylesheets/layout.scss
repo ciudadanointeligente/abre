@@ -43,7 +43,7 @@ p {
   line-height: $base-line;
 }
 
-a {
+a, a p {
   color: $link;
 
   &:hover, &:active {

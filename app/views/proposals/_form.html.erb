@@ -66,43 +66,30 @@
       <% end %>
 
       <ol>
+        <!-- 1.Title -->
         <li class="small-12 medium-12 large-12 column ">
           <%= f.label :title, t("proposals.form.proposal_title") %>
           <%= f.text_field :title, maxlength: Proposal.title_max_length, placeholder: t("proposals.form.proposal_title"), label: false, data: {js_suggest_result: "js_suggest_result", js_suggest: "#js-suggest", js_url: suggest_proposals_path}%>
         </li>
 
-        <li class="small-12 medium-12 large-12 column ">
-          <%= f.label :summary, t("proposals.form.proposal_summary") %>
-          <p class="note"><%= t("proposals.form.proposal_summary_note") %></p>
-          <%= f.text_area :summary, rows: 3, maxlength: 200, label: false %>
-        </li>
-
+        <!-- 2.Description -->
         <li class="small-12 medium-12 large-12 column ">
           <%= f.label :description, t("proposals.form.proposal_text") %>
           <p class="note"><%= t("proposals.form.proposal_description_note") %></p>
           <%= f.text_area :description, rows: 5, label: false %>
         </li>
 
-      <li class="small-12 medium-12 large-12 column column-with-margin">
-        <%= f.label :why, t("proposals.form.proposal_why") %>
-        <p class="note"><%= t("proposals.form.proposal_why_note") %></p>
-        <%= f.text_area :why, rows: 2, label: false,
-                        placeholder: "" %>
-      </li>
+
+        <!-- 3.Summary -->
+        <li class="small-12 medium-12 large-12 column ">
+          <%= f.label :summary, t("proposals.form.proposal_summary") %>
+          <p class="note"><%= t("proposals.form.proposal_summary_note") %></p>
+          <%= f.text_area :summary, rows: 3, maxlength: 200, label: false %>
+        </li>
+
 
         <div id="js-suggest"></div>
 
-        <li class="small-12 medium-12 large-12 column">
-          <%= f.label :video_url, t("proposals.form.proposal_video_url") %>
-          <p class="note"><%= t("proposals.form.proposal_video_url_note") %></p>
-          <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false %>
-        </li>
-
-        <li class="small-12 medium-12 large-12 column">
-          <%= f.label :external_url, t("proposals.form.proposal_external_url") %>
-          <p class="note"><%= t("proposals.form.proposal_document_note") %></p>
-          <%= f.text_field :external_url, placeholder: t("proposals.form.proposal_external_url"), label: false %>
-        </li>
 
         <li class="small-12 medium-12 large-12 column">
           <%= f.label :tag_list, t("proposals.form.tags_label") %>
@@ -120,6 +107,20 @@
                             placeholder: t("proposals.form.tags_placeholder"),
                             class: 'js-tag-list' %>
         </li>
+
+        <ul class="accordion small-12 medium-12 large-12 column" data-accordion>
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class=""><p>¿Quiéres agregar más información?</p></a>
+            <div class="accordion-content" data-tab-content>
+              <%= f.label :video_url, t("proposals.form.proposal_video_url") %>
+              <p class="note"><%= t("proposals.form.proposal_video_url_note") %></p>
+              <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false %>
+              <%= f.label :external_url, t("proposals.form.proposal_external_url") %>
+              <p class="note"><%= t("proposals.form.proposal_document_note") %></p>
+              <%= f.text_field :external_url, placeholder: t("proposals.form.proposal_external_url"), label: false %>
+            </div>
+          </li>
+        </ul>
 
         <% if current_user.unverified? %>
           <li class="small-12 medium-12 large-12 column">
