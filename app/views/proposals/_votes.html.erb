@@ -2,7 +2,7 @@
 <div class="supports text-center">
 
   <div class="in-favor">
-    <% if voted_for?(@proposal_votes, proposal) %>
+    <% if voted_for?((current_user ? current_user.proposal_votes(@proposals) : {}), proposal) %>
       <% if setting['twitter_handle'] %>
         <div class="share-supported">
           <div class="bg-blue padding">
@@ -22,6 +22,7 @@
           title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
         <%= t("proposals.proposal.support") %>
       <% end %>
+
     <% else %>
       <div class="button primary button-support <%= button_support_class %>">
         <%= t("proposals.proposal.support") %>

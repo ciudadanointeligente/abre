@@ -12,6 +12,8 @@ class Problem < ActiveRecord::Base
   has_many :proposals
   has_many :restrictions
 
+  paginates_per 12
+
   accepts_nested_attributes_for :restrictions
 
   def geozones_name

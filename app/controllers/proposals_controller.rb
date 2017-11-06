@@ -38,14 +38,6 @@ class ProposalsController < ApplicationController
   end
 
   def vote
-    unless params[:vote][:rut].empty?
-      user = User.create(username: params[:vote][:rut], confirmed_at: Time.current, terms_of_service: true, )
-      p user.errors
-      p 'Usuario se creo?:'
-      p user
-      @proposal.register_vote(current_user, 'yes')
-      redirect_to proposals_path, notice: "Se ha registrado el voto"
-    end
     @proposal.register_vote(current_user, 'yes')
     set_proposal_votes(@proposal)
   end

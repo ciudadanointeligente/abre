@@ -13,7 +13,7 @@ class Municipality < ActiveRecord::Base
       Apartment::Tenant.create(subdomain)
       Apartment::Tenant.switch!(subdomain)
       Apartment::Tenant.current
-      Apartment::Tenant.seed
+      # Apartment::Tenant.seed
     end
 
     def drop_tenant

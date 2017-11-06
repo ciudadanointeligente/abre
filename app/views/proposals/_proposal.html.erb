@@ -58,7 +58,7 @@
             </div>
           <% else %>
             <div class="">
-              <%= render 'votes',
+              <%= render 'proposals/votes',
                       { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: '' } %>
             </div>
           <% end %>
@@ -74,7 +74,7 @@
       <h4><%= proposal.title %> </h4>
 
       <%= form_for(:vote, url: vote_proposal_path(proposal, value: 'yes')) do |f| %>
-        <%= f.text_field :nombre %> 
+        <%= f.text_field :nombre %>
         <%= f.text_field :rut %>
         <%= f.text_field :telefono %>
         <%= f.submit(class: "button float-right", value: "Apoyar esta propuesta") %>
@@ -89,12 +89,12 @@
   <% end %>
 
 
-        </div>
-      </div>
-
-      <div id="<%= dom_id(proposal) %>_votes" class="small-12 medium-12 column supports-container">
-
-      </div>
-
     </div>
+  </div>
+
+  <div id="<%= dom_id(proposal) %>_votes" class="small-12 medium-12 column supports-container">
+
+  </div>
+
+  </div>
 </div>

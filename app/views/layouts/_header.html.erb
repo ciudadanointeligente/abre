@@ -3,6 +3,7 @@
   <div class="row all-screen column">
     <div class="top-bar">
 
+
       <%= link_to root_path, class: "show-for-small-only", accesskey: "0" do %>
         <%= image_tag(image_path_for('logo-header.svg'), class: 'movil-logo', alt: t("layouts.header.logo")) %>
         <!-- <span class="header-title"> <%= Setting['municipality_name'] %> </span> -->
@@ -51,7 +52,17 @@
     <div class="row large-12 medium-12 small-12 columns">
       <div class="hide-for-small-only">
         <div class="small-12 medium-12">
-          <ul>
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+              <a> Desafíos </a>
+              <ul class="menu">
+              <% Problem.all.each do |problem| %>
+                <%= link_to problem_path(problem) do %>
+                <li> <%= problem.title %> </li>
+                <% end %>
+              <% end %>
+              </ul>
+            </li>
             <%= render "shared/subnavigation" %>
             <div class="top-bar-right">
               <%= render "devise/menu/login_items" %>
