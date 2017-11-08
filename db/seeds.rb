@@ -1,258 +1,467 @@
-ActsAsTaggableOn::Tagging.create!([
-  {tag_id: 16, taggable_id: 1, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 17, taggable_id: 1, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 18, taggable_id: 1, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 19, taggable_id: 2, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 20, taggable_id: 2, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 21, taggable_id: 2, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 22, taggable_id: 3, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 23, taggable_id: 3, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 20, taggable_id: 3, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 24, taggable_id: 4, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 25, taggable_id: 4, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 16, taggable_id: 4, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 26, taggable_id: 5, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 27, taggable_id: 5, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 28, taggable_id: 5, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 18, taggable_id: 6, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 29, taggable_id: 6, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"},
-  {tag_id: 22, taggable_id: 6, taggable_type: "Proposal", tagger_id: nil, tagger_type: nil, context: "tags"}
-])
-ActsAsTaggableOn::Tag.create!([
-  {name: "Asociaciones", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Cultura", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Deportes", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Derechos Sociales", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Economía", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Empleo", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Equidad", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Sostenibilidad", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Participación", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Movilidad", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Medios", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Salud", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Transparencia", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Seguridad y Emergencias", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "Medio Ambiente", taggings_count: 0, featured: true, debates_count: 0, proposals_count: 0, spending_proposals_count: 0, kind: "category", budget/investments_count: 0},
-  {name: "consectetur", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "alias", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "voluptatem", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "corporis", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "quisquam", taggings_count: 2, featured: false, debates_count: 0, proposals_count: 2, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "expedita", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "et", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "atque", taggings_count: 2, featured: false, debates_count: 0, proposals_count: 2, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "blanditiis", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "quae", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "illo", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "hic", taggings_count: 2, featured: false, debates_count: 0, proposals_count: 2, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "tempora", taggings_count: 1, featured: false, debates_count: 0, proposals_count: 1, spending_proposals_count: 0, kind: nil, budget/investments_count: 0},
-  {name: "qui", taggings_count: 2, featured: false, debates_count: 0, proposals_count: 2, spending_proposals_count: 0, kind: nil, budget/investments_count: 0}
-])
-Setting.create!([
-  {key: "official_level_1_name", value: "Empleados públicos"},
-  {key: "official_level_2_name", value: "Organización Municipal"},
-  {key: "official_level_3_name", value: "Directores generales"},
-  {key: "official_level_4_name", value: "Concejales"},
-  {key: "official_level_5_name", value: "Alcaldesa"},
-  {key: "max_ratio_anon_votes_on_debates", value: "50"},
-  {key: "max_votes_for_debate_edit", value: "1000"},
-  {key: "max_votes_for_proposal_edit", value: "1000"},
-  {key: "proposal_code_prefix", value: "PROP"},
-  {key: "votes_for_proposal_success", value: "100"},
-  {key: "months_to_archive_proposals", value: "12"},
-  {key: "comments_body_max_length", value: "1000"},
-  {key: "twitter_handle", value: "@consul_dev"},
-  {key: "twitter_hashtag", value: "#consul_dev"},
-  {key: "facebook_handle", value: "consul"},
-  {key: "youtube_handle", value: "consul"},
-  {key: "telegram_handle", value: "consul"},
-  {key: "blog_url", value: "/blog"},
-  {key: "url", value: "https://abre.penalolen.cl"},
-  {key: "org_name", value: "Abre"},
-  {key: "municipality_name", value: "Peñalolen"},
-  {key: "place_name", value: "City"},
-  {key: "feature.debates", value: nil},
-  {key: "feature.polls", value: "t"},
-  {key: "feature.spending_proposals", value: nil},
-  {key: "feature.spending_proposal_features.voting_allowed", value: nil},
-  {key: "feature.budgets", value: nil},
-  {key: "feature.twitter_login", value: nil},
-  {key: "feature.facebook_login", value: "t"},
-  {key: "feature.google_login", value: nil},
-  {key: "feature.signature_sheets", value: nil},
-  {key: "per_page_code_head", value: ""},
-  {key: "per_page_code_body", value: ""},
-  {key: "mailer_from_name", value: "Abre Peñalolen"},
-  {key: "mailer_from_address", value: "abre@penalolen.cl"},
-  {key: "meta_description", value: "Citizen Participation and Open Government Application"},
-  {key: "meta_keywords", value: "citizen participation, open government"},
-  {key: "verification_offices_url", value: "https://oficinas-atencion-ciudadano.url/"},
-  {key: "min_age_to_participate", value: "16"},
-  {key: "feature.public_stats", value: "t"},
-  {key: "home.main-title", value: "Construyamos soluciones para nuestra comuna"},
-  {key: "home.main-subtitle", value: "Quiero saber más"},
-  {key: "home.main-subtitle-link", value: "https://abre.penalolen.cl/more-information"},
-  {key: "home.info-epigraph", value: "Recepción de propuestas"},
-  {key: "home.info-title", value: "Parque de ideas: Soñemos en conjunto el Parque San Luis."},
-  {key: "home.info-go_to", value: "Quiero subir una propuesta"},
-  {key: "home.info-go_to_link", value: "http://abre.penalolen.cl/proposals/new"},
-  {key: "home.info-go_to2", value: "Quiero subir una propuesta"},
-  {key: "home.info-go_to_link2", value: "http://abre.penalolen.cl/proposals/new"},
-  {key: "home.info-date", value: "17 DE JULIO - 15 DE AGOSTO"}
-])
-User.create!([
-  {email: "user3@consul.dev", encrypted_password: "$2a$10$sJEWnpD/KVe1tQfgICVpM.5/kbGmS4deupqZlg0G3HXoX4XUfyWKa", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:36", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Carolina Figueroa Escobedo", document_number: "9316050329", document_type: "1", residence_verified_at: "2017-10-31 19:18:36", email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: "925040105", letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: 23, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:36", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "user2@consul.dev", encrypted_password: "$2a$10$7vX4svYxuE7ypvx52Zmowucv1Vi18vFW/uEx9ilbJ2eIYxtA5zQwG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:36", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Sta. Alicia de Jesús Irizarry", document_number: "8136010240", document_type: "1", residence_verified_at: "2017-10-31 19:18:36", email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: "947.477.542", letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: 23, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:36", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "user1@consul.dev", encrypted_password: "$2a$10$uArftf0mmENZ7Vi/GW75.OrCNw6jFu55a0HuTZeNojsziYfnckZmO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "María Soledad Archuleta Nava", document_number: "1170444719", document_type: "1", residence_verified_at: "2017-10-31 19:18:36", email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: "928 436 736", letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: 23, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:36", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "official3@consul.dev", encrypted_password: "$2a$10$BRNV335AOqN/6TfIwrf0zuZ58DpTbnLjIx2yzXLQKJCx3ndnC4Vh6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: "Official position 3", official_level: 3, hidden_at: nil, sms_confirmation_code: nil, username: "Ana María Urías Delacrúz", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "official2@consul.dev", encrypted_password: "$2a$10$wMKgWK.b4hYEptxnDGc.5ODeJOOkje1K8lMaUBgZN.GCsATyzBCLO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: "Official position 2", official_level: 2, hidden_at: nil, sms_confirmation_code: nil, username: "Javier Delatorre Ybarra", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "official1@consul.dev", encrypted_password: "$2a$10$yflGOE.KcD/Q1c6ijq/.euSHdR.pSpylNyzf/IKyXrDO/4v9jWv3m", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: "Official position 1", official_level: 1, hidden_at: nil, sms_confirmation_code: nil, username: "Joaquín Cardenas Galindo", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org10@consul.dev", encrypted_password: "$2a$10$pfxvfi5oYTx53Kke.eVWROeCgYhnf5X8fRHkBYvgVWjPcQY9Q2oPS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Mercado y Hidalgo", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org9@consul.dev", encrypted_password: "$2a$10$.rkO/pbhTqoBT6dL67IYA.TviA2BRh8eqbGlWtRh6vbtRKK55RKmy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Miranda, Quintana y Meza Asociados", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org8@consul.dev", encrypted_password: "$2a$10$7I0k8sDnll0TDWf7UV0Ks.b0jZMw2ncRuq/520f42OE3sN3aAPMwG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Alvarado Rodríguez S.L.", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org7@consul.dev", encrypted_password: "$2a$10$rxEHtYj/mlCAfYX1X13t/usYAVDGhOu5Z4y4kTTIfBhJgYNMzcLfC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Carbajal, Montero y Matías Asociados", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org6@consul.dev", encrypted_password: "$2a$10$3DhFwjHahVK7EkN6qXJI2OAu.sEnQYo3kGAdcjmdq7ioGP6UzVJVO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Covarrubias y Sanches", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org5@consul.dev", encrypted_password: "$2a$10$HQXRAobX7xG5YrzeOKy9Ruc4csIBlpBjZOps.nhAk2Sk9WXCGIDmW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Leal S.L.", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org4@consul.dev", encrypted_password: "$2a$10$hFll0eTXb8b.DHvoy.DEq.n38tR7qinp0vLcytZmRTxj0J1KRJckK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Mascareñas, Véliz y Lebrón Asociados", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org3@consul.dev", encrypted_password: "$2a$10$bOLtwdA1UUYtFmoL.HaXj.RCGOuVkEzpdRcq8KnjzD7fMdeCHfP6.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Hurtado Menéndez S.A.", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org2@consul.dev", encrypted_password: "$2a$10$qTu9kjliKm3TZ/JsDB0qNuPW8MuoIsGmg4IFQTmppO0XkUMxNJGsu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Sanches Rincón S.L.", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "org1@consul.dev", encrypted_password: "$2a$10$aswEJvmDh4gHVcmUSy37Re/gfaEFiV4NOLvV5xqm5ZivtwxFDcume", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:35", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Canales, Navarrete y Luevano Asociados", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "unverified@consul.dev", encrypted_password: "$2a$10$Aknj0cISPr4uItw4jU7Mu.vZ5GUlPOkp5tY5isPA/zmY0w5GIqYpO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:34", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "unverified", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:35", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "verified@consul.dev", encrypted_password: "$2a$10$kc8ImDE2ybJZPyh9kqvCiOng33ADRqGn2U08.cdn8ZKEDWiDqr6hK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:34", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "verified", document_number: "3333333333", document_type: "1", residence_verified_at: "2017-10-31 19:18:34", email_verification_token: nil, verified_at: "2017-10-31 19:18:34", unconfirmed_phone: nil, confirmed_phone: "961.836.995", letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:34", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "leveltwo@consul.dev", encrypted_password: "$2a$10$3C57mRGjucr7jTOk1cJZ6.f96H5LLLmv6w/fn7ebiVIcs1qRkQed.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:34", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "level 2", document_number: "2222222222", document_type: "1", residence_verified_at: "2017-10-31 19:18:34", email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: "929 944 794", letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:34", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "poll_officer@consul.dev", encrypted_password: "$2a$10$CLFwP6i.7EB2MnWFr3RQbeRZle3v2s.z7E70IhIVKiZL02CjMjRqa", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:34", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "Paul O. Fisher", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:34", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "valuator@consul.dev", encrypted_password: "$2a$10$bA/l6n0QJ66JmZlsm/Fl7ODA3cNelxoWdn45FAg/uPOAdS/OvIoVW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:34", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "valuator", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:34", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "manager@consul.dev", encrypted_password: "$2a$10$5d9JqYs2Gta7mzemc3LBUOyws2erh9DhIKeSzXIwxUVaKEGqxTVRS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:34", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "manager", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:34", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "mod@consul.dev", encrypted_password: "$2a$10$sp8ZjAKRBp/R3buQbQD46.Pn0bXOINXiUTcbA9bYqAacbc.ReL6bS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:34", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "mod", document_number: nil, document_type: nil, residence_verified_at: nil, email_verification_token: nil, verified_at: nil, unconfirmed_phone: nil, confirmed_phone: nil, letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:34", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil},
-  {email: "admin@consul.dev", encrypted_password: "$2a$10$Gf9D/oUJ3JIrlWWaEt2HA.9TXaLfZCsKaaN1IALa.mEp99/6JCCXe", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, confirmation_token: nil, confirmed_at: "2017-10-31 19:18:34", confirmation_sent_at: nil, unconfirmed_email: nil, email_on_comment: false, email_on_comment_reply: false, phone_number: nil, official_position: nil, official_level: 0, hidden_at: nil, sms_confirmation_code: nil, username: "admin", document_number: "1111111111", document_type: "1", residence_verified_at: "2017-10-31 19:18:34", email_verification_token: nil, verified_at: "2017-10-31 19:18:34", unconfirmed_phone: nil, confirmed_phone: "917 008 258", letter_requested_at: nil, confirmed_hide_at: nil, letter_verification_code: nil, failed_census_calls_count: 0, level_two_verified_at: nil, erase_reason: nil, erased_at: nil, public_activity: true, newsletter: true, notifications_count: 0, registering_with_oauth: false, locale: "es", oauth_email: nil, geozone_id: nil, redeemable_code: nil, gender: nil, date_of_birth: nil, email_on_proposal_notification: true, email_digest: true, email_on_direct_message: true, official_position_badge: false, password_changed_at: "2017-10-31 19:18:34", created_from_signature: false, failed_email_digests_count: 0, former_users_data_log: "", address: nil, rut_verified: nil}
-])
-Poll.create!([
-  {name: "Mejoramiento Parque San Luis", description: "<p>Officia quia quos voluptas. Reiciendis id sint dolor voluptas ut consectetur atque. Reiciendis at velit. Et unde autem sint quae ut cum aut. Autem eum ut sequi cum quasi adipisci.</p><p>Cum sit in ut delectus debitis quia. Qui architecto hic molestiae excepturi iusto cum. Nihil voluptas facere sapiente perferendis magnam. Omnis aperiam asperiores est impedit. Veritatis officiis quo officia consectetur.</p><p>Omnis sunt atque. Ex aut eaque porro magni mollitia consequatur delectus. Ab eum ea voluptatem a eligendi. Consectetur magni voluptas.</p>", starts_at: "2017-09-30 18:18:36", ends_at: "2017-11-30 19:18:36", published: false, geozone_restricted: true, for_challenge: nil}
-])
-Poll::HABTM_Geozones.create!([
-  {geozone_id: 23, poll_id: 1}
-])
-Administrator.create!([
-  {user_id: 1}
-])
-Valuator.create!([
-  {user_id: 4, description: nil, spending_proposals_count: 0, budget_investments_count: 0}
-])
-Poll::Officer.create!([
-  {user_id: 5, failed_census_calls_count: 0}
-])
-Geozone.create!([
-  {name: "Unidad Vecinal 1", html_map_coordinates: nil, external_code: "1", population: 3000, census_code: "1"},
-  {name: "Unidad Vecinal 2", html_map_coordinates: nil, external_code: "2", population: 3000, census_code: "2"},
-  {name: "Unidad Vecinal 3", html_map_coordinates: nil, external_code: "3", population: 3000, census_code: "3"},
-  {name: "Unidad Vecinal 4", html_map_coordinates: nil, external_code: "4", population: 3000, census_code: "4"},
-  {name: "Unidad Vecinal 5", html_map_coordinates: nil, external_code: "5", population: 3000, census_code: "5"},
-  {name: "Unidad Vecinal 6", html_map_coordinates: nil, external_code: "6", population: 3000, census_code: "6"},
-  {name: "Unidad Vecinal 7", html_map_coordinates: nil, external_code: "7", population: 3000, census_code: "7"},
-  {name: "Unidad Vecinal 8", html_map_coordinates: nil, external_code: "8", population: 3000, census_code: "8"},
-  {name: "Unidad Vecinal 9", html_map_coordinates: nil, external_code: "9", population: 3000, census_code: "9"},
-  {name: "Unidad Vecinal 10", html_map_coordinates: nil, external_code: "10", population: 3000, census_code: "10"},
-  {name: "Unidad Vecinal 11", html_map_coordinates: nil, external_code: "11", population: 3000, census_code: "11"},
-  {name: "Unidad Vecinal 12", html_map_coordinates: nil, external_code: "12", population: 3000, census_code: "12"},
-  {name: "Unidad Vecinal 13", html_map_coordinates: nil, external_code: "13", population: 3000, census_code: "13"},
-  {name: "Unidad Vecinal 14", html_map_coordinates: nil, external_code: "14", population: 3000, census_code: "14"},
-  {name: "Unidad Vecinal 15", html_map_coordinates: nil, external_code: "15", population: 3000, census_code: "15"},
-  {name: "Unidad Vecinal 16", html_map_coordinates: nil, external_code: "16", population: 3000, census_code: "16"},
-  {name: "Unidad Vecinal 17", html_map_coordinates: nil, external_code: "17", population: 3000, census_code: "17"},
-  {name: "Unidad Vecinal 18", html_map_coordinates: nil, external_code: "18", population: 3000, census_code: "18"},
-  {name: "Unidad Vecinal 19", html_map_coordinates: nil, external_code: "19", population: 3000, census_code: "19"},
-  {name: "Unidad Vecinal 20", html_map_coordinates: nil, external_code: "20", population: 3000, census_code: "20"},
-  {name: "Unidad Vecinal 21", html_map_coordinates: nil, external_code: "21", population: 3000, census_code: "21"},
-  {name: "Unidad Vecinal 22", html_map_coordinates: nil, external_code: "22", population: 3000, census_code: "22"},
-  {name: "Unidad Vecinal 23", html_map_coordinates: nil, external_code: "23", population: 3000, census_code: "23"},
-  {name: "Unidad Vecinal 24", html_map_coordinates: nil, external_code: "24", population: 3000, census_code: "24"},
-  {name: "Unidad Vecinal 25", html_map_coordinates: nil, external_code: "25", population: 3000, census_code: "25"},
-  {name: "Unidad Vecinal 26", html_map_coordinates: nil, external_code: "26", population: 3000, census_code: "26"},
-  {name: "Unidad Vecinal 27", html_map_coordinates: nil, external_code: "27", population: 3000, census_code: "27"},
-  {name: "Unidad Vecinal 28", html_map_coordinates: nil, external_code: "28", population: 3000, census_code: "28"},
-  {name: "Unidad Vecinal 29", html_map_coordinates: nil, external_code: "29", population: 3000, census_code: "29"},
-  {name: "Unidad Vecinal 30", html_map_coordinates: nil, external_code: "30", population: 3000, census_code: "30"},
-  {name: "Unidad Vecinal 31", html_map_coordinates: nil, external_code: "31", population: 3000, census_code: "31"},
-  {name: "La Faena", html_map_coordinates: nil, external_code: "32", population: 15000, census_code: "32"},
-  {name: "Lo Hermida", html_map_coordinates: nil, external_code: "33", population: 45000, census_code: "33"},
-  {name: "San Luis", html_map_coordinates: nil, external_code: "34", population: 44000, census_code: "34"},
-  {name: "Peñalolen Alto", html_map_coordinates: nil, external_code: "35", population: 57000, census_code: "35"},
-  {name: "Peñalolen Nuevo", html_map_coordinates: nil, external_code: "36", population: 70000, census_code: "36"}
-])
-Geozone::HABTM_Problems.create!([
-  {problem_id: 3, geozone_id: 28},
-  {problem_id: 3, geozone_id: 17},
-  {problem_id: 3, geozone_id: 14},
-  {problem_id: 1, geozone_id: 12}
-])
-Geozone::HABTM_Proposals.create!([
-  {proposal_id: 1, geozone_id: 12},
-  {proposal_id: 2, geozone_id: 12},
-  {proposal_id: 3, geozone_id: 28},
-  {proposal_id: 3, geozone_id: 17},
-  {proposal_id: 3, geozone_id: 14},
-  {proposal_id: 4, geozone_id: 28},
-  {proposal_id: 4, geozone_id: 17},
-  {proposal_id: 4, geozone_id: 14},
-  {proposal_id: 5, geozone_id: 28},
-  {proposal_id: 5, geozone_id: 17},
-  {proposal_id: 5, geozone_id: 14}
-])
-Manager.create!([
-  {user_id: 3}
-])
-Moderator.create!([
-  {user_id: 2}
-])
-Organization.create!([
-  {user_id: 9, name: "Canales, Navarrete y Luevano Asociados", verified_at: "2017-10-31 19:18:35", rejected_at: nil, responsible_name: "Ramón Samaniego Montero"},
-  {user_id: 10, name: "Sanches Rincón S.L.", verified_at: "2017-10-31 19:18:35", rejected_at: nil, responsible_name: "Pedro Juárez Zarate"},
-  {user_id: 11, name: "Hurtado Menéndez S.A.", verified_at: nil, rejected_at: "2017-10-31 19:18:35", responsible_name: "Sta. Rocio Dávila Calderón"},
-  {user_id: 12, name: "Mascareñas, Véliz y Lebrón Asociados", verified_at: nil, rejected_at: "2017-10-31 19:18:35", responsible_name: "Virginia Espinosa Roldán"},
-  {user_id: 13, name: "Leal S.L.", verified_at: "2017-10-31 19:18:35", rejected_at: nil, responsible_name: "Sta. Manuel Curiel Regalado"},
-  {user_id: 14, name: "Covarrubias y Sanches", verified_at: "2017-10-31 19:18:35", rejected_at: nil, responsible_name: "Felipe Jáquez Dávila"},
-  {user_id: 15, name: "Carbajal, Montero y Matías Asociados", verified_at: nil, rejected_at: "2017-10-31 19:18:35", responsible_name: "Elsa Alanis Rocha"},
-  {user_id: 16, name: "Alvarado Rodríguez S.L.", verified_at: "2017-10-31 19:18:35", rejected_at: nil, responsible_name: "Sr. Ana María Macías Salcedo"},
-  {user_id: 17, name: "Miranda, Quintana y Meza Asociados", verified_at: nil, rejected_at: "2017-10-31 19:18:35", responsible_name: "Sr. Cristobal Valenzuela Villaseñor"},
-  {user_id: 18, name: "Mercado y Hidalgo", verified_at: "2017-10-31 19:18:35", rejected_at: nil, responsible_name: "Sancho Laboy Padrón"}
-])
-Poll::Question.create!([
-  {proposal_id: 5, poll_id: 1, author_id: 17, author_visible_name: nil, title: "Et iure ut tenetur quisquam dolorem.", valid_answers: "Si", description: "<p>Quia et ea saepe omnis praesentium aut. In velit doloribus aspernatur. Numquam minima fugiat fugit sed.</p><p>Pariatur ut delectus ut. Quam nisi numquam in autem provident necessitatibus. Repellat recusandae ratione libero vel doloremque deleniti quia. Magnam mollitia dolorem voluptas.</p><p>Animi in et blanditiis. Eaque impedit voluptas. Amet perspiciatis quia quod temporibus exercitationem et asperiores.</p>", comments_count: nil, hidden_at: nil, tsv: "'amet':54B 'asoci':66C 'asperior':61B 'aspernatur':20B 'aut':16B 'autem':33B 'blanditiis':50B 'cre':7A 'delectus':27B 'deleniti':42B 'dolorem':6A,46B 'doloremqu':41B 'doloribus':19B 'ea':12B 'eaqu':51B 'et':1A,11B,49B,60B 'exercitationem':59B 'fugiat':23B 'fugit':24B 'huert':9A 'impedit':52B 'in':17B,32B,48B 'iur':2A 'liber':39B 'magnam':44B 'mez':65C 'minim':22B 'mirand':62C 'molliti':45B 'necessitatibus':35B 'nisi':30B 'numquam':21B,31B 'omnis':14B 'perspiciatis':55B 'praesentium':15B 'provident':34B 'quam':29B 'qui':10B,43B,56B 'quintan':63C 'quisquam':5A 'quod':57B 'ration':38B 'recusanda':37B 'repellat':36B 'saep':13B 'sed.pariatur':25B 'temporibus':58B 'tenetur':4A 'ut':3A,26B,28B 'vel':40B 'velit':18B 'volupt':53B 'voluptas.animi':47B"},
-  {proposal_id: 3, poll_id: 1, author_id: 21, author_visible_name: nil, title: "Necessitatibus minima et consectetur.", valid_answers: "Si", description: "<p>Necessitatibus impedit dolor aut nulla omnis. Eos cupiditate saepe. Optio possimus sunt ipsum. Eum a quod vel assumenda culpa earum.</p><p>Culpa mollitia inventore. Est neque fugiat. Accusantium quo iusto dolore qui et et.</p><p>Libero ea aut in sed commodi aliquid. Ut corrupti dignissimos. Id aut harum ex vero delectus consectetur. Voluptatem totam sint saepe laboriosam consequatur. Repellat aspernatur occaecati quo corrupti cum.</p>", comments_count: nil, hidden_at: nil, tsv: "'accusantium':36B 'aliqu':48B 'ana':71C 'aspernatur':66B 'assumend':28B 'aut':14B,44B,53B 'commodi':47B 'consectetur':4A,58B 'consequatur':64B 'corrupti':50B,69B 'culp':29B 'cum':70B 'cupiditat':18B 'delacruz':74C 'delectus':57B 'digniss':51B 'dolor':13B,39B 'ea':43B 'earum.culpa':30B 'eos':17B 'est':33B 'et':3A,41B 'et.libero':42B 'eum':24B 'ex':55B 'fugiat':35B 'harum':54B 'id':52B 'impedit':12B 'in':45B 'inventor':32B 'ipsum':23B 'iust':38B 'laboriosam':63B 'luis':10A 'mari':72C 'minim':2A 'molliti':31B 'necessitatibus':1A,11B 'nequ':34B 'null':15B 'occaecati':67B 'omnis':16B 'opti':20B 'parqu':8A 'possimus':21B 'qui':40B 'quinch':5A 'quo':37B,68B 'quod':26B 'repellat':65B 'saep':19B,62B 'san':9A 'sed':46B 'sint':61B 'sunt':22B 'totam':60B 'uri':73C 'ut':49B 'vel':27B 'ver':56B 'voluptatem':59B"},
-  {proposal_id: 6, poll_id: 1, author_id: 20, author_visible_name: nil, title: "Qui est sequi error facere voluptatem aperiam.", valid_answers: "Si", description: "<p>Nihil non accusamus sit minima officiis et. Ad magnam voluptatibus praesentium molestiae. Eos cupiditate ut.</p><p>Hic labore qui consectetur. Nam unde dolore voluptatibus ab nulla. Incidunt nulla provident ipsum architecto. Nulla suscipit reiciendis ipsa. Aut rerum voluptas.</p><p>Odio nihil illum labore consequatur similique sit. Sed eius nobis repudiandae minima officiis voluptas. Perspiciatis blanditiis ea. Eius eveniet sint est mollitia dolor.</p>", comments_count: nil, hidden_at: nil, tsv: "'ab':39B 'accusamus':19B 'ad':24B 'aperiam':7A 'architect':45B 'aut':50B 'blanditiis':67B 'consectetur':34B 'consequatur':56B 'cre':8A 'cultural':11A 'cupiditat':30B 'delatorr':76C 'dolor':37B,74B 'ea':68B 'eius':60B,69B 'eos':29B 'error':4A 'espaci':10A,14A 'est':2A,72B 'et':23B 'eveniet':70B 'facer':5A 'illum':54B 'incidunt':41B 'ipsa':49B 'ipsum':44B 'javi':75C 'labor':32B,55B 'magnam':25B 'minim':21B,63B 'molestia':28B 'molliti':73B 'nam':35B 'nihil':17B,53B 'nobis':61B 'non':18B 'null':40B,42B,46B 'officiis':22B,64B 'parqu':16A 'perspiciatis':66B 'praesentium':27B 'provident':43B 'qui':1A,33B 'reiciendis':48B 'repudianda':62B 'rerum':51B 'sed':59B 'sequi':3A 'similiqu':57B 'sint':71B 'sit':20B,58B 'suscipit':47B 'unde':36B 'ut.hic':31B 'volupt':65B 'voluptas.odio':52B 'voluptatem':6A 'voluptatibus':26B,38B 'ybarr':77C"}
-])
-Problem.create!([
-  {title: "Mejoramiento Parque San Luis", description: "El Parque San Luis, ubicado en la Unidad Vecinal 23, ha sido desde hace muchos años un lugar donde los vecinos de la comuna se congregan. Pero, a pesar de ello, no esta satisfaciendo las necesidades actuales de los vecinos, que a través de las mesas barriales han manifestado su interés por mejorar este, con la finalidad que las familias se puedan congregar en este espacio.", cause: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", problem_title: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", consequence: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", budget: "$60.000.000", restriction: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", summary: "Actualmente el Parque San Luis no está siendo útil para los vecinos ya que no cumple con las necesidades y expectativas de estos.", starts_at: "2017-10-30 19:18:36", ends_at: "2017-10-30 19:18:36", geozone_restricted: nil, active: true, user_id: 1, call_to_action: "Invitamos a los vecinos a proponer acerca de cómo quieren el Parque San Luis", restriction_summary: nil, verification_required: nil},
-  {title: "Muchos perros callejeros en mi barrio", description: "Description", cause: "Las causas de que haya muchos perros callejeros son:\n1.- Poca capacidad en perreras municipales\n2.- Muchos perros no esterilizados\n3.- Poca educación sobre tenencia responsable de animales", problem_title: nil, consequence: "1.- Plazas con perros agresivos que pueden morder a niños\n2.- Mi barrio está sucio y poco salubre con fecas\n3.- Perros sufren y tienen muy mala salud por tener que vivir en la calle", budget: nil, restriction: nil, summary: "Summary", starts_at: "2017-10-30 19:18:36", ends_at: "2017-11-10 19:18:36", geozone_restricted: nil, active: true, user_id: 1, call_to_action: "Crea propuestas", restriction_summary: nil, verification_required: nil}
-])
-Problem::HABTM_Geozones.create!([
-  {problem_id: 3, geozone_id: 28},
-  {problem_id: 3, geozone_id: 17},
-  {problem_id: 3, geozone_id: 14},
-  {problem_id: 1, geozone_id: 12}
-])
-Project.create!([
-  {neighbour_id: nil, responsible_id: nil, name: "Mejoramiento plaza San Luis con Quinchos", description: "Durante 3 semanas los vecinos de Peñalolen, de la unidad vecinal de la Unidad Vecinal 23, levantaron propuestas para mejorar el parque San Luis. Durante este tiempo los vecinos también tuvieron la posibilidad de apoyar diferentes propuestas. La", starts_at: "2017-03-28 20:00:00", ends_at: "2017-06-24 20:00:00", geozone_restricted: nil, proposal_id: nil, responsible_official_name: nil, responsible_official_mail: nil, implementation_starts_at: nil, implementation_ends_at: nil, responsible_neighbour_name: nil, responsible_neighbour_mail: nil, responsible_neighbour_phone: nil}
-])
-Proposal.create!([
-  {title: "Tenencia responsable de animales para ambientes más sanos y seguros", description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.", deadline: nil, question: nil, what: nil, why: nil, external_url: "http://waelchikuphal.org/tania", author_id: 9, hidden_at: nil, prioritize: nil, flags_count: 0, ignored_flag_at: nil, cached_votes_up: 100, comments_count: 0, confirmed_hide_at: nil, for_challenge: false, hot_score: 8700019748, confidence_score: 10000, responsible_name: "Alfonso Quiñónez Hurtado", summary: "Tenencia responsable de animales para ambientes más sanos y seguros", video_url: nil, tsv: "'ambient':6C 'animal':4C,37,63 'asoci':15B 'atqu':18B 'ayud':72 'barri':76 'callejer':25,86 'canal':11B 'consectetur':17B 'coordin':48 'cre':42 'deb':27,47 'educacion':32 'espaci':88 'esten':78 'esteriliz':67 'fec':81 'geozon':19B 'gratis':70 'hac':66 'hag':57 'hic':16B 'junt':51,64 'limpi':90 'llen':79 'luevan':14B 'mas':7C,31,89 'masiv':68 'men':23 'municipal':45 'navarret':12B 'nin':95,97 'part':28 'penalol':99 'perr':24,83,85 'respons':2C,35,61 'san':8C 'segur':10C,92 'taller':58 'ten':30 'tenenci':1C,34,60 'vecin':53", retired_at: nil, retired_reason: nil, retired_explanation: nil, problem_id: 1, project_id: 3, responsible_phone: nil, responsible_id: nil},
-  {title: "Tenencia responsable de animales para ambientes más sanos y seguros", description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.", deadline: nil, question: nil, what: nil, why: nil, external_url: "http://reynolds.io/santino", author_id: 16, hidden_at: nil, prioritize: nil, flags_count: 0, ignored_flag_at: nil, cached_votes_up: 0, comments_count: 0, confirmed_hide_at: nil, for_challenge: false, hot_score: 8651706042, confidence_score: 1, responsible_name: "Mónica Ornelas Rubio", summary: "Tenencia responsable de animales para ambientes más sanos y seguros", video_url: nil, tsv: "'ali':16B 'alvar':11B 'ambient':6C 'animal':4C,35,61 'ayud':70 'barri':74 'callejer':23,84 'coordin':46 'cre':40 'deb':25,45 'educacion':30 'espaci':86 'esten':76 'esteriliz':65 'fec':79 'geozon':17B 'gratis':68 'hac':64 'hag':55 'junt':49,62 'limpi':88 'llen':77 'mas':7C,29,87 'masiv':66 'men':21 'municipal':43 'nin':93,95 'part':26 'penalol':97 'perr':22,81,83 'quisquam':15B 'respons':2C,33,59 'rodriguez':12B 's.l':13B 'san':8C 'segur':10C,90 'taller':56 'ten':28 'tenenci':1C,32,58 'vecin':51 'voluptatem':14B", retired_at: nil, retired_reason: nil, retired_explanation: nil, problem_id: 1, project_id: 3, responsible_phone: nil, responsible_id: nil},
-  {title: "Quinchos en el Parque San Luis", description: "<p>Hic dolor architecto aut nam repudiandae et. Vero omnis minima occaecati adipisci aliquid aut eum. Assumenda rerum quidem ullam quisquam saepe quod. Quaerat iusto iure commodi. Ab non quasi et id neque aliquid unde.</p><p>Nam voluptas accusamus aliquam perferendis sunt modi. Natus et iusto. Molestias sed sunt.</p><p>Beatae est sunt ea possimus eum. Ut eligendi et perspiciatis optio. Est consequatur mollitia tenetur et nihil.</p>", deadline: nil, question: nil, what: nil, why: nil, external_url: "http://kris.net/elisa", author_id: 3, hidden_at: nil, prioritize: nil, flags_count: 0, ignored_flag_at: nil, cached_votes_up: 75, comments_count: 0, confirmed_hide_at: nil, for_challenge: true, hot_score: 8710918429, confidence_score: 7500, responsible_name: "Sonia Garica Padrón", summary: "Agregar al menos 5 quinchos con mesas para que los vecinos puedan juntarse a compartir", video_url: nil, tsv: "'5':15C 'ab':53 'accusamus':62 'adipisci':38 'agreg':12C 'aliqu':39,59 'aliquam':63 'architect':29 'assumend':42 'aut':30,40 'commodi':52 'compart':26C 'consequatur':84 'corporis':9B 'dolor':28 'ea':75 'eligendi':79 'est':73,83 'et':33,56,68,80,87 'eum':41,77 'geozon':11B 'hic':27 'id':57 'iur':51 'iust':50,69 'junt':24C 'luis':6A 'manag':7B 'men':14C 'mes':18C 'minim':36 'modi':66 'molesti':70 'molliti':85 'nam':31 'natus':67 'nequ':58 'nihil':88 'non':54 'occaecati':37 'omnis':35 'opti':82 'parqu':4A 'perferendis':64 'perspiciatis':81 'possimus':76 'pued':23C 'quaerat':49 'quasi':55 'qui':10B 'quidem':44 'quinch':1A,16C 'quisquam':8B,46 'quod':48 'repudianda':32 'rerum':43 'saep':47 'san':5A 'sed':71 'sunt':65,74 'sunt.beatae':72 'tenetur':86 'ullam':45 'unde.nam':60 'ut':78 'vecin':22C 'ver':34 'volupt':61", retired_at: nil, retired_reason: nil, retired_explanation: nil, problem_id: 3, project_id: 3, responsible_phone: nil, responsible_id: nil},
-  {title: "Mejorar la cancha", description: "<p>Fugit corrupti itaque. Consequuntur fugit est aliquid. Quibusdam velit corrupti quia cupiditate reiciendis. Dolorem iusto incidunt ut sint velit dignissimos repudiandae.</p><p>Nihil et rerum. Libero hic odit fuga similique ex fugiat. Maxime est cupiditate magnam deleniti reprehenderit laudantium quia.</p><p>Unde animi et aliquam sit assumenda repellendus. Animi et ratione error. At velit iure reiciendis. Illum laborum in. Distinctio suscipit vitae fugit.</p>", deadline: nil, question: nil, what: nil, why: nil, external_url: "http://keler.net/alfonzo", author_id: 10, hidden_at: nil, prioritize: nil, flags_count: 0, ignored_flag_at: nil, cached_votes_up: 33, comments_count: 0, confirmed_hide_at: nil, for_challenge: true, hot_score: 8681507458, confidence_score: 3300, responsible_name: "Susana Saucedo Guerrero", summary: "Se busca comprar arcos de fútbol y mejorar la cancha para que esta sea realmente útil", video_url: nil, tsv: "'aliqu':33 'aliquam':67 'animi':65,71 'arcos':14C 'assumend':69 'at':75 'atqu':7B 'busc':12C 'canch':3A,20C 'compr':13C 'consequuntur':30 'corrupti':28,36 'cupiditat':38,59 'deleniti':61 'digniss':46 'distincti':82 'dolorem':40 'error':74 'est':32,58 'et':8B,48,66,72 'ex':55 'expedit':9B 'fug':53 'fugiat':56 'fugit':27,31,85 'futbol':16C 'geozon':10B 'hic':51 'illum':79 'in':81 'incidunt':42 'itaqu':29 'iur':77 'iust':41 'laborum':80 'laudantium':63 'liber':50 'magnam':60 'maxim':57 'mejor':1A,18C 'odit':52 'qui':37 'quia.unde':64 'quibusdam':34 'ration':73 'realment':25C 'reiciendis':39,78 'repellendus':70 'reprehenderit':62 'repudiandae.nihil':47 'rerum':49 'rincon':5B 's.l':6B 'sanch':4B 'similiqu':54 'sint':44 'sit':68 'suscipit':83 'ut':43 'util':26C 'velit':35,45,76 'vita':84", retired_at: nil, retired_reason: nil, retired_explanation: nil, problem_id: 3, project_id: 3, responsible_phone: nil, responsible_id: nil},
-  {title: "Crear un huerto", description: "<p>Reiciendis quia voluptate qui omnis. Tempora consequatur voluptas vitae repudiandae. Placeat id et quis est.</p><p>Aut qui suscipit magnam voluptates quos. Nobis enim quisquam. Rem ex voluptatum nulla et voluptatem praesentium unde. Assumenda laborum aut et deleniti veniam vel sit.</p><p>Officia dolorum est. Maxime autem voluptatem mollitia. Fugiat dolore debitis temporibus est magnam commodi consequuntur. Eligendi quas dicta aut necessitatibus asperiores vero reprehenderit. Perferendis maiores enim vel a.</p>", deadline: nil, question: nil, what: nil, why: nil, external_url: "http://lebsack.io/ottilie.volkman", author_id: 19, hidden_at: nil, prioritize: nil, flags_count: 0, ignored_flag_at: nil, cached_votes_up: 74, comments_count: 0, confirmed_hide_at: nil, for_challenge: true, hot_score: 8662235829, confidence_score: 7400, responsible_name: "Daniela Mota López", summary: "La idea es crear un huerto, donde todos puedan tener un espacio donde plantar", video_url: nil, tsv: "'asperior':83 'assumend':56 'aut':58,81 'autem':67 'blanditiis':9B 'carden':5B 'commodi':76 'consequatur':31 'consequuntur':77 'cre':1A,14C 'debitis':72 'deleniti':60 'dict':80 'dolor':71 'dolorum':64 'eligendi':78 'enim':46,88 'espaci':22C 'est':65,74 'est.aut':39 'et':37,52,59 'ex':49 'fugiat':70 'galind':6B 'geozon':10B 'huert':3A,16C 'id':36 'ide':12C 'illo':7B 'joaquin':4B 'laborum':57 'magnam':42,75 'maior':87 'maxim':66 'molliti':69 'necessitatibus':82 'nobis':45 'null':51 'omnis':29 'perferendis':86 'placeat':35 'plant':24C 'praesentium':54 'pued':19C 'qua':8B 'quas':79 'qui':26,28,40 'quis':38 'quisquam':47 'quos':44 'reiciendis':25 'rem':48 'reprehenderit':85 'repudianda':34 'sit.officia':63 'suscipit':41 'tempor':30 'temporibus':73 'ten':20C 'unde':55 'vel':62,89 'veniam':61 'ver':84 'vita':33 'volupt':32 'voluptat':27,43 'voluptatem':53,68 'voluptatum':50", retired_at: nil, retired_reason: nil, retired_explanation: nil, problem_id: 3, project_id: 3, responsible_phone: nil, responsible_id: nil},
-  {title: "Crear un espacio cultural en el espacio del Parque", description: "<p>Voluptatem magnam vitae eos dicta sint hic. Velit corporis nulla accusamus mollitia nisi. Soluta dolorem vel maiores quos voluptatum qui laboriosam. Ex sint inventore qui.</p><p>Doloribus voluptatem aut officia impedit enim tempora. Molestiae vel est. Sapiente fuga ut veniam assumenda omnis.</p><p>Provident placeat et. Quibusdam vero facere temporibus rerum. Beatae in suscipit ad consequuntur dolorem. Aut facere quam sunt quibusdam commodi.</p>", deadline: nil, question: nil, what: nil, why: nil, external_url: "http://block.name/billie_kozey", author_id: 11, hidden_at: nil, prioritize: nil, flags_count: 0, ignored_flag_at: nil, cached_votes_up: 74, comments_count: 0, confirmed_hide_at: nil, for_challenge: true, hot_score: 8664017038, confidence_score: 7400, responsible_name: "Sancho Robles Márquez", summary: "La finalidad es que el Parque pueda ser utilizado en todo momento, incluso cuando llueve. Generando este espacio se podría tener esto, y potenciar las actividades culturales organizadas por los vecinos", video_url: nil, tsv: "'accusamus':58 'activ':42C 'ad':98 'assumend':86 'aut':74,101 'beata':95 'commodi':106 'consequuntur':99 'corporis':56 'cre':1A 'cultural':4A,43C 'dict':52 'dolorem':62,100 'enim':77 'eos':51 'espaci':3A,7A,34C 'est':81 'et':89 'ex':69 'facer':92,102 'final':18C 'fug':83 'gener':32C 'geozon':16B 'hic':15B,54 'hurt':10B 'impedit':76 'in':96 'inclus':29C 'inventor':71 'laboriosam':68 'lluev':31C 'magnam':49 'maior':64 'menendez':11B 'molestia':79 'molliti':59 'moment':28C 'nisi':60 'null':57 'offici':75 'omnis.provident':87 'organiz':44C 'parqu':9A,22C 'placeat':88 'podri':36C 'potenci':40C 'pued':23C 'quam':103 'qui':13B,67 'qui.doloribus':72 'quibusdam':90,105 'quos':65 'rerum':94 's.a':12B 'sapient':82 'ser':24C 'sint':53,70 'solut':61 'sunt':104 'suscipit':97 'tempor':14B,78 'temporibus':93 'ten':37C 'ut':84 'utiliz':25C 'vecin':47C 'vel':63,80 'velit':55 'veniam':85 'ver':91 'vita':50 'voluptatem':48,73 'voluptatum':66", retired_at: nil, retired_reason: nil, retired_explanation: nil, problem_id: 3, project_id: 3, responsible_phone: nil, responsible_id: nil}
-])
-Proposal::HABTM_Geozones.create!([
-  {proposal_id: 1, geozone_id: 12},
-  {proposal_id: 2, geozone_id: 12},
-  {proposal_id: 3, geozone_id: 28},
-  {proposal_id: 3, geozone_id: 17},
-  {proposal_id: 3, geozone_id: 14},
-  {proposal_id: 4, geozone_id: 28},
-  {proposal_id: 4, geozone_id: 17},
-  {proposal_id: 4, geozone_id: 14},
-  {proposal_id: 5, geozone_id: 28},
-  {proposal_id: 5, geozone_id: 17},
-  {proposal_id: 5, geozone_id: 14}
-])
+require 'database_cleaner'
+
+DatabaseCleaner.clean_with :truncation
+
+print "Creando configuraciones"
+Setting.create(key: 'official_level_1_name', value: 'Empleados públicos')
+Setting.create(key: 'official_level_2_name', value: 'Organización Municipal')
+Setting.create(key: 'official_level_3_name', value: 'Directores generales')
+Setting.create(key: 'official_level_4_name', value: 'Concejales')
+Setting.create(key: 'official_level_5_name', value: 'Alcaldesa')
+Setting.create(key: 'max_ratio_anon_votes_on_debates', value: '50')
+Setting.create(key: 'max_votes_for_debate_edit', value: '1000')
+Setting.create(key: 'max_votes_for_proposal_edit', value: '1000')
+Setting.create(key: 'proposal_code_prefix', value: 'PROP')
+Setting.create(key: 'votes_for_proposal_success', value: '100')
+Setting.create(key: 'months_to_archive_proposals', value: '12')
+Setting.create(key: 'comments_body_max_length', value: '1000')
+
+Setting.create(key: 'twitter_handle', value: '@consul_dev')
+Setting.create(key: 'twitter_hashtag', value: '#consul_dev')
+Setting.create(key: 'facebook_handle', value: 'consul')
+Setting.create(key: 'youtube_handle', value: 'consul')
+Setting.create(key: 'telegram_handle', value: 'consul')
+Setting.create(key: 'blog_url', value: '/blog')
+Setting.create(key: 'url', value: 'https://abre.penalolen.cl')
+Setting.create(key: 'org_name', value: 'Abre')
+Setting.create(key: 'municipality_name', value: 'Peñalolen')
+Setting.create(key: 'place_name', value: 'City')
+Setting.create(key: 'feature.debates', value: "false")
+Setting.create(key: 'feature.polls', value: "true")
+Setting.create(key: 'feature.spending_proposals', value: nil)
+Setting.create(key: 'feature.spending_proposal_features.voting_allowed', value: nil)
+Setting.create(key: 'feature.budgets', value: "false")
+Setting.create(key: 'feature.twitter_login', value: "false")
+Setting.create(key: 'feature.facebook_login', value: "true")
+Setting.create(key: 'feature.google_login', value: "false")
+Setting.create(key: 'feature.signature_sheets', value: "true")
+Setting.create(key: 'per_page_code_head', value: "")
+Setting.create(key: 'per_page_code_body', value: "")
+Setting.create(key: 'comments_body_max_length', value: '1000')
+Setting.create(key: 'mailer_from_name', value: 'Abre Peñalolen')
+Setting.create(key: 'mailer_from_address', value: 'abre@penalolen.cl')
+Setting.create(key: 'meta_description', value: 'Citizen Participation and Open Government Application')
+Setting.create(key: 'meta_keywords', value: 'citizen participation, open government')
+Setting.create(key: 'verification_offices_url', value: 'https://oficinas-atencion-ciudadano.url/')
+Setting.create(key: 'min_age_to_participate', value: '16')
+
+# Feature flags
+Setting['feature.debates'] = false
+Setting['feature.spending_proposals'] = nil
+Setting['feature.polls'] = true
+Setting['feature.twitter_login'] = false
+Setting['feature.facebook_login'] = true
+Setting['feature.google_login'] = false
+Setting['feature.public_stats'] = true
+Setting['feature.budgets'] = false
+Setting['feature.signature_sheets'] = false
+
+# Home
+Setting.create(key: 'home.main-title', value: "Construyamos soluciones para nuestra comuna")
+Setting.create(key: 'home.main-subtitle', value: "Quiero saber más")
+Setting.create(key: 'home.main-subtitle-link', value: "https://abre.penalolen.cl/more-information")
+Setting.create(key: 'home.info-epigraph', value: "Recepción de propuestas")
+Setting.create(key: 'home.info-title', value: "Parque de ideas: Soñemos en conjunto el Parque San Luis.")
+Setting.create(key: 'home.info-go_to', value: "Quiero subir una propuesta")
+Setting.create(key: 'home.info-go_to_link', value: "http://abre.penalolen.cl/proposals/new")
+Setting.create(key: 'home.info-go_to2', value: "Quiero subir una propuesta")
+Setting.create(key: 'home.info-go_to_link2', value: "http://abre.penalolen.cl/proposals/new")
+Setting.create(key: 'home.info-date', value: "17 DE JULIO - 15 DE AGOSTO")
+
+puts " ✅"
+print "Creando unidades vecinales y zonas"
+
+
+(1..31).each { |i| Geozone.create(name: "Unidad Vecinal #{i}", population: 3000, external_code: i.ord, census_code: i.ord) }
+Geozone.create(name: "La Faena", population: 15000, external_code: 32, census_code: 32)
+Geozone.create(name: "Lo Hermida", population: 45000, external_code: 33, census_code: 33)
+Geozone.create(name: "San Luis", population: 44000, external_code: 34, census_code: 34)
+Geozone.create(name: "Peñalolen Alto", population: 57000, external_code: 35, census_code: 35)
+Geozone.create(name: "Peñalolen Nuevo", population: 70000, external_code: 36, census_code: 36)
+
+
+
+puts " ✅"
+print "Creando usuarios"
+
+def create_user(email, username = Faker::Name.name)
+  pwd = '12345678'
+  User.create!(username: username, email: email, password: pwd, password_confirmation: pwd, confirmed_at: Time.current, terms_of_service: "1")
+end
+
+
+admin = create_user('admin@consul.dev', 'admin')
+admin.create_administrator
+admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
+
+moderator = create_user('mod@consul.dev', 'mod')
+moderator.create_moderator
+
+manager = create_user('manager@consul.dev', 'manager')
+manager.create_manager
+
+valuator = create_user('valuator@consul.dev', 'valuator')
+valuator.create_valuator
+
+poll_officer = create_user('poll_officer@consul.dev', 'Paul O. Fisher')
+poll_officer.create_poll_officer
+
+level_2 = create_user('leveltwo@consul.dev', 'level 2')
+level_2.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: "2222222222", document_type: "1" )
+
+verified = create_user('verified@consul.dev', 'verified')
+verified.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "3333333333")
+
+verified2 = create_user('unverified@consul.dev', 'unverified')
+
+
+(1..10).each do |i|
+  org_name = Faker::Company.name
+  org_user = create_user("org#{i}@consul.dev", org_name)
+  org_responsible_name = Faker::Name.name
+  org = org_user.create_organization(name: org_name, responsible_name: org_responsible_name)
+
+  verified = [true, false].sample
+  if verified then
+    org.verify
+  else
+    org.reject
+  end
+end
+
+(1..3).each do |i|
+  official = create_user("official#{i}@consul.dev")
+  official.update(official_level: i, official_position: "Official position #{i}")
+end
+
+(1..3).each do |i|
+  user = create_user("user#{i}@consul.dev")
+  level = [1, 2, 3].sample
+  if level >= 1
+    user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" , geozone: Geozone.find(23))
+  end
+end
+
+org_user_ids = User.organizations.pluck(:id)
+not_org_users = User.where(['users.id NOT IN(?)', org_user_ids])
+
+puts " ✅"
+print "Creando categorias"
+
+ActsAsTaggableOn::Tag.create!(name:  "Asociaciones", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Cultura", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Deportes", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Derechos Sociales", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Economía", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Empleo", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Equidad", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Sostenibilidad", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Participación", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Movilidad", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Medios", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Salud", featured: true , kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Transparencia", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Seguridad y Emergencias", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "category")
+
+
+puts " ✅"
+print "Creando un desafío y un problema"
+
+problem = Problem.create(title: "Mejoramiento Parque San Luis",
+  summary: "Actualmente el Parque San Luis no está siendo útil para los vecinos ya que no cumple con las necesidades y expectativas de estos.",
+  call_to_action: "Invitamos a los vecinos a proponer acerca de cómo quieren el Parque San Luis",
+  description: "El Parque San Luis, ubicado en la Unidad Vecinal 23, ha sido desde hace muchos años un lugar donde los vecinos de la comuna se congregan. Pero, a pesar de ello, no esta satisfaciendo las necesidades actuales de los vecinos, que a través de las mesas barriales han manifestado su interés por mejorar este, con la finalidad que las familias se puedan congregar en este espacio.",
+  id: 3,
+  budget: "$60.000.000",
+  restriction: nil,
+  starts_at: 1.day.ago,
+  ends_at: 10.day.from_now,
+  active: true,
+  project: Project.create(name: "Mejoramiento Parque San Luis"),
+  geozones: Geozone.reorder("RANDOM()").limit(3),
+  user: admin,
+  cause: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  consequence: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  problem_title: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+  restriction: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  )
+
+  problem2 = Problem.create(title: "Muchos perros callejeros en mi barrio",
+  cause: "Las causas de que haya muchos perros callejeros son:
+1.- Poca capacidad en perreras municipales
+2.- Muchos perros no esterilizados
+3.- Poca educación sobre tenencia responsable de animales",
+  consequence: "1.- Plazas con perros agresivos que pueden morder a niños
+2.- Mi barrio está sucio y poco salubre con fecas
+3.- Perros sufren y tienen muy mala salud por tener que vivir en la calle",
+  user: admin,
+  call_to_action: "Crea propuestas",
+  starts_at: 1.day.ago,
+  ends_at: 10.day.from_now,
+  project: Project.create(name: "Muchos perros callejeros en mi barrio"),
+  description: "Description",
+  summary: "Summary",
+  geozones: Geozone.reorder("RANDOM()").limit(1) )
+
+puts ""
+
+puts " ✅"
+print "Creando propuestas"
+
+tags = Faker::Lorem.words(25)
+
+proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Tenencia responsable de animales para ambientes más sanos y seguros",
+                            summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            problem: problem2,
+                            geozones: problem2.geozones,
+                            cached_votes_up: Setting["votes_for_proposal_success"])
+
+
+proposal0b = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Tenencia responsable de animales para ambientes más sanos y seguros",
+                            summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            geozones: problem2.geozones,
+                            problem: problem2)
+
+
+proposal1 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Quinchos en el Parque San Luis",
+                            summary: "Agregar al menos 5 quinchos con mesas para que los vecinos puedan juntarse a compartir",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            problem: problem,
+                            geozones: problem.geozones,
+                            for_challenge: true,
+                            cached_votes_up: 75)
+
+proposal2 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Mejorar la cancha",
+                            summary: "Se busca comprar arcos de fútbol y mejorar la cancha para que esta sea realmente útil",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            for_challenge: true,
+                            geozones: problem.geozones,
+                            terms_of_service: "1",
+                            problem: problem,
+                            cached_votes_up: 33)
+
+proposal3 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Crear un huerto",
+                            summary: "La idea es crear un huerto, donde todos puedan tener un espacio donde plantar",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            for_challenge: true,
+                            terms_of_service: "1",
+                            problem: problem,
+                            geozones: problem.geozones,
+                            cached_votes_up: 74)
+
+proposal4 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Crear un espacio cultural en el espacio del Parque",
+                            summary: "La finalidad es que el Parque pueda ser utilizado en todo momento, incluso cuando llueve. Generando este espacio se podría tener esto, y potenciar las actividades culturales organizadas por los vecinos",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            problem: problem,
+                            for_challenge: true,
+                            cached_votes_up: 74)
+
+
+
+puts " ✅"
+print "Creando Proyecto"
+
+project = Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
+  description: "Durante 3 semanas los vecinos de Peñalolen, de la unidad vecinal de la Unidad Vecinal 23, levantaron propuestas para mejorar el parque San Luis. Durante este tiempo los vecinos también tuvieron la posibilidad de apoyar diferentes propuestas. La",
+  id: 3,
+  starts_at: "2017-03-28 22:00:00",
+  ends_at: "2017-06-24 22:00:00",
+  proposals: Proposal.all)
+
+puts " ✅"
+
+
+print "Crear votación"
+
+poll = Poll.create(name: "Mejoramiento Parque San Luis",
+                     starts_at: 1.month.ago,
+                     ends_at:   1.month.from_now,
+                     description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                     geozone_restricted: true,
+                     geozones: Geozone.where(:name => "Unidad Vecinal 23"))
+
+print "Creating Preguntas de la votación"
+
+(1..3).each do |i|
+  proposal = Proposal.reorder("RANDOM()").first
+  author = User.reorder("RANDOM()").first
+  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+  question = Poll::Question.create!(author: author,
+                                    title: Faker::Lorem.sentence(3).truncate(60),
+                                    description: description,
+                                    valid_answers: "Si",
+                                    poll: poll,
+                                    proposal: proposal)
+end
+
+# print "Creating polls"
+#
+# puts " ✅"
+# print "Active Polls"
+# (1..2).each do |i|
+#   poll = Poll.create(name: "Active Poll #{i}",
+#                      starts_at: 1.month.ago,
+#                      ends_at:   1.month.from_now,
+#                      description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+#                      geozone_restricted: false)
+# end
+#
+# (3..4).each do |i|
+#   poll = Poll.create(name: "Active Poll #{i}",
+#                      starts_at: 1.month.ago,
+#                      ends_at:   1.month.from_now,
+#                      geozone_restricted: true,
+#                      description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+#                      geozones: Geozone.reorder("RANDOM()").limit(3)
+#                     )
+# end
+#
+#
+#
+#
+#
+# puts " ✅"
+# print "Upcoming Poll"
+# poll = Poll.create(name: "Upcoming Poll",
+#                    starts_at: 1.month.from_now,
+#                    ends_at:   2.months.from_now)
+#
+# puts " ✅"
+# print "Expired Poll"
+# poll = Poll.create(name: "Expired Poll",
+#                      starts_at: 2.months.ago,
+#                      ends_at:   1.months.ago)
+#
+# puts " ✅"
+#
+# print "Creating Poll Questions"
+#
+# (1..10).each do |i|
+#   poll = Poll.reorder("RANDOM()").first
+#   author = User.reorder("RANDOM()").first
+#   description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+#   open_at = rand(2.months.ago .. 2.months.from_now)
+#   question = Poll::Question.create!(author: author,
+#                                     title: Faker::Lorem.sentence(3).truncate(60),
+#                                     description: description,
+#                                     valid_answers: Faker::Lorem.words((2..7).to_a.sample).join(', '),
+#                                     poll: poll)
+# end
+
+# puts " ✅"
+# print "Creating Poll Booths"
+# 30.times.each_with_index do |i|
+#   Poll::Booth.create(name: "Booth #{i}", polls: [Poll.all.sample])
+# end
+#
+# puts " ✅"
+# print "Creating Booth Assignments"
+# Poll::Booth.all.each do |booth|
+#   Poll::BoothAssignment.create(booth: booth, poll: Poll.all.sample)
+# end
+#
+# puts " ✅"
+# print "Creating Poll Officer Assignments"
+# (1..15).to_a.sample.times do |i|
+#   Poll::BoothAssignment.all.sample(i).each do |booth_assignment|
+#     Poll::OfficerAssignment.create(officer: poll_officer.poll_officer,
+#                                    booth_assignment: booth_assignment,
+#                                    date: booth_assignment.poll.starts_at)
+#   end
+# end
+#
+# puts " ✅"
+# print "Creating Poll Recounts" do
+# (1..15).to_a.sample.times do |i|
+#   poll_officer.poll_officer.officer_assignments.all.sample(i).each do |officer_assignment|
+#     Poll::Recount.create(officer_assignment: officer_assignment,
+#                          booth_assignment: officer_assignment.booth_assignment,
+#                          date: officer_assignment.date,
+#                          count: (1..5000).to_a.sample)
+#   end
+# end
+#
+# end
+#
+# puts " ✅"
+# print "Creating Poll Questions from Proposals"
+#
+# (1..3).each do
+#   proposal = Proposal.reorder("RANDOM()").first
+#   poll = Poll.current.first
+#   question = Poll::Question.create(valid_answers: "Yes, No")
+#   question.copy_attributes_from_proposal(proposal)
+#   question.save!
+# end
+#
+# puts " ✅"
+# print "Creating Successful Proposals"
+#
+# (1..10).each do
+#   proposal = Proposal.reorder("RANDOM()").first
+#   poll = Poll.current.first
+#   question = Poll::Question.create(valid_answers: "Yes, No")
+#   question.copy_attributes_from_proposal(proposal)
+#   question.save!
+# end
+#
+# puts " ✅"
+# print "Commenting Poll Questions"
+#
+# (1..30).each do
+#   author = User.reorder("RANDOM()").first
+#   question = Poll::Question.reorder("RANDOM()").first
+#   Comment.create!(user: author,
+#                   created_at: rand(question.created_at .. Time.current),
+#                   commentable: question,
+#                   body: Faker::Lorem.sentence)
+# end
+#
+# puts " ✅"
+# print "Creating Poll Voters"
+#
+# (1..10).each do
+#   poll = Poll.all.sample
+#   user = User.level_two_verified.sample
+#   Poll::Voter.create(poll: poll, user: user)
+# end
+
+# puts " ✅"
+puts "All dev seeds created successfuly 👍"

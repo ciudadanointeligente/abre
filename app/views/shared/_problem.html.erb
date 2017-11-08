@@ -2,4 +2,8 @@
 <h2> <%= problem.title %> </h2>
 <p> <%= problem.summary %> </p>
 
+<%= link_to "Propuestas", proposals_path(:challenge => problem.id) %>
+
+<%= link_to "Talleres de Diseño", project_design_events_path(problem.project) %>
+
 <p> Aquí van los links </p>

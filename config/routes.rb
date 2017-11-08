@@ -45,7 +45,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :projects
+  resources :projects do
+    resources :design_events    
+  end
 
   resources :proposals do
     member do

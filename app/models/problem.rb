@@ -11,6 +11,7 @@ class Problem < ActiveRecord::Base
   belongs_to :user
   has_many :proposals
   has_many :restrictions
+  belongs_to :project
 
   paginates_per 12
 
