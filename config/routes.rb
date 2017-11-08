@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       get :map
       get :suggest
       get :summary
+      get :challenge
     end
   end
 

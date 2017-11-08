@@ -25,9 +25,6 @@ module VotesHelper
   end
 
   def voted_for?(votes, votable)
-    p "VOTED_FOR"
-    p votes
-    p votable
     votes[votable.id]
   end
 

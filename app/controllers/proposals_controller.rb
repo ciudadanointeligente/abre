@@ -17,6 +17,7 @@ class ProposalsController < ApplicationController
   helper_method :resource_model, :resource_name
   respond_to :html, :js
 
+
   def show
     super
     @notifications = @proposal.notifications
@@ -31,6 +32,10 @@ class ProposalsController < ApplicationController
   end
 
   def index_customization
+    unless params[:challenge].nil?
+      @problem = Problem.find(params[:challenge])
+      @proposals_challenge = @problem.proposals
+    end
     discard_archived
     load_retired
     load_successful_proposals

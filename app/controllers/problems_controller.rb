@@ -11,7 +11,5 @@ class ProblemsController < ApplicationController
   end
 
 
-  def vote
-  end
 
 end

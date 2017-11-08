@@ -2,7 +2,7 @@
 <div class="supports text-center">
 
   <div class="in-favor">
-    <% if voted_for?((current_user ? current_user.proposal_votes(@proposals) : {}), proposal) %>
+    <% if voted_for?(@proposal_votes, proposal) %>
       <% if setting['twitter_handle'] %>
         <div class="share-supported">
           <div class="bg-blue padding">
@@ -17,11 +17,12 @@
       <% end %>
 
     <% elsif user_signed_in? && proposal.supported_by?(current_user) %>
-      <%= link_to vote_url,
-          class: "button primary button-support" + ' ' + button_support_class,
-          title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
-        <%= t("proposals.proposal.support") %>
-      <% end %>
+    <div class="share-supported">
+      <div class="bg-blue padding">
+        <span> <%= t("proposals.proposal.already_supported") %> </span>
+        <%= social_share_button_tag("#{proposal.title} #{setting['twitter_hashtag']}", url: proposal_url(proposal), via: setting['twitter_handle']) %>
+      </div>
+    </div>
 
     <% else %>
       <div class="button primary button-support <%= button_support_class %>">

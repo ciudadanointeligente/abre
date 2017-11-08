@@ -57,9 +57,7 @@
               <a> Desafíos </a>
               <ul class="menu">
               <% Problem.all.each do |problem| %>
-                <%= link_to problem_path(problem) do %>
-                <li> <%= problem.title %> </li>
-                <% end %>
+                <%= link_to problem.title, proposals_path(:challenge => problem.id) %>
               <% end %>
               </ul>
             </li>

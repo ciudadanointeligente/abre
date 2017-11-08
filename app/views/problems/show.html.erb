@@ -5,20 +5,15 @@
   </div>
 </div>
 
+
 <div class="text-width">
-  <div class="small blue">DESAFÍO PARA <%= @problem.geozones_name%></div>
-  <h3> <%= @problem.title %> </h3>
-  <p> <%= @problem.summary %> </p>
+  <%= render "shared/problem", problem: @problem %>
 
-  <% if @problem.valid %>
-    <span><%= t("proposals.index.remaining_time_1") %> <span class="counter-bg"><%= distance_of_time_in_days(@problem.ends_at, Date.today) %></span> <%= t("proposals.index.remaining_time_2") %>
-    <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => @problem.id), class: 'button hollow primary' %>
-  <% else %>
-    Proceso de recepción de propuestas cerrado
-  <% end %>
+  <h3 class="page-title"><%= t("titles.create_proposal") %></h3>
+  <h4 class="page-title">PASO 1: Conoce el desafío</h4>
 
+  <%= render "problems/problem", problem: @problem %>
 
-  <%= render partial: 'proposals/proposal', collection: @proposals %>
-  <%= paginate  @proposals %>
+  <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => @problem.id), class: 'button primary float-right' %>
 
 </div>
