@@ -35,7 +35,22 @@
           <div class="show-for-small-only">
             <div class="subnavigation row">
               <div class="small-12 column">
-                <%= render "shared/subnavigation" %>
+                <ul class="dropdown menu" data-dropdown-menu>
+                  <li>
+                    <a> Desafíos </a>
+                    <ul class="menu">
+                    <% Problem.all.each do |problem| %>
+                      <%= link_to problem.title, proposals_path(:challenge => problem.id) %>
+                    <% end %>
+                    </ul>
+                  </li>
+                  <%= render "shared/subnavigation" %>
+                  <div class="top-bar-right">
+                    <%= render "devise/menu/login_items" %>
+                    <%= render "shared/admin_login_items" %>
+                  </div>
+                </ul>
+                <!-- <%= render "shared/subnavigation" %> -->
                 <!-- <%= render "shared/top_links" %> -->
                 <%= render "devise/menu/login_items" %>
                 <%= render "shared/admin_login_items" %>
@@ -61,7 +76,7 @@
               <% end %>
               </ul>
             </li>
-            <%= render "shared/subnavigation" %>
+            <!-- <%= render "shared/subnavigation" %> -->
             <div class="top-bar-right">
               <%= render "devise/menu/login_items" %>
               <%= render "shared/admin_login_items" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108180807) do
+ActiveRecord::Schema.define(version: 20171113174215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -291,6 +291,27 @@ ActiveRecord::Schema.define(version: 20171108180807) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "proposal_participation"
+    t.integer  "proposal_evaluation"
+    t.integer  "proposal_web_evaluation"
+    t.text     "proposal"
+    t.boolean  "design_participation"
+    t.integer  "design_evaluation"
+    t.text     "design"
+    t.boolean  "implementation_participation"
+    t.integer  "implementation_municipality_evaluation"
+    t.integer  "implementation_evaluation"
+    t.text     "implementation"
+    t.boolean  "experience"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "project_id"
+  end
+
+  add_index "evaluations", ["project_id"], name: "index_evaluations_on_project_id", using: :btree
 
   create_table "failed_census_calls", force: :cascade do |t|
     t.integer  "user_id"
@@ -1025,6 +1046,7 @@ ActiveRecord::Schema.define(version: 20171108180807) do
   add_foreign_key "annotations", "legislations"
   add_foreign_key "annotations", "users"
   add_foreign_key "design_events", "projects"
+  add_foreign_key "evaluations", "projects"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"
   add_foreign_key "flags", "users"

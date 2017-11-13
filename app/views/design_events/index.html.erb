@@ -4,11 +4,14 @@
 
 <div class="text-width">
 
+  <%= render "shared/problem", problem: @problem %>
+
   <h3>Diseño</h3>
 
   <p>
     A través de talleres participativos, la comunidad y el municipio diseñarán una propuesta final y un plan de trabajo para llevar a cabo su implementación en conjunto.
   </p>
+
   <% @design_events.each do |d| %>
     <p>
       <i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>

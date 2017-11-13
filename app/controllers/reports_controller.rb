@@ -1,10 +1,10 @@
-class DesignEventsController < ApplicationController
+class ReportsController < ApplicationController
   skip_authorization_check
 
   def index
     @project = Project.find(params[:project_id])
     @problem = Problem.find(params[:problem_id])
-    @design_events = @project.design_events
+    @reports = @project.reports
   end
 
 end

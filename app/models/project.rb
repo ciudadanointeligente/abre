@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :design_events
   has_many :proposals
   has_many :reports
+  has_many :evaluations
   belongs_to :problem
 
   accepts_nested_attributes_for :design_events, :allow_destroy => true

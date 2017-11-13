@@ -1,4 +1,19 @@
 FactoryGirl.define do
+  factory :evaluation do
+    title "MyString"
+    proposal_participation false
+    proposal_evaluation 1
+    proposal_web_evaluation 1
+    proposal "MyText"
+    design_participation false
+    design_evaluation 1
+    design "MyText"
+    implementation_participation false
+    implementation_municipality_evaluation 1
+    implementation_evaluation 1
+    implementation "MyText"
+    experience false
+  end
   factory :municipality do
     name "MyString"
     subdomain "MyString"

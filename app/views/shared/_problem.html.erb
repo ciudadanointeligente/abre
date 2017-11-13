@@ -4,6 +4,10 @@
 
 <%= link_to "Propuestas", proposals_path(:challenge => problem.id) %>
 
-<%= link_to "Talleres de Diseño", project_design_events_path(problem.project) %>
+<%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %>
+
+<%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %>
+
+<%= link_to "Evaluación", project_evaluations_path(problem.project, :problem_id => problem.id) %>
 
 <p> Aquí van los links </p>
