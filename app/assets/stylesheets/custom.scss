@@ -557,45 +557,135 @@ ul, ol, dl {
 
 // Home
 
-.hero{
-  // background-image: asset-url("foto1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.pane--hero-block {
+    overflow: hidden;
+}
+.pane-bundle-complex-block {
+    position: relative;
+    clear: both;
+    z-index: 1;
 }
 
-.hero h1 {
-  margin: 0 0 2vw;
+@media only screen and (min-width: 1024px) {
+  .pane--hero-block .fieldable-panels-pane {
+      height: calc(100vh - 130px);
+  }
+}
+.pane--hero-block .fieldable-panels-pane {
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    max-width: 100%;
+    height: calc(100vh - 50px);
+    transition: .3s;
+    background: #08152a;
 }
 
-.hero-quote {
-  color: #ffffff;
-  background: #D80017;
-  padding: 2vw 2vw 1vw;
-  margin-top: -23vw;
+.page-dashboard .panel-pane.pane-views, .section-user .panel-pane.pane-views, .page-checkout-login .panel-pane.pane-views, .section-users .panel-pane.pane-views, .section-admin .panel-pane.pane-views, .page-dashboard .panel-pane.pane-views-panes, .section-user .panel-pane.pane-views-panes, .page-checkout-login .panel-pane.pane-views-panes, .section-users .panel-pane.pane-views-panes, .section-admin .panel-pane.pane-views-panes, .page-dashboard .panel-pane.pane-shortcut-shortcuts, .section-user .panel-pane.pane-shortcut-shortcuts, .page-checkout-login .panel-pane.pane-shortcut-shortcuts, .section-users .panel-pane.pane-shortcut-shortcuts, .section-admin .panel-pane.pane-shortcut-shortcuts, .page-dashboard .panel-pane.pane-hiveboxx-giftcard-giftcard-attach, .section-user .panel-pane.pane-hiveboxx-giftcard-giftcard-attach, .page-checkout-login .panel-pane.pane-hiveboxx-giftcard-giftcard-attach, .section-users .panel-pane.pane-hiveboxx-giftcard-giftcard-attach, .section-admin .panel-pane.pane-hiveboxx-giftcard-giftcard-attach, .page-dashboard .l-content, .section-user .l-content, .page-checkout-login .l-content, .section-users .l-content, .section-admin .l-content, .pane-bundle-complex-block .fieldable-panels-pane, .pane--centered-blue-image, .pane--box-comparison .fieldable-panels-pane, .pane---how-it-works-icons .fieldable-panels-pane, .pane--truck-text .fieldable-panels-pane, .l-footer_bottom .l-region, .l-header-wrapper .l-region, .l-help .l-region, .block--blockify-blockify-breadcrumb .breadcrumb, .pane-blockify-blockify-breadcrumb .breadcrumb, .block--commerce-checkout-progress-indication, .pane-hiveboxx-referral-hiveboxx-referral-link, .entity-commerce-order, .user-form, .user-profile-form .pane-form, .layout-wrapper .commerce-add-to-cart-giftcard_purchase .field-name-field-gift-card-amount, .node-type-product-page .pane-node .node, .pane-commerce-user-orders, .pane-commerce-order, .pane-bundle-multi-part-text-block .fieldable-panels-pane, .pane-bundle-faq .faqfield-definition-list, .pane--giftcards.panel-pane .field--name-field-image, .pane--hiveboxx-vs-cardboard .fieldable-panels-pane, .pane-hiveboxx-zip-codes-zip-form .zip-code-form--wrapper, .pane---how-it-works-icons .field--name-field-multi-part-text, .pane--packing-systems .fieldable-panels-pane, .pane-mailchimp-signup-suscribe .form-outer, .pane--truck-text .field--name-field-multi-part-text, .l-footer, .page-checkout .l-content, .front .numbered-item, .page-pricing .panel-col-bottom .inside, .taxonomy-term.vocabulary-product-category, .view-commerce-cart-summary, .view-commerce-cart-form, .view-commerce-line-item-table, .page-cart .l-content > .messages, .view-commerce-payment-order, .view-kits, .view-shop .views--group .views--group__content, .view-add-ons, .view-product-bundles.view-display-id-commercial_page, .view-product-bundles.view-display-id-residential_page, .view-product-bundles.view-display-id-related_products, .view-recommended-products, .view-shop {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.pane--hero-block .field--name-field-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.backgroundblendmode .pane--hero-block.pane--waypoint .field--name-field-background-image::before, .backgroundblendmode .pane--hero-block.pane--waypoint .field--name-field-background-image::after {
+    opacity: 1;
+}
+
+.backgroundblendmode .pane--hero-block .field--name-field-background-image::before, .backgroundblendmode .pane--hero-block .field--name-field-background-image::after {
+    mix-blend-mode: soft-light;
+}
+
+.pane--hero-block.pane--waypoint .field--name-field-background-image::before, .pane--hero-block.pane--waypoint .field--name-field-background-image::after {
+    opacity: .4;
+}
+
+.pane--hero-block .field--name-field-background-image::before {
+    top: 0;
+    left: 13.76471%;
+    width: 29.11765%;
+    height: 100%;
+    background: $orange;
+}
+
+.pane--hero-block .field--name-field-background-image::before, .pane--hero-block .field--name-field-background-image::after {
+    display: block;
+    position: absolute;
+    transition: .2s;
+    content: '';
+    opacity: 0;
+    z-index: 1;
+}
+
+.pane--hero-block.pane--waypoint .field--name-field-background-image .field__item {
+    transform: scale(1.2);
+}
+
+.pane--hero-block .field--name-field-background-image .field__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    transition: 3s;
+}
+
+.pane--hero-block .field--name-field-background-image img {
+    width: 100%;
+    height: 100%;
+    transition: .3s ease-in-out;
+    object-fit: cover;
+}
+
+.pane--hero-block.pane--waypoint .group-ds_content {
+    transform: translateY(0);
+    opacity: 1;
+    margin-bottom: 8vw;
+}
+
+.pane--hero-block .group-ds_content {
+    position: relative;
+    transform: translateY(30px);
+    transform: initial;
+    transition: .5s;
+    text-align: center;
+    opacity: 0;
+    z-index: 2;
+}
+
+.pane--hero-block .field--name-field-background-image img {
+    width: 100%;
+    height: 100%;
+    transition: .3s ease-in-out;
+    object-fit: cover;
+}
+
+
+// Fin test
+
+.hero-about {
+  background: $orange;
+  bottom: 0;
+  left: 13.76471%;
+  width: 29.11765%;
+  position: absolute;
   z-index: 1;
-  position: relative;
+  padding: 2vw 2vw 0vw;
 }
 
-.home-img {
-    background-image: asset-url("foto1.jpg");
-    min-height: 30vw;
-    background-size: cover;
-    margin-top: 3vw;
-}
-
-.how-it-works {
-  background: $gray-two;
-}
-
-@media only screen and (max-width: 1024px) {
-  .hero-quote {
-    margin-top: 0vw;
-  }
-
-  .how-it-works {
-    margin-top: 0vw;
-  }
-}
 
 .home-subtitle{
   font-size: 1.1rem;
@@ -619,11 +709,6 @@ ul, ol, dl {
 .home-info-dates{
   color: $white;
   background-color: $orange;
-}
-
-.home-info {
-    padding: 6vmin;
-    background: white;
 }
 
 .home-proposals {

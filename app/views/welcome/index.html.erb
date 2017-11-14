@@ -1,34 +1,64 @@
 <div class="no-margin-top">
+  <div class="hero">
+<div class="panel-pane pane-fieldable-panels-pane pane-current-1 pane-bundle-complex-block pane--hero-block hiveboxx-waypoints-processed hiveboxx-cta-processed pane--waypoint" id="pane-id-1">
 
-    <div class="hero">
-      <div class="row all-screen collapse">
-        <div class="small-12 medium-12 large-7 columns">
-          <div class="home-info">
-            <p class="home-info-dates label float-right"> <%= Setting["home.info-date"] %> </p>
-            <h4 class="small blue"> <%= Setting["home.info-epigraph"] %> </h4>
-            <h1 class="home-info-title"> <%= Setting["home.info-title"] %> </h1>
-            <%= link_to Setting["home.info-go_to"], Setting["home.info-go_to_link"], class: "button primary large" %>
-            <%= link_to Setting["home.info-go2_to"], Setting["home.info-go2_to_link"], class: "button secondary large" %>
 
-          </div>
+  <div class="pane-content">
+    <div class="ds-1col-stacked fieldable-panels-pane view-mode-full clearfix">
+
+
+  <div class="group-header">
+    <div class="field field--name-field-background-image field--type-image field--label-hidden"><div class="field__items"><div class="field__item even"><%= image_tag(image_path_for('hero01.png')) %></div></div></div>  </div>
+
+  <div class="group-ds_content">
+    <div class="field field--name-field-pre-title field--type-text field--label-hidden row">
+      <div class="field__items large-8 large-offset-2 columns">
+        <div class="field__item even">
+          <h1 class="white text-center"> La comunidad decide el futuro de sus barrios </h1>
         </div>
-        <div class="small-12 medium-12 large-5 columns home-img">
+        <h5 class="white text-center"> La Municipalidad de Peñalolén sabe que eres tú quien mejor conoce la comuna y sabe lo que necesita, por eso te invitamos a proponer, diseñar y construir en conjunto con los funcionarios y funcionarias municipales una mejor comuna. </h5>
+        <div class="text-center">
+          <%= link_to Setting["home.info-go_to"], Setting["home.info-go_to_link"], class: "button primary large" %>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="large-3 columns hero-about">
+    <div class="small white">
+      Qué es abre
+    </div>
+    <p class="white">Abre es una mezcla de herramientas digitales y metodológicas que acercan el trabajo de municipios a vecinas y vecinos, potenciando la construcción colectiva de barrios y comunidades.</p>
+  </div>
 
-      <div class="row all-screen collapse">
-        <div class="small-12 medium-12 large-3 large-offset-9 columns">
-          <div class="hero-quote">
-            <h3> <%= Setting["home.main-title"] %> </h3>
-            <div class="">
-              <%= link_to Setting["home.main-subtitle"], Setting["home.main-subtitle-link"], class: "hollow button primary" %>
+</div>
+
+  </div>
+
+
+    </div>
+  </div>
+</div>
+  <!-- <div class="no-margin-top">
+
+  <div class="hero">
+
+      <div class="hero-image">
+        <div class="field__items"><div class="field__item even"><img src="https://www.hiveboxx.com/sites/default/files/home-1.jpg" width="1866" height="1004" alt=""></div></div>
+        <div class="row all-screen collapse">
+          <div class="small-12 medium-12 large-10 large-offset-1 columns">
+            <div class="home-info">
+
+
+
             </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>
 
-</div>
+</div> -->
 
   <main>
 

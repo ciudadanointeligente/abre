@@ -731,10 +731,8 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       user_permission_verify_my_account: Verificar mi cuenta
       user_permission_votes: Participar en las votaciones finales*
       info:
-        date: "17 DE JULIO - 5 DE AGOSTO"
-        epigraph: "__   recepción de propuestas"
-        title: "Parque de ideas: Soñemos en conjunto el Parque San Luis."
-        go_to: "Quiero subir una propuesta"
+        title: "La comunidad decide el futuro de sus barrios"
+        go_to: "Mira los desafíos"
   legislation:
     help:
       title: "¿Cómo puedo comentar este documento?"
