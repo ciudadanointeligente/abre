@@ -1,1 +1,6 @@
 Aqui va una Lista de Desafios
+
+
+<% @problems.each do |problem| %>
+  <%= link_to problem.title, proposals_path(:challenge => problem.id) %>
+<% end %>

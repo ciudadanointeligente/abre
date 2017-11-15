@@ -47,6 +47,11 @@ class ProposalsController < ApplicationController
     set_proposal_votes(@proposal)
   end
 
+  def vote_admin
+    @proposal.admin_register_vote(current_user, 'yes')
+    set_proposal_votes(@proposal)
+  end
+
   def retire
     if valid_retired_params? && @proposal.update(retired_params.merge(retired_at: Time.current))
       redirect_to proposal_path(@proposal), notice: t('proposals.notice.retired')

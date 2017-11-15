@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   resources :proposals do
     member do
       post :vote
+      post :vote_admin
       post :vote_featured
       put :flag
       put :unflag

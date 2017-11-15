@@ -140,6 +140,12 @@ class Proposal < ActiveRecord::Base
     end
   end
 
+  def admin_register_vote(user, vote_value)
+    if supported_by?(user) && !archived? && user.administrator?
+      vote_by(voter: user, vote: vote_value, duplicate: true)
+    end
+  end
+
   def code
     "#{Setting["proposal_code_prefix"]}-#{created_at.strftime('%Y-%m')}-#{id}"
   end
