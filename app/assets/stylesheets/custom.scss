@@ -4,16 +4,20 @@
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
 
+h1, h2, h3, h4 {
+  font-weight: 900;
+}
+
 h1 {
-  font-size: 4.5vw;
+  font-size: 4vw;
   letter-spacing: 4px;
   text-transform: uppercase;
   font-family: $body-font-family-title;
 }
 
 h2 {
-  letter-spacing: 5px;
-  font-size: 3.5vw;
+  letter-spacing: 4px;
+  font-size: 36px;
   text-transform: uppercase;
   font-family: $body-font-family-title;
   margin: 2vw 0;
@@ -80,6 +84,7 @@ p {
   padding-left: 25px;
   position: relative;
   margin-bottom: 10px;
+  font-weight: 900;
   &:before {
     content: '_';
     font-size: 36px;
@@ -93,6 +98,7 @@ p {
   font-family: $body-font-family-title;
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-weight: 900;
   font-size: 14px;
 }
 
@@ -173,6 +179,10 @@ h4.counter {
     margin-bottom: 0px;
 }
 
+.info {
+  font-size: 14px;
+}
+
 // Text color
 
 .line-text {
@@ -212,10 +222,6 @@ h4.counter {
 
 .bg-blue {
   background: $light-blue;
-}
-
-.bg-blue p {
-  margin: 0;
 }
 
 .bg-orange {
@@ -337,8 +343,8 @@ form li {
 }
 
 .button{
-  border-radius: 2rem;
-  padding: 13px 23px;
+  border-radius: 0.3rem;
+  padding: 1vw 2vw;
 }
 
 .button.secondary {
@@ -555,7 +561,11 @@ ul, ol, dl {
   }
 }
 
-// Home
+// Home - hero
+
+.hero {
+    margin-bottom: 7vw;
+}
 
 .pane--hero-block {
     overflow: hidden;
@@ -674,8 +684,6 @@ ul, ol, dl {
 }
 
 
-// Fin test
-
 .hero-about {
   background: $orange;
   bottom: 0;
@@ -686,42 +694,44 @@ ul, ol, dl {
   padding: 2vw 2vw 0vw;
 }
 
+// Home - desafios
 
-.home-subtitle{
-  font-size: 1.1rem;
-  color: $white;
-  font-weight: lighter;
-  text-decoration: underline;
-  margin-left: 2rem;
+.problem-box {
+    background: $gray-five;
+    padding: 2vw;
 }
 
-.home-column2{
-  padding-left: 0rem !important;
-  padding-right: 0rem !important;
+// Home - stages
+
+.box {
+    padding: 2vw 2vw 1vw;
 }
 
-.home-info-link{
-  color: $brand;
-  text-decoration: underline;
-  font-size: 0.9rem;
+.box-svg {
+    margin-bottom: 2vw;
+    height: 160px;
 }
 
-.home-info-dates{
-  color: $white;
-  background-color: $orange;
+.box-svg svg {
+    vertical-align: middle;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
-.home-proposals {
-    padding: 6vw 0;
+#stages-in-home .small-12.medium-6.large-3.columns:nth-child(1), #stages-in-home .small-12.medium-6.large-3.columns:nth-child(3) {
+    margin-top: 5vw;
 }
 
-.home-proposal {
-  padding: 0 3vw;
-  &:nth-child(2)  {
-    border-left: 1px solid $gray-four;
-    border-right: 1px solid $gray-four;
-  }
+#stages-in-home .text-width {
+    padding-bottom: 4vw;
 }
+
+// Proposals
 
 .proposal-type {
   font-family: $body-font-family-title;
