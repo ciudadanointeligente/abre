@@ -80,15 +80,14 @@
           <%= f.text_field :rut %>
           <%= f.text_field :telefono %>
           <%= f.submit(class: "button float-right", value: "Apoyar esta propuesta") %>
-          <%= render 'votes',
-                  { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: '' } %>
         <% end %>
 
-        <!-- <%= link_to vote_admin_proposal_url, proposal: proposal,
-              class: "button primary button-support" ,
+        <%= link_to vote_admin_proposal_path(proposal, value: 'yes'),
+              class: "button primary button-support" + ' ' + '',
               title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
               <%= t("proposals.proposal.support") %>
-        <% end %> -->
+        <% end %>
+
 
         <button class="close-button gray" data-close aria-label="Close modal" type="button">
           <span aria-hidden="true">&times;</span>

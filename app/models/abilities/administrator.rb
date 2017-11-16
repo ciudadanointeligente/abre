@@ -41,6 +41,11 @@ module Abilities
 
       can :manage, Annotation
 
+
+      if user
+        can :vote_admin, Proposal
+      end
+
       can [:index, :show, :create, :edit, :update, :destroy], Problem
 
       can [:index, :show, :create, :edit, :update, :destroy], Project
