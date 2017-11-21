@@ -69,7 +69,7 @@ gem 'paperclip'
 gem 'httparty'
 gem 'simple_form'
 gem "faker", '~> 1.7.3'
-
+gem 'seed_dump'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
