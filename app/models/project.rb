@@ -37,8 +37,8 @@ class Project < ActiveRecord::Base
       return 'Implementación'
     elsif self.design_events.count > 0
       return 'Diseño'
-    else
       return 'Propuestas'
+    else
     end
   end
 
