@@ -43,7 +43,7 @@ h4 a {
 }
 
 h5 {
-  font-size: 20px;
+  font-size: calc(0.9rem + 1.1vmin);
   font-weight: normal;
   margin-bottom: 1vw;
 }
@@ -54,7 +54,7 @@ h5 {
   }
 
   h1 {
-    font-size: 44px;
+    font-size: 31px;
   }
 }
 
@@ -344,7 +344,11 @@ form li {
 
 .button{
   border-radius: 0.3rem;
-  padding: 1vw 2vw;
+  padding: calc(0.8rem + 1.2vmin) calc(0.8rem + 1.5vmin);
+}
+
+.button.large {
+    font-size: calc(0.8rem + 1.5vmin);
 }
 
 .button.secondary {
@@ -694,11 +698,21 @@ ul, ol, dl {
   padding: 2vw 2vw 0vw;
 }
 
+@media only screen and (max-width: 800px) {
+  .hero-about {
+      background: #FF5722;
+      left: 0;
+      width: 100%;
+      position: relative;
+  }
+}
+
 // Home - desafios
 
 .problem-box {
     background: $gray-five;
     padding: 2vw;
+    margin-bottom: 2vw;
 }
 
 // Home - stages
