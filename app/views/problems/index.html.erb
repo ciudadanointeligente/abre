@@ -1,6 +1,11 @@
-Aqui va una Lista de Desafios
 
+<div class="text-width">
+
+<h2> Desafíos </h2>
 
 <% @problems.each do |problem| %>
-  <%= link_to problem.title, proposals_path(:challenge => problem.id) %>
+  <%= render "problem", problem: problem %>
+  <hr>
 <% end %>
+
+</div>

@@ -1,0 +1,478 @@
+/* line 11, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+*, *:before, *:after {
+  box-sizing: border-box !important;
+}
+
+/* line 15, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.show-for-medium-down,
+.show-for-medium,
+.show-for-small {
+  display: none !important;
+}
+
+/* line 21, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.show-for-large-up,
+.hide-for-medium-down {
+  display: block !important;
+}
+
+/* line 26, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.column, .columns {
+  display: inline-block !important;
+  float: none !important;
+  box-sizing: border-box !important;
+}
+
+/* line 32, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-1, .row .small-1 {
+  width: 7.33333%;
+}
+
+/* line 33, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-2, .row .small-2 {
+  width: 15.66667%;
+}
+
+/* line 34, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-3, .row .small-3 {
+  width: 24%;
+}
+
+/* line 35, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-4, .row .small-4 {
+  width: 32.33333%;
+}
+
+/* line 36, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-5, .row .small-5 {
+  width: 40.66667%;
+}
+
+/* line 37, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-6, .row .small-6 {
+  width: 49%;
+}
+
+/* line 38, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-7, .row .small-7 {
+  width: 57.33333%;
+}
+
+/* line 39, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-8, .row .small-8 {
+  width: 65.66667%;
+}
+
+/* line 40, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-9, .row .small-9 {
+  width: 74%;
+}
+
+/* line 41, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-10, .row .small-10 {
+  width: 82.33333%;
+}
+
+/* line 42, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-11, .row .small-11 {
+  width: 90.66667%;
+}
+
+/* line 43, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.small-12, .row .small-12 {
+  width: 99%;
+}
+
+/* line 45, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-1, .row .medium-1 {
+  width: 7.33333%;
+}
+
+/* line 46, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-2, .row .medium-2 {
+  width: 15.66667%;
+}
+
+/* line 47, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-3, .row .medium-3 {
+  width: 24%;
+}
+
+/* line 48, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-4, .row .medium-4 {
+  width: 32.33333%;
+}
+
+/* line 49, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-5, .row .medium-5 {
+  width: 40.66667%;
+}
+
+/* line 50, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-6, .row .medium-6 {
+  width: 49%;
+}
+
+/* line 51, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-7, .row .medium-7 {
+  width: 57.33333%;
+}
+
+/* line 52, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-8, .row .medium-8 {
+  width: 65.66667%;
+}
+
+/* line 53, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-9, .row .medium-9 {
+  width: 74%;
+}
+
+/* line 54, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-10, .row .medium-10 {
+  width: 82.33333%;
+}
+
+/* line 55, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-11, .row .medium-11 {
+  width: 90.66667%;
+}
+
+/* line 56, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.medium-12, .row .medium-12 {
+  width: 99%;
+}
+
+/* line 58, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-1, .row .large-1 {
+  width: 7.33333%;
+}
+
+/* line 59, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-2, .row .large-2 {
+  width: 15.66667%;
+}
+
+/* line 60, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-3, .row .large-3 {
+  width: 24%;
+}
+
+/* line 61, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-4, .row .large-4 {
+  width: 32.33333%;
+}
+
+/* line 62, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-5, .row .large-5 {
+  width: 40.66667%;
+}
+
+/* line 63, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-6, .row .large-6 {
+  width: 49%;
+}
+
+/* line 64, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-7, .row .large-7 {
+  width: 57.33333%;
+}
+
+/* line 65, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-8, .row .large-8 {
+  width: 65.66667%;
+}
+
+/* line 66, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-9, .row .large-9 {
+  width: 74%;
+}
+
+/* line 67, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-10, .row .large-10 {
+  width: 82.33333%;
+}
+
+/* line 68, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-11, .row .large-11 {
+  width: 90.66667%;
+}
+
+/* line 69, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.large-12, .row .large-12 {
+  width: 99%;
+}
+
+/* line 71, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-1 {
+  margin-left: 7.33333%;
+}
+
+/* line 72, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-2 {
+  margin-left: 15.66667%;
+}
+
+/* line 73, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-3 {
+  margin-left: 24%;
+}
+
+/* line 74, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-4 {
+  margin-left: 32.33333%;
+}
+
+/* line 75, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-5 {
+  margin-left: 40.66667%;
+}
+
+/* line 76, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-6 {
+  margin-left: 49%;
+}
+
+/* line 77, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-7 {
+  margin-left: 57.33333%;
+}
+
+/* line 78, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-8 {
+  margin-left: 65.66667%;
+}
+
+/* line 79, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-9 {
+  margin-left: 74%;
+}
+
+/* line 80, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-10 {
+  margin-left: 82.33333%;
+}
+
+/* line 81, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-11 {
+  margin-left: 90.66667%;
+}
+
+/* line 82, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .small-offset-12 {
+  margin-left: 99%;
+}
+
+/* line 84, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-1 {
+  margin-left: 7.33333%;
+}
+
+/* line 85, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-2 {
+  margin-left: 15.66667%;
+}
+
+/* line 86, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-3 {
+  margin-left: 24%;
+}
+
+/* line 87, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-4 {
+  margin-left: 32.33333%;
+}
+
+/* line 88, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-5 {
+  margin-left: 40.66667%;
+}
+
+/* line 89, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-6 {
+  margin-left: 49%;
+}
+
+/* line 90, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-7 {
+  margin-left: 57.33333%;
+}
+
+/* line 91, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-8 {
+  margin-left: 65.66667%;
+}
+
+/* line 92, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-9 {
+  margin-left: 74%;
+}
+
+/* line 93, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-10 {
+  margin-left: 82.33333%;
+}
+
+/* line 94, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-11 {
+  margin-left: 90.66667%;
+}
+
+/* line 95, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .medium-offset-12 {
+  margin-left: 99%;
+}
+
+/* line 97, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-1 {
+  margin-left: 7.33333%;
+}
+
+/* line 98, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-2 {
+  margin-left: 15.66667%;
+}
+
+/* line 99, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-3 {
+  margin-left: 24%;
+}
+
+/* line 100, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-4 {
+  margin-left: 32.33333%;
+}
+
+/* line 101, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-5 {
+  margin-left: 40.66667%;
+}
+
+/* line 102, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-6 {
+  margin-left: 49%;
+}
+
+/* line 103, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-7 {
+  margin-left: 57.33333%;
+}
+
+/* line 104, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-8 {
+  margin-left: 65.66667%;
+}
+
+/* line 105, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-9 {
+  margin-left: 74%;
+}
+
+/* line 106, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-10 {
+  margin-left: 82.33333%;
+}
+
+/* line 107, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-11 {
+  margin-left: 90.66667%;
+}
+
+/* line 108, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.row .large-offset-12 {
+  margin-left: 99%;
+}
+
+/* line 110, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.top-bar {
+  clear: both !important;
+  height: 100px !important;
+}
+
+/* line 115, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.locale, .external-links {
+  background: #002d50 !important;
+}
+
+/* line 119, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.locale {
+  float: left !important;
+}
+
+/* line 123, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.external-links {
+  color: white !important;
+  float: right !important;
+}
+
+/* line 128, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.top-bar-title, .top-bar-title a, .top-bar-title a {
+  display: inline-block !important;
+  float: none !important;
+}
+
+/* line 133, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.top-bar-title a {
+  line-height: 24px !important;
+  width: 100% !important;
+}
+
+/* line 138, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.proposal .supports {
+  display: inline-block !important;
+  margin: 0 !important;
+  position: inherit !important;
+}
+/* line 143, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.proposal .supports:after {
+  content: none !important;
+}
+
+/* line 150, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+form input, form textarea {
+  height: 48px !important;
+  line-height: 48px !important;
+  margin-bottom: 24px !important;
+  width: 100% !important;
+}
+/* line 157, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+form input[type="checkbox"],
+form input[type="radio"] {
+  height: auto !important;
+  line-height: inherit !important;
+  width: auto !important;
+}
+/* line 164, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+form input[type="radio"] {
+  width: 18px !important;
+}
+
+/* line 169, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.subnavigation {
+  display: block;
+  height: 60px !important;
+  width: 100%;
+}
+/* line 174, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.subnavigation ul li a {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+/* line 180, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.truncate {
+  background: none;
+}
+
+/* line 189, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+body.admin form input[type="text"], body.admin form textarea {
+  height: 48px !important;
+  line-height: 48px !important;
+  margin-bottom: 24px !important;
+}
+
+/* line 196, /home/dani/FCI/abre/app/assets/stylesheets/ie.scss */
+.admin-sidebar ul [class^="icon-"] {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}

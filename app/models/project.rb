@@ -33,12 +33,12 @@ class Project < ActiveRecord::Base
   def status
     if self.form
       return 'Evaluación'
-    elsif self.implementation_starts_at < Date.today
+    elsif !self.implementation_starts_at.nil? && self.implementation_starts_at < Date.today
       return 'Implementación'
     elsif self.design_events.count > 0
       return 'Diseño'
-      return 'Propuestas'
     else
+      return 'Propuestas'
     end
   end
 

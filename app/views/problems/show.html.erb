@@ -12,7 +12,60 @@
   <h3 class="page-title"><%= t("titles.create_proposal") %></h3>
   <h4 class="page-title">PASO 1: Conoce el desafío</h4>
 
-  <%= render "problems/problem", problem: @problem %>
+  <% provide :title do %><%= @problem.title %><% end %>
+
+  <div class="row collapse">
+      <div class="small-12 medium-10 large-10 column">
+        <div class="summary padding">
+          <h5 class="white"><%= @problem.call_to_action%> </h5>
+          <p class="white"> <%= simple_format(@problem.description) %> </p>
+          <p class="white">
+            <% if @problem.budget? %>
+              <i class="fa fa-usd" aria-hidden="true"></i> <%= t("proposals.form.problem.budget") %> <%= @problem.budget%> </br>
+            <% end %>
+            <i class="fa fa-map-marker" aria-hidden="true"></i> <%= t("proposals.form.problem.community") %> <%= @problem.geozones_name %> </br>
+            <% if @problem.restriction_summary? %>
+              <i class="fa fa-list" aria-hidden="true"></i> <%= t("proposals.form.problem.restriction_summary") %> <%= @problem.restriction_summary%> </br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+  </div>
+  <div class="row collapse">
+    <div class="small-12 medium-5 medium-offset-7 large-5 large-offset-7">
+      <div class="deadline-problem bg-gray padding white">
+        <% if @problem.ends_at > Date.today%>
+          <h4 class="white text-center"><%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %></h4>
+        <% else %>
+          <h4 class="white text-center"> Proceso de recepción de propuestas cerrado </h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-width">
+    <div class="small-12 column column-with-margin">
+      <% if @problem.problem_title? %>
+        <h4> ¿Por qué surge este desafío? </h1>
+        <p> <%= @problem.summary%> </p>
+      <% end %>
+      <% if @problem.cause? %>
+        <h4> Causas </h1>
+        <p> <%= simple_format(@problem.cause)%> </p>
+      <% end %>
+      <% if @problem.consequence? %>
+        <h4> Consecuencias </h1>
+        <p> <%= simple_format(@problem.consequence)%> </p>
+      <% end %>
+      <% if @problem.restriction? %>
+        <h4> Restricciones </h1>
+        <p> <%= simple_format(@problem.restriction)%> </p>
+      <% end %>
+    </div>
+    <% if @problem.ends_at > Date.today%>
+      <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => @problem.id), class: 'button float-right' %>
+    <% end %>
+  </div>
 
   <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => @problem.id), class: 'button primary float-right' %>
 
