@@ -950,7 +950,7 @@ ActiveRecord::Schema.define(version: 20171116182811) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-10-31 17:58:00', null: false
+    t.datetime "password_changed_at",                       default: '2017-07-11 15:32:14', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""

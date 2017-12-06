@@ -799,3 +799,29 @@ footer a, footer a:active, footer a:focus {
 .pulse2 {
   animation-name: pulse2;
 }
+
+// Challenge / Problem
+
+.challenge-menu > li > a {
+    border-bottom: 4px solid $gray-three;
+    color: $gray-three;
+    position: relative;
+    &::before {
+      content: asset-url("oval.svg");
+      position: absolute;
+      left: 0;
+      bottom: -11px;
+    }
+}
+
+.challenge-menu.menu .active > a {
+    border-bottom: 4px solid $orange;
+    background: none;
+    color: $orange;
+    &::before {
+      content: asset-url("oval-active.svg");
+      position: absolute;
+      left: 0;
+      bottom: -11px;
+    }
+}
