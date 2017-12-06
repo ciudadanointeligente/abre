@@ -18,9 +18,8 @@
 
   <div class="text-width">
 
-    <%= render "shared/problem", problem: @problem %>
 
-    <%= link_to t("proposals.index.start_proposal"), problem_path(@problem),  class: 'button primary float-right' %>
+  <%= render "problem", problem: Problem.first %>
 
 
     <div id="proposals" class="proposals-list">

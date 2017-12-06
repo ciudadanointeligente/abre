@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171116182811) do
+=======
+ActiveRecord::Schema.define(version: 20171025195353) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -652,7 +656,10 @@ ActiveRecord::Schema.define(version: 20171116182811) do
     t.string   "call_to_action"
     t.string   "restriction_summary"
     t.boolean  "verification_required"
+<<<<<<< HEAD
     t.integer  "project_id"
+=======
+>>>>>>> master
   end
 
   add_index "problems", ["user_id"], name: "index_problems_on_user_id", using: :btree
