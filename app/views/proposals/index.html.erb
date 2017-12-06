@@ -57,8 +57,18 @@
     </div>
   </div> -->
 
+  <h5>
+    <%= @problem.call_to_action %>.
+    <% if @problem.ends_at > Date.today%>
+      <%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %>
+      <div class="pull-right"><a href="" class="button">Crear propuesta</a></div>
+      <% else %>
+      Ha finalizado el tiempo de recepción de propuestas, pero te invitamos a participar de los <%= link_to "Talleres de Diseño", project_design_events_path(@problem.project, :problem_id => @problem.id) %>
+      <% end %>
+  </h5>
+  
   <div id="proposals-list">
-    <div class="row collapse">
+    <div class="row">
       <%= render partial: 'proposals/proposal', collection: @proposals_challenge %>
       <%= paginate @proposals %>
     </div>

@@ -72,7 +72,7 @@ a:hover {
 
 p {
   color: $gray-two;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 2vw;
 }
 
@@ -94,12 +94,25 @@ p {
   }
 }
 
+
 .small-without-line{
   font-family: $body-font-family-title;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 900;
   font-size: 14px;
+}
+
+.details {
+  font-size: 12px;
+}
+
+.epigraph {
+  margin-bottom: -20px;
+}
+
+.subtitle {
+  margin-top: -20px;
 }
 
 h1.page-title {
@@ -425,8 +438,16 @@ form li {
 // Proposals
 
 .proposal {
-    border-bottom: 1px solid $gray-four;
-    padding: 3vw 0;
+    background: $gray-five;
+}
+
+.proposal-support {
+    background: #fff;
+    border: 4px solid $gray-five;
+}
+
+.proposal-content {
+  padding: calc(0.8rem + 1.5vmin);
 }
 
 .proposal .tags {
@@ -896,6 +917,10 @@ footer a, footer a:active, footer a:focus {
 }
 
 // Challenge / Problem
+
+.challenge-menu {
+    margin: 7vw 0 calc(1rem + 0vw);
+}
 
 .challenge-menu > li > a {
     border-bottom: 4px solid $gray-three;

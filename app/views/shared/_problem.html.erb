@@ -1,6 +1,6 @@
-<div class="small blue">DESAFÍO PARA <%= problem.geozones_name%></div>
+<div class="small blue epigraph">DESAFÍO PARA <%= problem.geozones_name%></div>
 <h2> <%= problem.title %> </h2>
-<h5> <%= problem.summary %> </h5>
+<h5 class="subtitle"> <%= problem.summary %> </h5>
 
 <ul class="menu expanded challenge-menu">
   <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line"><%= link_to "01. Propuestas", proposals_path(:challenge => problem.id) %></li>
