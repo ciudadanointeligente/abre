@@ -44,7 +44,7 @@
               <!-- Si es administrador puede apoyar propuestas en nombre de otro -->
 
               <% if !current_user.nil? && current_user.administrator? %>
-              <button class="button tiny" data-open="voteAdmin">Admin: Apoyar</button>
+              <a class="" data-open="voteAdmin">Admin: Apoyar</a>
 
               <div class="reveal" id="voteAdmin" data-reveal>
               <p class="label"> Apoyo de propuestas </p>
