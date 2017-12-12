@@ -20,56 +20,60 @@
                 <% end %>
               </p>
               <div class="proposal-description">
-                <p><%= proposal.summary %><span><a href="#"><%= link_to ' Ver más', namespaced_proposal_path(proposal) %></a></span></p>
+                <p><%= proposal.summary.truncate(120, :omission => "...") %><span><a href="#"><%= link_to ' Ver más', namespaced_proposal_path(proposal) %></a></span></p>
               </div>
             <% end %>
             <%= render "shared/tags", taggable: proposal, limit: 5 %>
           </div>
-          <div class="proposal-support">
-            <span class="total-votes-count"><%= proposal.total_votes %> </span> vecinos apoyan esta propuesta
-            <% if proposal.successful? %>
-            <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse2" style="font-size:1rem;"> </i></span>
-            <% end %>
-          </div>
-
-          <div>
+          <div class="proposal-support proposal-content">
+            <div class="support-count">
+              <span class="counter"><%= proposal.total_votes %> </span><span class="details"> vecinos apoyan esta propuesta</span>
+              <% if proposal.successful? %>
+              <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse2" style="font-size:1rem;"> </i></span>
+              <% end %>
+            </div>
             <% if proposal.successful? && proposal.problem.ends_at < Date.today %>
             <% else %>
-              <div class="">
-                <%= render 'proposals/votes',
-                        { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: '' } %>
-              </div>
+            <div class="text-right">
+              <%= link_to ' Ver más', namespaced_proposal_path(proposal), class: "button tiny secondary" %>
+              <%= render 'proposals/votes',
+              { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: 'tiny' } %>
+            </div>
             <% end %>
+            <div class="text-right">
+              <!-- Si es administrador puede apoyar propuestas en nombre de otro -->
+
+              <% if !current_user.nil? && current_user.administrator? %>
+              <button class="button tiny" data-open="voteAdmin">Admin: Apoyar</button>
+
+              <div class="reveal" id="voteAdmin" data-reveal>
+              <p class="label"> Apoyo de propuestas </p>
+              <h4><%= proposal.title %> </h4>
+
+              <%= form_for(:vote, url: vote_proposal_path(proposal, value: 'yes')) do |f| %>
+              <%= f.text_field :nombre %>
+              <%= f.text_field :rut %>
+              <%= f.text_field :telefono %>
+              <%= f.submit(class: "button float-right", value: "Apoyar esta propuesta") %>
+              <% end %>
+
+              <%= link_to vote_admin_proposal_path(proposal, value: 'yes'),
+              class: "button tiny primary button-support" + ' ' + '',
+                title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
+                <%= t("proposals.proposal.support") %>
+                <% end %>
 
 
-  <!-- Si es administrador puede apoyar propuestas en nombre de otro -->
-
-    <% if !current_user.nil? && current_user.administrator? %>
-      <p><button class="button" data-open="voteAdmin">Click me for a modal</button></p>
-
-      <div class="reveal" id="voteAdmin" data-reveal>
-        <p class="label float-left"> Apoyo de propuestas </p>
-        <h4><%= proposal.title %> </h4>
-
-        <%= form_for(:vote, url: vote_proposal_path(proposal, value: 'yes')) do |f| %>
-          <%= f.text_field :nombre %>
-          <%= f.text_field :rut %>
-          <%= f.text_field :telefono %>
-          <%= f.submit(class: "button float-right", value: "Apoyar esta propuesta") %>
-        <% end %>
-
-        <%= link_to vote_admin_proposal_path(proposal, value: 'yes'),
-              class: "button primary button-support" + ' ' + '',
-              title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
-              <%= t("proposals.proposal.support") %>
-        <% end %>
+                <button class="close-button gray" data-close aria-label="Close modal" type="button">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <% end %>
+          </div>
+            </div>
+          <div>
 
 
-        <button class="close-button gray" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    <% end %>
 
 
       </div>
