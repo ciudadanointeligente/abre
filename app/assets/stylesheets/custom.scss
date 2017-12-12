@@ -46,6 +46,9 @@ h5 {
   font-size: 20px;
   font-weight: normal;
   margin-bottom: 1vw;
+  & a {
+    color: $gray-one;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -72,7 +75,7 @@ a:hover {
 
 p {
   color: $gray-two;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 2vw;
 }
 
@@ -94,12 +97,25 @@ p {
   }
 }
 
+
 .small-without-line{
   font-family: $body-font-family-title;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 900;
   font-size: 14px;
+}
+
+.details {
+  font-size: 12px;
+}
+
+.epigraph {
+  margin-bottom: -20px;
+}
+
+.subtitle {
+  margin-top: -20px;
 }
 
 h1.page-title {
@@ -127,7 +143,7 @@ hr {
     background: $gray-two;
     border-radius: 0;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     padding: 0.2vw 1vw 0.1vw;
 }
 
@@ -161,7 +177,7 @@ hr {
   font-family: "Dosis", "Helvetica", "Arial", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
 .counter-bg {
@@ -339,6 +355,16 @@ form li {
 
 // Buttons
 
+.button{
+  border-radius: 0.3rem;
+  padding: 1vw 2vw;
+}
+
+.button.tiny {
+  font-size: 12px;
+  padding: 0.6rem 1vw;
+}
+
 .button.primary {
   background: $brand;
   color: white;
@@ -348,13 +374,8 @@ form li {
   }
 }
 
-.button{
-  border-radius: 0.3rem;
-  padding: 1vw 2vw;
-}
-
 .button.secondary {
-    background-color: $gray-two;
+    background-color: $gray-three;
     color: #ffffff;
     text-decoration: none;
     &:hover {
@@ -425,12 +446,37 @@ form li {
 // Proposals
 
 .proposal {
-    border-bottom: 1px solid $gray-four;
-    padding: 3vw 0;
+    background: $gray-five;
+    position: relative;
+    height: 500px;
+}
+
+.proposal-support {
+    background: #fff;
+    border: 4px solid $gray-five;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.proposal-content {
+  padding: calc(0.8rem + 1vmin);
 }
 
 .proposal .tags {
     margin-top: -15px;
+}
+
+.support-count {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.support-count .has-tip {
+  position: absolute;
+  bottom: 5px;
+  left: -18px;
+  padding-left: 4px;
 }
 
 #proposals .bg-orange .button {
@@ -502,6 +548,10 @@ ul, ol, dl {
   font-size: 14px;
 }
 
+.subnavigation ul {
+      z-index: 2;
+}
+
 .subnavigation ul li a {
   line-height: 2rem;
   font-weight: 400;
@@ -509,7 +559,7 @@ ul, ol, dl {
 }
 
 .text-width{
-  max-width: 900px;
+  max-width: 950px;
   margin: 0 auto !important;
 }
 
@@ -896,6 +946,10 @@ footer a, footer a:active, footer a:focus {
 }
 
 // Challenge / Problem
+
+.challenge-menu {
+    margin: 7vw 0 calc(1rem + 0vw);
+}
 
 .challenge-menu > li > a {
     border-bottom: 4px solid $gray-three;

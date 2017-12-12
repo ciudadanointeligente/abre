@@ -1,7 +1,5 @@
 
-<div class="supports text-center">
-
-  <div class="in-favor">
+  <span class="in-favor">
     <% if voted_for?(@proposal_votes, proposal) %>
       <% if setting['twitter_handle'] %>
         <div class="share-supported">
@@ -28,7 +26,7 @@
         <%= t("proposals.proposal.support") %>
       </div>
     <% end %>
-  </div>
+  </span>
 
   <% if user_signed_in? && current_user.organization? %>
     <div class="participation-not-allowed" style='display:none' aria-hidden="false">
@@ -56,6 +54,3 @@
       </div>
     </div>
   <% end %>
-
-
-</div>
