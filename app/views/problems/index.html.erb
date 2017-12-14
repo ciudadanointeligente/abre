@@ -1,11 +1,67 @@
 
 <div class="text-width">
 
-<h2> Desafíos </h2>
+<h1> Desafíos </h1>
+<div class="text-right">
+  <ul class="menu simple">
+    <!-- TODO que estos checkbox funcionen -->
+    <li class="checkbox"><label><input type="checkbox">Desafíos activos</label></li>
+    <li class="checkbox"><label><input type="checkbox">Desafíos terminados</label></li>
+  </ul>
+</div>
 
-<% @problems.each do |problem| %>
-  <%= render "problem", problem: problem %>
-  <hr>
-<% end %>
+<div class="bg-light-gray padding-small challenges-menu">
+  <div class="row">
+    <ul class="menu">
+      <div class="small-6 columns">
+        <li>
+          <div class="row">
+            <div class="small-4 columns">
+              <label for="right-label" class="text-right">Filtrar por</label>
+            </div>
+            <div class="small-8 columns">
+              <!-- TODO filtro por etapa -->
+              <select>
+                <option value="husker">Etapa</option>
+                <option value="husker">Levantamiento Propuestas</option>
+                <option value="starbuck">Talleres de diseño</option>
+                <option value="hotdog">Implementación</option>
+                <option value="apollo">Evaluación</option>
+              </select>
+            </div>
+          </div>
+        </li>
+      </div>
+      <div class="small-6 columns">
+        <li>
+          <div class="row">
+            <div class="small-4 columns">
+              <label for="right-label" class="text-right">Filtrar por</label>
+            </div>
+            <div class="small-8 columns">
+              <!-- TODO filtro por comunidad afectada -->
+              <select>
+                <option value="husker">Comunidad afectada</option>
+                <option value="husker">Levantamiento Propuestas</option>
+                <option value="starbuck">Talleres de diseño</option>
+                <option value="hotdog">Implementación</option>
+                <option value="apollo">Evaluación</option>
+              </select>
+            </div>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
+
+  <div class="row challenges">
+    <% @problems.each_with_index do |problem, index| %>
+      <% if (index)%2==0 %>
+    </div><div class="row">
+      <% end %>
+      <%= render "problem", problem: problem %>
+    <% end %>
+  </div>
 
 </div>
