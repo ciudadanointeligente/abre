@@ -9,9 +9,7 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :design_events, :allow_destroy => true
   accepts_nested_attributes_for :reports, :allow_destroy => true
-
   accepts_nested_attributes_for :proposals
-
 
   def geozones_name
     if self.geozones.any?
@@ -42,5 +40,12 @@ class Project < ActiveRecord::Base
     end
   end
 
+
+  def next_date_design_event
+    if self.design_events.any?
+      @design_events = self.design_events.order('starts_at DESC')
+      next_date = @design_events[0].starts_at
+    end
+  end
 
 end

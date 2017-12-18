@@ -7,4 +7,19 @@ class EvaluationsController < ApplicationController
     # @evaluations = @project.evaluations
   end
 
+  def new
+    # @evaluation = Evaluation.new
+    if params[:problem].present?
+      @problem = Problem.find(params[:problem].to_i)
+    end
+  end
+
+
+private
+
+  def evaluations_params
+    params.require(:evaluation).permit(:proposal_participation)
+  end
+
+
 end
