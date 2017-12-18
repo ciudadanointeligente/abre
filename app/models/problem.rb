@@ -16,6 +16,7 @@ class Problem < ActiveRecord::Base
   paginates_per 12
 
   accepts_nested_attributes_for :restrictions
+  accepts_nested_attributes_for :project
 
   def geozones_name
     if self.geozones.any?

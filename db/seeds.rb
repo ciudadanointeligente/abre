@@ -166,8 +166,9 @@ ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "ca
 
 
 puts " ✅"
-print "Creando un desafío y un problema"
+print "Creando desafíos"
 
+print "Creando un desafío abierto"
 problem = Problem.create(title: "Mejoramiento Parque San Luis",
   summary: "Actualmente el Parque San Luis no está siendo útil para los vecinos ya que no cumple con las necesidades y expectativas de estos.",
   call_to_action: "Invitamos a los vecinos a proponer acerca de cómo quieren el Parque San Luis",
@@ -178,65 +179,60 @@ problem = Problem.create(title: "Mejoramiento Parque San Luis",
   starts_at: 1.day.ago,
   ends_at: 10.day.from_now,
   active: true,
-  project: Project.create(name: "Mejoramiento Parque San Luis"),
   geozones: Geozone.reorder("RANDOM()").limit(3),
   user: admin,
   cause: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   consequence: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   problem_title: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-  restriction: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  restriction: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  project: Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
+    description: "Durante 3 semanas los vecinos de Peñalolen, de la unidad vecinal de la Unidad Vecinal 23, levantaron propuestas para mejorar el parque San Luis. Durante este tiempo los vecinos también tuvieron la posibilidad de apoyar diferentes propuestas. La",
+    id: 3,
+    starts_at: "2017-03-28 22:00:00",
+    ends_at: "2017-06-24 22:00:00",
+    proposals: Proposal.all)
   )
 
-  problem2 = Problem.create(title: "Muchos perros callejeros en mi barrio",
-  cause: "Las causas de que haya muchos perros callejeros son:
-1.- Poca capacidad en perreras municipales
-2.- Muchos perros no esterilizados
-3.- Poca educación sobre tenencia responsable de animales",
-  consequence: "1.- Plazas con perros agresivos que pueden morder a niños
-2.- Mi barrio está sucio y poco salubre con fecas
-3.- Perros sufren y tienen muy mala salud por tener que vivir en la calle",
-  user: admin,
-  call_to_action: "Crea propuestas",
-  starts_at: 1.day.ago,
-  ends_at: 10.day.from_now,
-  project: Project.create(name: "Muchos perros callejeros en mi barrio"),
-  description: "Description",
-  summary: "Summary",
-  geozones: Geozone.reorder("RANDOM()").limit(1) )
-
-puts ""
 
 puts " ✅"
-print "Creando propuestas"
 
+
+# problem2 = Problem.create(title: "Muchos perros callejeros en mi barrio",
+#   cause: "Las causas de que haya muchos perros callejeros son:
+# 1.- Poca capacidad en perreras municipales
+# 2.- Muchos perros no esterilizados
+# 3.- Poca educación sobre tenencia responsable de animales",
+#   consequence: "1.- Plazas con perros agresivos que pueden morder a niños
+# 2.- Mi barrio está sucio y poco salubre con fecas
+# 3.- Perros sufren y tienen muy mala salud por tener que vivir en la calle",
+#   user: admin,
+#   call_to_action: "Crea propuestas",
+#   starts_at: 1.day.ago,
+#   ends_at: 10.day.from_now,
+#   project: Project.create(name: "Muchos perros callejeros en mi barrio"),
+#   description: "Description",
+#   summary: "Summary",
+#   geozones: Geozone.reorder("RANDOM()").limit(1) )
+#
+# # puts ""
+#
+# puts " ✅"
+# print "Creando propuestas"
+#
 tags = Faker::Lorem.words(25)
-
-proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
-                            title: "Tenencia responsable de animales para ambientes más sanos y seguros",
-                            summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
-                            responsible_name: Faker::Name.name,
-                            external_url: Faker::Internet.url,
-                            description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
-                            created_at: rand((Time.current - 1.week) .. Time.current),
-                            tag_list: tags.sample(3).join(','),
-                            terms_of_service: "1",
-                            problem: problem2,
-                            geozones: problem2.geozones,
-                            cached_votes_up: Setting["votes_for_proposal_success"])
-
-
-proposal0b = Proposal.create!(author: User.reorder("RANDOM()").first,
-                            title: "Tenencia responsable de animales para ambientes más sanos y seguros",
-                            summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
-                            responsible_name: Faker::Name.name,
-                            external_url: Faker::Internet.url,
-                            description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
-                            created_at: rand((Time.current - 1.week) .. Time.current),
-                            tag_list: tags.sample(3).join(','),
-                            terms_of_service: "1",
-                            geozones: problem2.geozones,
-                            problem: problem2)
-
+#
+# proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
+#                             title: "Tenencia responsable de animales para ambientes más sanos y seguros",
+#                             summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
+#                             responsible_name: Faker::Name.name,
+#                             external_url: Faker::Internet.url,
+#                             description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
+#                             created_at: rand((Time.current - 1.week) .. Time.current),
+#                             tag_list: tags.sample(3).join(','),
+#                             terms_of_service: "1",
+#                             problem: problem2,
+#                             geozones: problem2.geozones,
+#                             cached_votes_up: Setting["votes_for_proposal_success"])
 
 proposal1 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             title: "Quinchos en el Parque San Luis",
@@ -294,42 +290,42 @@ proposal4 = Proposal.create!(author: User.reorder("RANDOM()").first,
                             cached_votes_up: 74)
 
 
+print "Creando Talleres de Diseño"
 
-puts " ✅"
-print "Creando Proyecto"
-
-project = Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
-  description: "Durante 3 semanas los vecinos de Peñalolen, de la unidad vecinal de la Unidad Vecinal 23, levantaron propuestas para mejorar el parque San Luis. Durante este tiempo los vecinos también tuvieron la posibilidad de apoyar diferentes propuestas. La",
-  id: 3,
-  starts_at: "2017-03-28 22:00:00",
-  ends_at: "2017-06-24 22:00:00",
-  proposals: Proposal.all)
-
-puts " ✅"
+design = DesignEvent.create(
+  name: "Taller de Diseño 1",
+  starts_at: rand(Time.current .. (Time.current + 2.week)),
+  place: "Parque San Luis",
+  pax: 23,
+  project: problem.project,
+  description: Faker::Lorem.paragraph(2),
+  summary: Faker::Lorem.paragraph,
+)
 
 
-print "Crear votación"
 
-poll = Poll.create(name: "Mejoramiento Parque San Luis",
-                     starts_at: 1.month.ago,
-                     ends_at:   1.month.from_now,
-                     description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
-                     geozone_restricted: true,
-                     geozones: Geozone.where(:name => "Unidad Vecinal 23"))
-
-print "Creating Preguntas de la votación"
-
-(1..3).each do |i|
-  proposal = Proposal.reorder("RANDOM()").first
-  author = User.reorder("RANDOM()").first
-  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
-  question = Poll::Question.create!(author: author,
-                                    title: Faker::Lorem.sentence(3).truncate(60),
-                                    description: description,
-                                    valid_answers: "Si",
-                                    poll: poll,
-                                    proposal: proposal)
-end
+# print "Crear votación"
+#
+# poll = Poll.create(name: "Mejoramiento Parque San Luis",
+#                      starts_at: 1.month.ago,
+#                      ends_at:   1.month.from_now,
+#                      description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+#                      geozone_restricted: true,
+#                      geozones: Geozone.where(:name => "Unidad Vecinal 23"))
+#
+# print "Creating Preguntas de la votación"
+#
+# (1..3).each do |i|
+#   proposal = Proposal.reorder("RANDOM()").first
+#   author = User.reorder("RANDOM()").first
+#   description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+#   question = Poll::Question.create!(author: author,
+#                                     title: Faker::Lorem.sentence(3).truncate(60),
+#                                     description: description,
+#                                     valid_answers: "Si",
+#                                     poll: poll,
+#                                     proposal: proposal)
+# end
 
 # print "Creating polls"
 #
