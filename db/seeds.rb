@@ -190,7 +190,11 @@ problem = Problem.create(title: "Mejoramiento Parque San Luis",
     id: 3,
     starts_at: "2017-03-28 22:00:00",
     ends_at: "2017-06-24 22:00:00",
-    proposals: Proposal.all)
+    proposals: Proposal.all,
+    implementation_starts_at: Date.today,
+    implementation_ends_at: Date.today + 3.month,
+    responsible_neighbour_name: Faker::Name.name,
+  )
   )
 
 
@@ -300,6 +304,29 @@ design = DesignEvent.create(
   project: problem.project,
   description: Faker::Lorem.paragraph(2),
   summary: Faker::Lorem.paragraph,
+)
+
+design2 = DesignEvent.create(
+  name: "Taller de Diseño 1",
+  starts_at: rand(Time.current .. (Time.current + 2.week)),
+  place: "Parque San Luis",
+  pax: 23,
+  project: problem.project,
+  description: Faker::Lorem.paragraph(2),
+  summary: Faker::Lorem.paragraph,
+)
+
+
+print "Creando Reporte"
+
+report1 = Report.create(
+  description: Faker::Lorem.paragraph(3),
+  project: problem.project,
+)
+
+report2 = Report.create(
+  description: Faker::Lorem.paragraph(4),
+  project: problem.project,
 )
 
 

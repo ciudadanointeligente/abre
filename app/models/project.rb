@@ -40,11 +40,14 @@ class Project < ActiveRecord::Base
     end
   end
 
-
   def next_date_design_event
     if self.design_events.any?
-      @design_events = self.design_events.order('starts_at DESC')
-      next_date = @design_events[0].starts_at
+      @design_events = self.design_events.order('starts_at ASC')
+      @design_events.each do |de|
+        if de.starts_at > Date.today
+          return de.starts_at
+        end
+      end
     end
   end
 
