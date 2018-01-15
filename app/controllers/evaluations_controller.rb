@@ -8,11 +8,34 @@ class EvaluationsController < ApplicationController
   end
 
   def new
-    # @evaluation = Evaluation.new
-    if params[:problem].present?
-      @problem = Problem.find(params[:problem].to_i)
+    @evaluation = Evaluation.new
+    if params[:problem_id].present?
+      @problem = Problem.find(params[:problem_id].to_i)
+    end
+    if params[:project_id].present?
+      @project = Project.find(params[:project_id].to_i)
+    end
+    if @evaluation.save
+      session[:evaluation_id] = @evaluation.id
+      redirect_to project_evaluation_steps_path(:problem_id => @problem.id)
+    else
+      render :new
     end
   end
+
+  # def create
+  #   @evaluation = Evaluation.new(params[:evaluation])
+  #   if params[:project_id].present?
+  #     @project = Project.find(params[:project_id].to_i)
+  #   end
+  #
+  #   if @evaluation.save
+  #     session[:evaluation_id] = @evaluation.id
+  #     redirect_to project_evaluation_steps_path, notice: "Thank you for signing up."
+  #   else
+  #     render :new
+  #   end
+  # end
 
 
 private

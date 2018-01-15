@@ -22,7 +22,7 @@
   <% @reports.each do |report| %>
     <h4 class="small blue"> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h4>
     <p> <%= report.description %> </p>
-    <%= link_to "Ver reporte completo", project_report_path(:id => report.id) %>
+    <%= link_to "Ver reporte completo", project_report_path(:id => report.id, :problem_id => @problem) %>
 
     <div class="gallery row">
       <% report.pictures.each do |pic| %>

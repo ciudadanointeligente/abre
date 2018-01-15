@@ -194,8 +194,7 @@ problem = Problem.create(title: "Mejoramiento Parque San Luis",
     implementation_starts_at: Date.today,
     implementation_ends_at: Date.today + 3.month,
     responsible_neighbour_name: Faker::Name.name,
-  )
-  )
+  ))
 
 
 puts " ✅"

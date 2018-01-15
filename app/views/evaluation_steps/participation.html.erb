@@ -1,0 +1,27 @@
+<div class="text-width">
+
+  <%= render "shared/problem", problem: @problem %>
+
+
+  <h3 class="text-left"> Formulario de Evaluación <span class="float-right"> 1/3 </span> </h3>
+
+  <%= simple_form_for @evaluation, url: wizard_path do |f| %>
+
+    Selecciona las etapas del desafío "<%= @problem.title %>" en las que participaste:
+
+    <div class="row">
+      <div class="small-12 medium-6 column">
+        <%= f.input :proposal_participation %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-4 column">
+        <%= f.submit t("admin.projects.#{admin_submit_action(@project)}.submit_button"),
+                     class: "button success expanded" %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
