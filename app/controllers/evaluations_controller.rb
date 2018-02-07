@@ -16,8 +16,7 @@ class EvaluationsController < ApplicationController
       @project = Project.find(params[:project_id].to_i)
     end
     if @evaluation.save
-      session[:evaluation_id] = @evaluation.id
-      redirect_to project_evaluation_steps_path(:problem_id => @problem.id)
+      redirect_to project_evaluation_steps_path(:evaluation_id => @evaluation.id, :problem_id => @problem.id)
     else
       render :new
     end
@@ -40,9 +39,8 @@ class EvaluationsController < ApplicationController
 
 private
 
-  def evaluations_params
+  def evaluation_params
     params.require(:evaluation).permit(:proposal_participation)
   end
-
 
 end

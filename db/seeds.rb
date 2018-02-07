@@ -306,10 +306,10 @@ design = DesignEvent.create(
 )
 
 design2 = DesignEvent.create(
-  name: "Taller de Diseño 1",
+  name: "Taller de Diseño 2",
   starts_at: rand(Time.current .. (Time.current + 2.week)),
   place: "Parque San Luis",
-  pax: 23,
+  pax: 17,
   project: problem.project,
   description: Faker::Lorem.paragraph(2),
   summary: Faker::Lorem.paragraph,

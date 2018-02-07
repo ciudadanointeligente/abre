@@ -1,11 +1,15 @@
-<%= form_for(@proposal, url: form_url) do |f| %>
+<%= form_for(@proposal, url: proposals_path(@problem)) do |f| %>
   <%= render 'shared/errors', resource: @proposal %>
 
     <% @problem.geozones.map(&:id).each do |id| %>
       <%= hidden_field_tag "proposal[geozone_ids][]", id %>
     <% end %>
 
-    <%= f.hidden_field :for_challenge, :value => true %>
+    <%= f.hidden_field :problem_id, :value => @problem.id %>
+
+
+
+    <%= f.hidden_field :problem, :value => @problem.id %>
 
     <div class="text-width row">
 

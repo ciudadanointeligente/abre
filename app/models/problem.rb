@@ -1,4 +1,5 @@
 class Problem < ActiveRecord::Base
+  include Filterable
 
   validates :title, presence: true
   validates :description, presence: true
@@ -14,6 +15,9 @@ class Problem < ActiveRecord::Base
   belongs_to :project
 
   paginates_per 12
+
+  scope :expired,  -> { where('ends_at < ?', Time.current) }
+  scope :active,  -> { where('ends_at > ?', Time.current) }
 
   accepts_nested_attributes_for :restrictions
   accepts_nested_attributes_for :project

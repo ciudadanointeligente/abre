@@ -4,6 +4,7 @@ class EvaluationStepsController < ApplicationController
   steps :participation, :evaluation, :tries
 
   def show
+    p params
     @evaluation = Evaluation.find(params[:evaluation_id])
     if params[:problem_id].present?
       @problem = Problem.find(params[:problem_id].to_i)
@@ -16,9 +17,18 @@ class EvaluationStepsController < ApplicationController
   end
 
   def update
-    @evaluation = current_evaluation
-    @evaluation.attributes = params[:evaluation]
-    render_wizard @evaluation
+    p params
+    p params[:evaluation_id].to_i
+    @evaluation = Evaluation.find(params[:evaluation_id].to_i)
+    p @evaluation
+    @evaluation.update_attributes(evaluation_params)
+    render_wizard @evaluation,  evaluation_id: @evaluation.id
+  end
+
+  private
+
+  def evaluation_params
+    params.require(:evaluation).permit(:proposal_participation)
   end
 
 end
