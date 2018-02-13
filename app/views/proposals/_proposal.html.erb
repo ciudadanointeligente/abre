@@ -33,12 +33,13 @@
               <% end %>
             </div>
             <% if proposal.successful? && proposal.problem.ends_at < Date.today %>
+
             <% else %>
-            <div class="text-right">
-              <%= link_to ' Ver más', namespaced_proposal_path(proposal), class: "button tiny secondary" %>
-              <%= render 'proposals/votes',
-              { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: 'tiny' } %>
-            </div>
+              <div class="text-right">
+                <%= link_to ' Ver más', namespaced_proposal_path(proposal), class: "button tiny secondary" %>
+                <%= render 'proposals/votes',
+                { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: 'tiny' } %>
+              </div>
             <% end %>
             <div class="text-right">
               <!-- Si es administrador puede apoyar propuestas en nombre de otro -->
