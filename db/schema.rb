@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20171116182811) do
-=======
-ActiveRecord::Schema.define(version: 20171025195353) do
->>>>>>> master
+ActiveRecord::Schema.define(version: 20180213160139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -313,6 +309,17 @@ ActiveRecord::Schema.define(version: 20171025195353) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.integer  "project_id"
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.string   "status"
+    t.boolean  "proposal_web_participation"
+    t.boolean  "design_participation_2"
+    t.boolean  "implementation_participation_2"
+    t.integer  "design_evaluation_2"
+    t.integer  "implementation_evaluation_2"
+    t.text     "proposal_web"
+    t.text     "design_2"
+    t.text     "implementation_2"
   end
 
   add_index "evaluations", ["project_id"], name: "index_evaluations_on_project_id", using: :btree
@@ -656,10 +663,7 @@ ActiveRecord::Schema.define(version: 20171025195353) do
     t.string   "call_to_action"
     t.string   "restriction_summary"
     t.boolean  "verification_required"
-<<<<<<< HEAD
     t.integer  "project_id"
-=======
->>>>>>> master
   end
 
   add_index "problems", ["user_id"], name: "index_problems_on_user_id", using: :btree
@@ -957,7 +961,7 @@ ActiveRecord::Schema.define(version: 20171025195353) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-07-11 15:32:14', null: false
+    t.datetime "password_changed_at",                       default: '2017-10-31 17:58:00', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""

@@ -1,0 +1,79 @@
+<div class="text-width">
+
+  <%= render "shared/problem", problem: @problem %>
+
+  <br>
+  <h3 class="text-left"> Formulario de Evaluación <span class="float-right"> 3/3 </span> </h3>
+  <br>
+
+  <div class="callout large">
+
+  <%= simple_form_for @evaluation, url: wizard_path do |f| %>
+
+  <h5> ¿Podrías ayudarnos a mejorar aquellas etapas que evaluaste con nota bajo 5?
+  Propón ideas que podrían servir para que éstas funcionen mejor en próximos desafíos: </h5>
+  <br>
+
+  <% if !@evaluation.proposal_evaluation.nil? && @evaluation.proposal_evaluation < 5 %>
+    <div class="row">
+      <div class="small-12 medium-12 column">
+        <%= f.input :proposal %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if !@evaluation.proposal_web_evaluation.nil? && @evaluation.proposal_web_evaluation < 5 %>
+    <div class="row">
+      <div class="small-12 medium-12 column">
+        <%= f.input :proposal_web %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if !@evaluation.design_evaluation.nil? && @evaluation.design_evaluation < 5 %>
+    <div class="row">
+      <div class="small-12 medium-12 column">
+        <%= f.input :design %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if !@evaluation.design_evaluation_2.nil? && @evaluation.design_evaluation_2 < 5 %>
+    <div class="row">
+      <div class="small-12 medium-12 column">
+        <%= f.input :design_2 %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if !@evaluation.implementation_evaluation.nil? && @evaluation.implementation_evaluation < 5 %>
+    <div class="row">
+      <div class="small-12 medium-12 column">
+        <%= f.input :implementation %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if !@evaluation.implementation_evaluation_2.nil? && @evaluation.implementation_evaluation_2 < 5 %>
+    <div class="row">
+      <div class="small-12 medium-12 column">
+        <%= f.input :implementation_2 %>
+      </div>
+    </div>
+  <% end %>
+
+    <%= hidden_field_tag 'evaluation_id', @evaluation.id %>
+    <%= hidden_field_tag 'problem_id', @problem.id %>
+    <%= hidden_field_tag 'project_id', @problem.id %>
+
+    <div class="row">
+      <div class="small-12 medium-12 column text-right">
+        <%= f.submit "Enviar",
+                     class: "button" %>
+      </div>
+    </div>
+
+  <% end %>
+
+  </div>
+</div>

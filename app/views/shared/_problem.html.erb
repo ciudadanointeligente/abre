@@ -6,6 +6,6 @@
 <ul class="menu expanded challenge-menu">
   <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line"><%= link_to "01. Propuestas", proposals_path(:challenge => problem.id) %></li>
   <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
-  <li class="<%= current_page?(project_reports_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+  <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
   <li class="<%= current_page?(project_evaluations_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Evaluación", project_evaluations_path(problem.project, :problem_id => problem.id) %></li>
 </ul>

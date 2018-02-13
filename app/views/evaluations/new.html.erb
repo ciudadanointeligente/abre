@@ -1,10 +1,23 @@
 <div class="text-width">
 
-  <%= simple_form_for @evaluation do |f| %>
+  <%= simple_form_for @evaluation, :url => project_evaluations_path(@project) do |f| %>
 
-  Hola
+    <div class="row">
+      <div class="small-12 medium-6 column">
+        <%= f.input :proposal_participation %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 medium-6 column">
+        <%= f.input :proposal_evaluation %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 medium-6 column">
+        <%= f.input :proposal_web_evaluation %>
+      </div>
+    </div>
 
   <% end %>
-
 
 </div>

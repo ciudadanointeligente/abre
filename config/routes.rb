@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     resources :design_events
     resources :reports
     resources :evaluations
+    resources :evaluation_steps
   end
 
   resources :proposals do

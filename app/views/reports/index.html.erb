@@ -7,10 +7,10 @@
   <%= render "shared/problem", problem: @problem %>
 
   <p>
-    <% unless @project.implementation_starts_at.nil? || @project.implementation_starts_at.empty? %>
+    <% unless @project.implementation_starts_at.nil? %>
       <i class="fa fa-calendar"> </i> Fecha inicio: <%= @project.implementation_starts_at %>
     <% end %>
-    <% unless @project.implementation_ends_at.nil? || @project.implementation_ends_at.empty? %>
+    <% unless @project.implementation_ends_at.nil? %>
       <span class="line-text">|</span> <i class="fa fa-calendar"> </i> Fecha término: <%= @project.implementation_ends_at %>
     <% end %>
     <% unless @project.responsible_neighbour_name.nil? || @project.responsible_neighbour_name.empty? %>
@@ -22,7 +22,7 @@
   <% @reports.each do |report| %>
     <h4 class="small blue"> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h4>
     <p> <%= report.description %> </p>
-
+    <%= link_to "Ver reporte completo", project_report_path(:id => report.id, :problem_id => @problem) %>
 
     <div class="gallery row">
       <% report.pictures.each do |pic| %>

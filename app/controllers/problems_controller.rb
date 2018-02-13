@@ -1,8 +1,9 @@
 class ProblemsController < ApplicationController
-  skip_authorization_check
+  load_and_authorize_resource
+  has_filters %w{active expired}
 
   def index
-    @problems = Problem.all
+    @problems = @problems.send(@current_filter).page(params[:page])
   end
 
   def show
