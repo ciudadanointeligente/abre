@@ -956,10 +956,13 @@ ul, ol, dl {
 footer a, footer a:active, footer a:focus {
     color: $gray-two;
     text-decoration: none;
-    padding-left: 16px;
     &:hover {
       color: darken ($gray-two, 10%)
     }
+}
+
+footer a i {
+  padding-left: 16px;
 }
 
 .footer svg {
