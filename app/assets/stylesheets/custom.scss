@@ -566,12 +566,28 @@ ul, ol, dl {
   background: $light-blue;
 }
 
+// nav
+
+.top-bar {
+    line-height: 28px;
+}
+
 .top-bar-title-right{
   float: right;
 }
 
 .top-bar .top-bar-title a img {
-    margin-bottom: -4px;
+    margin-bottom: -2px;
+    height: 42px;
+    width: auto;
+}
+
+.top-bar-right li a {
+  padding: 12px 0;
+}
+
+.menu > li > a {
+    padding: 12px 0;
 }
 
 .header-title{
@@ -582,12 +598,16 @@ ul, ol, dl {
   font-size: 14px;
 }
 
+.subnavigation {
+    background: #F7FBFF;
+}
+
 .subnavigation ul {
       z-index: 2;
 }
 
 .subnavigation ul li a {
-  line-height: 2rem;
+  line-height: 14px;
   font-weight: 400;
   color: $gray-two;
 }
