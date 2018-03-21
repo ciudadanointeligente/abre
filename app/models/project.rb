@@ -28,18 +28,6 @@ class Project < ActiveRecord::Base
     end
   end
 
-  def status
-    if self.form
-      return 'Evaluación'
-    elsif !self.implementation_starts_at.nil? && self.implementation_starts_at < Date.today
-      return 'Implementación'
-    elsif self.design_events.count > 0
-      return 'Diseño'
-    else
-      return 'Propuestas'
-    end
-  end
-
   def next_date_design_event
     if self.design_events.any?
       @design_events = self.design_events.order('starts_at ASC')

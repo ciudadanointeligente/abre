@@ -9,7 +9,7 @@
   <div class="proposal-show text-width">
     <div id="<%= dom_id(@proposal) %>" class="">
       <div class="">
-        <%= render "shared/back_link" %>
+        <span class="icon-angle-left"></span> <%= link_to "Revisar todas las propuestas", proposals_path(:challenge => @proposal.problem.id), class: "back" %>
 
         <% if author_of?(@proposal, current_user) %>
           <%= link_to t("proposals.show.send_notification"), new_proposal_notification_path(proposal_id: @proposal.id),
