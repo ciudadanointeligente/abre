@@ -66,6 +66,10 @@ es:
     reply_button: Publicar respuesta
     reply_link: Responder
   problems:
+    index:
+      filters:
+        active: "Proyectos activos"
+        expired: "Proyectos cerrados"
     form:
       blank: "Definir un problema"
     whole_area: "Toda la comuna"
