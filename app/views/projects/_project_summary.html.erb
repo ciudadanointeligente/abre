@@ -1,0 +1,21 @@
+<% @projects.each do |project| %>
+
+  <div class="proposal-content">
+    <h4 class="small blue total-votes-text">
+      ETAPA:
+    </h4>
+    <h4><%= link_to project.name, project_path(project) %></h4>
+
+    <p class="">
+      <i class="fa fa-map-marker"></i> <%= project.geozones_name %> <span class="line-text">|</span>
+      <i class="fa fa-calendar"> </i> <%= l project.created_at.to_date %> <span class="line-text">|</span>
+      <i class="fa fa-user"> </i> Encargado vecinal: <%= project.responsible_neighbour_name %>
+    </p>
+
+    <div class="proposal-description">
+      <p><%= project.description %><span><a href="#"><%= link_to ' Ver más', project_path(project) %></a></span></p>
+    </div>
+
+  </div>
+
+<% end %>

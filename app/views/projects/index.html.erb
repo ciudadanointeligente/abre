@@ -1,5 +1,27 @@
 <div class="row">
 	<div id="projects-list">
-		<%= render @projects %>
+		<div class="text-width">
+		    <h2 class="page-title">Seguimiento de proyectos</h2>
+		</div>
+
+
+		<div class="row collapse">
+		  <div class="small-12 medium-9 column">
+		      <!-- TODO: Acá se debe mostrar el problema elegido -->
+		      <div class="img-projects">
+		        <%= image_tag(image_path_for('foto1.jpg')) %>
+		      </div>
+		  </div>
+		</div>
+		<div class="row collapse">
+		  <div class="small-12 medium-offset-8 medium-4 info-poll overlap bg-gray padding white">
+		    <span> Estos son los proyectos que el Municipio ha subido a Abre. Hazles seguimiento e involucrate en sus distintas etapas. </span>
+		  </div>
+		</div>
+
+		<div class="text-width padding">
+			<%= render partial: 'projects/project_summary', collection: @projects %>
+		</div>
+
 	</div>
 </div>

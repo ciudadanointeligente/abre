@@ -9,51 +9,33 @@ class ProposalsController < ApplicationController
 
   invisible_captcha only: [:create, :update], honeypot: :subtitle
 
-  # has_orders %w{data_challenges hot_score confidence_score created_at relevance archival_date}, only: :index
-  has_orders %w{confidence_score created_at relevance archival_date}, only: :index
+  has_orders %w{date_challenges hot_score confidence_score created_at relevance archival_date}, only: :index
+  # has_orders %w{confidence_score created_at relevance archival_date}, only: :index
   has_orders %w{most_voted newest oldest}, only: :show
 
   load_and_authorize_resource
   helper_method :resource_model, :resource_name
   respond_to :html, :js
 
+
   def show
     super
     @notifications = @proposal.notifications
-    redirect_to proposal_path(@proposal), status: :moved_permanently if request.path != proposal_path(@proposal)
+    redirect_to proposal_path(@proposal, @problem), status: :moved_permanently if request.path != proposal_path(@proposal)
   end
 
   def new
+    if params[:problem].present?
+      @problem = Problem.find(params[:problem].to_i)
+    end
     @proposal.build_problem
   end
 
-  # def create
-  #   if !proposal_params[:problem_id].blank?
-  #     p "PARAMETROS DE PROPUESTAS ANTES DE CREAR"
-  #     p proposal_params
-  #     params[:proposal].delete :problem_attributes
-  #     p proposal_params
-  #     p "user id"
-  #     p params[:user_id]
-  #     p proposal_params[:user_id]
-  #     userid = params[:proposal][:user_id]
-  #     params[:proposal][:author_id] = userid
-  #     params[:proposal].merge(:author_id => params[:user_id])
-  #     p "PARAMETROS DE PROPUESTAS DESPUES DEL IF"
-  #     p proposal_params
-  #   end
-  #   @proposal = Proposal.new(proposal_params)
-  #   p "PARAMETROS DE PROPUESTAS DESPUES DEL NEW"
-  #   p proposal_params
-  #   if @proposal.save
-  #     redirect_to proposal_path(@proposal)
-  #   else
-  #     p @proposal.errors
-  #     render :new
-  #   end
-  # end
-
   def index_customization
+    unless params[:challenge].nil?
+      @problem = Problem.find(params[:challenge])
+      @proposals_challenge = @problem.proposals.order(cached_votes_up: :desc).page params[:page]
+    end
     discard_archived
     load_retired
     load_successful_proposals
@@ -62,6 +44,11 @@ class ProposalsController < ApplicationController
 
   def vote
     @proposal.register_vote(current_user, 'yes')
+    set_proposal_votes(@proposal)
+  end
+
+  def vote_admin
+    @proposal.admin_register_vote(current_user, 'yes')
     set_proposal_votes(@proposal)
   end
 
@@ -89,7 +76,7 @@ class ProposalsController < ApplicationController
   private
 
     def proposal_params
-      params.require(:proposal).permit(:title, :responsible_name, :author_id, :question, :summary, :description, :external_url, :video_url, :for_challenge, :responsible_name, :tag_list, :prioritize, :what, :why, :terms_of_service,  :problem_id, geozone_ids: [],  problem_attributes: [:id, :title, :summary, :description, :cause, :consequence, :user_id])
+      params.require(:proposal).permit(:title, :responsible_name, :responsible_id, :responsible_phone, :author_id, :question, :summary, :description, :external_url, :video_url, :for_challenge, :responsible_name, :tag_list, :prioritize, :what, :why, :terms_of_service,  :problem_id, geozone_ids: [],  problem_attributes: [:id, :title, :summary, :description, :cause, :consequence, :user_id])
     end
 
     def retired_params

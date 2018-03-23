@@ -2,6 +2,8 @@ class Admin::ProblemsController < Admin::BaseController
   load_and_authorize_resource
   before_action :load_geozones, only: [:new, :create, :edit, :update]
 
+  before_action :create_project, only: [:create]
+
   def show
   end
 
@@ -11,8 +13,14 @@ class Admin::ProblemsController < Admin::BaseController
   def new
   end
 
+  def create_project
+    p 'creando poryecto'
+    @problem.project = Project.new(name: @problem.title)
+  end
+
   def create
     if @problem.save
+      p 'ola'
       redirect_to admin_problems_url, notice: t("flash.actions.create.problem")
     else
       render :new
@@ -44,7 +52,7 @@ private
   end
 
   def problem_params
-    params.require(:problem).permit(:title, :summary, :description, :starts_at, :ends_at, :cause, :consequence, :budget, :problem_title, :call_to_action, :restriction, :restriction_summary, :user_id, :geozone_restricted, geozone_ids: [])
+    params.require(:problem).permit(:title, :summary, :description, :starts_at, :ends_at, :cause, :consequence, :budget, :problem_title, :call_to_action, :restriction, :restriction_summary, :user_id, :geozone_restricted, :verification_required, geozone_ids: [], restrictions_attributes: [:description, :id, :_destroy])
   end
 
 end

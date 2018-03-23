@@ -1,0 +1,43 @@
+<div class="small-12 medium-12 column">
+  <%= render "shared/back_link" %>
+</div>
+
+<div class="text-width">
+
+  <%= render "shared/problem", problem: @problem %>
+
+  <h3>Diseño</h3>
+
+  <p>
+    A través de talleres participativos, la comunidad y el municipio diseñarán una propuesta final y un plan de trabajo para llevar a cabo su implementación en conjunto.
+  </p>
+
+  <% @design_events.each do |d| %>
+    <p>
+      <i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
+        <span class="line-text">|</span> <i class="fa fa-map-marker"> </i> <%= d.place %>
+      <% unless d.pax.nil? %>
+        <span class="line-text">|</span> <i class="fa fa-users"> </i> <%= d.pax %> asistentes
+      <% end %>
+      <% if d.document.exists?  %>
+        <span class="line-text">|</span>
+        <%= link_to "Registro del taller", d.document.url%>
+      <% end %>
+    </p>
+    <p> <%= d.name %>:
+      <% if !d.summary.empty? %> <%= d.summary %>
+      <% else %> <%= d.description %>  <% end %>
+    </p>
+    <!-- <div class="gallery row">
+      <% d.pictures.each do |pic| %>
+      <% if pic.image.exists?  %>
+        <div class="small-12 medium-4 column">
+          <%= image_tag pic.image.url(:big) %>
+        </div>
+      <% end %>
+      <% end %>
+    </div> -->
+    <hr>
+  <% end %>
+
+</div>

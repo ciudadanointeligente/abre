@@ -1,116 +1,67 @@
-<%= form_for(@proposal, url: form_url) do |f| %>
+<%= form_for(@proposal, url: proposals_path(@problem)) do |f| %>
   <%= render 'shared/errors', resource: @proposal %>
 
-<!-- TODO: Por ahora solo se mostrará un problema/desafío -->
-
-    <!-- <div id="select-problem" class="small-12 medium-6 column" >
-      <%= f.label :problem_id,  t("proposals.form.proposal_problem") %>
-      <%= f.select :problem_id, valid_problems.collect {|p| [ p.title, p.id ] }, {include_blank: t("problems.form.blank"), label: false},  {:onchange=> "jsProblemChanged()"} %>
-    </div> -->
-<!--
-    <div class="small-12 column" id="problem-hidden">
-      <div class="panel callout radius">
-        <h5>Definir el problema</h5>
-        <%= f.fields_for :problem do |prob| %>
-        <div class="row">
-          <div class="small-12 medium-12 column">
-            <%= prob.text_field :title, label: "Problema que afecta a tu comunidad y crees que se debería solucionar"%>
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-12 medium-12 column">
-            <%= prob.text_area :cause, label: t("proposals.create.form.label_problem_cause") %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-12 medium-12 column">
-            <%= prob.text_area :consequence,  label: t("proposals.create.form.label_problem_consequence") %>
-          </div>
-        </div>
-          <%= prob.hidden_field :user_id, :value => @current_user.id %>
-         <% end %>
-      </div>
-    </div> -->
-
-    <div  id="problem-display">
-      <div class="row collapse">
-        <div class="small-12 medium-10 large-10">
-            <!-- TODO: Acá se debe mostrar el problema elegido -->
-            <div class="summary padding">
-              <%= link_to problem_path(challenge) do %>
-                <h3 class="title-challenge white"><%= challenge.title%> </h3>
-                <%= f.hidden_field :problem_id, :value => challenge.id %>
-                <p class="white"> <%= challenge.summary%> </p>
-                <p> <%= challenge.call_to_action %> </p>
-                <p class="white">
-                  <% if challenge.budget? %>
-                    <i class="fa fa-usd" aria-hidden="true"></i> <%= t("proposals.form.problem.budget") %> <%= challenge.budget%></br>
-                  <% end %>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> <%= t("proposals.form.problem.community") %> <%= challenge.geozones_name %>
-                </p>
-              <% end %>
-              <div class="show-for-small-only">
-                <span> Quedan</span> <strong class="mark-days">
-                <%=distance_of_time_in_days(challenge.ends_at, Date.today)%></strong><span> días para crear propuestas </span>
-              </div>
-            </div>
-          </div>
-          <div class="row collapse">
-            <div class="small-12 medium-5 medium-offset-7 large-5 large-offset-7">
-              <div class="deadline-problem bg-gray padding">
-                <h4 class="white text-center">Quedan <span class="counter num"><%=distance_of_time_in_days(challenge.ends_at, Date.today)%></span> días para crear propuestas</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-  </div>
-
-    <!-- TODO: Por ahora las gezones serán las mismas que del desafío por defceto  -->
-    <% challenge.geozones.map(&:id).each do |id| %>
+    <% @problem.geozones.map(&:id).each do |id| %>
       <%= hidden_field_tag "proposal[geozone_ids][]", id %>
     <% end %>
 
-    <%= f.hidden_field :for_challenge, :value => true %>
+    <%= f.hidden_field :problem_id, :value => @problem.id %>
+
+
+
+    <%= f.hidden_field :problem, :value => @problem.id %>
 
     <div class="text-width row">
+
+      <% if current_user.administrator? %>
+        <hr>
+        <p class="home-info-dates label float-right"> Vista disponible solo pa admin </p>
+        <h4>Creación de propuestas en nombre de otra persona</h4>
+        <p>Si existe una persona que no tenga correo eléctronico, puedes crear propuestas en nombre de esta.</p>
+
+        <ol class="admin">
+          <li class="small-12 medium-12 large-12 column ">
+            <%= f.label :responsible_name, t("proposals.form.proposal_responsible_name") %>
+            <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false %>
+          </li>
+          <li class="small-12 medium-12 large-12 column ">
+            <%= f.label :responsible_phone, "Teléfono de contacto" %>
+            <%= f.text_field :responsible_phone, label: false %>
+          </li>
+          <li class="small-12 medium-12 large-12 column ">
+            <%= f.label :responsible_id, "Rut" %>
+            <%= f.text_field :responsible_id, label: false %>
+          </li>
+        </ol>
+        <hr>
+
+      <% end %>
+
       <ol>
+        <!-- 1.Title -->
         <li class="small-12 medium-12 large-12 column ">
           <%= f.label :title, t("proposals.form.proposal_title") %>
           <%= f.text_field :title, maxlength: Proposal.title_max_length, placeholder: t("proposals.form.proposal_title"), label: false, data: {js_suggest_result: "js_suggest_result", js_suggest: "#js-suggest", js_url: suggest_proposals_path}%>
         </li>
 
-        <li class="small-12 medium-12 large-12 column ">
-          <%= f.label :summary, t("proposals.form.proposal_summary") %>
-          <p class="note"><%= t("proposals.form.proposal_summary_note") %></p>
-          <%= f.text_area :summary, rows: 3, maxlength: 200, label: false %>
-        </li>
-
+        <!-- 2.Description -->
         <li class="small-12 medium-12 large-12 column ">
           <%= f.label :description, t("proposals.form.proposal_text") %>
           <p class="note"><%= t("proposals.form.proposal_description_note") %></p>
           <%= f.text_area :description, rows: 5, label: false %>
         </li>
 
-      <li class="small-12 medium-12 large-12 column column-with-margin">
-        <%= f.label :why, t("proposals.form.proposal_why") %>
-        <p class="note"><%= t("proposals.form.proposal_why_note") %></p>
-        <%= f.text_area :why, rows: 2, label: false,
-                        placeholder: "" %>
-      </li>
+
+        <!-- 3.Summary -->
+        <li class="small-12 medium-12 large-12 column ">
+          <%= f.label :summary, t("proposals.form.proposal_summary") %>
+          <p class="note"><%= t("proposals.form.proposal_summary_note") %></p>
+          <%= f.text_area :summary, rows: 3, maxlength: 200, label: false %>
+        </li>
+
 
         <div id="js-suggest"></div>
 
-        <li class="small-12 medium-12 large-12 column">
-          <%= f.label :video_url, t("proposals.form.proposal_video_url") %>
-          <p class="note"><%= t("proposals.form.proposal_video_url_note") %></p>
-          <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false %>
-        </li>
-
-        <li class="small-12 medium-12 large-12 column">
-          <%= f.label :external_url, t("proposals.form.proposal_external_url") %>
-          <p class="note"><%= t("proposals.form.proposal_document_note") %></p>
-          <%= f.text_field :external_url, placeholder: t("proposals.form.proposal_external_url"), label: false %>
-        </li>
 
         <li class="small-12 medium-12 large-12 column">
           <%= f.label :tag_list, t("proposals.form.tags_label") %>
@@ -128,6 +79,20 @@
                             placeholder: t("proposals.form.tags_placeholder"),
                             class: 'js-tag-list' %>
         </li>
+
+        <ul class="accordion small-12 medium-12 large-12 column" data-accordion>
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class=""><p>¿Quiéres agregar más información?</p></a>
+            <div class="accordion-content" data-tab-content>
+              <%= f.label :video_url, t("proposals.form.proposal_video_url") %>
+              <p class="note"><%= t("proposals.form.proposal_video_url_note") %></p>
+              <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false %>
+              <%= f.label :external_url, t("proposals.form.proposal_external_url") %>
+              <p class="note"><%= t("proposals.form.proposal_document_note") %></p>
+              <%= f.text_field :external_url, placeholder: t("proposals.form.proposal_external_url"), label: false %>
+            </div>
+          </li>
+        </ul>
 
         <% if current_user.unverified? %>
           <li class="small-12 medium-12 large-12 column">

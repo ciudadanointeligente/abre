@@ -4,6 +4,9 @@ es:
       activity:
         one: "actividad"
         other: "actividades"
+      restriction:
+        one: "Restricción"
+        other: "Restricciones"
       budget:
         one: "Presupuesto participativo"
         other: "Presupuestos participativos"
@@ -59,6 +62,8 @@ es:
         one: Bloque
         other: Bloques
     attributes:
+      restriction:
+        description: Descripción
       budget:
         name: "Nombre"
         description_accepting: "Descripción durante la fase de presentación de proyectos"
@@ -117,6 +122,25 @@ es:
         terms_of_service: "Términos de servicio"
         problem: "Problema"
         prioritize: "Priorización"
+      evaluation:
+        proposal_participation: "Propuestas: Creación y/o apoyo de propuestas (en terreno)"
+        proposal_web_participation: "Propuestas: Creación y/o apoyo de propuestas (plataforma digital)"
+        design_participation: "Diseño: Taller de diseño Nº1"
+        design_participation_2: "Diseño: Taller de diseño Nº2"
+        implementation_participation: "Implementación: Implementación del proyecto"
+        implementation_participation_2: "Implementación: Seguimiento a la implementación"
+        proposal_web_evaluation: "Propuestas: Etapa de creación y/o apoyo de propuestas (plataforma digital)"
+        proposal_evaluation: "Propuestas: Etapa de creación y/o apoyo de propuestas (en terreno)"
+        design_evaluation: "Diseño: Taller de diseño Nº1"
+        design_evaluation_2: "Diseño: Taller de diseño Nº2"
+        implementation_evaluation: "Implementación: Actividades de implementación del proyecto"
+        implementation_evaluation_2: "Implementación: Seguimiento a la implementación del proyecto"
+        proposal_web: "Propuestas: Etapa de creación y/o apoyo de propuestas (plataforma digital)"
+        proposal: "Propuestas: Etapa de creación y/o apoyo de propuestas (en terreno)"
+        design: "Diseño: Taller de diseño Nº1"
+        design_2: "Diseño: Taller de diseño Nº2"
+        implementation:  "Implementación: Actividades de implementación del proyecto"
+        implementation_2: "Implementación: Seguimiento a la implementación del proyecto"
       problem:
         title: "Título"
         summary: "Resumen"

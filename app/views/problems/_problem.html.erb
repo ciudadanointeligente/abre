@@ -1,66 +1,52 @@
-<% provide :title do %><%= @problem.title %><% end %>
-
-<div class="proposal-form row">
-  <div class="small-12 medium-12 column">
-    <%= render "shared/back_link" %>
-  </div>
-</div>
-
-<div class="text-width">
-    <div class="small gray">DESAFÍO </div>
-    <h2 class="page-title"><%= @problem.title %> </h2>
-    <h5> <%= @problem.summary%> </h5>
-</div>
-
-<div class="row collapse">
-    <div class="small-12 medium-10 large-10 column">
-      <div class="summary padding">
-        <h5 class="white"><%= @problem.call_to_action%> </h5>
-        <p class="white"> <%= simple_format(@problem.description) %> </p>
-        <p class="white">
-          <% if @problem.budget? %>
-            <i class="fa fa-usd" aria-hidden="true"></i> <%= t("proposals.form.problem.budget") %> <%= @problem.budget%> </br>
-          <% end %>
-          <i class="fa fa-map-marker" aria-hidden="true"></i> <%= t("proposals.form.problem.community") %> <%= @problem.geozones_name %> </br>
-          <% if @problem.restriction_summary? %>
-            <i class="fa fa-list" aria-hidden="true"></i> <%= t("proposals.form.problem.restriction_summary") %> <%= @problem.restriction_summary%> </br>
-          <% end %>
-        </p>
+<div class="small-6 columns">
+  <div class="problem-box">
+    <div class="padding">
+      <p class="small-without-line blue epigraph-small"> Etapa: <%= problem.status %> </p>
+      <h5><%= link_to problem.title, proposals_path(:challenge => problem.id) %> </h5>
+      <p class="details">
+        <i class="fa fa-map-marker"></i> <%= problem.geozones_name %> <span class="line-text">|</span>
+        <i class="fa fa-calendar"> </i> <%= l problem.created_at.to_date %>
+      </p>
+      <div class="proposal-description">
+        <p><%= problem.summary.truncate(130, :omission => "...") %><span><a href="#"><%= link_to ' Ver más', proposals_path(:challenge => problem.id) %></a></span></p>
       </div>
     </div>
-</div>
-<div class="row collapse">
-  <div class="small-12 medium-5 medium-offset-7 large-5 large-offset-7">
-    <div class="deadline-problem bg-gray padding white">
-      <% if active_problem.ends_at > Date.today%>
-        <h4 class="white text-center">Quedan <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> días para crear y apoyar propuestas</h4>
-      <% else %>
-        <h4 class="white text-center"> Proceso de recepción de propuestas cerrado </h4>
-      <% end %>
+    <div class="fixed-bottom">
+    <!-- Para etapa propuestas -->
+    <% if problem.status=='Propuestas' %>
+    <div class="bg-blue padding-small white text-center">
+        <% if problem.valid %>
+          <%= t("proposals.index.remaining_time_1") %> <span class="counter"> <%= distance_of_time_in_days(problem.ends_at, Date.today) %></span><%= t("proposals.index.remaining_time_2") %>
+        <% else %>
+          Proceso de recepción de propuestas cerrado
+        <% end %>
+      </div>
+    <!-- Para etapa diseño -->
+    <% elsif problem.status=='Diseño' %>
+    <!-- TODO: agregar funcion que dibuje la fecha del proximo taller -->
+      <div class="bg-white text-center padding-small">
+        Próximo taller de diseño: <span class="counter">03/11/17</span>
+      </div>
+    <% end %>
+      <div class="padding text-right">
+        <!-- Para etapa propuestas -->
+        <% if problem.status=='Propuestas' %>
+        <%= link_to t("Ver desafío"), proposals_path(:challenge => problem.id), class: 'button tiny secondary' %>
+          <% if problem.valid %>
+            <%= link_to t("proposals.index.start_proposal"), problem_path(problem), class: 'button tiny' %>
+
+          <% end %>
+        <!-- Para etapa talleres -->
+        <% elsif problem.status=='Diseño' %>
+          <%= link_to t("Ver información del taller"), project_design_events_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
+        <!-- Para etapa implementacion -->
+        <% elsif problem.status=='Implementación' %>
+          <%= link_to t("Hacer seguimiento"), project_reports_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
+        <!-- Para etapa evaluacion -->
+        <% elsif problem.status=='Evaluación' %>
+          <%= link_to t("Evaluar el proceso"), project_evaluations_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="text-width">
-  <div class="small-12 column column-with-margin">
-    <% if @problem.problem_title? %>
-      <h4> ¿Por qué surge este desafío? </h1>
-      <p> <%= @problem.summary%> </p>
-    <% end %>
-    <% if @problem.cause? %>
-      <h4> Causas </h1>
-      <p> <%= simple_format(@problem.cause)%> </p>
-    <% end %>
-    <% if @problem.consequence? %>
-      <h4> Consecuencias </h1>
-      <p> <%= simple_format(@problem.consequence)%> </p>
-    <% end %>
-    <% if @problem.restriction? %>
-      <h4> Restricciones </h1>
-      <p> <%= simple_format(@problem.restriction)%> </p>
-    <% end %>
-  </div>
-  <% if active_problem.ends_at > Date.today%>
-    <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button float-right' %>
-  <% end %>
 </div>

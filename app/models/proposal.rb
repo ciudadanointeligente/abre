@@ -8,6 +8,8 @@ class Proposal < ActiveRecord::Base
   include Filterable
   include ProposalsHelper
 
+  max_paginates_per 15
+
   acts_as_votable
   acts_as_paranoid column: :hidden_at
   include ActsAsParanoidAliases
@@ -51,7 +53,7 @@ class Proposal < ActiveRecord::Base
   scope :sort_by_relevance,        -> { all }
   scope :sort_by_flags,            -> { order(flags_count: :desc, updated_at: :desc) }
   scope :sort_by_archival_date,    -> { archived.sort_by_confidence_score }
-  scope :sort_by_data_challenges,   -> { proposals_for_challenges.sort_by_created_at }
+  scope :sort_by_date_challenges,   -> { proposals_for_challenges.sort_by_created_at }
   scope :archived,                 -> { where("proposals.created_at <= ?", Setting["months_to_archive_proposals"].to_i.months.ago) }
   scope :proposals_for_challenges,  -> { where(for_challenge: true) }
   scope :not_archived,             -> { where("proposals.created_at > ?", Setting["months_to_archive_proposals"].to_i.months.ago) }
@@ -123,7 +125,11 @@ class Proposal < ActiveRecord::Base
   end
 
   def supported_by?(user)
-    user
+    if self.problem.verification_required
+      user && user.level_two_or_three_verified?
+    else
+      user
+    end
   end
 
   def retired?
@@ -133,6 +139,12 @@ class Proposal < ActiveRecord::Base
   def register_vote(user, vote_value)
     if supported_by?(user) && !archived?
       vote_by(voter: user, vote: vote_value)
+    end
+  end
+
+  def admin_register_vote(user, vote_value)
+    if supported_by?(user) && !archived? && user.administrator?
+      vote_by(voter: user, vote: vote_value, duplicate: true)
     end
   end
 
@@ -170,13 +182,13 @@ class Proposal < ActiveRecord::Base
   def successful?
     if !self.for_challenge
       total_votes >= Proposal.votes_needed_for_success
-    else
+    elseretired
       winning_proposal?(self) && self.cached_votes_up > 1
     end
   end
 
   def archived?
-    self.created_at <= Setting["months_to_archive_proposals"].to_i.months.ago
+    self.problem.ends_at < Date.today
   end
 
   def notifications
@@ -203,7 +215,9 @@ class Proposal < ActiveRecord::Base
   protected
 
     def set_responsible_name
-      if author && author.document_number?
+      if self.responsible_name?
+        p ''
+      elsif author && author.document_number?
         self.responsible_name = author.document_number
       end
     end

@@ -29,7 +29,7 @@
 }
 
 body {
-  font-size: $base-font-size;
+  font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,7 +43,7 @@ p {
   line-height: $base-line;
 }
 
-a {
+a, a p {
   color: $link;
 
   &:hover, &:active {
@@ -247,6 +247,10 @@ a {
 .close-button {
   top: $line-height/2;
   color: $white;
+
+  &.gray {
+    color: $gray-one;
+  }
 }
 
 .back, .icon-angle-left {
@@ -278,6 +282,7 @@ a {
       border-bottom: 2px solid $brand;
       font-weight: bold;
     }
+
   }
 
   h2, h3 {

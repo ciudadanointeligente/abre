@@ -6,6 +6,19 @@
 
 @include foundation-global-styles;
 @include foundation-grid;
+@include foundation-xy-grid-classes(
+  /* options
+  $base-grid: true,
+  $margin-grid: true,
+  $padding-grid: true,
+  $block-grid: true,
+  $collapse: true,
+  $offset: true,
+  $vertical-grid: true,
+  $frame-grid: true,
+  border: 1px,
+  */
+);
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
@@ -21,7 +34,6 @@
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
 @include foundation-flex-video;
-@include foundation-label;
 @include foundation-media-object;
 @include foundation-menu;
 @include foundation-off-canvas;
@@ -37,3 +49,4 @@
 @include foundation-top-bar;
 @include foundation-menu-icon;
 @include foundation-tooltip;
+@include foundation-orbit;

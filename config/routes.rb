@@ -45,11 +45,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :projects
+  resources :projects do
+    resources :design_events
+    resources :reports
+    resources :evaluations
+    resources :evaluation_steps
+  end
 
   resources :proposals do
     member do
       post :vote
+      post :vote_admin
       post :vote_featured
       put :flag
       put :unflag
@@ -60,6 +66,7 @@ Rails.application.routes.draw do
       get :map
       get :suggest
       get :summary
+      get :challenge
     end
   end
 
@@ -200,7 +207,12 @@ Rails.application.routes.draw do
       get :search, on: :collection
     end
 
-    resources :settings, only: [:index, :update]
+    resources :settings, only: [:index, :update] do
+      get :texts, on: :collection
+      get :features, on: :collection
+    end
+
+
     resources :moderators, only: [:index, :create, :destroy] do
       get :search, on: :collection
     end

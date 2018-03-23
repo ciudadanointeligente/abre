@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025195353) do
+ActiveRecord::Schema.define(version: 20180307145316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
   enable_extension "pg_trgm"
+  enable_extension "unaccent"
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -292,6 +292,35 @@ ActiveRecord::Schema.define(version: 20171025195353) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "evaluations", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "proposal_participation"
+    t.integer  "proposal_evaluation"
+    t.integer  "proposal_web_evaluation"
+    t.text     "proposal"
+    t.boolean  "design_participation"
+    t.integer  "design_evaluation"
+    t.text     "design"
+    t.boolean  "implementation_participation"
+    t.integer  "implementation_municipality_evaluation"
+    t.integer  "implementation_evaluation"
+    t.text     "implementation"
+    t.boolean  "experience"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "project_id"
+    t.boolean  "proposal_web_participation"
+    t.boolean  "design_participation_2"
+    t.boolean  "implementation_participation_2"
+    t.integer  "design_evaluation_2"
+    t.integer  "implementation_evaluation_2"
+    t.text     "proposal_web"
+    t.text     "design_2"
+    t.text     "implementation_2"
+  end
+
+  add_index "evaluations", ["project_id"], name: "index_evaluations_on_project_id", using: :btree
+
   create_table "failed_census_calls", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "document_number"
@@ -372,7 +401,7 @@ ActiveRecord::Schema.define(version: 20171025195353) do
   create_table "locks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "tries",        default: 0
-    t.datetime "locked_until", default: '2000-01-01 04:01:01', null: false
+    t.datetime "locked_until", default: '2000-01-01 01:01:01', null: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
@@ -631,6 +660,8 @@ ActiveRecord::Schema.define(version: 20171025195353) do
     t.string   "call_to_action"
     t.string   "restriction_summary"
     t.boolean  "verification_required"
+    t.integer  "project_id"
+    t.string   "status"
   end
 
   add_index "problems", ["user_id"], name: "index_problems_on_user_id", using: :btree
@@ -653,6 +684,7 @@ ActiveRecord::Schema.define(version: 20171025195353) do
     t.string   "responsible_neighbour_name"
     t.string   "responsible_neighbour_mail"
     t.string   "responsible_neighbour_phone"
+    t.boolean  "form"
   end
 
   add_index "projects", ["proposal_id"], name: "index_projects_on_proposal_id", using: :btree
@@ -927,7 +959,7 @@ ActiveRecord::Schema.define(version: 20171025195353) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-07-11 15:32:14', null: false
+    t.datetime "password_changed_at",                       default: '2017-07-11 16:40:44', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""
@@ -1014,6 +1046,9 @@ ActiveRecord::Schema.define(version: 20171025195353) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "signature_id"
+    t.string   "rut"
+    t.string   "phone"
+    t.string   "name"
   end
 
   add_index "votes", ["signature_id"], name: "index_votes_on_signature_id", using: :btree
@@ -1024,6 +1059,7 @@ ActiveRecord::Schema.define(version: 20171025195353) do
   add_foreign_key "annotations", "legislations"
   add_foreign_key "annotations", "users"
   add_foreign_key "design_events", "projects"
+  add_foreign_key "evaluations", "projects"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"
   add_foreign_key "flags", "users"

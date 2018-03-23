@@ -35,8 +35,8 @@ gem 'kaminari', '~> 1.0.1'
 gem 'ancestry', '~> 2.2.2'
 gem 'acts-as-taggable-on'
 gem 'responders', '~> 2.4.0'
-gem 'foundation-rails', '~> 6.2.4.0'
-gem 'foundation_rails_helper', '~> 2.0.0'
+gem 'foundation-rails'
+gem 'foundation_rails_helper'
 gem 'acts_as_votable'
 gem 'ckeditor', '~> 4.2.3'
 gem 'invisible_captcha', '~> 0.9.2'
@@ -69,7 +69,10 @@ gem 'paperclip'
 gem 'httparty'
 gem 'simple_form'
 gem "faker", '~> 1.7.3'
+
+gem 'apartment'
 gem 'seed_dump'
+gem 'wicked'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

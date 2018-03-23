@@ -8,7 +8,7 @@
     <%= render "layouts/meta_tags" %>
     <title><%= content_for?(:title) ? yield(:title) : (setting['org_name'] + ' '+ setting['municipality_name']) %> </title>
     <%= content_for :canonical %>
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "application" %>
     <!--[if lt IE 9]>
       <%= stylesheet_link_tag "ie" %>
     <![endif]-->
@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dosis:700|Fira+Sans:400,600" rel="stylesheet">
     <script src="https://use.fontawesome.com/30d8e9556b.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
 
     </script>
 
@@ -35,6 +36,10 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-102841648-1', 'auto');
       ga('send', 'pageview');
+    </script>
+
+    <script async defer
+      src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZSzeB28BLrsMatt4rD9fj-Kce8xkVpyc&callback=initMap'>
     </script>
 
   </head>

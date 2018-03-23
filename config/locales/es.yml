@@ -66,6 +66,10 @@ es:
     reply_button: Publicar respuesta
     reply_link: Responder
   problems:
+    index:
+      filters:
+        active: "Proyectos activos"
+        expired: "Proyectos cerrados"
     form:
       blank: "Definir un problema"
     whole_area: "Toda la comuna"
@@ -314,7 +318,7 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       proposal_question_example_html: Debe ser resumida en una pregunta cuya respuesta sea Sí o No. <em>Ej. '¿Está usted de acuerdo en peatonalizar la calle Mayor?'</em>
       proposal_responsible_name: Nombre y apellidos de la persona que hace esta propuesta
       proposal_responsible_name_note: "(individualmente o como representante de un colectivo)"
-      proposal_summary: "*Resumen de la propuesta"
+      proposal_summary: "*Resume tu propuesta en una frase"
       proposal_summary_note: "Esto es lo primero que verán tus amigos y vecinos acerca de tu propuesta. ¡Sé conciso y claro! (200 caracteres máx.)"
       proposal_text: "*Descripción de la propuesta"
       proposal_deadline: ¿En qué plazo se debería llegar al resultado de la propuesta?
@@ -345,7 +349,7 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
         most_commented: Más comentadas
         relevance: Más relevantes
         archival_date: Archivadas
-        data_challenges: Desafíos
+        date_challenges: Desafíos
       retired_proposals: Propuestas retiradas
       retired_proposals_link: "Propuestas retiradas por sus autores"
       retired_links:
@@ -365,7 +369,8 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       select_order: Ordenar por
       select_order_long: Estas viendo las propuestas
       start_proposal: Crea una propuesta
-      remaining_time: '%{days}'
+      remaining_time_1: Quedan
+      remaining_time_2: días para crear y apoyar propuestas
       title: Propuestas ciudadanas
       top: Top semanal
       top_link_proposals: Propuestas más apoyadas por categoría
@@ -388,7 +393,7 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
         zero: Sin comentarios
       proposal: Propuesta
       reason_for_supports_necessary: 1% del Censo
-      support: Apoyar esta propuesta
+      support: Apoyar
       support_title: Apoyar esta propuesta
       supports:
         one: 1 apoyo

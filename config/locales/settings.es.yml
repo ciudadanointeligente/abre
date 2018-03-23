@@ -32,6 +32,8 @@ es:
       twitter_login: Registro con Twitter
       facebook_login: Registro con Facebook
       google_login: Registro con Google
+      proposal_for_challenge: Recepción de propuestas para desafío
+      proposal_creating_problem: Recepción de propuestas sin desafío asociado
       debates: Debates
       polls: Votaciones
       signature_sheets: Hojas de firmas

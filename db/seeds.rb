@@ -16,15 +16,16 @@ Setting.create(key: 'votes_for_proposal_success', value: '100')
 Setting.create(key: 'months_to_archive_proposals', value: '12')
 Setting.create(key: 'comments_body_max_length', value: '1000')
 
-Setting.create(key: 'twitter_handle', value: '@ciudadanoi')
-Setting.create(key: 'twitter_hashtag', value: '#ciudadanoi')
-Setting.create(key: 'facebook_handle', value: 'ciudadanointeligente')
-Setting.create(key: 'youtube_handle', value: '')
-Setting.create(key: 'telegram_handle', value: '')
-Setting.create(key: 'blog_url', value: '')
-Setting.create(key: 'url', value: Rails.application.secrets.server_name)
+Setting.create(key: 'twitter_handle', value: '@consul_dev')
+Setting.create(key: 'twitter_hashtag', value: '#consul_dev')
+Setting.create(key: 'facebook_handle', value: 'consul')
+Setting.create(key: 'youtube_handle', value: 'consul')
+Setting.create(key: 'telegram_handle', value: 'consul')
+Setting.create(key: 'blog_url', value: '/blog')
+Setting.create(key: 'url', value: 'https://abre.penalolen.cl')
 Setting.create(key: 'org_name', value: 'Abre')
-Setting.create(key: 'place_name', value: 'Municipio')
+Setting.create(key: 'municipality_name', value: 'Peñalolen')
+Setting.create(key: 'place_name', value: 'City')
 Setting.create(key: 'feature.debates', value: "false")
 Setting.create(key: 'feature.polls', value: "true")
 Setting.create(key: 'feature.spending_proposals', value: nil)
@@ -37,7 +38,7 @@ Setting.create(key: 'feature.signature_sheets', value: "true")
 Setting.create(key: 'per_page_code_head', value: "")
 Setting.create(key: 'per_page_code_body', value: "")
 Setting.create(key: 'comments_body_max_length', value: '1000')
-Setting.create(key: 'mailer_from_name', value: 'Abre')
+Setting.create(key: 'mailer_from_name', value: 'Abre Peñalolen')
 Setting.create(key: 'mailer_from_address', value: 'abre@penalolen.cl')
 Setting.create(key: 'meta_description', value: 'Citizen Participation and Open Government Application')
 Setting.create(key: 'meta_keywords', value: 'citizen participation, open government')
@@ -62,9 +63,10 @@ Setting.create(key: 'home.main-subtitle-link', value: "https://abre.penalolen.cl
 Setting.create(key: 'home.info-epigraph', value: "Recepción de propuestas")
 Setting.create(key: 'home.info-title', value: "Parque de ideas: Soñemos en conjunto el Parque San Luis.")
 Setting.create(key: 'home.info-go_to', value: "Quiero subir una propuesta")
-Setting.create(key: 'home.info-go_to_link', value: "https://abre.penalolen.cl/proposals/new")
+Setting.create(key: 'home.info-go_to_link', value: "http://abre.penalolen.cl/proposals/new")
+Setting.create(key: 'home.info-go_to2', value: "Quiero subir una propuesta")
+Setting.create(key: 'home.info-go_to_link2', value: "http://abre.penalolen.cl/proposals/new")
 Setting.create(key: 'home.info-date', value: "17 DE JULIO - 15 DE AGOSTO")
-
 
 puts " ✅"
 print "Creando unidades vecinales y zonas"
@@ -88,34 +90,34 @@ def create_user(email, username = Faker::Name.name)
 end
 
 
-admin = create_user('admin@abre.penalolen.cl', 'admin')
+admin = create_user('admin@consul.dev', 'admin')
 admin.create_administrator
 admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
 
-moderator = create_user('mod@abre.penalolen.cl', 'mod')
+moderator = create_user('mod@consul.dev', 'mod')
 moderator.create_moderator
 
-manager = create_user('manager@abre.penalolen.cl', 'manager')
+manager = create_user('manager@consul.dev', 'manager')
 manager.create_manager
 
-valuator = create_user('valuator@abre.penalolen.cl', 'valuator')
+valuator = create_user('valuator@consul.dev', 'valuator')
 valuator.create_valuator
 
-poll_officer = create_user('poll_officer@abre.penalolen.cl', 'Paul O. Fisher')
+poll_officer = create_user('poll_officer@consul.dev', 'Paul O. Fisher')
 poll_officer.create_poll_officer
 
-level_2 = create_user('leveltwo@abre.penalolen.cl', 'level 2')
+level_2 = create_user('leveltwo@consul.dev', 'level 2')
 level_2.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: "2222222222", document_type: "1" )
 
-verified = create_user('verified@abre.penalolen.cl', 'verified')
+verified = create_user('verified@consul.dev', 'verified')
 verified.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "3333333333")
 
-verified2 = create_user('unverified@abre.penalolen.cl', 'unverified')
+verified2 = create_user('unverified@consul.dev', 'unverified')
 
 
 (1..10).each do |i|
   org_name = Faker::Company.name
-  org_user = create_user("org#{i}@abre.penalolen.cl", org_name)
+  org_user = create_user("org#{i}@consul.dev", org_name)
   org_responsible_name = Faker::Name.name
   org = org_user.create_organization(name: org_name, responsible_name: org_responsible_name)
 
@@ -128,14 +130,16 @@ verified2 = create_user('unverified@abre.penalolen.cl', 'unverified')
 end
 
 (1..3).each do |i|
-  official = create_user("official#{i}@abre.penalolen.cl")
+  official = create_user("official#{i}@consul.dev")
   official.update(official_level: i, official_position: "Official position #{i}")
 end
 
-(1..20).each do |i|
-  user = create_user("user#{i}@abre.penalolen.cl")
+(1..3).each do |i|
+  user = create_user("user#{i}@consul.dev")
   level = [1, 2, 3].sample
-  user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" )
+  if level >= 1
+    user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" , geozone: Geozone.find(23))
+  end
 end
 
 org_user_ids = User.organizations.pluck(:id)
@@ -162,6 +166,324 @@ ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "ca
 
 
 puts " ✅"
+print "Creando desafíos"
+
+print "Creando un desafío abierto"
+problem = Problem.create(title: "Mejoramiento Parque San Luis",
+  summary: "Actualmente el Parque San Luis no está siendo útil para los vecinos ya que no cumple con las necesidades y expectativas de estos.",
+  call_to_action: "Invitamos a los vecinos a proponer acerca de cómo quieren el Parque San Luis",
+  description: "El Parque San Luis, ubicado en la Unidad Vecinal 23, ha sido desde hace muchos años un lugar donde los vecinos de la comuna se congregan. Pero, a pesar de ello, no esta satisfaciendo las necesidades actuales de los vecinos, que a través de las mesas barriales han manifestado su interés por mejorar este, con la finalidad que las familias se puedan congregar en este espacio.",
+  id: 3,
+  budget: "$60.000.000",
+  restriction: nil,
+  starts_at: 1.day.ago,
+  ends_at: 10.day.from_now,
+  active: true,
+  geozones: Geozone.reorder("RANDOM()").limit(3),
+  user: admin,
+  cause: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  consequence: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  problem_title: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+  restriction: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  project: Project.create(name: "Mejoramiento plaza San Luis con Quinchos",
+    description: "Durante 3 semanas los vecinos de Peñalolen, de la unidad vecinal de la Unidad Vecinal 23, levantaron propuestas para mejorar el parque San Luis. Durante este tiempo los vecinos también tuvieron la posibilidad de apoyar diferentes propuestas. La",
+    id: 3,
+    starts_at: "2017-03-28 22:00:00",
+    ends_at: "2017-06-24 22:00:00",
+    proposals: Proposal.all,
+    implementation_starts_at: Date.today,
+    implementation_ends_at: Date.today + 3.month,
+    responsible_neighbour_name: Faker::Name.name,
+  ))
 
 
+puts " ✅"
+
+
+# problem2 = Problem.create(title: "Muchos perros callejeros en mi barrio",
+#   cause: "Las causas de que haya muchos perros callejeros son:
+# 1.- Poca capacidad en perreras municipales
+# 2.- Muchos perros no esterilizados
+# 3.- Poca educación sobre tenencia responsable de animales",
+#   consequence: "1.- Plazas con perros agresivos que pueden morder a niños
+# 2.- Mi barrio está sucio y poco salubre con fecas
+# 3.- Perros sufren y tienen muy mala salud por tener que vivir en la calle",
+#   user: admin,
+#   call_to_action: "Crea propuestas",
+#   starts_at: 1.day.ago,
+#   ends_at: 10.day.from_now,
+#   project: Project.create(name: "Muchos perros callejeros en mi barrio"),
+#   description: "Description",
+#   summary: "Summary",
+#   geozones: Geozone.reorder("RANDOM()").limit(1) )
+#
+# # puts ""
+#
+# puts " ✅"
+# print "Creando propuestas"
+#
+tags = Faker::Lorem.words(25)
+#
+# proposal0 = Proposal.create!(author: User.reorder("RANDOM()").first,
+#                             title: "Tenencia responsable de animales para ambientes más sanos y seguros",
+#                             summary: "Tenencia responsable de animales para ambientes más sanos y seguros",
+#                             responsible_name: Faker::Name.name,
+#                             external_url: Faker::Internet.url,
+#                             description: "Para que haya menos perros callejeros se debe partir por tener más educación sobre tenencia responsable de animales. Es por esto que creo que la municipalidad se debe coordinar con las juntas de vecinos para que les haga talleres de tenencia responsable de animales, junto con hacer esterilizaciones masivas y gratis. Esto ayudará a que los barrios no estén llenos de fecas de perro y perros callejeros teniendo espacios más limpios y seguros para los niños y niñas de Peñalolén.",
+#                             created_at: rand((Time.current - 1.week) .. Time.current),
+#                             tag_list: tags.sample(3).join(','),
+#                             terms_of_service: "1",
+#                             problem: problem2,
+#                             geozones: problem2.geozones,
+#                             cached_votes_up: Setting["votes_for_proposal_success"])
+
+proposal1 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Quinchos en el Parque San Luis",
+                            summary: "Agregar al menos 5 quinchos con mesas para que los vecinos puedan juntarse a compartir",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            problem: problem,
+                            geozones: problem.geozones,
+                            for_challenge: true,
+                            cached_votes_up: 75)
+
+proposal2 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Mejorar la cancha",
+                            summary: "Se busca comprar arcos de fútbol y mejorar la cancha para que esta sea realmente útil",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            for_challenge: true,
+                            geozones: problem.geozones,
+                            terms_of_service: "1",
+                            problem: problem,
+                            cached_votes_up: 33)
+
+proposal3 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Crear un huerto",
+                            summary: "La idea es crear un huerto, donde todos puedan tener un espacio donde plantar",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            for_challenge: true,
+                            terms_of_service: "1",
+                            problem: problem,
+                            geozones: problem.geozones,
+                            cached_votes_up: 74)
+
+proposal4 = Proposal.create!(author: User.reorder("RANDOM()").first,
+                            title: "Crear un espacio cultural en el espacio del Parque",
+                            summary: "La finalidad es que el Parque pueda ser utilizado en todo momento, incluso cuando llueve. Generando este espacio se podría tener esto, y potenciar las actividades culturales organizadas por los vecinos",
+                            responsible_name: Faker::Name.name,
+                            external_url: Faker::Internet.url,
+                            description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+                            created_at: rand((Time.current - 1.week) .. Time.current),
+                            tag_list: tags.sample(3).join(','),
+                            terms_of_service: "1",
+                            problem: problem,
+                            for_challenge: true,
+                            cached_votes_up: 74)
+
+
+print "Creando Talleres de Diseño"
+
+design = DesignEvent.create(
+  name: "Taller de Diseño 1",
+  starts_at: rand(Time.current .. (Time.current + 2.week)),
+  place: "Parque San Luis",
+  pax: 23,
+  project: problem.project,
+  description: Faker::Lorem.paragraph(2),
+  summary: Faker::Lorem.paragraph,
+)
+
+design2 = DesignEvent.create(
+  name: "Taller de Diseño 2",
+  starts_at: rand(Time.current .. (Time.current + 2.week)),
+  place: "Parque San Luis",
+  pax: 17,
+  project: problem.project,
+  description: Faker::Lorem.paragraph(2),
+  summary: Faker::Lorem.paragraph,
+)
+
+
+print "Creando Reporte"
+
+report1 = Report.create(
+  description: Faker::Lorem.paragraph(3),
+  project: problem.project,
+)
+
+report2 = Report.create(
+  description: Faker::Lorem.paragraph(4),
+  project: problem.project,
+)
+
+
+
+# print "Crear votación"
+#
+# poll = Poll.create(name: "Mejoramiento Parque San Luis",
+#                      starts_at: 1.month.ago,
+#                      ends_at:   1.month.from_now,
+#                      description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+#                      geozone_restricted: true,
+#                      geozones: Geozone.where(:name => "Unidad Vecinal 23"))
+#
+# print "Creating Preguntas de la votación"
+#
+# (1..3).each do |i|
+#   proposal = Proposal.reorder("RANDOM()").first
+#   author = User.reorder("RANDOM()").first
+#   description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+#   question = Poll::Question.create!(author: author,
+#                                     title: Faker::Lorem.sentence(3).truncate(60),
+#                                     description: description,
+#                                     valid_answers: "Si",
+#                                     poll: poll,
+#                                     proposal: proposal)
+# end
+
+# print "Creating polls"
+#
+# puts " ✅"
+# print "Active Polls"
+# (1..2).each do |i|
+#   poll = Poll.create(name: "Active Poll #{i}",
+#                      starts_at: 1.month.ago,
+#                      ends_at:   1.month.from_now,
+#                      description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+#                      geozone_restricted: false)
+# end
+#
+# (3..4).each do |i|
+#   poll = Poll.create(name: "Active Poll #{i}",
+#                      starts_at: 1.month.ago,
+#                      ends_at:   1.month.from_now,
+#                      geozone_restricted: true,
+#                      description: "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>",
+#                      geozones: Geozone.reorder("RANDOM()").limit(3)
+#                     )
+# end
+#
+#
+#
+#
+#
+# puts " ✅"
+# print "Upcoming Poll"
+# poll = Poll.create(name: "Upcoming Poll",
+#                    starts_at: 1.month.from_now,
+#                    ends_at:   2.months.from_now)
+#
+# puts " ✅"
+# print "Expired Poll"
+# poll = Poll.create(name: "Expired Poll",
+#                      starts_at: 2.months.ago,
+#                      ends_at:   1.months.ago)
+#
+# puts " ✅"
+#
+# print "Creating Poll Questions"
+#
+# (1..10).each do |i|
+#   poll = Poll.reorder("RANDOM()").first
+#   author = User.reorder("RANDOM()").first
+#   description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+#   open_at = rand(2.months.ago .. 2.months.from_now)
+#   question = Poll::Question.create!(author: author,
+#                                     title: Faker::Lorem.sentence(3).truncate(60),
+#                                     description: description,
+#                                     valid_answers: Faker::Lorem.words((2..7).to_a.sample).join(', '),
+#                                     poll: poll)
+# end
+
+# puts " ✅"
+# print "Creating Poll Booths"
+# 30.times.each_with_index do |i|
+#   Poll::Booth.create(name: "Booth #{i}", polls: [Poll.all.sample])
+# end
+#
+# puts " ✅"
+# print "Creating Booth Assignments"
+# Poll::Booth.all.each do |booth|
+#   Poll::BoothAssignment.create(booth: booth, poll: Poll.all.sample)
+# end
+#
+# puts " ✅"
+# print "Creating Poll Officer Assignments"
+# (1..15).to_a.sample.times do |i|
+#   Poll::BoothAssignment.all.sample(i).each do |booth_assignment|
+#     Poll::OfficerAssignment.create(officer: poll_officer.poll_officer,
+#                                    booth_assignment: booth_assignment,
+#                                    date: booth_assignment.poll.starts_at)
+#   end
+# end
+#
+# puts " ✅"
+# print "Creating Poll Recounts" do
+# (1..15).to_a.sample.times do |i|
+#   poll_officer.poll_officer.officer_assignments.all.sample(i).each do |officer_assignment|
+#     Poll::Recount.create(officer_assignment: officer_assignment,
+#                          booth_assignment: officer_assignment.booth_assignment,
+#                          date: officer_assignment.date,
+#                          count: (1..5000).to_a.sample)
+#   end
+# end
+#
+# end
+#
+# puts " ✅"
+# print "Creating Poll Questions from Proposals"
+#
+# (1..3).each do
+#   proposal = Proposal.reorder("RANDOM()").first
+#   poll = Poll.current.first
+#   question = Poll::Question.create(valid_answers: "Yes, No")
+#   question.copy_attributes_from_proposal(proposal)
+#   question.save!
+# end
+#
+# puts " ✅"
+# print "Creating Successful Proposals"
+#
+# (1..10).each do
+#   proposal = Proposal.reorder("RANDOM()").first
+#   poll = Poll.current.first
+#   question = Poll::Question.create(valid_answers: "Yes, No")
+#   question.copy_attributes_from_proposal(proposal)
+#   question.save!
+# end
+#
+# puts " ✅"
+# print "Commenting Poll Questions"
+#
+# (1..30).each do
+#   author = User.reorder("RANDOM()").first
+#   question = Poll::Question.reorder("RANDOM()").first
+#   Comment.create!(user: author,
+#                   created_at: rand(question.created_at .. Time.current),
+#                   commentable: question,
+#                   body: Faker::Lorem.sentence)
+# end
+#
+# puts " ✅"
+# print "Creating Poll Voters"
+#
+# (1..10).each do
+#   poll = Poll.all.sample
+#   user = User.level_two_verified.sample
+#   Poll::Voter.create(poll: poll, user: user)
+# end
+
+# puts " ✅"
 puts "All dev seeds created successfuly 👍"

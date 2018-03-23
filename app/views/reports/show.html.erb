@@ -1,0 +1,12 @@
+<div class="small-12 medium-12 column">
+  <%= render "shared/back_link" %>
+</div>
+
+<div class="text-width">
+
+  <%= render "shared/problem", problem: @problem %>
+
+  <%= @report.created_at %>
+  <%= @report.description %>
+
+</div>
