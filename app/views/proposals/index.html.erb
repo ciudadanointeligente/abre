@@ -16,16 +16,12 @@
     <%= render "shared/back_link" %>
   </div>
 
-  <div class="text-width">
+  <div class="grid-container">
 
   <%= render "shared/problem", problem: @problem %>
-
-
-
     <div id="proposals" class="proposals-list">
-
       <div class="padding">
-        <div class="small-12 search-results">
+        <div class="search-results">
           <% if @search_terms || @advanced_search_terms %>
             <p class="padding bg-light-gray">
               <%= page_entries_info @proposals %>
@@ -61,7 +57,7 @@
     <%= @problem.call_to_action %>.
     <% if @problem.ends_at > Date.today%>
       <%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %>
-      <div class="text-right">
+      <div class="text-right mb-60 mt-30">
         <%= link_to "Crear propuesa", problem_path(@problem), :class => "button" %>
       </div>
       <% else %>
@@ -70,10 +66,10 @@
   </h5>
 
   <div id="proposals-list">
-    <div class="row">
+    <div class="grid-x grid-margin-x">
     <% @proposals_challenge.each_with_index do |proposal, index| %>
         <% if (index)%3==0 %>
-        </div><div class="row">
+        </div><div class="grid-x grid-margin-x">
         <% end %>
         <%= render "proposals/proposal", proposal: proposal %>
       <% end %>
