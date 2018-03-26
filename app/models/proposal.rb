@@ -8,6 +8,8 @@ class Proposal < ActiveRecord::Base
   include Filterable
   include ProposalsHelper
 
+  max_paginates_per 15
+
   acts_as_votable
   acts_as_paranoid column: :hidden_at
   include ActsAsParanoidAliases

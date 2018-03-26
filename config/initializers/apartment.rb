@@ -96,10 +96,10 @@ end
 Rails.application.config.middleware.use Apartment::Elevators::Subdomain
 # Rails.application.config.middleware.use Apartment::Elevators::FirstSubdomain
 
-# Rails.application.config.middleware.use 'Apartment::Elevators::Generic',
-#                           Proc.new { |request|
-#                             subdomain = request.host.split('.').first
-#                             tenant = Apartment.tenant_names.include?(subdomain) ? subdomain : 'public'
-# 			    #puts 'Elevator resolving tenant to: ' + tenant.to_s
-#                             tenant
-# 				}
+Rails.application.config.middleware.use 'Apartment::Elevators::Generic',
+                          Proc.new { |request|
+                            subdomain = request.host.split('.').first
+                            tenant = Apartment.tenant_names.include?(subdomain) ? subdomain : 'public'
+			    puts 'Elevator resolving tenant to: ' + tenant.to_s
+                            tenant == 'abre' ? 'public' : 'public'
+				}

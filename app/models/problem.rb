@@ -24,7 +24,11 @@ class Problem < ActiveRecord::Base
   scope :evaluation,  -> { where('status = ?', 'Evaluación') }
   scope :design, -> { where('status = ?', 'Diseño') }
 
+<<<<<<< HEAD
   before_save :define_status
+=======
+  # before_save :define_status
+>>>>>>> master
 
   accepts_nested_attributes_for :restrictions
   accepts_nested_attributes_for :project
@@ -62,22 +66,21 @@ class Problem < ActiveRecord::Base
     end
   end
 
-
-  def status
-    if Date.today <= self.ends_at
-      return 'Propuestas'
-    elsif self.project.design_events.any?
-      self.project.design_events.each do |de|
-        if de.starts_at >= Date.today
-          return 'Diseño'
-        end
-      end
-    elsif Date.today >= self.implementation_ends_at
-      return 'Evaluación'
-    else
-      return 'Implementación'
-    end
-  end
+  # def status
+  #   if Date.today <= self.ends_at
+  #     return 'Propuestas'
+  #   elsif self.project.design_events.any?
+  #     self.project.design_events.each do |de|
+  #       if de.starts_at >= Date.today
+  #         return 'Diseño'
+  #       end
+  #     end
+  #   elsif Date.today >= self.implementation_ends_at
+  #     return 'Evaluación'
+  #   else
+  #     return 'Implementación'
+  #   end
+  # end
 
   def self.valid
     self.where('"starts_at" < ? AND "ends_at" > ?', Date.today, Date.today)
