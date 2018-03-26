@@ -24,11 +24,7 @@ class Problem < ActiveRecord::Base
   scope :evaluation,  -> { where('status = ?', 'Evaluación') }
   scope :design, -> { where('status = ?', 'Diseño') }
 
-<<<<<<< HEAD
-  before_save :define_status
-=======
   # before_save :define_status
->>>>>>> master
 
   accepts_nested_attributes_for :restrictions
   accepts_nested_attributes_for :project
