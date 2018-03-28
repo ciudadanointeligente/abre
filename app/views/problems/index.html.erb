@@ -29,11 +29,7 @@
               </div>
               <div class="cell small-8">
                 <!-- TODO filtro por etapa -->
-                <select>
-                  <% @status_filters.each do |filter| %>
-                    <option value="/implementation"> <%= filter %> </option>
-                  <% end %>
-                </select>
+                <%= select_tag "status_filters", "<option selected disabled>Etapa</option><option>Propuestas</option><option>Diseño</option><option>Implementación</option><option>Evaluación</option>".html_safe %>
               </div>
             </div>
         </div>
@@ -65,3 +61,24 @@
     <% end %>
   </div>
 </div>
+<script>
+    $(function(){
+      $('#status_filters').bind('change', function () {
+          var status = $(this).val();
+          if (status == "Implementación") {
+            status = "implementation";
+          } else if (status == "Diseño") {
+            status = "design";
+          } else if (status == "Propuestas") {
+            status = "proposal";
+          } else {
+            status = "evaluation"
+          }
+          var url = "/problems?filter=" + status + "&page=1"
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>

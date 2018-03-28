@@ -34,7 +34,7 @@ class ProposalsController < ApplicationController
   def index_customization
     unless params[:challenge].nil?
       @problem = Problem.find(params[:challenge])
-      @proposals_challenge = @problem.proposals
+      @proposals_challenge = @problem.proposals.order(cached_votes_up: :desc).page params[:page]
     end
     discard_archived
     load_retired
