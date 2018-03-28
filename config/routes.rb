@@ -144,9 +144,14 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :problems, only: [:index, :new, :create, :destroy, :edit, :update]
+    resources :problems, only: [:index, :new, :show, :create, :destroy, :edit, :update]
 
-    resources :projects, only: [:index, :new, :create, :destroy, :edit, :update]
+    resources :projects, only: [:index, :new, :create, :destroy, :edit, :update] do
+        resources :design_events
+        resources :reports
+        resources :evaluations
+        resources :evaluation_steps
+    end
 
     resources :users, only: [:index, :show] do
       member do

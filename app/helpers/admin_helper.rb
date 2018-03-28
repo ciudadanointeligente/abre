@@ -28,6 +28,10 @@ module AdminHelper
     ["proposals", "debates", "comments", "users"].include? controller_name
   end
 
+  def menu_problems?
+    ["problems"].include? controller_name
+  end
+
   def menu_budget?
     ["spending_proposals"].include? controller_name
   end
