@@ -109,6 +109,7 @@ p {
 .fixed-bottom {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
 }
 
@@ -237,6 +238,32 @@ h4.counter {
 
 .brand{
   color: $brand;
+}
+
+// Margins and paddings
+
+.mt-90 {
+  margin-top: 90px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mb-90 {
+  margin-bottom: 90px;
+}
+
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
 }
 
 
@@ -487,7 +514,7 @@ select {
 .proposal {
     background: $gray-five;
     position: relative;
-    height: 500px;
+    height: 470px;
 }
 
 .proposal-content h5 {
@@ -504,10 +531,6 @@ select {
 
 .proposal-content {
   padding: calc(0.8rem + 1vmin);
-}
-
-.proposal .tags {
-    margin-top: -15px;
 }
 
 .support-count {
@@ -575,12 +598,24 @@ ul, ol, dl {
   background: $light-blue;
 }
 
+// nav
+
+.top-bar {
+    line-height: 28px;
+}
+
 .top-bar-title-right{
   float: right;
 }
 
 .top-bar .top-bar-title a img {
-    margin-bottom: -4px;
+    margin-bottom: -2px;
+    height: 42px;
+    width: auto;
+}
+
+.top-bar-right li a {
+  padding: 12px 0;
 }
 
 .header-title{
@@ -591,12 +626,16 @@ ul, ol, dl {
   font-size: 14px;
 }
 
+.subnavigation {
+    background: #F7FBFF;
+}
+
 .subnavigation ul {
       z-index: 2;
 }
 
 .subnavigation ul li a {
-  line-height: 2rem;
+  line-height: 14px;
   font-weight: 400;
   color: $gray-two;
 }
@@ -820,6 +859,7 @@ ul, ol, dl {
     background: $gray-five;
     padding: 2vw;
     margin-bottom: 2vw;
+    position: relative;
 }
 
 // Home - stages
@@ -856,11 +896,6 @@ ul, ol, dl {
 
 .challenges {
   margin-top: calc(1rem + 1vw);
-}
-
-.challenges-menu {
-  margin-left: 15px;
-  margin-right: 15px;
 }
 
 .problem-box {
@@ -1058,4 +1093,8 @@ footer a i {
       left: 0;
       bottom: -11px;
     }
+}
+
+.challenge-menu li {
+    width: 25%;
 }
