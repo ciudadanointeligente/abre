@@ -109,6 +109,7 @@ p {
 .fixed-bottom {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
 }
 
@@ -858,6 +859,7 @@ ul, ol, dl {
     background: $gray-five;
     padding: 2vw;
     margin-bottom: 2vw;
+    position: relative;
 }
 
 // Home - stages
