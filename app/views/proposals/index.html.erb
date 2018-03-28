@@ -12,71 +12,62 @@
   <h1 class="sr-only"><%= t("shared.outline.proposals") %></h1>
 
 
-  <div class="small-12 medium-12 column">
-    <%= render "shared/back_link" %>
+<div class="breadcrumbs grid-container fluid">
+  <div class="grid-x grid-margin-x">
+    <div class="small-12 medium-12 cell">
+      <%= render "shared/back_link" %>
+    </div>
   </div>
-
+</div>
+<section class="page-section">
   <div class="grid-container">
-
-  <%= render "shared/problem", problem: @problem %>
-    <div id="proposals" class="proposals-list">
-      <div class="padding">
-        <div class="search-results">
-          <% if @search_terms || @advanced_search_terms %>
-            <p class="padding bg-light-gray">
-              <%= page_entries_info @proposals %>
-              <% if !@advanced_search_terms %>
-                <%= t("proposals.index.search_results", count: @proposals.size, search_term: @search_terms) %>
-              <% end %>
-            </p>
-          <% elsif @tag_filter %>
-            <p class="padding bg-light-gray">
-              <%= page_entries_info @proposals %>
-              <%= t("proposals.index.filter_topic", count: @proposals.size, topic: @tag_filter) %>
-            </p>
-          <% elsif params[:retired].present? %>
-            <p class="padding bg-light-gray"><%= t("proposals.index.retired_proposals") %></p>
+    <div class="grid-x">
+      <%= render "shared/problem", problem: @problem %>
+      <div id="proposals" class="proposals-list">
+        <div class="padding">
+          <div class="search-results">
+            <% if @search_terms || @advanced_search_terms %>
+              <p class="padding bg-light-gray">
+                <%= page_entries_info @proposals %>
+                <% if !@advanced_search_terms %>
+                  <%= t("proposals.index.search_results", count: @proposals.size, search_term: @search_terms) %>
+                <% end %>
+              </p>
+            <% elsif @tag_filter %>
+              <p class="padding bg-light-gray">
+                <%= page_entries_info @proposals %>
+                <%= t("proposals.index.filter_topic", count: @proposals.size, topic: @tag_filter) %>
+              </p>
+            <% elsif params[:retired].present? %>
+              <p class="padding bg-light-gray"><%= t("proposals.index.retired_proposals") %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <h5>
+        <%= @problem.call_to_action %>.
+        <% if @problem.ends_at > Date.today%>
+          <%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %>
+          <div class="text-right mb-60 mt-30">
+            <%= link_to "Crear propuesa", problem_path(@problem), :class => "button" %>
+          </div>
+          <% else %>
+          Ha finalizado el tiempo de recepción de propuestas, pero te invitamos a participar de los <%= link_to "Talleres de Diseño", project_design_events_path(@problem.project, :problem_id => @problem.id) %>
+          <% end %>
+      </h5>
+      <div id="proposals-list">
+        <div class="grid-x grid-margin-x">
+        <% @proposals_challenge.each_with_index do |proposal, index| %>
+            <% if (index)%3==0 %>
+            </div><div class="grid-x grid-margin-x">
+            <% end %>
+            <%= render "proposals/proposal", proposal: proposal %>
           <% end %>
         </div>
-
+        <%= paginate @proposals %>
       </div>
     </div>
-
-  <!-- <div class="text-width">
-    <div class="row collapse">
-      <div class="small-12 medium-4 large-4 columns">
-        <%= yield :header_addon %>
-      </div>
-      <div class="small-12 medium-8 large-8 columns">
-        <%= render("shared/advanced_search", search_path: proposals_path(page: 1)) unless params[:retired].present? %>
-      </div>
-    </div>
-  </div> -->
-
-  <h5>
-    <%= @problem.call_to_action %>.
-    <% if @problem.ends_at > Date.today%>
-      <%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %>
-      <div class="text-right mb-60 mt-30">
-        <%= link_to "Crear propuesa", problem_path(@problem), :class => "button" %>
-      </div>
-      <% else %>
-      Ha finalizado el tiempo de recepción de propuestas, pero te invitamos a participar de los <%= link_to "Talleres de Diseño", project_design_events_path(@problem.project, :problem_id => @problem.id) %>
-      <% end %>
-  </h5>
-
-  <div id="proposals-list">
-    <div class="grid-x grid-margin-x">
-    <% @proposals_challenge.each_with_index do |proposal, index| %>
-        <% if (index)%3==0 %>
-        </div><div class="grid-x grid-margin-x">
-        <% end %>
-        <%= render "proposals/proposal", proposal: proposal %>
-      <% end %>
-    </div>
-    <%= paginate @proposals %>
   </div>
-
-</div>
+</section>
 
 </main>

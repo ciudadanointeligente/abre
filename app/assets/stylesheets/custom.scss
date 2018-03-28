@@ -43,7 +43,7 @@ h4 a {
 }
 
 h5 {
-  font-size: calc(0.9rem + 1.1vmin);
+  font-size: calc(0.9rem + 0.8vmin);
   font-weight: normal;
   margin-bottom: 1vw;
   & a {
@@ -111,6 +111,10 @@ p {
     bottom: 0;
     left: 0;
     width: 100%;
+}
+
+.page-section {
+  padding: calc(1rem + 1vw) 0;
 }
 
 .details {
@@ -1066,10 +1070,6 @@ footer a i {
 }
 
 // Challenge / Problem
-
-.challenge-menu {
-    margin: 7vw 0 calc(1rem + 0vw);
-}
 
 .challenge-menu > li > a {
     border-bottom: 4px solid $gray-three;
