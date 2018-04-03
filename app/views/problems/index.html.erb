@@ -1,18 +1,21 @@
-
-<div class="text-width">
-
-<h1> Desafíos </h1>
-<div class="text-right">
-  <ul class="menu simple">
-    <!-- TODO que estos checkbox funcionen -->
-    <% @active_filters.each do |filter| %>
-      <% if @current_filter == filter %>
-        <%= link_to(current_path_with_query_params(filter: filter, page: 1)) do %>
-          <li class="checkbox"><label><input type="checkbox" checked=1><%= t("problems.index.filters.#{filter}") %></label></li>
-        <% end %>
-      <% else %>
-        <%= link_to(current_path_with_query_params(filter: filter, page: 1)) do %>
-            <li class="checkbox"><label><input type="checkbox"> <%= t("problems.index.filters.#{filter}") %> </label> </li>
+<div class="grid-container">
+  <h1>Desafíos</h1>
+  <div class="text-right">
+    <ul class="menu">
+      <!-- TODO que estos checkbox funcionen -->
+      <% @active_filters.each do |filter| %>
+          <li class="checkbox">
+            <% if @current_filter == filter %>
+              <%= link_to(current_path_with_query_params(filter: filter, page: 1)) do %>
+              <label><input type="checkbox" checked=1><%= t("problems.index.filters.#{filter}") %></label>
+            <% end %>
+          </li>
+          <li class="checkbox">
+            <% else %>
+              <%= link_to(current_path_with_query_params(filter: filter, page: 1)) do %>
+              <label><input type="checkbox"> <%= t("problems.index.filters.#{filter}") %> </label>
+            <% end %>
+          </li>
         <% end %>
       <% end %>
     <% end %>
@@ -73,21 +76,38 @@
               <select>
                 <option selected disabled>Comunidad afectada</option>
               </select>
-            </div>
-          </div>
-        </li>
-      </div>
-    </ul>
-  </div>
-</div>
 
-  <div class="row challenges">
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="grid-x challenges">
     <% @problems.each_with_index do |problem, index| %>
       <% if (index)%2==0 %>
-    </div><div class="row">
+    </div><div class="grid-x">
       <% end %>
       <%= render "problem", problem: problem %>
     <% end %>
   </div>
-
 </div>
+<script>
+    $(function(){
+      $('#status_filters').bind('change', function () {
+          var status = $(this).val();
+          if (status == "Implementación") {
+            status = "implementation";
+          } else if (status == "Diseño") {
+            status = "design";
+          } else if (status == "Propuestas") {
+            status = "proposal";
+          } else {
+            status = "evaluation"
+          }
+          var url = "/problems?filter=" + status + "&page=1"
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>
