@@ -1,1 +1,24 @@
-<%= render "problem" %>
+<h2 class="inline-block"> <%= @problem.title %> </h2>
+
+<p> <%= @problem.description %> </p>
+
+<ul>
+  <li>
+    <%= link_to "Editar desafío",
+              edit_admin_problem_path(@problem)%>
+  </li>
+  <li>
+      <%= link_to "Talleres de diseño", admin_project_design_events_path(:project_id => @problem.project, :problem_id => @problem) %>
+  </li>
+  <li>
+    <%= link_to "Reportes de implementación", admin_project_reports_path(:project_id => @problem.project, :problem_id => @problem) %>
+  </li>
+  <li>
+    <%= link_to "Evaluaciones" %>
+  </li>
+  <li>
+    <%= link_to t("admin.actions.destroy"),
+          admin_problem_path(@problem),
+          method: :delete %>
+  </li>
+</ul>
