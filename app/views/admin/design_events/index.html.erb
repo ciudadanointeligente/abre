@@ -10,7 +10,8 @@
 <% @design_events.each do |de| %>
   <div class="callout">
     <h5> <%= de.name %> </h5>
-        <a class="secondary">Ver</a>
+        <%= link_to "Ver detalle", admin_project_design_event_path(:id => de, :project_id => @project, :problem_id => @problem) %>
+
         <%= link_to "Editar", edit_admin_project_design_event_path(:id => de, :project_id => @project, :problem_id => @problem) %>
         <%= link_to 'Borrar', admin_project_design_event_path(:id => de, :project_id => @project, :problem_id => @problem), method: :delete, data: { confirm: '¿Confirmas que quieres eliminar este taller de diseño?' } %>
   </div>

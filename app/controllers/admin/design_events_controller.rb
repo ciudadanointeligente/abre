@@ -4,9 +4,12 @@ class Admin::DesignEventsController < Admin::BaseController
     def index
       @problem = Problem.find(params["problem_id"])
       @project = Project.find(params["project_id"])
+      @design_events = DesignEvent.where(project: @project)
     end
 
     def show
+      @problem = Problem.find(params["problem_id"])
+      @project = Project.find(params["project_id"])
     end
 
 
@@ -19,6 +22,7 @@ class Admin::DesignEventsController < Admin::BaseController
       @project = Project.find(params["project_id"])
       @problem = Problem.find(params["problem_id"])
       if @design_event.save
+        p 'hola'
         redirect_to admin_project_design_events_path(@project, :problem_id => @problem), notice: "Se han guardado correctamente los cambios"
       else
         render :new
@@ -55,7 +59,7 @@ private
 
 
 def design_event_params
-  params.require(:design_event).permit(:starts_at, :name, :place, :pax, :id, :description, :summary, :document, pictures_attributes: [:id, :_destroy, :image])
+  params.require(:design_event).permit(:starts_at, :name, :place, :pax, :id, :description, :summary, :project_id, :document, pictures_attributes: [:id, :_destroy, :image])
 end
 
 
