@@ -50,3 +50,6 @@
 @include foundation-menu-icon;
 @include foundation-tooltip;
 @include foundation-orbit;
+@import 'motion-ui/motion-ui';
+@include motion-ui-transitions;
+@include motion-ui-animations;
