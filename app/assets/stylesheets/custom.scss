@@ -492,6 +492,7 @@ select {
 
 .submenu {
     margin-bottom: 0rem;
+    border-bottom: none;
 }
 
 .submenu a {
@@ -619,6 +620,14 @@ ul, ol, dl {
 
 .top-bar-right li a {
   padding: 12px 0;
+}
+
+header {
+    border-bottom: none;
+}
+
+.menu a, .menu .button {
+  padding: 0.7rem 0rem;
 }
 
 .header-title{
