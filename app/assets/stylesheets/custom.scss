@@ -307,7 +307,7 @@ h4.counter {
 // Form
 
 form label {
-  font-size: 24px;
+  // font-size: 24px;
   color: $gray-two;
 }
 
@@ -418,7 +418,7 @@ select {
 
 .button{
   border-radius: 0.3rem;
-  padding: 1vw 2vw;
+  padding: calc(0.8rem + 0.8vmin) calc(0.8rem + 1.5vmin);
 }
 
 .button.tiny {
@@ -433,11 +433,6 @@ select {
     background: darken( $brand, 6% );
     color: white;
   }
-}
-
-.button{
-  border-radius: 0.3rem;
-  padding: calc(0.8rem + 1.2vmin) calc(0.8rem + 1.5vmin);
 }
 
 .button.large {
@@ -1000,6 +995,12 @@ ul, ol, dl {
     color: $gray-two;
     float: none;
     font-size: 14px;
+}
+
+// Evaluations
+
+.callout {
+    border: 4px solid #F4F9FF;
 }
 
 // Footer
