@@ -10,13 +10,14 @@
 
   <%= simple_form_for @evaluation, url: wizard_path do |f| %>
 
-  <h5> Evalúa del 1 al 7, donde 1 es “pésimo” y 7 “excelente”, cada una de las etapas en las que participaste: </h5>
+  <h5> Evalúa , donde 1 es “pésimo” y 7 “excelente”, cada una de las etapas en las que participaste: </h5>
   <br>
 
     <% if @evaluation.proposal_participation %>
       <div class="row">
         <div class="small-12 medium-12 column">
-          <%= f.input :proposal_evaluation %>
+          <%= f.label "Propuestas: Etapa de creación y/o apoyo de propuestas (en terreno)" %>
+          <%= render 'star_rating', evaluation: "proposal_evaluation" %>
         </div>
       </div>
     <% end %>
@@ -24,7 +25,8 @@
     <% if @evaluation.proposal_web_participation %>
       <div class="row">
         <div class="small-12 medium-12 column">
-          <%= f.input :proposal_web_evaluation %>
+          <%= f.label "Propuestas: Etapa de creación y/o apoyo de propuestas (plataforma digital)" %>
+          <%= render 'star_rating', evaluation: "proposal_web_evaluation" %>
         </div>
       </div>
     <% end %>
@@ -32,7 +34,8 @@
     <% if @evaluation.design_participation %>
       <div class="row">
         <div class="small-12 medium-12 column">
-          <%= f.input :design_evaluation %>
+          <%= f.label :design_evaluation %>
+          <%= render 'star_rating', evaluation: "design_evaluation" %>
         </div>
       </div>
     <% end %>
@@ -40,7 +43,8 @@
     <% if @evaluation.design_participation_2 %>
       <div class="row">
         <div class="small-12 medium-12 column">
-          <%= f.input :design_evaluation_2 %>
+          <%= f.label :design_evaluation_2 %>
+          <%= render 'star_rating', evaluation: "design_evaluation_2" %>
         </div>
       </div>
     <% end %>
@@ -48,7 +52,8 @@
     <% if @evaluation.implementation_participation %>
       <div class="row">
         <div class="small-12 medium-12 column">
-          <%= f.input :implementation_evaluation %>
+          <%= f.label :implementation_evaluation %>
+          <%= render 'star_rating', evaluation: "implementation_evaluation" %>
         </div>
       </div>
     <% end %>
@@ -56,7 +61,8 @@
     <% if @evaluation.implementation_participation_2 %>
       <div class="row">
         <div class="small-12 medium-12 column">
-          <%= f.input :implementation_evaluation_2 %>
+          <%= f.label :implementation_evaluation_2 %>
+          <%= render 'star_rating', evaluation: "implementation_participation_2" %>
         </div>
       </div>
     <% end %>
