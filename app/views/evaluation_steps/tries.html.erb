@@ -14,7 +14,7 @@
   Propón ideas que podrían servir para que éstas funcionen mejor en próximos desafíos: </h5>
   <br>
 
-  <% if !@evaluation.proposal_evaluation.nil? && @evaluation.proposal_evaluation < 5 %>
+  <% if !@evaluation.proposal_evaluation.nil? && @evaluation.proposal_evaluation <=3 %>
     <div class="row">
       <div class="small-12 medium-12 column">
         <%= f.input :proposal %>
@@ -22,7 +22,7 @@
     </div>
   <% end %>
 
-  <% if !@evaluation.proposal_web_evaluation.nil? && @evaluation.proposal_web_evaluation < 5 %>
+  <% if !@evaluation.proposal_web_evaluation.nil? && @evaluation.proposal_web_evaluation <=3 %>
     <div class="row">
       <div class="small-12 medium-12 column">
         <%= f.input :proposal_web %>
@@ -30,7 +30,7 @@
     </div>
   <% end %>
 
-  <% if !@evaluation.design_evaluation.nil? && @evaluation.design_evaluation < 5 %>
+  <% if !@evaluation.design_evaluation.nil? && @evaluation.design_evaluation <=3 %>
     <div class="row">
       <div class="small-12 medium-12 column">
         <%= f.input :design %>
@@ -38,7 +38,7 @@
     </div>
   <% end %>
 
-  <% if !@evaluation.design_evaluation_2.nil? && @evaluation.design_evaluation_2 < 5 %>
+  <% if !@evaluation.design_evaluation_2.nil? && @evaluation.design_evaluation_2 <=3 %>
     <div class="row">
       <div class="small-12 medium-12 column">
         <%= f.input :design_2 %>
@@ -46,7 +46,7 @@
     </div>
   <% end %>
 
-  <% if !@evaluation.implementation_evaluation.nil? && @evaluation.implementation_evaluation < 5 %>
+  <% if !@evaluation.implementation_evaluation.nil? && @evaluation.implementation_evaluation <=3 %>
     <div class="row">
       <div class="small-12 medium-12 column">
         <%= f.input :implementation %>
@@ -54,7 +54,7 @@
     </div>
   <% end %>
 
-  <% if !@evaluation.implementation_evaluation_2.nil? && @evaluation.implementation_evaluation_2 < 5 %>
+  <% if !@evaluation.implementation_evaluation_2.nil? && @evaluation.implementation_evaluation_2 <=3 %>
     <div class="row">
       <div class="small-12 medium-12 column">
         <%= f.input :implementation_2 %>
