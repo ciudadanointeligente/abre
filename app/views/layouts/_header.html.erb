@@ -2,13 +2,12 @@
 
   <div class="row all-screen column">
     <div class="top-bar">
-
-
+      <!-- Logo -->
       <%= link_to root_path, class: "show-for-small-only", accesskey: "0" do %>
         <%= image_tag(image_path_for('logo-header.svg'), class: 'movil-logo', alt: t("layouts.header.logo")) %>
         <!-- <span class="header-title"> <%= Setting['municipality_name'] %> </span> -->
       <% end %>
-
+      <!-- Toogle -->
       <span data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right">
         <span class="menu-icon dark" data-toggle></span>
         <span class="menu-text gray"> <%= t("application.menu")%> </span>
@@ -68,21 +67,27 @@
     <div class="row large-12 medium-12 small-12 columns">
       <div class="hide-for-small-only">
         <div class="small-12 medium-12">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li>
-              <a> Desafíos </a>
-              <ul class="menu">
-              <% Problem.all.each do |problem| %>
-                <%= link_to problem.title, proposals_path(:challenge => problem.id) %>
-              <% end %>
-              <%= link_to "Ver todos", problems_path %>
-              </ul>
-            </li>
-            <%= render "shared/subnavigation" %>
-            <div class="top-bar-right">
-              <%= render "devise/menu/login_items" %>
-              <%= render "shared/admin_login_items" %>
-            </div>
+          <ul class="menu">
+              <li>
+                  <ul class="accordion-menu" data-accordion-menu>
+                    <li>
+                      <a href="#">Desafíos</a>
+                      <ul class="vertical nested">
+                        <% Problem.all.each do |problem| %>
+                        <li><%= link_to problem.title, proposals_path(:challenge => problem.id) %></li>
+                        <% end %>
+                        <li><%= link_to "Ver todos", problems_path %></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              <div class="top-bar-left">
+                <%= render "shared/subnavigation" %>
+              </div>
+              <div class="top-bar-right">
+                <%= render "devise/menu/login_items" %>
+                <%= render "shared/admin_login_items" %>
+              </div>
           </ul>
         </div>
       </div>

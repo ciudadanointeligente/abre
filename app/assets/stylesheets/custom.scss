@@ -270,6 +270,10 @@ h4.counter {
   margin-bottom: 30px;
 }
 
+.mb-0 {
+  margin-bottom: 0;
+}
+
 
 // Background color
 
@@ -303,7 +307,7 @@ h4.counter {
 // Form
 
 form label {
-  font-size: 24px;
+  // font-size: 24px;
   color: $gray-two;
 }
 
@@ -414,7 +418,7 @@ select {
 
 .button{
   border-radius: 0.3rem;
-  padding: 1vw 2vw;
+  padding: calc(0.8rem + 0.8vmin) calc(0.8rem + 1.5vmin);
 }
 
 .button.tiny {
@@ -429,11 +433,6 @@ select {
     background: darken( $brand, 6% );
     color: white;
   }
-}
-
-.button{
-  border-radius: 0.3rem;
-  padding: calc(0.8rem + 1.2vmin) calc(0.8rem + 1.5vmin);
 }
 
 .button.large {
@@ -493,6 +492,7 @@ select {
 
 .submenu {
     margin-bottom: 0rem;
+    border-bottom: none;
 }
 
 .submenu a {
@@ -620,6 +620,14 @@ ul, ol, dl {
 
 .top-bar-right li a {
   padding: 12px 0;
+}
+
+header {
+    border-bottom: none;
+}
+
+.menu a, .menu .button {
+  padding: 0.7rem 0rem;
 }
 
 .header-title{
@@ -998,6 +1006,12 @@ ul, ol, dl {
     font-size: 14px;
 }
 
+// Evaluations
+
+.callout {
+    border: 4px solid #F4F9FF;
+}
+
 // Footer
 
 .footer {
@@ -1098,3 +1112,43 @@ footer a i {
 .challenge-menu li {
     width: 25%;
 }
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: $light-blue;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #a6d8fc;  }

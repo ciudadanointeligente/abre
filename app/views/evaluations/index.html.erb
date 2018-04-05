@@ -11,11 +11,9 @@
     <div class="grid-x">
       <%= render "shared/problem", problem: @problem %>
 
-      <h3>Evaluación</h3>
-
-      <p>
+      <h5>
         ¿Qué te pareció la implementación del proyecto? ¿Crees que hay algo que se pudo hacer mejor? Al terminar el proceso aquí tendrás un espacio para dejar tu opinión y compartirla con la comunidad.
-      </p>
+      </h5>
       <%= link_to "Evaluar", new_project_evaluation_path(:problem_id => @problem.id) %>
     </div>
   </div>
