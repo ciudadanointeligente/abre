@@ -32,7 +32,7 @@ h3 {
 
 h4 {
   font-size: 24px;
-  color: $gray-two;
+  font-weight: normal;
 }
 
 h4 a {
@@ -43,7 +43,7 @@ h4 a {
 }
 
 h5 {
-  font-size: calc(0.9rem + 0.8vmin);
+  font-size: 18px;
   font-weight: normal;
   margin-bottom: 1vw;
   & a {
@@ -289,6 +289,11 @@ h4.counter {
   background: $light-blue;
 }
 
+.bg-blue-border {
+    border-left: 30vw solid $light-blue;
+    margin-left: -32.5vw;
+}
+
 .bg-orange {
   background: $orange;
 }
@@ -433,10 +438,6 @@ select {
     background: darken( $brand, 6% );
     color: white;
   }
-}
-
-.button.large {
-    font-size: calc(0.8rem + 1.5vmin);
 }
 
 .button.secondary {
@@ -609,7 +610,7 @@ ul, ol, dl {
 }
 
 .top-bar-title {
-    padding: 1rem 0;
+  padding: 3px 0;
 }
 
 .top-bar-title-right{
@@ -873,7 +874,7 @@ header {
 
 .problem-box {
     background: $gray-five;
-    padding: 2vw;
+    padding: calc(2vw + 1rem);
     margin-bottom: 2vw;
     position: relative;
 }
@@ -1007,7 +1008,6 @@ header {
 .back, .icon-angle-left {
     color: $gray-two;
     float: none;
-    font-size: 14px;
 }
 
 // Evaluations
@@ -1121,7 +1121,6 @@ footer a i {
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
-h1 { font-size: 1.5em; margin: 10px; }
 
 /****** Style Star Rating Widget *****/
 
