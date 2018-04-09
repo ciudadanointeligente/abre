@@ -2,12 +2,12 @@
 
   <%= render "shared/back_link" %>
 
-  <div class="text-width">
+  <div class="grid-container">
 
   <%= render "shared/problem", problem: @problem %>
 
     <h3 class="page-title"><%= t("titles.create_proposal") %></h3>
-    <h4 class="page-title">PASO 2: Comparte tu idea</h4>
+    <h4 class="page-title">Paso 2: Comparte tu idea</h4>
 
     <%= render "proposals/form", form_url: proposals_url %>
   </div>

@@ -7,11 +7,9 @@
 
     <%= f.hidden_field :problem_id, :value => @problem.id %>
 
-
-
     <%= f.hidden_field :problem, :value => @problem.id %>
 
-    <div class="text-width row">
+    <div class="">
 
       <% if current_user.administrator? %>
         <hr>
@@ -116,7 +114,7 @@
       </div>
 
       <div class="actions small-12 column">
-        <%= f.submit(class: "button float-center", value: t("proposals.#{action_name}.form.submit_button")) %>
+        <%= f.submit(class: "button float-right", value: t("proposals.#{action_name}.form.submit_button")) %>
       </div>
     </div>
   </div>
