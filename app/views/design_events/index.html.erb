@@ -19,8 +19,8 @@
           <span class="line-text">|</span> <i class="fa fa-users"> </i> <%= d.pax %> asistentes
           <% end %>
           <% if d.document.exists?  %>
-          <span class="line-text">|</span>
-          <%= link_to "Registro del taller", d.document.url%>
+            <span class="line-text">|</span>
+            <%= link_to "Registro del taller", d.document.url%>
           <% end %>
         </p>
         <h5><%= d.name %></h5>
@@ -29,6 +29,7 @@
           <% else %> <%= d.description %>  <% end %>
         </p>
         <!-- Carousel -->
+
         <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
           <div class="orbit-wrapper">
             <div class="orbit-controls">
@@ -38,39 +39,24 @@
             <ul class="orbit-container">
               <li class="is-active orbit-slide">
                 <div class="grid-x">
-                  <% d.pictures.each do |pic| %>
-                    <% if pic.image.exists?  %>
-                      <div class="cell small-12 medium-6">
-                        <%= image_tag pic.image.url(:big) %>
-                      </div>
-                    <% end %>
-                  <% end %>
+              <% d.pictures.each_with_index do |pic, index| %>
+                <% if (index)%2==0 %>
                 </div>
               </li>
-              <li class="orbit-slide">
-                <figure class="orbit-figure">
-                  <img class="orbit-image" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Space">
-                  <figcaption class="orbit-caption">Encapsulating</figcaption>
-                </figure>
-              </li>
+              <div class="grid-x">
+              <li>
+                <% end %>
+                <% if pic.image.exists?  %>
+                  <div class="cell small-12 medium-6">
+                    <%= image_tag pic.image.url(:big) %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div> </li>
             </ul>
           </div>
-          <nav class="orbit-bullets">
-            <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-            <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-            <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-            <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-          </nav>
         </div>
-        <!-- <div class="gallery grid-x">
-          <% d.pictures.each do |pic| %>
-            <% if pic.image.exists?  %>
-              <div class="small-12 medium-6 large-6 cell">
-              <%= image_tag pic.image.url(:big) %>
-              </div>
-            <% end %>
-          <% end %>
-        </div> -->
+
     <hr>
     <% end %>
     </div>
