@@ -19,48 +19,51 @@
           <span class="line-text">|</span> <i class="fa fa-users"> </i> <%= d.pax %> asistentes
           <% end %>
           <% if d.document.exists?  %>
-            <span class="line-text">|</span>
-            <%= link_to "Registro del taller", d.document.url%>
+          <span class="line-text">|</span>
+          <%= link_to "Registro del taller", d.document.url%>
           <% end %>
         </p>
+
+
         <h5><%= d.name %></h5>
         <p>
           <% if !d.summary.empty? %> <%= d.summary %>
           <% else %> <%= d.description %>  <% end %>
         </p>
-        <!-- Carousel -->
 
+        <% if d.pictures.any? %>
+
+        <!-- Carousel -->
         <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
           <div class="orbit-wrapper">
             <div class="orbit-controls">
               <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
               <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
             </div>
+
+
             <ul class="orbit-container">
               <li class="is-active orbit-slide">
                 <div class="grid-x">
               <% d.pictures.each_with_index do |pic, index| %>
-                <% if (index)%2==0 %>
-                </div>
-              </li>
-              <div class="grid-x">
-              <li>
-                <% end %>
-                <% if pic.image.exists?  %>
+                  <% if ((index)%2==0 && index != 0) %>
+                 <li class="orbit-slide"> <div class="grid-x grid-margin-x">
+                  <% end %>
                   <div class="cell small-12 medium-6">
                     <%= image_tag pic.image.url(:big) %>
                   </div>
-                <% end %>
-              <% end %>
-            </div> </li>
+                  <% end %>
+              </div> </li>
             </ul>
           </div>
         </div>
-
-    <hr>
+      <% end %>
+      </div>
     <% end %>
-    </div>
+
   </div>
   </div>
+
+  <hr>
 
 </section>
