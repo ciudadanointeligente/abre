@@ -20,9 +20,9 @@ class Admin::DesignEventsController < Admin::BaseController
 
     def update
       @project = Project.find(params["project_id"])
-      @problem = Problem.find(params["problem_id"])
+      @problem = Problem.find(params["design_event"]["problem_id"])
+      @design_event.update(design_event_params)
       if @design_event.save
-        p 'hola'
         redirect_to admin_project_design_events_path(@project, :problem_id => @problem), notice: "Se han guardado correctamente los cambios"
       else
         render :new
@@ -31,7 +31,7 @@ class Admin::DesignEventsController < Admin::BaseController
 
     def create
       @project = Project.find(params["project_id"])
-      @problem = Problem.find(params["problem_id"])
+      @problem = Problem.find(params["design_event"]["problem_id"])
       if @design_event.save
         redirect_to admin_project_design_events_path(@project, :problem_id => @problem), notice: "Se han guardado correctamente los cambios"
       else

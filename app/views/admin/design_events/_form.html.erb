@@ -1,6 +1,6 @@
 
 
-<%= simple_form_for [:admin, @design_event], :url => admin_project_design_events_path(:project_id => @project, :problem_id => @problem) do |f| %>
+<%= simple_form_for [:admin, @project, @design_event] do |f| %>
 
     <%= f.input :name %>
     <%= f.input :description, input_html: { rows: 3} %>
@@ -36,6 +36,8 @@
     </div>
 
     <%= f.input :project_id, :as => :hidden, :input_html => { :value => @project.id } %>
+    <%= f.input :problem_id, :as => :hidden, :input_html => { :value => @problem.id } %>
+
 
     <div class="text-right">
         <%= f.submit "Guardar", class: "button primary" %>
