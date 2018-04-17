@@ -9,4 +9,10 @@ namespace :db do
     load(Rails.root.join("db", "penalolen.rb"))
   end
 
+  desc "Resets the database and loads it from db/independencia.rb"
+  task indepe: :environment do
+    load(Rails.root.join("db", "independencia.rb"))
+  end
+
+
 end
