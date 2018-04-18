@@ -24,7 +24,7 @@
         <div class="top-bar-right">
           <div class="top-bar-title">
             <%= link_to root_path, class: "hide-for-small-only", accesskey: "0" do %>
-              <%= image_tag(image_path_for('logo_pena.svg'), class: 'hide-for-small-only') %>
+              <%= image_tag(image_path_for(Setting['logo']), class: 'hide-for-small-only') %>
               <!-- <%= setting['org_name'] %> -->
             <% end %>
           </div>

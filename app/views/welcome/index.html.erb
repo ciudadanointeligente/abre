@@ -5,7 +5,7 @@
       <div class="pane-content">
         <div class="ds-1col-stacked fieldable-panels-pane view-mode-full clearfix">
           <div class="group-header">
-            <div class="field field--name-field-background-image field--type-image field--label-hidden"><div class="field__items"><div class="field__item even"><%= image_tag(image_path_for('hero01.png')) %></div></div></div>
+            <div class="field field--name-field-background-image field--type-image field--label-hidden"><div class="field__items"><div class="field__item even"> <%= image_tag(image_path_for(Setting['home_image'])) %></div></div></div>
           </div>
           <div class="group-ds_content">
             <div class="field field--name-field-pre-title field--type-text field--label-hidden row">
@@ -13,7 +13,7 @@
                 <div class="field__item even">
                   <h1 class="white text-center"> La comunidad decide el futuro de sus barrios </h1>
                 </div>
-                <h5 class="white text-center"> La Municipalidad de Peñalolén sabe que eres tú quien mejor conoce la comuna y sabe lo que necesita, por eso te invitamos a proponer, diseñar y construir en conjunto con los funcionarios y funcionarias municipales una mejor comuna. </h5>
+                <h5 class="white text-center"> La Municipalidad de <%= Setting['municipality_name'] %> sabe que eres tú quien mejor conoce la comuna y sabe lo que necesita, por eso te invitamos a proponer, diseñar y construir en conjunto con los funcionarios y funcionarias municipales una mejor comuna. </h5>
                 <div class="text-center">
                   <%= link_to t('Mira los desafíos'), problems_path, class: "button primary large" %>
                 </div>

@@ -182,7 +182,7 @@ class Proposal < ActiveRecord::Base
   def successful?
     if !self.for_challenge
       total_votes >= Proposal.votes_needed_for_success
-    elseretired
+    else
       winning_proposal?(self) && self.cached_votes_up > 1
     end
   end
