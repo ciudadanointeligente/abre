@@ -43,7 +43,7 @@ h4 a {
 }
 
 h5 {
-  font-size: calc(0.9rem + 1.1vmin);
+  font-size: calc(0.9rem + 0.8vmin);
   font-weight: normal;
   margin-bottom: 1vw;
   & a {
@@ -109,7 +109,12 @@ p {
 .fixed-bottom {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
+}
+
+.page-section {
+  padding: calc(1rem + 1vw) 0;
 }
 
 .details {
@@ -239,6 +244,36 @@ h4.counter {
   color: $brand;
 }
 
+// Margins and paddings
+
+.mt-90 {
+  margin-top: 90px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mb-90 {
+  margin-bottom: 90px;
+}
+
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
 
 // Background color
 
@@ -272,7 +307,7 @@ h4.counter {
 // Form
 
 form label {
-  font-size: 24px;
+  // font-size: 24px;
   color: $gray-two;
 }
 
@@ -383,7 +418,7 @@ select {
 
 .button{
   border-radius: 0.3rem;
-  padding: 1vw 2vw;
+  padding: calc(0.8rem + 0.8vmin) calc(0.8rem + 1.5vmin);
 }
 
 .button.tiny {
@@ -398,11 +433,6 @@ select {
     background: darken( $brand, 6% );
     color: white;
   }
-}
-
-.button{
-  border-radius: 0.3rem;
-  padding: calc(0.8rem + 1.2vmin) calc(0.8rem + 1.5vmin);
 }
 
 .button.large {
@@ -462,6 +492,7 @@ select {
 
 .submenu {
     margin-bottom: 0rem;
+    border-bottom: none;
 }
 
 .submenu a {
@@ -487,7 +518,7 @@ select {
 .proposal {
     background: $gray-five;
     position: relative;
-    height: 500px;
+    height: 470px;
 }
 
 .proposal-content h5 {
@@ -504,10 +535,6 @@ select {
 
 .proposal-content {
   padding: calc(0.8rem + 1vmin);
-}
-
-.proposal .tags {
-    margin-top: -15px;
 }
 
 .support-count {
@@ -575,12 +602,32 @@ ul, ol, dl {
   background: $light-blue;
 }
 
+// nav
+
+.top-bar {
+    line-height: 28px;
+}
+
 .top-bar-title-right{
   float: right;
 }
 
 .top-bar .top-bar-title a img {
-    margin-bottom: -4px;
+    margin-bottom: -2px;
+    height: 42px;
+    width: auto;
+}
+
+.top-bar-right li a {
+  padding: 12px 0;
+}
+
+header {
+    border-bottom: none;
+}
+
+.menu a, .menu .button {
+  padding: 0.7rem 0rem;
 }
 
 .header-title{
@@ -591,12 +638,16 @@ ul, ol, dl {
   font-size: 14px;
 }
 
+.subnavigation {
+    background: #F7FBFF;
+}
+
 .subnavigation ul {
       z-index: 2;
 }
 
 .subnavigation ul li a {
-  line-height: 2rem;
+  line-height: 14px;
   font-weight: 400;
   color: $gray-two;
 }
@@ -820,6 +871,7 @@ ul, ol, dl {
     background: $gray-five;
     padding: 2vw;
     margin-bottom: 2vw;
+    position: relative;
 }
 
 // Home - stages
@@ -856,11 +908,6 @@ ul, ol, dl {
 
 .challenges {
   margin-top: calc(1rem + 1vw);
-}
-
-.challenges-menu {
-  margin-left: 15px;
-  margin-right: 15px;
 }
 
 .problem-box {
@@ -959,6 +1006,12 @@ ul, ol, dl {
     font-size: 14px;
 }
 
+// Evaluations
+
+.callout {
+    border: 4px solid #F4F9FF;
+}
+
 // Footer
 
 .footer {
@@ -1032,10 +1085,6 @@ footer a i {
 
 // Challenge / Problem
 
-.challenge-menu {
-    margin: 7vw 0 calc(1rem + 0vw);
-}
-
 .challenge-menu > li > a {
     border-bottom: 4px solid $gray-three;
     color: $gray-three;
@@ -1058,4 +1107,55 @@ footer a i {
       left: 0;
       bottom: -11px;
     }
+}
+
+.challenge-menu li {
+    width: 25%;
+}
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: $light-blue;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #a6d8fc;  }
+
+
+/***** Carousel *****/
+
+.orbit-previous, .orbit-next {
+    color: $brand;
 }

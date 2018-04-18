@@ -54,13 +54,22 @@
         <span class="icon-checkmark-circle"></span>
         <strong><%= t("admin.menu.title_problems") %></strong>
       </a>
-      <ul <%= "class=is-active" if menu_moderated_content? %>>
+      <ul <%= "class=is-active" if menu_problems? %>>
         <li <%= "class=active" if controller_name == "problems" %>>
           <%= link_to t("admin.menu.view_problems"), admin_problems_path %>
         </li>
-
+        <li <%= "class=active" if controller_name == "problems" %>>
+          <%= link_to t("admin.problems.index.create"), new_admin_problem_path %>
+        </li>
+        <% Problem.all.each do |challenge| %>
+          <li>
+            <%= link_to challenge.title, admin_problem_path(challenge) %>
+          </li>
+        <% end %>
       </ul>
     </li>
+
+
 
     <li class="section-title">
       <a href="#">
@@ -71,7 +80,6 @@
         <li <%= "class=active" if controller_name == "projects" %>>
           <%= link_to t("admin.menu.view_projects"), admin_projects_path %>
         </li>
-
       </ul>
     </li>
 

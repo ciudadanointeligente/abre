@@ -1,0 +1,48 @@
+
+
+<%= simple_form_for [:admin, @project, @design_event] do |f| %>
+
+    <%= f.input :name %>
+    <%= f.input :description, input_html: { rows: 3} %>
+
+    <div class="row">
+      <div class="small-12 medium-6 column">
+        <%= f.input :place %>
+      </div>
+      <div class="small-12 medium-6 column">
+        <%= f.input :starts_at, input_html: { class: 'small-6 medium-2'} %>
+      </div>
+    </div>
+
+
+    <hr>
+    <p>Una vez se haya realizo el taller de diseño completa la siguiente información:</p>
+
+    <div class="row">
+      <div class="small-4 medium-4 column">
+      <%= f.input :pax %>
+      </div>
+    </div>
+    <%= f.input :summary, input_html: { rows: 3}  %>
+    <%= f.input :document %>
+
+    <%= f.label "Imagenes"%>
+    <p class="note">Las imagenes no deben superar los 500 kilobytes </p>
+    <div class="form-input" >
+      <%= f.fields_for :pictures do |ph| %>
+        <%= render 'picture_fields', f: ph  %>
+      <% end %>
+      <%= link_to_add_association 'Agregar foto', f, :pictures %>
+    </div>
+
+    <%= f.input :project_id, :as => :hidden, :input_html => { :value => @project.id } %>
+    <%= f.input :problem_id, :as => :hidden, :input_html => { :value => @problem.id } %>
+
+
+    <div class="text-right">
+        <%= f.submit "Guardar", class: "button primary" %>
+    </div>
+
+
+
+<% end %>

@@ -1,0 +1,43 @@
+<%= render 'shared/back_link' %>
+
+<h2> <%= @design_event.name %> </h2>
+
+<div class="text-right">
+  <%= link_to "Editar", edit_admin_project_design_event_path(:id => @design_event, :project_id => @project, :problem_id => @problem), class: "primary button" %>
+</div>
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th width="150">Nombre</th>
+      <th><%= @design_event.name %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> Fecha y hora </td>
+      <td> <%= @design_event.starts_at %> </td>
+    </tr>
+    <tr>
+      <td> Ubicación </td>
+      <td> <%= @design_event.place %> </td>
+    </tr>
+    <tr>
+      <td> Descripción </td>
+      <td> <%= @design_event.description %> </td>
+    </tr>
+    <tr>
+      <td> Asistentes </td>
+      <td> <%= @design_event.pax %> </td>
+    </tr>
+    <tr>
+      <td> Resumen </td>
+      <td> <%= @design_event.summary %> </td>
+    </tr>
+
+
+  </tbody>
+</table>

@@ -62,7 +62,6 @@ class Problem < ActiveRecord::Base
     end
   end
 
-
   # def status
   #   if Date.today <= self.ends_at
   #     return 'Propuestas'

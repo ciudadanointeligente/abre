@@ -1,0 +1,19 @@
+<p> <%= render 'shared/back_link' %> al desafío <%= link_to @problem.title, admin_problem_path(@problem) %>
+</p>
+<h2> Talleres de diseño </h2>
+
+<div class="text-right">
+  <%= link_to "Crear taller de diseño", new_admin_project_design_event_path(@project, :problem_id => @problem),  class: "primary button" %>
+</div>
+
+
+<% @design_events.each do |de| %>
+  <div class="callout">
+    <h5> <%= de.name %> </h5>
+        <%= link_to "Ver detalle", admin_project_design_event_path(:id => de, :project_id => @project, :problem_id => @problem) %>
+
+        <%= link_to "Editar", edit_admin_project_design_event_path(:id => de, :project_id => @project, :problem_id => @problem) %>
+        <%= link_to 'Borrar', admin_project_design_event_path(:id => de, :project_id => @project, :problem_id => @problem), method: :delete, data: { confirm: '¿Confirmas que quieres eliminar este taller de diseño?' } %>
+  </div>
+
+<% end %>

@@ -1,0 +1,13 @@
+<div class="picture-nested" id="panel2d">
+  <!-- <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div> -->
+
+  <div class="controls">
+    <%= f.input :image, as: :file %>
+
+  </div>
+  <%= link_to_remove_association "Eliminar imagen", f, {wrapper_class: 'picture-nested'} %>
+
+</div>
