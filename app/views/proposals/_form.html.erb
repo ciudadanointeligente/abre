@@ -9,41 +9,40 @@
 
     <%= f.hidden_field :problem, :value => @problem.id %>
 
-    <div class="">
+    <div class="admin-view padding mb-60">
 
       <% if current_user.administrator? %>
-        <hr>
-        <p class="home-info-dates label float-right"> Vista disponible solo pa admin </p>
+        <div class="home-info-dates float-right"><span class="label">Vista administradores</span></div>
         <h4>Creación de propuestas en nombre de otra persona</h4>
         <p>Si existe una persona que no tenga correo eléctronico, puedes crear propuestas en nombre de esta.</p>
 
         <ol class="admin">
-          <li class="small-12 medium-12 large-12 column ">
+          <li class="">
             <%= f.label :responsible_name, t("proposals.form.proposal_responsible_name") %>
             <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false %>
           </li>
-          <li class="small-12 medium-12 large-12 column ">
+          <li class="">
             <%= f.label :responsible_phone, "Teléfono de contacto" %>
             <%= f.text_field :responsible_phone, label: false %>
           </li>
-          <li class="small-12 medium-12 large-12 column ">
+          <li class="">
             <%= f.label :responsible_id, "Rut" %>
             <%= f.text_field :responsible_id, label: false %>
           </li>
         </ol>
-        <hr>
 
       <% end %>
+    </div>
 
       <ol>
         <!-- 1.Title -->
-        <li class="small-12 medium-12 large-12 column ">
+        <li class="">
           <%= f.label :title, t("proposals.form.proposal_title") %>
           <%= f.text_field :title, maxlength: Proposal.title_max_length, placeholder: t("proposals.form.proposal_title"), label: false, data: {js_suggest_result: "js_suggest_result", js_suggest: "#js-suggest", js_url: suggest_proposals_path}%>
         </li>
 
         <!-- 2.Description -->
-        <li class="small-12 medium-12 large-12 column ">
+        <li class="">
           <%= f.label :description, t("proposals.form.proposal_text") %>
           <p class="note"><%= t("proposals.form.proposal_description_note") %></p>
           <%= f.text_area :description, rows: 5, label: false %>
@@ -51,7 +50,7 @@
 
 
         <!-- 3.Summary -->
-        <li class="small-12 medium-12 large-12 column ">
+        <li class="">
           <%= f.label :summary, t("proposals.form.proposal_summary") %>
           <p class="note"><%= t("proposals.form.proposal_summary_note") %></p>
           <%= f.text_area :summary, rows: 3, maxlength: 200, label: false %>
@@ -78,7 +77,7 @@
                             class: 'js-tag-list' %>
         </li>
 
-        <ul class="accordion small-12 medium-12 large-12 column" data-accordion>
+        <ul class="accordion" data-accordion>
           <li class="accordion-item" data-accordion-item>
             <a href="#" class=""><p>¿Quiéres agregar más información?</p></a>
             <div class="accordion-content" data-tab-content>
@@ -93,7 +92,7 @@
         </ul>
 
         <% if current_user.unverified? %>
-          <li class="small-12 medium-12 large-12 column">
+          <li class="">
             <%= f.label :responsible_name, t("proposals.form.proposal_responsible_name") %>
             <p class="note"><%= t("proposals.form.proposal_responsible_name_note") %></p>
             <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false %>
@@ -101,7 +100,7 @@
         <% end %>
       </ol>
 
-      <div class="small-12 column">
+      <div class="">
         <% if @proposal.new_record? %>
           <%= f.label :terms_of_service do %>
             <%= f.check_box :terms_of_service, title: t('form.accept_terms_title'), label: false %>
@@ -113,9 +112,9 @@
         <% end %>
       </div>
 
-      <div class="actions small-12 column">
+      <div class="actions">
         <%= f.submit(class: "button float-right", value: t("proposals.#{action_name}.form.submit_button")) %>
       </div>
-    </div>
+
   </div>
 <% end %>

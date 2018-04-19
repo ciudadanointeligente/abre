@@ -51,6 +51,10 @@ h5 {
   }
 }
 
+.bajada {
+    margin-top: -1rem;
+}
+
 @media only screen and (max-width: 800px) {
   h2 {
     font-size: 28px;
@@ -114,7 +118,7 @@ p {
 }
 
 .page-section {
-  padding: calc(1rem + 1vw) 0;
+  padding: calc(3rem + 3vw) 0;
 }
 
 .details {
@@ -342,6 +346,10 @@ select {
   margin: 0;
 }
 
+.admin-view {
+    background: #F7FBFF;
+}
+
 .cd-horizontal-timeline .events-content {
   position: relative;
 }
@@ -420,7 +428,12 @@ select {
 
 .button{
   border-radius: 0.3rem;
-  padding: calc(0.8rem + 0.8vmin) calc(0.8rem + 1.5vmin);
+  padding: calc(0.5rem + 0.5vmin) calc(0.8rem + 0.8vmin);
+  font-size: 14px;
+  font-family: "Fira sans", "Helvetica", "Arial", sans-serif !important;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 0;
 }
 
 .button.tiny {
@@ -446,14 +459,10 @@ select {
     }
 }
 
-.button.hollow.primary {
-    border: 1px solid #fff;
-    color: #fff;
-    background: rgba(216, 0, 23, 0);
+.button.success {
+    background: white;
     &:hover {
-      border: 1px solid #fff;
-      color: #fff;
-      background: rgba(34, 34, 34, 0.1);
+      background: darken(white, 10%);
     }
 }
 
@@ -1044,7 +1053,7 @@ footer a i {
 .disabled {
    pointer-events: none;
    cursor: default;
-   color: $gray-four !important;
+   color: $gray-three !important;
 }
 
 .share-proposal{

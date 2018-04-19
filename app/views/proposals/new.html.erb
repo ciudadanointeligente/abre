@@ -1,8 +1,18 @@
+<!-- Breadcrumbs -->
+<div class="grid-container fluid">
+  <nav aria-label="Aquí estás:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><%= link_to "Inicio", root_path %></li>
+      <li><%= link_to "Desafíos", problems_path %></li>
+      <li><span class="disabled">Desafío:</span> <%= link_to @problem.title, proposals_path(:challenge => @problem.id) %></a></li>
+      <li><%= link_to "Crea una propuesta: Paso 1", problem_path(@problem) %></li>
+      <li>Crea una propuesta: Paso 2</li>
+    </ul>
+  </nav>
+</div>
+<!-- End breadcrumbs -->
 <div class="proposal-form">
-
-  <%= render "shared/back_link" %>
-
-  <div class="grid-container">
+  <div class="grid-container page-section">
 
   <%= render "shared/problem", problem: @problem %>
 

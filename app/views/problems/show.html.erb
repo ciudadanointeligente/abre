@@ -1,48 +1,51 @@
-<div class="breadcrumbs grid-container fluid details">
-  <div class="grid-x">
-    <div class="small-12 medium-12 cell">
-      <%= render "shared/back_link" %>
-    </div>
-  </div>
+<!-- Breadcrumbs -->
+<div class="grid-container">
+  <nav aria-label="Aquí estás:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><%= link_to "Inicio", root_path %></li>
+      <li><%= link_to "Desafíos", problems_path %></li>
+      <li><span class="disabled">Desafío:</span> <%= link_to @problem.title, proposals_path(:challenge => @problem.id) %></a></li>
+      <li>Crear propuesta: Paso 1</li>
+    </ul>
+  </nav>
 </div>
+<!-- End breadcrumbs -->
 
 <div class="grid-container">
-  <%= render "shared/problem", problem: @problem %>
-
-  <h2 class="page-title"><%= t("titles.create_proposal") %></h2>
-  <h4 class="page-title">Paso 1: Conoce el desafío <% provide :title do %><%= @problem.title %><% end %></h4>
-  <p><%= @problem.call_to_action%>.<%= simple_format(@problem.description) %> </p>
-  <div class="bg-blue bg-blue-border padding mb-60">
-    <h4 class="white">Restricciones</h4>
-    <p class="white mb-0">
-      <% if @problem.budget? %>
-      <i class="fas fa-dollar-sign"></i> <%= t("proposals.form.problem.budget") %> <%= @problem.budget%> </br>
-      <% end %>
-      <i class="fas fa-map-marker-alt"></i> <%= t("proposals.form.problem.community") %> <%= @problem.geozones_name %> </br>
-      <% if @problem.restriction_summary? %>
-      <i class="fa fa-list" aria-hidden="true"></i> <%= t("proposals.form.problem.restriction_summary") %> <%= @problem.restriction_summary%> </br>
-      <% end %>
-      <% if @problem.restriction? %>
-        <%= @problem.restriction %>
-      <% end %>
-    </p>
-  </div>
-
-      <% if @problem.problem_title? %>
-        <h4> ¿Por qué surge este desafío? </h1>
-        <p> <%= @problem.summary%> </p>
-      <% end %>
-      <% if @problem.cause? %>
-        <h4> Causas </h1>
-        <%= simple_format(@problem.cause)%>
-      <% end %>
-      <% if @problem.consequence? %>
-        <h4> Consecuencias </h1>
-        <%= simple_format(@problem.consequence)%>
-      <% end %>
+  <div class="page-section">
+    <%= render "shared/problem", problem: @problem %>
+    <h2 class="page-title"><%= t("titles.create_proposal") %></h2>
+    <h4 class="page-title">Paso 1: Conoce el desafío <% provide :title do %><%= @problem.title %><% end %></h4>
+    <p><%= @problem.call_to_action%>.<%= simple_format(@problem.description) %> </p>
+    <div class="bg-blue bg-blue-border padding mb-60">
+      <h4 class="white">Restricciones</h4>
+      <p class="white mb-0">
+        <% if @problem.budget? %>
+        <i class="fas fa-dollar-sign"></i> <%= t("proposals.form.problem.budget") %> <%= @problem.budget%> </br>
+        <% end %>
+        <i class="fas fa-map-marker-alt"></i> <%= t("proposals.form.problem.community") %> <%= @problem.geozones_name %> </br>
+        <% if @problem.restriction_summary? %>
+        <i class="fa fa-list" aria-hidden="true"></i> <%= t("proposals.form.problem.restriction_summary") %> <%= @problem.restriction_summary%> </br>
+        <% end %>
+        <% if @problem.restriction? %>
+          <%= @problem.restriction %>
+        <% end %>
+      </p>
+    </div>
+    <% if @problem.problem_title? %>
+      <h4> ¿Por qué surge este desafío? </h1>
+      <p> <%= @problem.summary%> </p>
+    <% end %>
+    <% if @problem.cause? %>
+      <h4> Causas </h1>
+      <%= simple_format(@problem.cause)%>
+    <% end %>
+    <% if @problem.consequence? %>
+      <h4> Consecuencias </h1>
+      <%= simple_format(@problem.consequence)%>
+    <% end %>
     <% if @problem.ends_at > Date.today%>
       <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => @problem.id), class: 'button float-right' %>
     <% end %>
-
-
+  </div>
 </div>
