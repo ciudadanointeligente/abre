@@ -101,5 +101,5 @@ Rails.application.config.middleware.use 'Apartment::Elevators::Generic',
                             subdomain = request.host.split('.').first
                             tenant = Apartment.tenant_names.include?(subdomain) ? subdomain : 'public'
 			    puts 'Elevator resolving tenant to: ' + tenant.to_s
-                            tenant == 'abre' ? 'public' : 'public'
+                            tenant
 				}

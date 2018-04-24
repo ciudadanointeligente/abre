@@ -309,6 +309,9 @@ ActiveRecord::Schema.define(version: 20180307145316) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.integer  "project_id"
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.string   "status"
     t.boolean  "proposal_web_participation"
     t.boolean  "design_participation_2"
     t.boolean  "implementation_participation_2"
