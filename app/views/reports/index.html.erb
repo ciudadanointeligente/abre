@@ -1,10 +1,15 @@
-<div class="breadcrumbs grid-container fluid">
-  <div class="grid-x grid-margin-x">
-    <div class="small-12 medium-12 cell">
-      <%= render "shared/back_link" %>
-    </div>
-  </div>
+<!-- Breadcrumbs -->
+<div class="grid-container fluid">
+  <nav aria-label="Aquí estás:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><%= link_to "Inicio", root_path %></li>
+      <li><%= link_to "Desafíos", problems_path %></li>
+      <li><span class="disabled">Desafío:</span> <%= link_to @problem.title, proposals_path(:challenge => @problem.id) %></a></li>
+      <li>Seguimiento</li>
+    </ul>
+  </nav>
 </div>
+<!-- End breadcrumbs -->
 <section class="page-section">
   <div class="grid-container">
     <div class="grid-x">
