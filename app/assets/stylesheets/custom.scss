@@ -43,7 +43,7 @@ h4 a {
 }
 
 h5 {
-  font-size: 18px;
+  font-size: calc(0.9rem + 0.8vmin);
   font-weight: normal;
   margin-bottom: 1vw;
   & a {
@@ -1023,6 +1023,12 @@ header {
     border: 4px solid #F4F9FF;
 }
 
+// Evaluations
+
+.callout {
+    border: 4px solid #F4F9FF;
+}
+
 // Footer
 
 .footer {
@@ -1128,6 +1134,11 @@ footer a i {
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
+<<<<<<< HEAD
+=======
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+>>>>>>> master
 
 /****** Style Star Rating Widget *****/
 
@@ -1161,3 +1172,9 @@ fieldset, label { margin: 0; padding: 0; }
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #a6d8fc;  }
+
+/***** Carousel *****/
+
+.orbit-previous, .orbit-next {
+    color: $brand;
+}
