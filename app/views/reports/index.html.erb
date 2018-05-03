@@ -20,8 +20,8 @@
         <h5 class="mb-60">Mediante los reportes la comunidad podrá saber en qué estado se encuentra la implementación de la solución co-creada en los talleres de diseño.</h5>
         <% @reports.each do |report| %>
 
-        <h5> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h5>
-        <p><%= report.description %></p>
+        <h5 class="small blue"> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h5>
+        <p><%= report.description.html_safe %></p>
 
         <% if report.pictures.any? %>
         <!-- Carousel -->
