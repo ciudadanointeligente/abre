@@ -1,4 +1,4 @@
-class Admin::ReportsController < ApplicationController
+class Admin::ReportsController < Admin::BaseController
     load_and_authorize_resource
 
     def index

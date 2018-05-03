@@ -3,8 +3,18 @@
 <%= simple_form_for [:admin, @project, @report] do |f| %>
 
     <%= f.input :description, input_html: { rows: 3} %>
+
     <%= f.input :project_id, :as => :hidden, :input_html => { :value => @project.id } %>
     <%= f.input :problem_id, :as => :hidden, :input_html => { :value => @problem.id } %>
+
+    <%= f.label "Imagenes"%>
+    <p class="note">Las imagenes no deben superar los 500 kilobytes </p>
+    <div class="form-input" >
+      <%= f.fields_for :pictures do |ph| %>
+        <%= render 'picture_fields', f: ph  %>
+      <% end %>
+      <%= link_to_add_association 'Agregar foto', f, :pictures %>
+    </div>
 
     <div class="text-right">
         <%= f.submit "Guardar", class: "button primary" %>

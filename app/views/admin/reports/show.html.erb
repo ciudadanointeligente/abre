@@ -1,0 +1,16 @@
+<%= render 'shared/back_link' %>
+
+<h2> Reporte <%= @report.created_at.strftime("%d.%m.%Y") %> </h2>
+
+<div class="text-right">
+  <%= link_to "Editar", edit_admin_project_report_path(:id => @report, :project_id => @project, :problem_id => @problem), class: "primary button" %>
+</div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> Descripción </td>
+      <td> <%= @report.description %> </td>
+    </tr>
+  </tbody>
+</table>

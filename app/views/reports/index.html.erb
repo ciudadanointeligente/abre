@@ -10,39 +10,51 @@
   </nav>
 </div>
 <!-- End breadcrumbs -->
+
+
 <section class="page-section">
   <div class="grid-container">
     <div class="grid-x">
-    <%= render "shared/problem", problem: @problem %>
-      <div class="small-12 medium-12 cell">
-        <p class="mb-0">
-          <% unless @project.implementation_starts_at.nil? %>
-            <i class="fa fa-calendar"> </i> Fecha inicio: <%= @project.implementation_starts_at %>
-          <% end %>
-          <% unless @project.implementation_ends_at.nil? %>
-            <span class="line-text">|</span> <i class="fa fa-calendar"> </i> Fecha término: <%= @project.implementation_ends_at %>
-          <% end %>
-          <% unless @project.responsible_neighbour_name.nil? || @project.responsible_neighbour_name.empty? %>
-            <span class="line-text">|</span> <i class="fa fa-calendar"> </i> Encargado vecinal: <%= @project.responsible_neighbour_name %><a href="mailto:<%= @project.responsible_neighbour_mail %>"> (contactar)</a>
-          <% end %>
-          <hr>
-        </p>
-
+      <%= render "shared/problem", problem: @problem %>
+      <div class="mt-60 mb-60">
+        <h5 class="mb-60">Mediante los reportes la comunidad podrá saber en qué estado se encuentra la implementación de la solución co-creada en los talleres de diseño.</h5>
         <% @reports.each do |report| %>
-          <h4 class="small blue"> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h4>
-          <p> <%= report.description %></p>
-          <div class="gallery row">
-            <% report.pictures.each do |pic| %>
-              <% if pic.image.exists?  %>
-                <div class="small-12 medium-4 column">
-                  <%= image_tag pic.image.url(:big) %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
 
+        <h5> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h5>
+        <p><%= report.description %></p>
+
+        <% if report.pictures.any? %>
+        <!-- Carousel -->
+        <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+          <div class="orbit-wrapper">
+            <div class="orbit-controls">
+              <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+              <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+            </div>
+
+
+            <ul class="orbit-container">
+              <li class="is-active orbit-slide">
+                <div class="grid-x">
+              <% report.pictures.each_with_index do |pic, index| %>
+                  <% if ((index)%3==0 && index != 0) %>
+                 <li class="orbit-slide"> <div class="grid-x grid-margin-x">
+                  <% end %>
+                  <div class="cell small-12 medium-4">
+                    <%= image_tag pic.image.url %>
+                  </div>
+                  <% end %>
+              </div> </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
       </div>
-    </div>
+    <% end %>
+
   </div>
+  </div>
+
+  <hr>
+
 </section>
