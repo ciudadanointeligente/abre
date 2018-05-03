@@ -51,6 +51,8 @@ module Abilities
       can [:index, :show, :create, :edit, :update, :destroy], Project
 
       can [:index, :show, :create, :edit, :update, :destroy], DesignEvent
+      can [:index, :show, :create, :edit, :update, :destroy], Report
+
 
       can [:read, :update, :valuate, :destroy, :summary], SpendingProposal
 

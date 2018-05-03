@@ -1,0 +1,13 @@
+
+
+<%= simple_form_for [:admin, @project, @report] do |f| %>
+
+    <%= f.input :description, input_html: { rows: 3} %>
+    <%= f.input :project_id, :as => :hidden, :input_html => { :value => @project.id } %>
+    <%= f.input :problem_id, :as => :hidden, :input_html => { :value => @problem.id } %>
+
+    <div class="text-right">
+        <%= f.submit "Guardar", class: "button primary" %>
+    </div>
+
+<% end %>
