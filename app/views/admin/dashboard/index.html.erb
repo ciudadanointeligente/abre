@@ -11,30 +11,44 @@
 <h2 class="inline-block"><%= t("admin.dashboard.index.title") %></h2>
 
 <div class="row stats-numbers">
-  <div class="small-12 medium-3 column">
+  <div class="small-6 medium-2 column">
     <p class="small featured">
       Desafíos<br>
       <span class="number"><%= Problem.count %></span>
     </p>
   </div>
-  <div class="small-12 medium-3 column">
+  <div class="small-6 medium-2 column">
     <p class="featured small">
       Propuestas<br>
       <span class="number"><%= Proposal.count %></span>
     </p>
   </div>
-  <div class="small-12 medium-3 column">
+  <div class="small-6 medium-2 column">
     <p class="featured small">
       Apoyos<br>
       <span class="number"><%= Proposal.sum(:cached_votes_up) %></span>
     </p>
   </div>
-  <div class="small-12 medium-3 column">
+  <div class="small-6 medium-2 column">
     <p class="featured small">
       Comentarios<br>
-      <span class="number"><%= Comment.count %></span>
+      <span class="number"><%= @comments %></span>
     </p>
   </div>
+  <div class="small-6 medium-2 column">
+    <p class="featured small">
+      Visitas<br>
+      <span class="number"><%= @visits %> </span>
+    </p>
+  </div>
+  <div class="small-6 medium-2 column">
+    <p class="featured small">
+      Usuarios<br>
+      <span class="number"><%= @users %> </span>
+    </p>
+  </div>
+
+
 </div>
 
 <br><br>

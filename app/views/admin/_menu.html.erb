@@ -1,6 +1,29 @@
 <div class="admin-sidebar" data-equalizer-watch>
   <ul id="admin_menu" data-accordion-menu>
 
+
+    <!-- Desafíos -->
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-checkmark-circle"></span>
+        <strong><%= t("admin.menu.title_problems") %></strong>
+      </a>
+      <ul <%= "class=is-active" if menu_problems? %>>
+        <li <%= "class=active" if controller_name == "problems" %>>
+          <%= link_to t("admin.menu.view_problems"), admin_problems_path %>
+        </li>
+        <li <%= "class=active" if controller_name == "problems" %>>
+          <%= link_to t("admin.problems.index.create"), new_admin_problem_path %>
+        </li>
+        <% Problem.all.each do |challenge| %>
+          <li>
+            <%= link_to challenge.title, admin_problem_path(challenge) %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+
+
     <li class="section-title" <%= 'class=active' if controller_name == 'users' %>>
       <%= link_to admin_users_path do %>
         <span class="icon-user"></span>
@@ -30,79 +53,25 @@
       </ul>
     </li>
 
-    <li class="section-title" <%= 'class=active' if controller_name == 'geozones' %>>
-      <%= link_to admin_geozones_path do %>
-        <span class="icon-settings"></span>
-        <strong><%= t('admin.menu.geozones') %></strong>
-      <% end %>
-    </li>
-
-    <li class="section-title">
-      <a href="#">
-        <span class="icon-tag"></span>
-        <strong><%= t("admin.menu.title_categories") %></strong>
-      </a>
-      <ul <%= "class=is-active" if menu_tags? %>>
-        <li <%= "class=active" if controller_name == "tags" %>>
-          <%= link_to t("admin.menu.proposals_topics"), admin_tags_path %>
-        </li>
-      </ul>
-    </li>
-
-    <li class="section-title">
-      <a href="#">
-        <span class="icon-checkmark-circle"></span>
-        <strong><%= t("admin.menu.title_problems") %></strong>
-      </a>
-      <ul <%= "class=is-active" if menu_problems? %>>
-        <li <%= "class=active" if controller_name == "problems" %>>
-          <%= link_to t("admin.menu.view_problems"), admin_problems_path %>
-        </li>
-        <li <%= "class=active" if controller_name == "problems" %>>
-          <%= link_to t("admin.problems.index.create"), new_admin_problem_path %>
-        </li>
-        <% Problem.all.each do |challenge| %>
-          <li>
-            <%= link_to challenge.title, admin_problem_path(challenge) %>
-          </li>
-        <% end %>
-      </ul>
-    </li>
-
-
-
-    <li class="section-title">
-      <a href="#">
-        <span class="icon-proposals"></span>
-        <strong><%= t("admin.menu.title_projects") %></strong>
-      </a>
-      <ul <%= "class=is-active" if menu_moderated_content? %>>
-        <li <%= "class=active" if controller_name == "projects" %>>
-          <%= link_to t("admin.menu.view_projects"), admin_projects_path %>
-        </li>
-      </ul>
-    </li>
-
-
     <li class="section-title">
       <a href="#">
         <span class="icon-settings"></span>
         <strong><%= t("admin.menu.site_customization.title") %></strong>
       </a>
+
       <ul <%= "class=is-active" if (menu_settings? || menu_images?) %>>
-        <li <%= "class=active" if (request.path.include? "texts" ) %>>
-          <%= link_to t("admin.menu.site_customization.texts"), texts_admin_settings_path %>
+        <li <%= "class=active" if controller_name == "geozones" %>>
+          <%= link_to "Gestionar distritos", admin_tags_path %>
         </li>
-        <li <%= "class=active" if controller_name == "images" %>>
-          <%= link_to t("admin.menu.site_customization.images"), admin_site_customization_images_path %>
-        <li <%= "class=active" if request.path.include? "features" %>>
-          <%= link_to t("admin.menu.site_customization.features"), features_admin_settings_path %>
+        <li <%= "class=active" if controller_name == "tags" %>>
+          <%= link_to "Etiquetas", admin_tags_path %>
         </li>
-        <li>
-          <%= link_to "Otros", admin_settings_path %>
+        <li <%= "class=active" if controller_name == "settings" %>>
+          <%= link_to "Configurar", admin_settings_path %>
         </li>
       </ul>
     </li>
+
 
     <li class="section-title">
       <a href="#">
@@ -173,12 +142,12 @@
     </li> -->
 
 
-    <li class="section-title">
+    <!-- <li class="section-title">
       <%= link_to admin_stats_path do %>
       <span class="icon-settings"></span>
         <strong>Estadísticas</strong>
       <% end %>
-    </li>
+    </li> -->
 
 
     <% if feature?(:signature_sheets) %>

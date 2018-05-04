@@ -28,14 +28,10 @@ class EvaluationStepsController < ApplicationController
   private
 
   def evaluation_params
-    params.require(:evaluation).permit(:proposal_participation, :proposal_web_participation, :design_participation, :design_participation_2, :implementation_participation, :implementation_participation_2, :proposal_evaluation, :proposal_web_evaluation, :design_evaluation, :design_evaluation_2, :implementation_evaluation, :implementation_evaluation_2, :proposal, :proposal_web, :design, :design_2, :implementation, :implementation_2)
+    params.require(:evaluation).permit(:proposal_participation, :proposal_web_participation, :design_participation, :design_participation_2, :implementation_participation, :implementation_participation_2, :proposal_evaluation, :proposal_web_evaluation, :design_evaluation, :design_evaluation_2, :implementation_evaluation, :implementation_evaluation_2, :proposal, :proposal_web, :design, :design_2, :implementation, :implementation_2, :project_id)
   end
 
   def redirect_to_finish_wizard(p1, p2)
-    p "PARAM 1"
-    p p1
-    p "param 2"
-    p p2
     redirect_to project_evaluations_path(:evaluation_id => @evaluation.id, :problem_id => @problem.id), notice: "Gracias por participar en la evaluación"
   end
 

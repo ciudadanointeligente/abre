@@ -52,6 +52,8 @@
       </div>
     </div>
 
+    <%= f.hidden_field :project_id, :value => @problem.project.id %>
+
     <%= hidden_field_tag 'evaluation_id', @evaluation.id %>
     <%= hidden_field_tag 'problem_id', @problem.id %>
     <%= hidden_field_tag 'project_id', @problem.id %>
