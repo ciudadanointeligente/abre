@@ -51,6 +51,8 @@ module Abilities
       can [:index, :show, :create, :edit, :update, :destroy], Project
 
       can [:index, :show, :create, :edit, :update, :destroy], DesignEvent
+      can [:index, :show, :create, :edit, :update, :destroy], Report
+
 
       can [:read, :update, :valuate, :destroy, :summary], SpendingProposal
 
@@ -66,6 +68,8 @@ module Abilities
       can [:index, :create, :edit, :update, :destroy], Geozone
 
       can [:index, :create, :edit, :update, :destroy], DesignEvent
+
+      can [:index], Evaluation
 
       can [:read, :create, :update, :destroy, :add_question, :remove_question, :search_booths, :search_questions, :search_officers], Poll
       can [:read, :create, :update, :destroy], Poll::Booth

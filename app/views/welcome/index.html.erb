@@ -72,7 +72,7 @@
               <% if problem.status=='Propuestas' %>
               <%= link_to t("Ver desafío"), proposals_path(:challenge => problem.id), class: 'button tiny secondary' %>
                 <% if problem.valid %>
-                  <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => problem.id), class: 'button tiny' %>
+                  <%= link_to t("proposals.index.start_proposal"), problem_path(problem), class: 'button tiny' %>
                 <% end %>
               <!-- Para etapa talleres -->
               <% elsif problem.status=='Diseño' %>

@@ -1,4 +1,4 @@
-<div class="text-width">
+<div class="grid-container">
 
   <%= render "shared/problem", problem: @problem %>
 
@@ -51,6 +51,8 @@
         <%= f.input :implementation_participation_2 %>
       </div>
     </div>
+
+    <%= f.hidden_field :project_id, :value => @problem.project.id %>
 
     <%= hidden_field_tag 'evaluation_id', @evaluation.id %>
     <%= hidden_field_tag 'problem_id', @problem.id %>
