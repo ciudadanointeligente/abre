@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307145316) do
+ActiveRecord::Schema.define(version: 20180504123326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -320,6 +320,7 @@ ActiveRecord::Schema.define(version: 20180307145316) do
     t.text     "proposal_web"
     t.text     "design_2"
     t.text     "implementation_2"
+    t.string   "comment"
   end
 
   add_index "evaluations", ["project_id"], name: "index_evaluations_on_project_id", using: :btree
@@ -688,6 +689,8 @@ ActiveRecord::Schema.define(version: 20180307145316) do
     t.string   "responsible_neighbour_mail"
     t.string   "responsible_neighbour_phone"
     t.boolean  "form"
+    t.date     "evaluation_starts_at"
+    t.date     "evaluation_ends_at"
   end
 
   add_index "projects", ["proposal_id"], name: "index_projects_on_proposal_id", using: :btree

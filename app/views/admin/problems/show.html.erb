@@ -14,7 +14,7 @@
     <%= link_to "Reportes de implementación", admin_project_reports_path(:project_id => @problem.project, :problem_id => @problem) %>
   </li>
   <li>
-    <%= link_to "Evaluaciones" %>
+    <%= link_to "Evaluaciones", admin_project_evaluations_path(:project_id => @problem.project, :problem_id => @problem) %>
   </li>
   <li>
     <%= link_to t("admin.actions.destroy"),

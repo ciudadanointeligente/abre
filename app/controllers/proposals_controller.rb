@@ -21,7 +21,7 @@ class ProposalsController < ApplicationController
   def show
     super
     @notifications = @proposal.notifications
-    redirect_to proposal_path(@proposal, @problem), status: :moved_permanently if request.path != proposal_path(@proposal)
+    redirect_to problems_path
   end
 
   def new
