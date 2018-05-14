@@ -109,6 +109,11 @@
 
       <h2>TUS PROPUESTAS</h2>
 
+      <% if !@proposals.any? %>
+      <div class="callout secondary">
+        <p>Aun no has creado ninguna propuesta. Revisa los desafíos para compartir tus ideas.</p>
+      </div>
+      <% end %>
       <div id="proposals-list">
          <div class="grid-x grid-margin-x">
          <% @proposals.each_with_index do |proposal, index| %>
