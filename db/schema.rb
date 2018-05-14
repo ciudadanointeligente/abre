@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20180504123326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_trgm"
   enable_extension "unaccent"
+  enable_extension "pg_trgm"
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -309,9 +309,6 @@ ActiveRecord::Schema.define(version: 20180504123326) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.integer  "project_id"
-    t.date     "starts_at"
-    t.date     "ends_at"
-    t.string   "status"
     t.boolean  "proposal_web_participation"
     t.boolean  "design_participation_2"
     t.boolean  "implementation_participation_2"
@@ -405,7 +402,7 @@ ActiveRecord::Schema.define(version: 20180504123326) do
   create_table "locks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "tries",        default: 0
-    t.datetime "locked_until", default: '2000-01-01 01:01:01', null: false
+    t.datetime "locked_until", default: '2000-01-01 04:01:01', null: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
@@ -965,7 +962,7 @@ ActiveRecord::Schema.define(version: 20180504123326) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-07-11 16:40:44', null: false
+    t.datetime "password_changed_at",                       default: '2017-12-29 16:35:11', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""

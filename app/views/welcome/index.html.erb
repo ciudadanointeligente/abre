@@ -37,9 +37,10 @@
 <main>
 <!-- Desafíos -->
 <section id="problems-in-home">
-  <div class="text-width">
+  <div class="grid-container">
     <h2 class="text-center">Desafíos que ofrece la municipalidad</h2>
-    <div class="row">
+    <h5 class="bajada text-center mb-30">Estos son los desafíos que la Municipalidad esta planteando para que vecinos y vecinas diseñen su comuna. Revísalos y participa.</h5>
+    <div class="grid-x">
         <% Problem.first(2).each do |problem| %>
         <div class="large-6 columns">
         <div class="problem-box">
@@ -97,7 +98,7 @@
 
 <!-- Etapas -->
 <section id="stages-in-home">
-  <div class="text-width text-center">
+  <div class="grid-container text-center">
     <h2 class="text-center">Etapas</h2>
     <h5 class="bajada">La metodología Abre esta compuesta por 4 grandes etapas de colaboración entre vecinos y el municipio</h5>
     <%= link_to t('Conoce más'), more_info_path, class: "button primary large" %>

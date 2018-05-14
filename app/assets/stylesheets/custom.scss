@@ -9,8 +9,8 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 4vw;
-  letter-spacing: 4px;
+  font-size: calc(3vw + 2rem);
+  letter-spacing: 3px;
   text-transform: uppercase;
   font-family: $body-font-family-title;
 }
@@ -1034,7 +1034,7 @@ header {
 .footer {
     background: $gray-four;
     border-top: 1px solid $gray-four;
-    margin-top: 3rem;
+    margin-top: 7rem;
     padding-top: 5vw;
 }
 
@@ -1134,7 +1134,6 @@ footer a i {
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
-h1 { font-size: 1.5em; margin: 10px; }
 
 /****** Style Star Rating Widget *****/
 
