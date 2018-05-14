@@ -37,3 +37,4 @@ public/sitemap.xml
 public/system/
 *.jpg
 *.png
+db/schema.rb
