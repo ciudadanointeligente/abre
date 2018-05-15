@@ -762,3 +762,5 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
       create:
         problem: "Desafío creado exitosamente"
         project: "Proyecto creado exitosamente"
+      destroy:
+        problem: "El desafío se ha eliminado correctamente"
