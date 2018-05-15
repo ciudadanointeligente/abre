@@ -21,7 +21,6 @@ class ProposalsController < ApplicationController
   def show
     super
     @notifications = @proposal.notifications
-    redirect_to problems_path
   end
 
   def new

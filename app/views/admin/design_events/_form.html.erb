@@ -1,5 +1,3 @@
-
-
 <%= simple_form_for [:admin, @project, @design_event] do |f| %>
 
     <%= f.input :name %>
@@ -25,9 +23,11 @@
     </div>
     <%= f.input :summary, input_html: { rows: 3}  %>
     <%= f.input :document %>
+    <p class="note">EL documento no puede superar los 500 kilobytes, y debe estar en formato pdf o word </p>
+
 
     <%= f.label "Imagenes"%>
-    <p class="note">Las imagenes no deben superar los 500 kilobytes </p>
+    <p class="note">Las imagenes no deben superar los 500 kilobytes, y deben estar en formato jpg o png </p>
     <div class="form-input" >
       <%= f.fields_for :pictures do |ph| %>
         <%= render 'picture_fields', f: ph  %>

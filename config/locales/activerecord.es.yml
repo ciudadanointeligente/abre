@@ -210,8 +210,14 @@ es:
         body: Contenido
     errors:
       models:
+        design_event:
+          attributes:
+            document:
+                in_between: "El documento no debe superar los 500 KB"
         picture:
             attributes:
+              image:
+                in_between: "La imagen no debe superar los 500 KB"
               image_file_size:
                 in_between: "La imagen no debe superar los 500 KB"
         user:

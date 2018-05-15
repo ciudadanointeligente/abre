@@ -16,8 +16,8 @@ class Problem < ActiveRecord::Base
 
   paginates_per 12
 
-  scope :expired,  -> { where('ends_at < ?', Time.current) }
-  scope :active,  -> { where('ends_at > ?', Time.current) }
+  scope :expired,  -> { where('status = ?', 'Cerrado') }
+  scope :active,  -> { where('status != ?', "Cerrado") }
 
   scope :proposal,  -> { where('status = ?', 'Propuestas') }
   scope :implementation, -> { where('status = ?', 'Implementación') }

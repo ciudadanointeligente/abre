@@ -39,6 +39,12 @@
                     <a> Desafíos </a>
                     <ul class="menu">
                     <% Problem.all.each do |problem| %>
+                      <% if get_status(problem)=='Propuestas' %>
+                      <% elsif get_status(problem)=='Diseño' %>
+                        hola
+                      <% elsif get_status(problem)=='Implememtación' %>
+                      <% elsif get_status(problem)=='Evaluación' %>
+                      <% end %>
                       <%= link_to problem.title, proposals_path(:challenge => problem.id) %>
                     <% end %>
                     <%= link_to "Ver todos", problems_path %>
@@ -73,8 +79,16 @@
                     <li>
                       <a href="#">Desafíos</a>
                       <ul class="vertical nested">
-                        <% Problem.all.each do |problem| %>
-                        <li><%= link_to problem.title, proposals_path(:challenge => problem.id) %></li>
+                        <% Problem.where('status != ?', "Cerrado").first(5).each do |problem| %>
+                          <% if get_status(problem)=='Propuestas' %>
+                            <li> <%= link_to problem.title, proposals_path(:challenge => problem.id) %> </li>
+                          <% elsif get_status(problem)=='Diseño' %>
+                            <li> <%= link_to problem.title, project_design_events_path(:project_id => problem.project.id ,:problem_id => problem.id) %> </li>
+                          <% elsif get_status(problem)=='Implementación' %>
+                            <li> <%= link_to problem.title, project_reports_path(:project_id => problem.project.id ,:problem_id => problem.id) %> </li>
+                          <% elsif get_status(problem)=='Evaluación' %>
+                            <li> <%= link_to problem.title, project_evaluations_path(:project_id => problem.project.id ,:problem_id => problem.id) %> </li>
+                          <% end %>
                         <% end %>
                         <li><%= link_to "Ver todos", problems_path %></li>
                       </ul>
