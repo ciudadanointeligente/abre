@@ -78,6 +78,7 @@ admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneN
 problem = Problem.create(title: "Tus ideas comunitarias para la prevención del delito",
   summary: "Por medio de este desafío invitamos a la comunidad a crear propuestas que permitan prevenir el delito mediante iniciativas sociocomunitarias. Es decir, instancias que promuevan la participación vecinal y que articulen a la comunidad en torno a la seguridad del barrio.",
   call_to_action: "Invitamos a todas y todos los vecinos de Independencia a proponer medidas para la prevención del delito construidas colaborativamente.",
+  status: 'Propuestas',
   description: "Por medio de este desafío invitamos a la comunidad a crear propuestas que permitan prevenir el delito mediante iniciativas sociocomunitarias. Es decir, instancias que promuevan la participación vecinal y que articulen a la comunidad en torno a la seguridad del barrio.
 
 Las iniciativas socio comunitarias pueden implicar, por ejemplo, actividades con tus vecinos, ocupación del espacio público, recuperación de espacios abandonados o usos innovadores de tecnologías ya existentes.

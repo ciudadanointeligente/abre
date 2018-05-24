@@ -21,7 +21,6 @@
 </div>
 <section class="page-section">
   <div class="grid-container">
-    <div class="grid-x">
       <%= render "shared/problem", problem: @problem %>
       <div id="proposals" class="proposals-list">
         <div class="padding">
@@ -46,7 +45,7 @@
       </div>
       <h5>
         <%= @problem.call_to_action %>.
-        <% if @problem.ends_at > Date.today%>
+        <% if @problem.valid %>
           <%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %>
           <div class="text-right mb-60 mt-30">
             <%= link_to "Crear propuesta", problem_path(@problem), :class => "button" %>
@@ -66,7 +65,6 @@
         </div>
         <%= paginate @proposals %>
       </div>
-    </div>
   </div>
 </section>
 

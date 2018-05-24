@@ -134,6 +134,8 @@
 
   <%= f.hidden_field :user_id, :value => @current_user.id %>
 
+  <%= f.hidden_field :status, :value => "Propuestas" %>
+
   <div class="row">
     <div class="small-12 medium-4 column">
       <%= f.submit t("admin.problems.#{admin_submit_action(@problem)}.submit_button"),
