@@ -1,3 +1,7 @@
+<section class="page-section bg-light-gray">
+  <div class="grid-container">
+    <div class="grid-x">
+
 <div class="row account">
   <div class="small-12 column">
     <div class="float-right text-right">
@@ -6,7 +10,7 @@
       <%= link_to t("account.show.erase_account_link"), users_registrations_delete_form_path, class: "delete" %>
     </div>
 
-    <%= avatar_image(@account, seed: @account.id, size: 50, class: "margin-bottom") %>
+    <!-- <%= avatar_image(@account, seed: @account.id, size: 50, class: "margin-bottom") %> -->
 
     <h2 class="inline-block"><%= t("account.show.title") %></h2>
 
@@ -110,53 +114,25 @@
           <p><%= t("account.show.user_permission_info") %></p>
 
           <ul>
-            <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_proposal") %></li>
-            <li><span class="icon-check"></span>&nbsp;<%=  t("account.show.user_permission_support_proposal") %></li>
-            <li>
-              <% if current_user.level_two_or_three_verified? %>
-                <span class="icon-check"></span>
-              <% else %>
-                <span class="icon-x"></span>
-              <% end %>
-              <%= t("account.show.user_permission_design") %>
-            </li>
-            <li>
-              <% if current_user.level_two_or_three_verified? %>
-                <span class="icon-check"></span>
-              <% else %>
-                <span class="icon-x"></span>
-              <% end %>
-              <%= t("account.show.user_permission_votes") %>
-            </li>
+            <li><span class="icon-check"></span>&nbsp; Crear nuevas propuestas </li>
+            <li><span class="icon-check"></span>&nbsp; Apoyar propuestas</li>
+            <li><span class="icon-check"></span>&nbsp; Inscribirte y asistir a los talleres de diseño</li>
+            <li><span class="icon-check"></span>&nbsp; Dar seguimiento a la implementación de un proyecto</li>
+            <li><span class="icon-check"></span>&nbsp; Evaluar el proceso de un proyecto terminado</li>
+
           </ul>
 
-          <p>
-            <br>
-            <%= t("account.show.user_permission_verify") %>
-          </p>
 
-          <% unless @account.organization? %>
-            <div>
-              <span class="verify-account">
-                <% if current_user.level_three_verified? %>
-                  <p class="already-verified">
-                    <span class="icon-check"></span>
-                    <%= t("account.show.verified_account") %>
-                  </p>
-                <% elsif current_user.level_two_verified? %>
-                  <p class="already-verified">
-                    <span class="icon-check"></span>
-                    <%= t("account.show.verified_account") %>
-                  </p>
-                <% else %>
-                  <%= link_to t("account.show.verify_my_account"), verification_path, class: "button success" %>
-                <% end %>
-              </span>
-            </div>
-          <% end %>
+
+
         </div>
       </div>
     <% end %>
 
   </div>
 </div>
+
+
+</div>
+</div>
+</section>
