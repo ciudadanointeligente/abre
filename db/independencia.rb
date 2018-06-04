@@ -74,7 +74,6 @@ admin.create_administrator
 admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
 
 
-
 problem = Problem.create(title: "Tus ideas comunitarias para la prevención del delito",
   summary: "Por medio de este desafío invitamos a la comunidad a crear propuestas que permitan prevenir el delito mediante iniciativas sociocomunitarias. Es decir, instancias que promuevan la participación vecinal y que articulen a la comunidad en torno a la seguridad del barrio.",
   call_to_action: "Invitamos a todas y todos los vecinos de Independencia a proponer medidas para la prevención del delito construidas colaborativamente.",

@@ -2,36 +2,35 @@
   <div id="<%= dom_id(proposal) %>"
        class="proposal proposal-card clear <%= ("successful" if proposal.total_votes > Proposal.votes_needed_for_success) %>"
        data-type="proposal">
-      <div class="icon-successful"></div>
+    <div class="icon-successful"></div>
+    <div class="">
       <div class="">
-
-        <div class="">
-          <div class="proposal-content">
-            <% cache [locale_and_user_status(proposal), 'index', proposal, proposal.author] do %>
-              <h5><%= link_to proposal.title, namespaced_proposal_path(proposal) %></h5>
-              <p class="details">
-                <i class="fa fa-calendar"> </i> <%= l proposal.created_at.to_date %>
-                <% if proposal.author.hidden? || proposal.author.erased? %>
-                  <span class="line-text">|</span> <i class="fa fa-user-o"> </i>
-                  <span><%= t("proposals.show.author_deleted") %></span>
-                <% else %>
+        <div class="proposal-content">
+          <% cache [locale_and_user_status(proposal), 'index', proposal, proposal.author] do %>
+            <h5><%= link_to proposal.title, namespaced_proposal_path(proposal) %></h5>
+            <p class="details">
+              <i class="fa fa-calendar"> </i> <%= l proposal.created_at.to_date %>
+              <% if proposal.author.hidden? || proposal.author.erased? %>
                 <span class="line-text">|</span> <i class="fa fa-user-o"> </i>
-                  <span class> <%= proposal.responsible_name %> </span>
-                <% end %>
-              </p>
-              <div class="proposal-description">
-                <p><%= proposal.summary.truncate(130, :omission => "...") %><span><a href="#"><%= link_to ' Ver más', namespaced_proposal_path(proposal) %></a></span></p>
-              </div>
-            <% end %>
-            <%= render "shared/tags", taggable: proposal, limit: 5 %>
-          </div>
-          <div class="proposal-support proposal-content">
-            <div class="support-count">
-              <span class="counter"><%= proposal.total_votes %> </span><span class="details"> vecinos apoyan esta propuesta</span>
-              <% if proposal.successful? %>
-              <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse2" style="font-size:1rem;"> </i></span>
+                <span><%= t("proposals.show.author_deleted") %></span>
+              <% else %>
+                <span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+                <span class> <%= proposal.responsible_name %> </span>
               <% end %>
+            </p>
+            <div class="proposal-description">
+              <p><%= proposal.summary.truncate(130, :omission => "...") %><span><a href="#"><%= link_to ' Ver más', namespaced_proposal_path(proposal) %></a></span></p>
             </div>
+          <% end %>
+          <%= render "shared/tags", taggable: proposal, limit: 5 %>
+        </div>
+        <div class="proposal-support proposal-content">
+          <div class="support-count">
+            <span class="counter"><%= proposal.total_votes %> </span><span class="details"> vecinos apoyan esta propuesta</span>
+            <% if proposal.successful? %>
+            <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="Esta propuesta esta dentro de las 3 más votadas del desafío"><i class="fa fa-heart has-tip animated infinite pulse2" style="font-size:1rem;"> </i></span>
+            <% end %>
+          </div>
             <% if proposal.successful? && proposal.problem.ends_at < Date.today %>
 
             <% else %>
@@ -41,45 +40,27 @@
                 { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes'), button_support_class: 'tiny' } %>
               </div>
             <% end %>
-            <div class="text-right">
+          <div class="text-right">
               <!-- Si es administrador puede apoyar propuestas en nombre de otro -->
-
               <% if !current_user.nil? && current_user.administrator? %>
-              <a class="" data-open="voteAdmin">Admin: Apoyar</a>
-
-              <div class="reveal" id="voteAdmin" data-reveal>
-              <p class="label"> Apoyo de propuestas </p>
-              <h4><%= proposal.title %> </h4>
-
-              <%= form_for(:vote, url: vote_proposal_path(proposal, value: 'yes')) do |f| %>
-              <%= f.text_field :nombre %>
-              <%= f.text_field :rut %>
-              <%= f.text_field :telefono %>
-              <%= f.submit(class: "button float-right", value: "Apoyar esta propuesta") %>
-              <% end %>
-
-              <%= link_to vote_admin_proposal_path(proposal, value: 'yes'),
-              class: "button tiny primary button-support" + ' ' + '',
-                title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
-                <%= t("proposals.proposal.support") %>
-                <% end %>
-
-
-                <button class="close-button gray" data-close aria-label="Close modal" type="button">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+                <a class="" data-open="voteAdmin">Admin: Apoyar</a>
+                <div class="reveal" id="voteAdmin" data-reveal>
+                  <p class="label"> Apoyo de propuestas </p>
+                  <h4><%= proposal.title %> </h4>
+                  <%= form_tag(vote_admin_proposal_path(proposal)) do %>
+                    <%= text_field_tag :username, nil, placeholder: 'Nombre', required: true %>
+                    <%= text_field_tag :document_number, nil, placeholder: 'Rut', required: true %>
+                    <%= number_field_tag :phone_number, nil, placeholder: 'Teléfono' %>
+                    <%= submit_tag "Apoyar esta propuesta", class: "button float-right" %>
+                  <% end %>
+                  <button class="close-button gray" data-close aria-label="Close modal" type='button'>
+                    <span aria-hidden="true"> &times; </span>
+                  </button>
+                </div>
               <% end %>
           </div>
-            </div>
-          <div>
-
-
-
-
+        </div>
       </div>
     </div>
-    </div>
   </div>
-
 </div>
