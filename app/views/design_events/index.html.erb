@@ -1,17 +1,22 @@
-<div class="breadcrumbs grid-container fluid">
+<div class="breadcrumbs grid-container fluid details">
   <div class="grid-x">
     <div class="small-12 medium-12 cell">
       <%= render "shared/back_link" %>
     </div>
   </div>
 </div>
+
 <section class="page-section">
   <div class="grid-container">
     <div class="grid-x">
       <%= render "shared/problem", problem: @problem %>
       <div class="mt-60 mb-60">
         <h5 class="mb-60">A través de talleres participativos, la comunidad y el municipio diseñarán una propuesta final y un plan de trabajo para llevar a cabo su implementación en conjunto.</h5>
-        <% @design_events.each do |d| %>
+
+        <% if !@design_events.any? %>
+          <h5 class="mb-60">Próximamente</h5>
+        <% end %>
+        <% @design_events.order(:starts_at).each do |d| %>
         <p class="details">
           <i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
           <span class="line-text">|</span> <i class="fa fa-map-marker"> </i> <%= d.place %>
@@ -50,7 +55,7 @@
                  <li class="orbit-slide"> <div class="grid-x grid-margin-x">
                   <% end %>
                   <div class="cell small-12 medium-6">
-                    <%= image_tag pic.image.url(:big) %>
+                    <%= image_tag pic.image.url %>
                   </div>
                   <% end %>
               </div> </li>

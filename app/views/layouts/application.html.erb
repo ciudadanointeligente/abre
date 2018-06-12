@@ -22,7 +22,7 @@
     <%= content_for :social_media_meta_tags %>
 
     <%= setting['per_page_code_head'].try(:html_safe) %>
-    <link href="https://fonts.googleapis.com/css?family=Dosis:700|Fira+Sans:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:900|Fira+Sans:400,600" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
@@ -40,6 +40,18 @@
 
     <script async defer
       src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZSzeB28BLrsMatt4rD9fj-Kce8xkVpyc&callback=initMap'>
+    </script>
+
+    <!-- Hotjar Tracking Code for https://tumunicipio.org/ -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:858983,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
 
   </head>

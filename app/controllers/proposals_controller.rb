@@ -21,7 +21,6 @@ class ProposalsController < ApplicationController
   def show
     super
     @notifications = @proposal.notifications
-    redirect_to proposal_path(@proposal, @problem), status: :moved_permanently if request.path != proposal_path(@proposal)
   end
 
   def new
@@ -48,7 +47,22 @@ class ProposalsController < ApplicationController
   end
 
   def vote_admin
-    @proposal.admin_register_vote(current_user, 'yes')
+    pwd = Devise.friendly_token.first(8)
+    doc_num = params[:document_number].gsub(".","").gsub("-","").upcase
+    email = "#{doc_num}@abre.cl"
+    u = User.find_by(document_number: doc_num)
+    if u.present?
+      @proposal.admin_register_vote(u, 'yes')
+    else
+      u = User.new(username: params[:username].titleize, email: email, password: pwd, password_confirmation: pwd, confirmed_at: Time.current, terms_of_service: "1", document_number: params[:document_number], phone_number: params[:phone_number])
+      if u.save
+        @proposal.admin_register_vote(u, 'yes')
+      else
+        puts ap u.errors.messages
+        redirect_to proposals_url(challenge: @proposal.problem.id), alert: t('proposals.alert.user_create_error')
+      end
+    end
+    redirect_to proposals_url(challenge: @proposal.problem.id)
     set_proposal_votes(@proposal)
   end
 

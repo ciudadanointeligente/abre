@@ -9,8 +9,8 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 4vw;
-  letter-spacing: 4px;
+  font-size: calc(3vw + 2rem);
+  letter-spacing: 3px;
   text-transform: uppercase;
   font-family: $body-font-family-title;
 }
@@ -32,7 +32,7 @@ h3 {
 
 h4 {
   font-size: 24px;
-  color: $gray-two;
+  font-weight: normal;
 }
 
 h4 a {
@@ -49,6 +49,10 @@ h5 {
   & a {
     color: $gray-one;
   }
+}
+
+.bajada {
+    margin-top: -1rem;
 }
 
 @media only screen and (max-width: 800px) {
@@ -114,7 +118,7 @@ p {
 }
 
 .page-section {
-  padding: calc(1rem + 1vw) 0;
+  padding: calc(3rem + 3vw) 0;
 }
 
 .details {
@@ -289,6 +293,11 @@ h4.counter {
   background: $light-blue;
 }
 
+.bg-blue-border {
+    border-left: 30vw solid $light-blue;
+    margin-left: -32.5vw;
+}
+
 .bg-orange {
   background: $orange;
 }
@@ -307,8 +316,9 @@ h4.counter {
 // Form
 
 form label {
-  // font-size: 24px;
-  color: $gray-two;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.5rem;
 }
 
 .form-account{
@@ -328,16 +338,16 @@ ol {
 
 }
 
-
 form li {
-    font-size: 24px;
-    color: #6C798A;
-    font-weight: bold;
-    position: relative;
+    font-size: 18px;
 }
 
 select {
   margin: 0;
+}
+
+.admin-view {
+    background: #F7FBFF;
 }
 
 .cd-horizontal-timeline .events-content {
@@ -418,7 +428,12 @@ select {
 
 .button{
   border-radius: 0.3rem;
-  padding: calc(0.8rem + 0.8vmin) calc(0.8rem + 1.5vmin);
+  padding: calc(0.5rem + 0.5vmin) calc(0.8rem + 0.8vmin);
+  font-size: 14px;
+  font-family: "Fira sans", "Helvetica", "Arial", sans-serif !important;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 0;
 }
 
 .button.tiny {
@@ -435,10 +450,6 @@ select {
   }
 }
 
-.button.large {
-    font-size: calc(0.8rem + 1.5vmin);
-}
-
 .button.secondary {
     background-color: $gray-three;
     color: #ffffff;
@@ -448,14 +459,10 @@ select {
     }
 }
 
-.button.hollow.primary {
-    border: 1px solid #fff;
-    color: #fff;
-    background: rgba(216, 0, 23, 0);
+.button.success {
+    background: white;
     &:hover {
-      border: 1px solid #fff;
-      color: #fff;
-      background: rgba(34, 34, 34, 0.1);
+      background: darken(white, 10%);
     }
 }
 
@@ -606,6 +613,10 @@ ul, ol, dl {
 
 .top-bar {
     line-height: 28px;
+}
+
+.top-bar-title {
+  padding: 3px 0;
 }
 
 .top-bar-title-right{
@@ -865,15 +876,6 @@ header {
   }
 }
 
-// Home - desafios
-
-.problem-box {
-    background: $gray-five;
-    padding: 2vw;
-    margin-bottom: 2vw;
-    position: relative;
-}
-
 // Home - stages
 
 .box {
@@ -911,7 +913,11 @@ header {
 }
 
 .problem-box {
-  min-height: 470px;
+  background: $gray-five;
+  padding: calc(2vw + 1rem);
+  margin-bottom: 2vw;
+  position: relative;
+  min-height: calc(17rem + 13vw);
   & .bg-blue {
     border: 4px solid $gray-five;
   }
@@ -1003,7 +1009,18 @@ header {
 .back, .icon-angle-left {
     color: $gray-two;
     float: none;
-    font-size: 14px;
+}
+
+// Evaluations
+
+.callout {
+    border: 4px solid #F4F9FF;
+}
+
+// Evaluations
+
+.callout {
+    border: 4px solid #F4F9FF;
 }
 
 // Evaluations
@@ -1017,7 +1034,7 @@ header {
 .footer {
     background: $gray-four;
     border-top: 1px solid $gray-four;
-    margin-top: 3rem;
+    margin-top: 7rem;
     padding-top: 5vw;
 }
 
@@ -1048,7 +1065,7 @@ footer a i {
 .disabled {
    pointer-events: none;
    cursor: default;
-   color: $gray-four !important;
+   color: $gray-three !important;
 }
 
 .share-proposal{
@@ -1117,8 +1134,6 @@ footer a i {
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
-body{ margin: 20px; }
-h1 { font-size: 1.5em; margin: 10px; }
 
 /****** Style Star Rating Widget *****/
 
@@ -1152,7 +1167,6 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #a6d8fc;  }
-
 
 /***** Carousel *****/
 

@@ -758,6 +758,9 @@ Intenta que ataque directamente a la causa que definiste como más importante pa
     actions:
       update:
         project: "Proyecto actualizado exitosamente"
+        problem: "Desafío actualizado exitosamente"
       create:
         problem: "Desafío creado exitosamente"
         project: "Proyecto creado exitosamente"
+      destroy:
+        problem: "El desafío se ha eliminado correctamente"

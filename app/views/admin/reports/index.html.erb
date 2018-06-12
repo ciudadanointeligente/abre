@@ -1,0 +1,21 @@
+<p> <%= render 'shared/back_link' %> al desafío <%= link_to @problem.title, admin_problem_path(@problem) %>
+</p>
+<h2> Reportes </h2>
+
+<div class="text-right">
+  <%= link_to "Crear reporte", new_admin_project_report_path(@project, :problem_id => @problem),  class: "primary button" %>
+</div>
+
+
+<% @reports.each do |r| %>
+  <div class="callout">
+    <h5> Reporte <%= r.created_at.strftime("%d.%m.%Y") %> </h5>
+
+
+      <%= link_to "Ver detalle", admin_project_report_path(:id => r, :project_id => @project, :problem_id => @problem) %>
+
+      <%= link_to "Editar", edit_admin_project_report_path(:id => r, :project_id => @project, :problem_id => @problem) %>
+      <%= link_to 'Borrar', admin_project_report_path(:id => r, :project_id => @project, :problem_id => @problem), method: :delete, data: { confirm: '¿Confirmas que quieres eliminar este reporte?' } %>
+  </div>
+
+<% end %>

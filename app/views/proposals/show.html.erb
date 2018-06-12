@@ -1,4 +1,3 @@
-<% provide :title do %><%= @proposal.title %><% end %>
 <% provide :social_media_meta_tags do %>
 <%= render "shared/social_media_meta_tags",
             social_url: proposal_url(@proposal),
@@ -6,10 +5,22 @@
             social_description: @proposal.summary %>
 <% end %>
 <% cache [locale_and_user_status(@proposal), @proposal, @proposal.author, Flag.flagged?(current_user, @proposal), @proposal_votes] do %>
-  <div class="proposal-show text-width">
+<!-- Breadcrumbs -->
+<div class="grid-container fluid">
+  <nav aria-label="Aquí estás:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><%= link_to "Inicio", root_path %></li>
+      <li><%= link_to "Desafíos", problems_path %></li>
+      <li><span class="disabled">Desafío:</span> <%= link_to @proposal.problem.title, problem_path(@proposal.problem) %></a></li>
+      <li><%= link_to "Propuestas", proposals_path(:challenge => @proposal.problem.id), class: "back" %></li>
+      <li><span class="disabled">Propuesta:</span> <%= @proposal.title %></li>
+    </ul>
+  </nav>
+</div>
+<!-- End breadcrumbs -->
+  <div class="proposal-show grid-container page-section">
     <div id="<%= dom_id(@proposal) %>" class="">
       <div class="">
-        <span class="icon-angle-left"></span> <%= link_to "Revisar todas las propuestas", proposals_path(:challenge => @proposal.problem.id), class: "back" %>
 
         <% if author_of?(@proposal, current_user) %>
           <%= link_to t("proposals.show.send_notification"), new_proposal_notification_path(proposal_id: @proposal.id),
@@ -31,14 +42,14 @@
           </div>
         </div>
         <h2 class="page-title"><%= @proposal.title %></h2>
-        <p>
-          <i class="fa fa-map-marker"></i> <%= @proposal.geozones_name %> <span class="line-text">|</span>
-          <i class="fa fa-calendar"> </i> <%= l @proposal.created_at.to_date %>
+        <p class="details">
+          <i class="fas fa-map-marker-alt"></i> <%= @proposal.geozones_name %> <span class="line-text">|</span>
+          <i class="fas fa-calendar-alt"></i> <%= l @proposal.created_at.to_date %>
           <% if @proposal.author.hidden? || @proposal.author.erased? %>
-            <span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+            <span class="line-text">|</span> <i class="fas fa-user"></i>
             <span><%= t("proposals.show.author_deleted") %></span>
           <% else %>
-          <span class="line-text">|</span> <i class="fa fa-user-o"> </i>
+          <span class="line-text">|</span> <i class="fas fa-user"></i>
             <span class> <%= @proposal.responsible_name %> </span>
           <% end %>
             <% if @proposal.problem.present? %>
@@ -67,26 +78,20 @@
 
         <!-- Apoyos -->
         <% if @proposal.cached_votes_up.present? %>
-          <div class="bg-blue white padding text-center">
-            <div class="counter">
-              <div class="row">
+          <div class="bg-blue white padding">
+            <div class="small-without-line">
                 <span class="total-votes-text">
                   <span class="total-votes-count"> <%= @proposal.cached_votes_up %> </span>
                   vecinos apoyan esta propuesta
                 </span>
-              </div>
               <!-- La propuesta no responde a un desafío y ha alcanzado los apoyos necesarios para pasar a la fase de votación  -->
               <% if @proposal.successful? && !@proposal.for_challenge %>
-                <p>
                   <%= t("proposals.proposal.successful",
                       voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe %>
-                </p>
                 <% if can? :create, Poll::Question %>
-                  <p class="text-center">
                     <%= link_to t('poll_questions.create_question'),
                                 new_admin_question_path(proposal_id: @proposal.id),
                                 class: "button hollow primary" %>
-                  </p>
                 <% end %>
               <!-- La propuesta ya estuvo más del tiempo permitido para alcanzar los apoyos (12 meses) -->
               <% elsif @proposal.archived? %>
@@ -99,10 +104,8 @@
               <% elsif @proposal.successful? && @proposal.for_challenge && @proposal.problem.ends_at < Date.today %>
               <!--  -->
               <% else %>
-                <div class="row">
                   <%= render 'votes',
-                          { proposal: @proposal, vote_url: vote_proposal_path(@proposal, value: 'yes'), button_support_class: 'hollow' } %>
-                </div>
+                          { proposal: @proposal, vote_url: vote_proposal_path(@proposal, value: 'yes'), button_support_class: 'success' } %>
               <% end %>
             </div>
           </div>
