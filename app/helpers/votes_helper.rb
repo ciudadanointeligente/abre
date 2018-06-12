@@ -25,6 +25,10 @@ module VotesHelper
   end
 
   def voted_for?(votes, votable)
+    p '-------------------------------------------------------------------'
+    p votes
+    p votable
+    p votes[votable.id]
     votes[votable.id]
   end
 

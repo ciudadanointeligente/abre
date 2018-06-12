@@ -107,6 +107,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'awesome_print'
   gem 'web-console', '3.3.0'
 end
 

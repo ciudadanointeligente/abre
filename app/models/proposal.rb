@@ -143,8 +143,8 @@ class Proposal < ActiveRecord::Base
   end
 
   def admin_register_vote(user, vote_value)
-    if supported_by?(user) && !archived? && user.administrator?
-      vote_by(voter: user, vote: vote_value, duplicate: true)
+    if !archived?
+      vote_by(voter: user, vote: vote_value)
     end
   end
 
