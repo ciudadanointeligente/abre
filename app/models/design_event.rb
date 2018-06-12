@@ -6,6 +6,6 @@ class DesignEvent < ActiveRecord::Base
   accepts_nested_attributes_for :pictures, :allow_destroy => true
 
   has_attached_file :document
-  validates_attachment :document, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  validates_attachment :document, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }, size: { in: 0..500.kilobytes } 
 
 end

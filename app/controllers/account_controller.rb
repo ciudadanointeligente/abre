@@ -4,6 +4,7 @@ class AccountController < ApplicationController
   load_and_authorize_resource class: "User"
 
   def show
+    @proposals = Proposal.where(author_id: @account.id).order(created_at: :desc).page(params[:page])
   end
 
   def update

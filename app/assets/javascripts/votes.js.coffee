@@ -12,13 +12,16 @@ App.Votes =
 
   hide_button: ->
     $('.button-support').click ->
+      # Se oculta el botón de 'apoyar'
       $(this).hide()
-      console.log($(this).closest(".row"))
-      element = $(this).closest(".row").siblings().children(".total-votes-text").children(".total-votes-count")
+      console.log($(this))
+      # Se debe sumar +1 al conteo de apoyos
+      console.log($(this).parent().parent().siblings().first().children(".counter"))
+      element = $(this).parent().parent().siblings().first().children(".counter")
       console.log(element)
       count = (parseInt(element.text()) + 1)
       console.log(count)
-      element.replaceWith('<span class="total-votes-count">' + count + "</span>")
+      element.replaceWith('<span class="counter">' + count + "</span>")
       $(this).remove()
       return
 

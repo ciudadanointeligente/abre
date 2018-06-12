@@ -11,11 +11,11 @@
       <%= render "shared/problem", problem: @problem %>
       <div class="mt-60 mb-60">
         <h5 class="mb-60">A través de talleres participativos, la comunidad y el municipio diseñarán una propuesta final y un plan de trabajo para llevar a cabo su implementación en conjunto.</h5>
-        <% @design_events.each do |d| %>
-        <div class="bg-blue white padding text-center">
-          <i class="fa fa-calendar"> </i> Próximo taller: <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
-        </div>
-        <h5><%= d.name %></h5>
+
+        <% if !@design_events.any? %>
+          <h5 class="mb-60">Próximamente</h5>
+        <% end %>
+        <% @design_events.order(:starts_at).each do |d| %>
         <p class="details">
           <i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
           <span class="line-text">|</span> <i class="fa fa-map-marker"> </i> <%= d.place %>

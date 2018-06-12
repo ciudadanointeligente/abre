@@ -14,13 +14,11 @@ class Admin::ProblemsController < Admin::BaseController
   end
 
   def create_project
-    p 'creando poryecto'
     @problem.project = Project.new(name: @problem.title)
   end
 
   def create
     if @problem.save
-      p 'ola'
       redirect_to admin_problems_url, notice: t("flash.actions.create.problem")
     else
       render :new
@@ -52,7 +50,7 @@ private
   end
 
   def problem_params
-    params.require(:problem).permit(:title, :summary, :description, :starts_at, :ends_at, :cause, :consequence, :budget, :problem_title, :call_to_action, :restriction, :restriction_summary, :user_id, :geozone_restricted, :verification_required, geozone_ids: [], restrictions_attributes: [:description, :id, :_destroy])
+    params.require(:problem).permit(:title, :summary, :status, :description, :starts_at, :ends_at, :cause, :consequence, :budget, :problem_title, :call_to_action, :restriction, :restriction_summary, :user_id, :geozone_restricted, :verification_required, geozone_ids: [], restrictions_attributes: [:description, :id, :_destroy])
   end
 
 end
