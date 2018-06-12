@@ -627,6 +627,7 @@ ul, ol, dl {
     margin-bottom: -2px;
     height: 42px;
     width: auto;
+    margin-right: 0;
 }
 
 .top-bar-right li a {
@@ -643,10 +644,6 @@ header {
 
 .header-title{
   color: $gray-two;
-  font-family: "Dosis", "Helvetica", "Arial", sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 14px;
 }
 
 .subnavigation {
@@ -661,6 +658,10 @@ header {
   line-height: 14px;
   font-weight: 400;
   color: $gray-two;
+}
+
+.subnavigation ul li:last-child {
+    margin-right: 0;
 }
 
 .text-width{
@@ -781,6 +782,13 @@ header {
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+.field.field--name-field-background-image.field--type-image.field--label-hidden:after {
+    content: '';
+    background: #435367;
+    height: 100%;
+    width: 100%;
 }
 
 .backgroundblendmode .pane--hero-block.pane--waypoint .field--name-field-background-image::before, .backgroundblendmode .pane--hero-block.pane--waypoint .field--name-field-background-image::after {
