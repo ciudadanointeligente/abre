@@ -30,12 +30,17 @@ module ProblemsHelper
       p.status = 'Implementación'
       p.save
       return 'Implementación'
+    elsif (problem.project.evaluation_starts_at.nil? && Date.today > problem.project.implementation_ends_at)
+      p = Problem.find(problem.id)
+      p.status = 'Evaluación'
+      p.save
+      return 'Evaluación'
     # Si estas en tiempo evaluacion
     elsif (Date.today >= problem.project.evaluation_starts_at && Date.today <= problem.project.evaluation_ends_at)
       p = Problem.find(problem.id)
-      p.status = 'Implementación'
+      p.status = 'Evaluación'
       p.save
-      return 'Implementación'
+      return 'Evaluación'
     # Si no estas en tiempo implementación, ni evaluación y la fecha es menor que la de implementación
     elsif (Date.today <= problem.project.implementation_starts_at)
       p = Problem.find(problem.id)

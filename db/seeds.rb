@@ -231,3 +231,9 @@ challenge8.update(challenge_proposal: 1)
 # Desafío (Abre C) con alternativa de talleres + implementación
 challenge9 = create_challenge(admin, 4.day.ago, 10.day.from_now, "Desafío (Abre C) con alternativa de talleres + implementación")
 challenge9.update(challenge_design: 1)
+
+
+# Desafío en etapa de evaluación, sin evaluaciones
+challenge10 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de evaluación, sin evaluaciones")
+designevent10a = create_design_event(challenge10.project)
+challenge10.project.update(implementation_starts_at: Date.today - 4, implementation_ends_at: Date.today - 1, responsible_neighbour_name: Faker::Name.name)
