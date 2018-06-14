@@ -5,7 +5,10 @@ module ProblemsHelper
   end
 
   def date_next_design_event(problem)
-    problem.project.design_events.order(:starts_at).where("starts_at >= ?", Date.today).first.starts_at
+    design_events = problem.project.design_events.order(:starts_at).where("starts_at >= ?", Date.today)
+    if design_events.any?
+      design_events.first.starts_at
+    end
   end
 
   def get_status(problem)

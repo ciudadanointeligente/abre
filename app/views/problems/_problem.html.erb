@@ -25,10 +25,12 @@
     <!-- Para etapa diseño -->
     <% elsif get_status(problem)=='Diseño' %>
     <!-- TODO: agregar funcion que dibuje la fecha del proximo taller -->
-      <% if problem.project.design_events.any? && !date_next_design_event(problem).nil?%>
-        <div class="bg-white text-center padding-small">
-          Próximo taller de diseño: <span class="counter"><%= date_next_design_event(problem).strftime("%d/%m/%Y") %></span>
-        </div>
+      <% if problem.project.design_events.any? %>
+        <% if !date_next_design_event(problem).nil?%>
+          <div class="bg-white text-center padding-small">
+            Próximo taller de diseño: <span class="counter"><%= date_next_design_event(problem).strftime("%d/%m/%Y") %></span>
+          </div>
+          <% end %>
       <% end %>
     <% end %>
       <div class="padding text-right">
