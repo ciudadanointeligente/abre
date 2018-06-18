@@ -76,7 +76,6 @@ ActsAsTaggableOn::Tag.create!(name:  "Transparencia", featured: true, kind: "cat
 ActsAsTaggableOn::Tag.create!(name:  "Seguridad y Emergencias", featured: true, kind: "category")
 ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "category")
 
-puts " ✅"
 print "Crear admin"
 
 def create_user(email, username = Faker::DragonBall.character)
@@ -110,7 +109,6 @@ def create_challenge(user, starts_at, ends_at, title = Faker::Lorem.paragraph(1,
       description: Faker::Lorem.paragraph(20, false, 20),
     ))
 end
-
 
 def create_proposal(challenge)
   Proposal.create!(
@@ -147,6 +145,32 @@ def create_picture(image_path, image_file, design_event)
       # detect the image's mime type with MIME if you can't provide it yourself.
       type: MIME::Types.type_for(image_path).first.content_type
     )
+  )
+end
+
+def create_report(project)
+  Report.create(
+    description: Faker::Lorem.paragraph(20, false, 20),
+    project: project
+  )
+end
+
+def create_evaluation(project, proposal_participation = 1, design_evaluation = 1, implementation_participation = 1, proposal_web_participation=1)
+  Evaluation.create(
+    proposal_participation: proposal_participation,
+    design_evaluation: design_evaluation,
+    implementation_participation: implementation_participation,
+    proposal_web_participation: proposal_web_participation,
+    project: project,
+    proposal_evaluation: (proposal_participation ? Faker::Number.between(1, 5) : nil),
+    proposal: (proposal_participation ? Faker::Lorem.paragraph(5, false, 5) : nil),
+    design_evaluation: (design_evaluation ? Faker::Number.between(1, 5) : nil),
+    design: (design_evaluation ? Faker::Lorem.paragraph(5, false, 5) : nil),
+    implementation_municipality_evaluation: (implementation_participation ? Faker::Number.between(1, 5) : nil),
+    implementation: (implementation_participation ? Faker::Lorem.paragraph(5, false, 5) : nil),
+    proposal_web_evaluation: (proposal_web_participation ? Faker::Number.between(1, 5) : nil),
+    proposal_web: (proposal_web_participation ? Faker::Lorem.paragraph(5, false, 5) : nil),
+    comment: Faker::Lorem.paragraph(5, false, 5),
   )
 end
 
@@ -207,33 +231,84 @@ designevent5a.update(pax: 14)
 designevent5b = create_design_event(challenge5.project, '')
 puts "Desafío en etapa de talleres; con un taller realizado y otro no ✅"
 
-
 # Desafío en etapa de implementación sin reportes
 challenge6 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de implementación, con 1 o más reportes")
 designevent6a = create_design_event(challenge6.project)
 challenge6.project.update(implementation_starts_at: Date.today - 4, implementation_ends_at: Date.today + 23, responsible_neighbour_name: Faker::Name.name)
-
+puts "Desafío en etapa de implementación sin reportes ✅"
 
 # Desafío en etapa de implementación, con 1 o más reportes
 challenge7 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de implementación, con 1 o más reportes")
 designevent7a = create_design_event(challenge7.project)
 challenge7.project.update(implementation_starts_at: Date.today - 4, implementation_ends_at: Date.today + 23, responsible_neighbour_name: Faker::Name.name)
-report7 = Report.create(
-  description: Faker::Lorem.paragraph(20, false, 20),
-  project: challenge7.project
-)
+report7 = create_report(challenge7.project)
 
 # Desafío (Abre B) con alternativa de propuestas (subir + levantamiento) + implementación
 challenge8 = create_challenge(admin, 4.day.ago, 10.day.from_now, "Desafío (Abre B) con alternativa de propuestas (subir + levantamiento) + implementación")
 challenge8.update(challenge_proposal: 1)
 
-
 # Desafío (Abre C) con alternativa de talleres + implementación
 challenge9 = create_challenge(admin, 4.day.ago, 10.day.from_now, "Desafío (Abre C) con alternativa de talleres + implementación")
 challenge9.update(challenge_design: 1)
-
 
 # Desafío en etapa de evaluación, sin evaluaciones
 challenge10 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de evaluación, sin evaluaciones")
 designevent10a = create_design_event(challenge10.project)
 challenge10.project.update(implementation_starts_at: Date.today - 4, implementation_ends_at: Date.today - 1, responsible_neighbour_name: Faker::Name.name)
+
+# Desafío en etapa de talleres; con los dos talleres realizados
+challenge10 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de talleres; con los dos talleres realizados")
+proposal10a = create_proposal(challenge10)
+proposal10b = create_proposal(challenge10)
+proposal10c = create_proposal(challenge10)
+proposal10d = create_proposal(challenge10)
+designevent10a = create_design_event(challenge10.project)
+imagepath10a = "#{Rails.root}/public/example/about01.png"
+imagefile10a = File.new(imagepath10a)
+picture10a = create_picture(imagepath10a, imagefile10a, designevent10a)
+imagepath10b = "#{Rails.root}/public/example/hero01.png"
+imagefile10b = File.new(imagepath10b)
+picture10b = create_picture(imagepath10b, imagefile10b, designevent10a)
+imagepath10c = "#{Rails.root}/public/example/about02.png"
+imagefile10c = File.new(imagepath10c)
+picture10c = create_picture(imagepath10c, imagefile10c, designevent10a)
+designevent10a.update(pax: 14)
+designevent10ia = create_design_event(challenge10.project)
+imagepath10ia = "#{Rails.root}/public/example/about01.png"
+imagefile10ia = File.new(imagepath10ia)
+picture10ia = create_picture(imagepath10ia, imagefile10ia, designevent10ia)
+imagepath10ib = "#{Rails.root}/public/example/hero01.png"
+imagefile10ib = File.new(imagepath10ib)
+picture10ib = create_picture(imagepath10ib, imagefile10ib, designevent10ia)
+imagepath10ic = "#{Rails.root}/public/example/about02.png"
+imagefile10ic = File.new(imagepath10ic)
+picture10ic = create_picture(imagepath10ic, imagefile10ic, designevent10ia)
+designevent10ia.update(pax: 20)
+
+# Desafío (Abre D) con votación de prop + implementación
+challenge11 = create_challenge(admin, 4.day.ago, 10.day.from_now, "Desafío (Abre D) con votación de prop + implementación")
+challenge11.update(challenge_poll: 1)
+proposal11a = create_proposal(challenge11)
+proposal11b = create_proposal(challenge11)
+proposal11c = create_proposal(challenge11)
+proposal11d = create_proposal(challenge11)
+
+# Desafío en etapa de evaluación, con 1 o más evaluaciones
+challenge12 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de evaluación, con 1 o más evaluaciones")
+designevent12a = create_design_event(challenge12.project)
+challenge12.project.update(implementation_starts_at: Date.today - 10, implementation_ends_at: Date.today - 4, responsible_neighbour_name: Faker::Name.name, evaluation_starts_at: Date.today - 3, evaluation_ends_at: Date.today + 4)
+evaluation12a = create_evaluation(challenge12.project)
+
+# Desafío cuando ya se cerró la etapa de evaluación
+challenge13 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío cuando ya se cerró la etapa de evaluación")
+designevent13a = create_design_event(challenge13.project)
+challenge13.project.update(
+  implementation_starts_at: Date.today - 10,
+  implementation_ends_at: Date.today - 4,
+  responsible_neighbour_name: Faker::Name.name,
+  evaluation_starts_at: Date.today - 3,
+  evaluation_ends_at: Date.today - 1)
+evaluation13a = create_evaluation(challenge13.project)
+evaluation13a = create_evaluation(challenge13.project)
+evaluation13a = create_evaluation(challenge13.project)
+evaluation13a = create_evaluation(challenge13.project)
