@@ -1,8 +1,7 @@
 require 'database_cleaner'
-
 DatabaseCleaner.clean_with :truncation
 
-print "Creando configuraciones"
+print "Creando configuraciones "
 Setting.create(key: 'official_level_1_name', value: 'Empleados públicos')
 Setting.create(key: 'official_level_2_name', value: 'Organización Municipal')
 Setting.create(key: 'official_level_3_name', value: 'Directores generales')
@@ -90,9 +89,9 @@ admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneN
 def create_challenge(user, starts_at, ends_at, title = Faker::Lorem.paragraph(1, false, 2))
   Problem.create(
     title: title,
-    summary: Faker::Lorem.paragraph(4, false, 4),
-    call_to_action: Faker::Lorem.paragraph(1, false, 2),
-    description: Faker::Lorem.paragraph(20, false, 20),
+    summary: "Resumen. " + Faker::Lorem.paragraph(4, false, 4),
+    call_to_action: "Llamado a la acción. " + Faker::Lorem.paragraph(1, false, 2),
+    description: "Descripción. " + Faker::Lorem.paragraph(20, false, 20),
     cause: Faker::Lorem.paragraph(10, false, 10),
     consequence: Faker::Lorem.paragraph(10, false, 10),
     problem_title: Faker::Lorem.paragraph(10, false, 10),
@@ -114,10 +113,10 @@ def create_proposal(challenge)
   Proposal.create!(
     author: User.reorder("RANDOM()").first,
     title: Faker::Lorem.paragraph(1, false, 1),
-    summary: Faker::Lorem.paragraph(4, false, 4),
+    summary: "Resumen. " + Faker::Lorem.paragraph(4, false, 4),
     responsible_name: Faker::Name.name,
     external_url: Faker::Internet.url,
-    description: Faker::Lorem.paragraph(20, false, 10),
+    description: "Descripción." + Faker::Lorem.paragraph(20, false, 10),
     created_at: rand((Time.current - 1.week) .. Time.current),
     tag_list: Faker::Lorem.words(25).sample(3).join(','),
     terms_of_service: "1",
@@ -126,12 +125,12 @@ def create_proposal(challenge)
     problem: challenge)
 end
 
-def create_design_event(project, summary = Faker::Lorem.paragraph(4, false, 4), starts_at = DateTime.now - 3)
+def create_design_event(project, summary = "Resumen. " + Faker::Lorem.paragraph(4, false, 4), starts_at = DateTime.now - 3)
   DesignEvent.create!(
     name: Faker::Lorem.paragraph(1, false, 1),
     starts_at: starts_at,
     place: Faker::Lorem.word,
-    description: Faker::Lorem.paragraph(20, false, 10),
+    description: "Descripción. " + Faker::Lorem.paragraph(20, false, 10),
     project: project,
     summary: summary )
 end
@@ -150,7 +149,7 @@ end
 
 def create_report(project)
   Report.create(
-    description: Faker::Lorem.paragraph(20, false, 20),
+    description: "Descripción. " + Faker::Lorem.paragraph(20, false, 20),
     project: project
   )
 end
