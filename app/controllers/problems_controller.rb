@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
   load_and_authorize_resource
-  has_filters %w{active expired proposal implementation}
+  has_filters %w{active expired proposal implementation design evaluation}
 
   def index
     @problems = @problems.send(@current_filter).page(params[:page])

@@ -5,7 +5,11 @@
       <li><%= link_to "Inicio", root_path %></li>
       <li><%= link_to "Desafíos", problems_path %></li>
       <li><span class="disabled">Desafío:</span> <%= link_to @problem.title, proposals_path(:challenge => @problem.id) %></a></li>
-      <li>Crear propuesta: Paso 1</li>
+      <% if !@problem.challenge_poll %>
+        <li>Crear propuesta: Paso 1</li>
+      <% else %>
+        <li>Conoce el desafío</li>
+      <% end %>
     </ul>
   </nav>
 </div>
@@ -14,8 +18,12 @@
 <div class="grid-container">
   <div class="page-section">
     <%= render "shared/problem", problem: @problem %>
-    <h2 class="page-title"><%= t("titles.create_proposal") %></h2>
-    <h4 class="page-title">Paso 1: Conoce el desafío <% provide :title do %><%= @problem.title %><% end %></h4>
+    <% if !@problem.challenge_poll %>
+      <h2 class="page-title"><%= t("titles.create_proposal") %></h2>
+      <h4 class="page-title">Paso 1: Conoce el desafío <% provide :title do %><%= @problem.title %><% end %></h4>
+    <% else %>
+      <h2 class="page-title">Conoce el desafío</h2>
+    <% end %>
     <p><%= @problem.call_to_action%>.<%= simple_format(@problem.description) %> </p>
     <div class="bg-blue bg-blue-border padding mb-60">
       <h4 class="white">Restricciones</h4>
@@ -45,7 +53,11 @@
       <%= simple_format(@problem.consequence)%>
     <% end %>
     <% if @problem.ends_at > Date.today%>
-      <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => @problem.id), class: 'button float-right' %>
+      <% if !@problem.challenge_poll %>
+        <%= link_to t("proposals.index.start_proposal"), new_proposal_path(:problem => @problem.id), class: 'button float-right' %>
+      <% else %>
+        <%= link_to "Apoyar propuestas", proposals_path(:challenge => @problem.id), class: 'button float-right' %>
+      <% end %>
     <% end %>
   </div>
 </div>

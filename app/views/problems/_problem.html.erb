@@ -36,10 +36,13 @@
       <div class="padding text-right">
         <!-- Para etapa propuestas -->
         <% if get_status(problem)=='Propuestas' %>
-        <%= link_to t("Ver desafío"), proposals_path(:challenge => problem.id), class: 'button tiny secondary' %>
+          <%= link_to t("Ver desafío"), proposals_path(:challenge => problem.id), class: 'button tiny secondary' %>
           <% if problem.valid %>
-            <%= link_to t("proposals.index.start_proposal"), problem_path(problem), class: 'button tiny' %>
-
+            <% if !problem.challenge_poll%>
+              <%= link_to t("proposals.index.start_proposal"), problem_path(problem), class: 'button tiny' %>
+            <% else %>
+            <%= link_to "Apoyar propuestas", proposals_path(:challenge => problem.id), class: 'button tiny' %>
+            <% end %>
           <% end %>
         <!-- Para etapa talleres -->
         <% elsif get_status(problem)=='Diseño' %>

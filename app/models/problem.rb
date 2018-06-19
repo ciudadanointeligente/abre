@@ -14,7 +14,7 @@ class Problem < ActiveRecord::Base
   has_many :restrictions
   belongs_to :project
 
-  paginates_per 12
+  paginates_per 8
 
   scope :expired,  -> { where('status = ?', 'Cerrado') }
   scope :active,  -> { where('status != ?', "Cerrado") }
