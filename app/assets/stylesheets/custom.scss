@@ -437,6 +437,11 @@ select {
   padding: 0.6rem 1vw;
 }
 
+.button.large {
+    font-size: 1.25rem;
+    padding: 1rem 3rem;
+}
+
 .button.primary {
   background: $brand;
   color: white;
