@@ -9,7 +9,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: calc(2vw + 2rem);
+  font-size: calc(1.5vw + 2.5rem);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-family: $body-font-family-title;
@@ -605,7 +605,11 @@ ul, ol, dl {
   background: $light-blue;
 }
 
-// nav
+// header
+
+header {
+    border-bottom: none;
+}
 
 .top-bar {
     line-height: 28px;
@@ -630,12 +634,20 @@ ul, ol, dl {
   padding: 12px 0;
 }
 
-.dropdown.menu a {
-  padding: 0;
+// dropdown
+
+.is-dropdown-submenu {
+  min-width: 300px;
+  border: none;
 }
 
-header {
-    border-bottom: none;
+.dropdown.menu .is-submenu-item a {
+  margin-right: 0;
+  line-height: 24px;
+}
+
+.dropdown.menu > li.opens-right > .is-dropdown-submenu {
+    top: 104%;
 }
 
 .menu a, .menu .button {

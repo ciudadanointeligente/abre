@@ -1,7 +1,7 @@
 <!-- Hero -->
 <div class="no-margin-top">
   <div class="hero">
-    <div class="panel-pane pane-fieldable-panels-pane pane-current-1 pane-bundle-complex-block pane--hero-block hiveboxx-waypoints-processed hiveboxx-cta-processed pane--waypoint" id="pane-id-1">
+    <div class="panel-pane pane-fieldable-panels-pane pane-current-1 pane-bundle-complex-block pane--hero-block pane--waypoint" id="pane-id-1">
       <div class="pane-content">
         <div class="ds-1col-stacked fieldable-panels-pane view-mode-full clearfix">
           <div class="group-header">
@@ -10,12 +10,14 @@
           <div class="group-ds_content">
             <div class="field field--name-field-pre-title field--type-text field--label-hidden row">
               <div class="field__items large-8 large-offset-2 columns">
-                <div class="field__item even">
-                  <h1 class="white text-center"> La comunidad decide el futuro de sus barrios </h1>
-                </div>
-                <h5 class="white text-center"> La Municipalidad de <%= Setting['municipality_name'] %> sabe que eres tú quien mejor conoce la comuna y sabe lo que necesita, por eso te invitamos a proponer, diseñar y construir en conjunto con los funcionarios y funcionarias municipales una mejor comuna. </h5>
-                <div class="text-center">
-                  <%= link_to t('Mira los desafíos'), problems_path, class: "button primary large" %>
+                <div class="text-width">
+                  <div class="field__item even">
+                    <h1 class="white text-center"> La comunidad decide el futuro de sus barrios </h1>
+                  </div>
+                  <h5 class="white text-center"> La Municipalidad de <%= Setting['municipality_name'] %> sabe que eres tú quien mejor conoce la comuna y sabe lo que necesita, por eso te invitamos a proponer, diseñar y construir en conjunto con los funcionarios y funcionarias municipales una mejor comuna. </h5>
+                  <div class="text-center">
+                    <%= link_to t('Mira los desafíos'), problems_path, class: "button primary large" %>
+                  </div>
                 </div>
               </div>
             </div>

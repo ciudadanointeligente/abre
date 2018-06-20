@@ -74,34 +74,13 @@
       <div class="hide-for-small-only">
         <div class="small-12 medium-12">
           <ul class="menu">
-              <li>
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <li>
-                      <a href="#">Desafíos</a>
-                      <ul class="vertical nested">
-                        <% Problem.where('status != ?', "Cerrado").first(5).each do |problem| %>
-                          <% if get_status(problem)=='Propuestas' %>
-                            <li> <%= link_to problem.title, proposals_path(:challenge => problem.id) %> </li>
-                          <% elsif get_status(problem)=='Diseño' %>
-                            <li> <%= link_to problem.title, project_design_events_path(:project_id => problem.project.id ,:problem_id => problem.id) %> </li>
-                          <% elsif get_status(problem)=='Implementación' %>
-                            <li> <%= link_to problem.title, project_reports_path(:project_id => problem.project.id ,:problem_id => problem.id) %> </li>
-                          <% elsif get_status(problem)=='Evaluación' %>
-                            <li> <%= link_to problem.title, project_evaluations_path(:project_id => problem.project.id ,:problem_id => problem.id) %> </li>
-                          <% end %>
-                        <% end %>
-                        <li><%= link_to "Ver todos", problems_path %></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
               <div class="top-bar-left">
                 <%= render "shared/subnavigation" %>
                 <li>
                   <ul class="dropdown menu" data-dropdown-menu>
                       <li>
                         <a href="#">Desafíos</a>
-                        <ul class="vertical nested">
+                        <ul class="vertical nested animated fadeIn">
                           <% Problem.where('status != ?', "Cerrado").first(5).each do |problem| %>
                             <% if get_status(problem)=='Propuestas' %>
                               <li> <%= link_to problem.title, proposals_path(:challenge => problem.id) %> </li>
