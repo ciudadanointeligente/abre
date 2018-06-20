@@ -313,6 +313,12 @@ h4.counter {
     position: relative;
 }
 
+// Breadcrumbs
+
+.breadcrumbs li {
+  color: white;
+}
+
 // Form
 
 form label {
@@ -618,6 +624,10 @@ ul, ol, dl {
 
 header {
     border-bottom: none;
+}
+
+.mt-header {
+  margin-top: -27px;
 }
 
 .top-bar {
@@ -931,6 +941,44 @@ header {
 
 #stages-in-home .text-width {
     padding-bottom: 4vw;
+}
+
+
+// page-header
+
+.page-header-orange {
+  position: relative;
+  margin-bottom: -160px;
+  z-index: -1;
+  & img {
+    max-width: none;
+    height: 323px;
+  }
+}
+
+.page-header-orange .text-width {
+  position: relative;
+  color: white;
+  &:before {
+    content: '';
+    top: -323px;
+    left: -500px;
+    width: calc(100% + 500px);
+    height: 323px;
+    background: #435367;
+    position: absolute;
+    mix-blend-mode: hard-light;
+  }
+  &:after {
+    content: '';
+    top: -323px;
+    left: -510px;
+    width: 20%;
+    height: 356px;
+    position: absolute;
+    mix-blend-mode: soft-light;
+    border-left: 500px solid $orange;
+  }
 }
 
 // challenges
