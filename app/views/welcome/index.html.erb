@@ -38,12 +38,12 @@
 
 <main>
 <!-- Desafíos -->
-<section id="problems-in-home">
+<section id="problems-in-home" class="mb-90">
   <div class="grid-container">
     <div class="text-width">
       <h2 class="text-center">Desafíos que ofrece la municipalidad</h2>
       <h5 class="bajada text-center mb-30">Estos son los desafíos que la Municipalidad esta planteando para que vecinos y vecinas diseñen su comuna. Revísalos y participa.</h5>
-      <div class="text-center">
+      <div class="text-center mb-30">
         <%= link_to "Ver todos los desafíos", problems_path, class: 'button primary' %>
       </div>
       <div class="grid-x">
@@ -114,9 +114,11 @@
 <!-- Etapas -->
 <section id="stages-in-home">
   <div class="grid-container text-center">
-    <h2 class="text-center">Etapas</h2>
-    <h5 class="bajada">La metodología Abre esta compuesta por 4 grandes etapas de colaboración entre vecinos y el municipio</h5>
-    <%= link_to t('Conoce más'), more_info_path, class: "button primary large" %>
+    <div class="text-width">
+      <h2 class="text-center">Etapas</h2>
+      <h5 class="bajada">La metodología Abre esta compuesta por 4 grandes etapas de colaboración entre vecinos y el municipio</h5>
+      <%= link_to t('Conoce más'), more_info_path, class: "button primary" %>
+    </div>
   </div>
   <div class="row collapse">
       <div class="small-12 medium-6 large-3 columns">
@@ -134,8 +136,8 @@
               </svg>
 
             </div>
-            <div class="white text-left small">01. PROPUESTAS</div>
-            <p class="white text-left">Los vecinos crean y apoyan propuestas que responden a un desafío planteado por el municipio.</p>
+            <div class="white text-right small-without-line mb-15">01. PROPUESTAS</div>
+            <p class="white text-right">Los vecinos crean y apoyan propuestas que responden a un desafío planteado por el municipio.</p>
           </div>
         </div>
       </div>
@@ -194,8 +196,8 @@
   </svg>
 
             </div>
-            <div class="small text-left">02. Diseño</div>
-            <p class="text-left">La comunidad, junto al municipio, elabora en un taller el proyecto definitivo a partir de la propuesta ganadora.</p>
+            <div class="small-without-line text-right mb-15">02. Diseño</div>
+            <p class="text-right">La comunidad, junto al municipio, elabora en un taller el proyecto definitivo a partir de la propuesta ganadora.</p>
           </div>
         </div>
       </div>
@@ -254,8 +256,8 @@
               </svg>
 
             </div>
-            <div class="small white text-left">03. IMPLEMENTACIÓN</div>
-            <p class="white text-left">Al momento de ejecutar, vecinos y vecinas colaboran y dan seguimiento a la implementación del proyecto.</p>
+            <div class="small-without-line white text-right mb-15">03. IMPLEMENTACIÓN</div>
+            <p class="white text-right">Al momento de ejecutar, vecinos y vecinas colaboran y dan seguimiento a la implementación del proyecto.</p>
           </div>
         </div>
       </div>
@@ -290,8 +292,8 @@
   </svg>
 
           </div>
-          <div class="text-left small">04. EVALUACIÓN</div>
-          <p class="text-left">Quienes se involucraron en el proceso evalúan qué se debe mantener, qué mejorar y qué experimentar.</p>
+          <div class="text-right small-without-line  mb-15">04. EVALUACIÓN</div>
+          <p class="text-right">Quienes se involucraron en el proceso evalúan qué se debe mantener, qué mejorar y qué experimentar.</p>
         </div>
       </div>
 
