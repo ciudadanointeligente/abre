@@ -25,19 +25,24 @@
     <!-- Para etapa diseño -->
     <% elsif get_status(problem)=='Diseño' %>
     <!-- TODO: agregar funcion que dibuje la fecha del proximo taller -->
-      <% if problem.project.design_events.any? && !date_next_design_event(problem).nil?%>
-        <div class="bg-white text-center padding-small">
-          Próximo taller de diseño: <span class="counter"><%= date_next_design_event(problem).strftime("%d/%m/%Y") %></span>
-        </div>
+      <% if problem.project.design_events.any? %>
+        <% if !date_next_design_event(problem).nil?%>
+          <div class="bg-white text-center padding-small">
+            Próximo taller de diseño: <span class="counter"><%= date_next_design_event(problem).strftime("%d/%m/%Y") %></span>
+          </div>
+          <% end %>
       <% end %>
     <% end %>
       <div class="padding text-right">
         <!-- Para etapa propuestas -->
         <% if get_status(problem)=='Propuestas' %>
-        <%= link_to t("Ver desafío"), proposals_path(:challenge => problem.id), class: 'button tiny secondary' %>
+          <%= link_to t("Ver desafío"), proposals_path(:challenge => problem.id), class: 'button tiny secondary' %>
           <% if problem.valid %>
-            <%= link_to t("proposals.index.start_proposal"), problem_path(problem), class: 'button tiny' %>
-
+            <% if !problem.challenge_poll%>
+              <%= link_to t("proposals.index.start_proposal"), problem_path(problem), class: 'button tiny' %>
+            <% else %>
+            <%= link_to "Apoyar propuestas", proposals_path(:challenge => problem.id), class: 'button tiny' %>
+            <% end %>
           <% end %>
         <!-- Para etapa talleres -->
         <% elsif get_status(problem)=='Diseño' %>

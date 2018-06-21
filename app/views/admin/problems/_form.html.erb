@@ -10,6 +10,21 @@
     </div>
   </div>
 
+  <ul class="accordion" data-accordion>
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class=""><p>¿Quieres Abre con menos etapas?</p></a>
+      <div class="accordion-content" data-tab-content>
+        <label> Elige entre uno de las tres opciones modularizadas: </label>
+        <%= f.check_box :challenge_proposal %> Abre B [Propuestas + Votación + Implementacion]
+        <p class="note"> Usa esta combinación de etapas si deseas abrir un desafío para levantar y priorizar ideas con tus vecinos/as y luego implementarlas directamente, sin talleres de co-diseño. </p>
+        <%= f.check_box :challenge_design %> Abre C [TALL+IMP]:
+        <p class="note"> Usa esta combinación de etapas si ya tienes un proyecto planificado y deseas abrir un desafío para trabajar en su diseño con la comunidad y luego implementarlo. </p>
+        <%= f.check_box :challenge_poll %> Abre D [VOT+IMP]: 
+        <p class="note"> Usa esta combinación de etapas si deseas abrir un desafío para que tus vecinos/as voten por opciones ya existentes y luego implementar la(s) ganadora(s). </p>
+      </div>
+    </li>
+  </ul>
+
   <div class="row">
     <div class="small-12 medium-12 column">
       <label> <%= t("admin.problems.form.description") %> </label>
@@ -116,7 +131,7 @@
 
   <div class="row">
     <div class="small-6 medium-6 column">
-      <%= f.input :geozone_restricted, data: { checkbox_toggle: "#geozones" } %>
+      <%= f.check_box :geozone_restricted, data: { checkbox_toggle: "#geozones" }, label: 'Restrin' %> <label> Restringido por zonas </label>
     </div>
   </div>
 

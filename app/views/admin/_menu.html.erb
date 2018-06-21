@@ -61,7 +61,7 @@
 
       <ul <%= "class=is-active" if (menu_settings? || menu_images?) %>>
         <li <%= "class=active" if controller_name == "geozones" %>>
-          <%= link_to "Gestionar distritos", admin_tags_path %>
+          <%= link_to "Gestionar distritos", admin_geozones_path %>
         </li>
         <li <%= "class=active" if controller_name == "tags" %>>
           <%= link_to "Etiquetas", admin_tags_path %>

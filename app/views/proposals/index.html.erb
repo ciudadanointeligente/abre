@@ -46,13 +46,25 @@
         <h5>
           <%= @problem.call_to_action %>.
           <% if @problem.valid %>
-            <%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %>
-            <div class="text-right mb-60 mt-30">
-              <%= link_to "Crear propuesta", problem_path(@problem), :class => "button" %>
-            </div>
-            <% else %>
-            Ha finalizado el tiempo de recepción de propuestas, pero te invitamos a participar de los <%= link_to "Talleres de Diseño", project_design_events_path(@problem.project, :problem_id => @problem.id) %>
+            <% if !@problem.challenge_poll %>
+              <%= t("proposals.index.remaining_time_1") %> <span class="counter num"> <%=distance_of_time_in_days(@problem.ends_at, Date.today)%></span> <%= t("proposals.index.remaining_time_2") %>
+              <div class="text-right mb-60 mt-30">
+                <%= link_to "Crear propuesta", problem_path(@problem), :class => "button" %>
+              </div>
             <% end %>
+            <% if @problem.challenge_poll  %>
+              <div class="text-right mb-60 mt-30">
+                <%= link_to "Conocer desafío", problem_path(@problem), :class => "button" %>
+              </div>
+              <% if !current_user.nil? && current_user.administrator? %>
+                <div class="text-right mb-60 mt-30">
+                  <%= link_to "Crear propuesta municipal", problem_path(@problem), :class => "button" %>
+                </div>
+              <% end %>
+            <% end %>
+          <% else %>
+            Ha finalizado el tiempo de recepción de propuestas, pero te invitamos a participar de los <%= link_to "Talleres de Diseño", project_design_events_path(@problem.project, :problem_id => @problem.id) %>
+          <% end %>
         </h5>
         <div id="proposals-list">
           <div class="grid-x grid-margin-x">
