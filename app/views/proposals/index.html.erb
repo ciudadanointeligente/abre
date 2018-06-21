@@ -9,19 +9,11 @@
 <% end %>
 
 <main>
-  <h1 class="sr-only"><%= t("shared.outline.proposals") %></h1>
 
-  <div class="breadcrumbs grid-container fluid details">
-    <div class="grid-x grid-margin-x">
-      <div class="small-12 medium-12 cell">
-        <%= render "shared/back_link" %>
-      </div>
-    </div>
-  </div>
-
-  <section class="page-section">
-    <div class="grid-container">
-        <%= render "shared/problem", problem: @problem %>
+  <%= render "shared/problem", problem: @problem, header: "header02.png" %>
+  <div class="grid-container">
+    <div class="text-width">
+  <section class="">
         <div id="proposals" class="proposals-list">
           <div class="padding">
             <div class="search-results">
@@ -78,6 +70,7 @@
           </div>
           <%= paginate @proposals %>
         </div>
+      </div>
     </div>
   </section>
 
