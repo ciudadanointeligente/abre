@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :challenge_group do
+    
+  end
   factory :evaluation do
     title "MyString"
     proposal_participation false
