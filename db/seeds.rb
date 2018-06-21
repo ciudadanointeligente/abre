@@ -75,22 +75,36 @@ ActsAsTaggableOn::Tag.create!(name:  "Transparencia", featured: true, kind: "cat
 ActsAsTaggableOn::Tag.create!(name:  "Seguridad y Emergencias", featured: true, kind: "category")
 ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "category")
 
+
+(1..12).each { |i| Geozone.create(name: Faker::GameOfThrones.house, external_code: i.ord, census_code: i.ord) }
+
 print "Crear admin"
 
-def create_user(email, username = Faker::DragonBall.character)
+def create_user(email, username = Faker::GameOfThrones.character)
   pwd = 'abremunicipio895'
   User.create!(username: username, email: email, password: pwd, password_confirmation: pwd, confirmed_at: Time.current, terms_of_service: "1")
 end
 
-admin = create_user('abre@tumunicipio.org', Faker::Name.name)
+admin = create_user('abre@tumunicipio.org', Faker::GameOfThrones.character)
 admin.create_administrator
 admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
+
+(1..5).each do |i|
+  user = create_user("user#{i}@consul.dev")
+  level = [1, 2, 3].sample
+  if level >= 2
+    user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" )
+  end
+  if level == 3
+    user.update(verified_at: Time.current, document_number: Faker::Number.number(10) )
+  end
+end
 
 def create_challenge(user, starts_at, ends_at, title = Faker::Lorem.paragraph(1, false, 2))
   Problem.create(
     title: title,
     summary: "Resumen. " + Faker::Lorem.paragraph(4, false, 4),
-    call_to_action: "Llamado a la acción. " + Faker::Lorem.paragraph(1, false, 2),
+    call_to_action: "Llamado a la acción. " + Faker::GameOfThrones.quote,
     description: "Descripción. " + Faker::Lorem.paragraph(20, false, 20),
     cause: Faker::Lorem.paragraph(10, false, 10),
     consequence: Faker::Lorem.paragraph(10, false, 10),
