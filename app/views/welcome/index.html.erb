@@ -1,7 +1,7 @@
 <!-- Hero -->
 <div class="no-margin-top">
   <div class="hero">
-    <div class="panel-pane pane-fieldable-panels-pane pane-current-1 pane-bundle-complex-block pane--hero-block hiveboxx-waypoints-processed hiveboxx-cta-processed pane--waypoint" id="pane-id-1">
+    <div class="panel-pane pane-fieldable-panels-pane pane-current-1 pane-bundle-complex-block pane--hero-block pane--waypoint" id="pane-id-1">
       <div class="pane-content">
         <div class="ds-1col-stacked fieldable-panels-pane view-mode-full clearfix">
           <div class="group-header">
@@ -10,12 +10,14 @@
           <div class="group-ds_content">
             <div class="field field--name-field-pre-title field--type-text field--label-hidden row">
               <div class="field__items large-8 large-offset-2 columns">
-                <div class="field__item even">
-                  <h1 class="white text-center"> La comunidad decide el futuro de sus barrios </h1>
-                </div>
-                <h5 class="white text-center"> La Municipalidad de <%= Setting['municipality_name'] %> sabe que eres tú quien mejor conoce la comuna y sabe lo que necesita, por eso te invitamos a proponer, diseñar y construir en conjunto con los funcionarios y funcionarias municipales una mejor comuna. </h5>
-                <div class="text-center">
-                  <%= link_to t('Mira los desafíos'), problems_path, class: "button primary large" %>
+                <div class="text-width">
+                  <div class="field__item even">
+                    <h1 class="white text-center"> La comunidad decide el futuro de sus barrios </h1>
+                  </div>
+                  <h5 class="white text-center"> La Municipalidad de <%= Setting['municipality_name'] %> sabe que eres tú quien mejor conoce la comuna y sabe lo que necesita, por eso te invitamos a proponer, diseñar y construir en conjunto con los funcionarios y funcionarias municipales una mejor comuna. </h5>
+                  <div class="text-center">
+                    <%= link_to t('Mira los desafíos'), problems_path, class: "button primary large" %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -36,68 +38,73 @@
 
 <main>
 <!-- Desafíos -->
-<section id="problems-in-home">
+<section id="problems-in-home" class="mb-90">
   <div class="grid-container">
-    <h2 class="text-center">Desafíos que ofrece la municipalidad</h2>
-    <h5 class="bajada text-center mb-30">Estos son los desafíos que la Municipalidad esta planteando para que vecinos y vecinas diseñen su comuna. Revísalos y participa.</h5>
-    <div class="grid-x">
-        <% Problem.first(2).each do |problem| %>
-        <div class="large-6 columns">
-          <div class="problem-box">
-            <div>
-              <p class="small-without-line blue epigraph-small"> Etapa: <%= get_status(problem) %> </p>
-              <h5><%= link_to problem.title, proposals_path(:challenge => problem.id) %> </h5>
-              <p class="details">
-                <i class="fa fa-map-marker"></i> <%= problem.geozones_name %> <span class="line-text">|</span>
-                <i class="fa fa-calendar"> </i> <%= l problem.created_at.to_date %>
-              </p>
-              <div class="proposal-description">
-                <p><%= problem.summary.truncate(130, :omission => "...") %><span><a href="#"><%= link_to ' Ver más', proposals_path(:challenge => problem.id) %></a></span></p>
-              </div>
-            </div>
-            <div class="fixed-bottom">
-            <!-- Para etapa propuestas -->
-            <% if get_status(problem)=='Propuestas' %>
-              <!-- Si aun no comienza el proceso de recepeción de propuestas -->
-              <div class="bg-blue padding-small white text-center">
-                <% if problem.valid %>
-                  <%= t("proposals.index.remaining_time_1") %> <span class="counter"> <%= distance_of_time_in_days(problem.ends_at, Date.today) %></span><%= t("proposals.index.remaining_time_2") %>
-                <% else %>
-                  Quedan <span class="counter"><%= distance_of_time_in_days(problem.starts_at, Date.today) %></span> días para que puedas hacer tu propuesta
-                <% end %>
-              </div>
-            <!-- Para etapa diseño -->
-            <% elsif get_status(problem)=='Diseño' %>
-            <!-- TODO: agregar funcion que dibuje la fecha del proximo taller -->
-              <% if problem.project.design_events.any? && !date_next_design_event(problem).nil?%>
-                <div class="bg-white text-center padding-small">
-                  Próximo taller de diseño: <span class="counter"><%= date_next_design_event(problem).strftime("%d/%m/%Y") %></span>
-                </div>
-              <% end %>
-            <% end %>
-              <div class="padding text-right">
-                <!-- Para etapa propuestas -->
-                <% if get_status(problem)=='Propuestas' %>
-                <%= link_to t("Ver desafío"), proposals_path(:challenge => problem.id), class: 'button tiny secondary' %>
-                  <% if problem.valid %>
-                    <%= link_to t("proposals.index.start_proposal"), problem_path(problem), class: 'button tiny' %>
-
-                  <% end %>
-                <!-- Para etapa talleres -->
-                <% elsif get_status(problem)=='Diseño' %>
-                  <%= link_to t("Ver información de los talleres"), project_design_events_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
-                <!-- Para etapa implementacion -->
-                <% elsif get_status(problem)=='Implementación' %>
-                  <%= link_to t("Hacer seguimiento"), project_reports_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
-                <!-- Para etapa evaluacion -->
-                <% elsif get_status(problem)=='Evaluación' %>
-                  <%= link_to t("Evaluar el proceso"), project_evaluations_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
-                <% end %>
-              </div>
-            </div>
-          </div>
+    <div class="text-width">
+      <h2 class="text-center">Desafíos que ofrece la municipalidad</h2>
+      <h5 class="bajada text-center mb-30">Estos son los desafíos que la Municipalidad esta planteando para que vecinos y vecinas diseñen su comuna. Revísalos y participa.</h5>
+      <div class="text-center mb-30">
+        <%= link_to "Ver todos los desafíos", problems_path, class: 'button primary' %>
       </div>
-          <% end %>
+      <div class="grid-x">
+          <% Problem.first(2).each do |problem| %>
+          <div class="large-6 columns">
+            <div class="problem-box">
+              <div>
+                <p class="small-without-line blue epigraph-small"> Etapa: <%= get_status(problem) %> </p>
+                <h5><%= link_to problem.title, proposals_path(:challenge => problem.id) %> </h5>
+                <p class="details">
+                  <i class="fa fa-map-marker"></i> <%= problem.geozones_name %> <span class="line-text">|</span>
+                  <i class="fa fa-calendar"> </i> <%= l problem.created_at.to_date %>
+                </p>
+                <div class="proposal-description">
+                  <p><%= problem.summary.truncate(130, :omission => "...") %><span><a href="#"><%= link_to ' Ver más', proposals_path(:challenge => problem.id) %></a></span></p>
+                </div>
+              </div>
+              <div class="fixed-bottom">
+              <!-- Para etapa propuestas -->
+              <% if get_status(problem)=='Propuestas' %>
+                <!-- Si aun no comienza el proceso de recepeción de propuestas -->
+                <div class="bg-blue padding-small white text-center">
+                  <% if problem.valid %>
+                    <%= t("proposals.index.remaining_time_1") %> <span class="counter"> <%= distance_of_time_in_days(problem.ends_at, Date.today) %></span><%= t("proposals.index.remaining_time_2") %>
+                  <% else %>
+                    Quedan <span class="counter"><%= distance_of_time_in_days(problem.starts_at, Date.today) %></span> días para que puedas hacer tu propuesta
+                  <% end %>
+                </div>
+              <!-- Para etapa diseño -->
+              <% elsif get_status(problem)=='Diseño' %>
+              <!-- TODO: agregar funcion que dibuje la fecha del proximo taller -->
+                <% if problem.project.design_events.any? && !date_next_design_event(problem).nil?%>
+                  <div class="bg-white text-center padding-small">
+                    Próximo taller de diseño: <span class="counter"><%= date_next_design_event(problem).strftime("%d/%m/%Y") %></span>
+                  </div>
+                <% end %>
+              <% end %>
+                <div class="padding text-right">
+                  <!-- Para etapa propuestas -->
+                  <% if get_status(problem)=='Propuestas' %>
+                  <%= link_to t("Ver desafío"), proposals_path(:challenge => problem.id), class: 'button tiny secondary' %>
+                    <% if problem.valid %>
+                      <%= link_to t("proposals.index.start_proposal"), problem_path(problem), class: 'button tiny' %>
+
+                    <% end %>
+                  <!-- Para etapa talleres -->
+                  <% elsif get_status(problem)=='Diseño' %>
+                    <%= link_to t("Ver información de los talleres"), project_design_events_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
+                  <!-- Para etapa implementacion -->
+                  <% elsif get_status(problem)=='Implementación' %>
+                    <%= link_to t("Hacer seguimiento"), project_reports_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
+                  <!-- Para etapa evaluacion -->
+                  <% elsif get_status(problem)=='Evaluación' %>
+                    <%= link_to t("Evaluar el proceso"), project_evaluations_path(:project_id => problem.project.id ,:problem_id => problem.id), class: 'button tiny' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+            <% end %>
+      </div>
     </div>
   </div>
 </section>
@@ -107,9 +114,11 @@
 <!-- Etapas -->
 <section id="stages-in-home">
   <div class="grid-container text-center">
-    <h2 class="text-center">Etapas</h2>
-    <h5 class="bajada">La metodología Abre esta compuesta por 4 grandes etapas de colaboración entre vecinos y el municipio</h5>
-    <%= link_to t('Conoce más'), more_info_path, class: "button primary large" %>
+    <div class="text-width">
+      <h2 class="text-center">Etapas</h2>
+      <h5 class="bajada">La metodología Abre esta compuesta por 4 grandes etapas de colaboración entre vecinos y el municipio</h5>
+      <%= link_to t('Conoce más'), more_info_path, class: "button primary" %>
+    </div>
   </div>
   <div class="row collapse">
       <div class="small-12 medium-6 large-3 columns">
@@ -127,8 +136,8 @@
               </svg>
 
             </div>
-            <div class="white text-left small">01. PROPUESTAS</div>
-            <p class="white text-left">Los vecinos crean y apoyan propuestas que responden a un desafío planteado por el municipio.</p>
+            <div class="white text-right small-without-line mb-15">01. PROPUESTAS</div>
+            <p class="white text-right">Los vecinos crean y apoyan propuestas que responden a un desafío planteado por el municipio.</p>
           </div>
         </div>
       </div>
@@ -187,8 +196,8 @@
   </svg>
 
             </div>
-            <div class="small text-left">02. Diseño</div>
-            <p class="text-left">La comunidad, junto al municipio, elabora en un taller el proyecto definitivo a partir de la propuesta ganadora.</p>
+            <div class="small-without-line text-right mb-15">02. Diseño</div>
+            <p class="text-right">La comunidad, junto al municipio, elabora en un taller el proyecto definitivo a partir de la propuesta ganadora.</p>
           </div>
         </div>
       </div>
@@ -247,8 +256,8 @@
               </svg>
 
             </div>
-            <div class="small white text-left">03. IMPLEMENTACIÓN</div>
-            <p class="white text-left">Al momento de ejecutar, vecinos y vecinas colaboran y dan seguimiento a la implementación del proyecto.</p>
+            <div class="small-without-line white text-right mb-15">03. IMPLEMENTACIÓN</div>
+            <p class="white text-right">Al momento de ejecutar, vecinos y vecinas colaboran y dan seguimiento a la implementación del proyecto.</p>
           </div>
         </div>
       </div>
@@ -283,8 +292,8 @@
   </svg>
 
           </div>
-          <div class="text-left small">04. EVALUACIÓN</div>
-          <p class="text-left">Quienes se involucraron en el proceso evalúan qué se debe mantener, qué mejorar y qué experimentar.</p>
+          <div class="text-right small-without-line  mb-15">04. EVALUACIÓN</div>
+          <p class="text-right">Quienes se involucraron en el proceso evalúan qué se debe mantener, qué mejorar y qué experimentar.</p>
         </div>
       </div>
 

@@ -139,6 +139,7 @@ def create_proposal(challenge)
     problem: challenge)
 end
 
+def create_design_event(project, summary = "Resumen. " + Faker::Lorem.paragraph(4, false, 4), starts_at = DateTime.now - 3)
 def create_design_event(project, summary = Faker::Lorem.paragraph(4, false, 4), starts_at = DateTime.now - 3)
   DesignEvent.create!(
     name: Faker::Lorem.paragraph(1, false, 1),
