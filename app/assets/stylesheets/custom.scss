@@ -523,10 +523,6 @@ select {
   border-bottom: 4px solid #D80017;
 }
 
-.movil-logo {
-    height: 37px;
-}
-
 .menu.simple {
     border-bottom: none;
 }
@@ -653,6 +649,17 @@ header {
   padding: 12px 0;
 }
 
+.mobile-menu {
+  color: $brand;
+  padding: 11px 0px 0px;
+  font-size: 28px;
+}
+
+.logo-mobile {
+  height: 46px;
+  padding: 5px 0;
+}
+
 // dropdown
 
 .is-dropdown-submenu {
@@ -764,6 +771,26 @@ header {
   p{
     color: $white;
   }
+}
+
+// Pagination
+
+.pagination {
+    margin-bottom: 3rem;
+}
+
+.pagination .current {
+    background: $gray-three;
+    color: white;
+    font-size: 12px;
+}
+
+.pagination a, .pagination button {
+    font-size: 12px;
+    color: $gray-two;
+    &:hover {
+      background: $gray-four;
+    }
 }
 
 // Home - hero
@@ -950,6 +977,7 @@ header {
   position: relative;
   margin-bottom: -160px;
   z-index: -1;
+  overflow: hidden;
   & img {
     max-width: none;
     height: 323px;
