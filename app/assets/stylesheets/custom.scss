@@ -9,7 +9,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: calc(3vw + 2rem);
+  font-size: calc(1.5vw + 2.5rem);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-family: $body-font-family-title;
@@ -58,10 +58,6 @@ h5 {
 @media only screen and (max-width: 800px) {
   h2 {
     font-size: 28px;
-  }
-
-  h1 {
-    font-size: 31px;
   }
 }
 
@@ -274,6 +270,10 @@ h4.counter {
   margin-bottom: 30px;
 }
 
+.mb-15 {
+  margin-bottom: 15px;
+}
+
 .mb-0 {
   margin-bottom: 0;
 }
@@ -311,6 +311,12 @@ h4.counter {
     margin-bottom: 2vw;
     z-index: 1;
     position: relative;
+}
+
+// Breadcrumbs
+
+.breadcrumbs li {
+  color: white;
 }
 
 // Form
@@ -439,6 +445,11 @@ select {
 .button.tiny {
   font-size: 12px;
   padding: 0.6rem 1vw;
+}
+
+.button.large {
+    font-size: 1.25rem;
+    padding: 1rem 3rem;
 }
 
 .button.primary {
@@ -609,7 +620,15 @@ ul, ol, dl {
   background: $light-blue;
 }
 
-// nav
+// header
+
+header {
+    border-bottom: none;
+}
+
+.mt-header {
+  margin-top: -27px;
+}
 
 .top-bar {
     line-height: 28px;
@@ -627,14 +646,27 @@ ul, ol, dl {
     margin-bottom: -2px;
     height: 42px;
     width: auto;
+    margin-right: 0;
 }
 
 .top-bar-right li a {
   padding: 12px 0;
 }
 
-header {
-    border-bottom: none;
+// dropdown
+
+.is-dropdown-submenu {
+  min-width: 300px;
+  border: none;
+}
+
+.dropdown.menu .is-submenu-item a {
+  margin-right: 0;
+  line-height: 24px;
+}
+
+.dropdown.menu > li.opens-right > .is-dropdown-submenu {
+    top: 104%;
 }
 
 .menu a, .menu .button {
@@ -643,10 +675,6 @@ header {
 
 .header-title{
   color: $gray-two;
-  font-family: "Dosis", "Helvetica", "Arial", sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 14px;
 }
 
 .subnavigation {
@@ -661,6 +689,10 @@ header {
   line-height: 14px;
   font-weight: 400;
   color: $gray-two;
+}
+
+.subnavigation ul li:last-child {
+    margin-right: 0;
 }
 
 .text-width{
@@ -763,7 +795,7 @@ header {
     -ms-flex-pack: center;
     justify-content: center;
     max-width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 100px);
     transition: .3s;
     background: #08152a;
 }
@@ -781,6 +813,13 @@ header {
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+.field.field--name-field-background-image.field--type-image.field--label-hidden:after {
+    content: '';
+    background: #435367;
+    height: 100%;
+    width: 100%;
 }
 
 .backgroundblendmode .pane--hero-block.pane--waypoint .field--name-field-background-image::before, .backgroundblendmode .pane--hero-block.pane--waypoint .field--name-field-background-image::after {
@@ -883,7 +922,6 @@ header {
 }
 
 .box-svg {
-    margin-bottom: 2vw;
     height: 160px;
 }
 
@@ -896,14 +934,51 @@ header {
     flex-direction: column;
     -ms-flex-pack: center;
     justify-content: center;
-}
-
-#stages-in-home .small-12.medium-6.large-3.columns:nth-child(1), #stages-in-home .small-12.medium-6.large-3.columns:nth-child(3) {
-    margin-top: 5vw;
+    max-width: 75%;
+    max-height: 75%;
+    margin: 20px auto;
 }
 
 #stages-in-home .text-width {
     padding-bottom: 4vw;
+}
+
+
+// page-header
+
+.page-header-orange {
+  position: relative;
+  margin-bottom: -160px;
+  z-index: -1;
+  & img {
+    max-width: none;
+    height: 323px;
+  }
+}
+
+.page-header-orange .text-width {
+  position: relative;
+  color: white;
+  &:before {
+    content: '';
+    top: -323px;
+    left: -500px;
+    width: calc(100% + 500px);
+    height: 323px;
+    background: #435367;
+    position: absolute;
+    mix-blend-mode: hard-light;
+  }
+  &:after {
+    content: '';
+    top: -323px;
+    left: -510px;
+    width: 20%;
+    height: 356px;
+    position: absolute;
+    mix-blend-mode: soft-light;
+    border-left: 500px solid $orange;
+  }
 }
 
 // challenges
@@ -917,7 +992,7 @@ header {
   padding: calc(2vw + 1rem);
   margin-bottom: 2vw;
   position: relative;
-  min-height: calc(17rem + 13vw);
+  min-height: calc(19rem + 13vw);
   & .bg-blue {
     border: 4px solid $gray-five;
   }
@@ -1034,7 +1109,6 @@ header {
 .footer {
     background: $gray-four;
     border-top: 1px solid $gray-four;
-    margin-top: 7rem;
     padding-top: 5vw;
 }
 
@@ -1056,6 +1130,14 @@ footer a i {
 
 .footer svg {
     max-width: 100%;
+}
+
+.footer .logo img {
+    width: auto;
+}
+
+.footer, .push {
+    min-height: 15rem;
 }
 
 .redes {
