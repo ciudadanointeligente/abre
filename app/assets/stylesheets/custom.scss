@@ -51,6 +51,13 @@ h5 {
   }
 }
 
+h6 {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: $gray-one;
+}
+
 .bajada {
     margin-top: -1rem;
 }
@@ -523,10 +530,6 @@ select {
   border-bottom: 4px solid #D80017;
 }
 
-.movil-logo {
-    height: 37px;
-}
-
 .menu.simple {
     border-bottom: none;
 }
@@ -653,11 +656,23 @@ header {
   padding: 12px 0;
 }
 
+.mobile-menu {
+  color: $brand;
+  padding: 11px 0px 0px;
+  font-size: 28px;
+}
+
+.logo-mobile {
+  height: 46px;
+  padding: 5px 0;
+}
+
 // dropdown
 
 .is-dropdown-submenu {
   min-width: 300px;
   border: none;
+  background: #F7FBFF;
 }
 
 .dropdown.menu .is-submenu-item a {
@@ -764,6 +779,26 @@ header {
   p{
     color: $white;
   }
+}
+
+// Pagination
+
+.pagination {
+    margin-bottom: 3rem;
+}
+
+.pagination .current {
+    background: $gray-three;
+    color: white;
+    font-size: 12px;
+}
+
+.pagination a, .pagination button {
+    font-size: 12px;
+    color: $gray-two;
+    &:hover {
+      background: $gray-four;
+    }
 }
 
 // Home - hero
@@ -948,8 +983,9 @@ header {
 
 .page-header-orange {
   position: relative;
-  margin-bottom: -160px;
+  margin-bottom: -360px;
   z-index: -1;
+  overflow: hidden;
   & img {
     max-width: none;
     height: 323px;
@@ -959,6 +995,7 @@ header {
 .page-header-orange .text-width {
   position: relative;
   color: white;
+  height: 50px;
   &:before {
     content: '';
     top: -323px;
@@ -979,6 +1016,14 @@ header {
     mix-blend-mode: soft-light;
     border-left: 500px solid $orange;
   }
+}
+
+.mt-header .breadcrumbs.white {
+    margin-bottom: 136px;
+}
+
+.page-with-header .breadcrumbs {
+  margin-bottom: 150px;
 }
 
 // challenges
@@ -1185,26 +1230,63 @@ footer a i {
 // Challenge / Problem
 
 .challenge-menu > li > a {
-    border-bottom: 4px solid $gray-three;
-    color: $gray-three;
+    border-bottom: 13px solid $gray-three;
+    color: $gray-two;
     position: relative;
+    padding: 1rem 0rem;
     &::before {
-      content: asset-url("oval.svg");
+      content: '';
       position: absolute;
-      left: 0;
-      bottom: -11px;
+      left: -7px;
+      bottom: -13px;
+      background: $gray-two;
+      border-radius: 10px;
+      width: 13px;
+      height: 13px;
     }
 }
 
+.challenge-menu {
+  position:relative;
+  &::after  {
+    position: absolute;
+    right: -7px;
+    bottom: 0px;
+    background: $gray-three;
+    border-radius: 10px;
+    width: 13px;
+    height: 13px;
+    content: '';
+  }
+}
+.challenge-menu > li > a:hover {
+  border-bottom: 13px solid lighten($brand, 20%);
+  color: $brand;
+  &::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    bottom: -13px;
+    width: 13px;
+    height: 13px;
+    background: $brand;
+    border-radius: 10px;
+  }
+}
+
 .challenge-menu.menu .active > a {
-    border-bottom: 4px solid $orange;
+    border-bottom: 13px solid lighten($brand, 20%);
     background: none;
-    color: $orange;
+    color: $brand;
     &::before {
-      content: asset-url("oval-active.svg");
+      content: '';
       position: absolute;
-      left: 0;
-      bottom: -11px;
+      left: -7px;
+      bottom: -13px;
+      width: 13px;
+      height: 13px;
+      background: $brand;
+      border-radius: 10px;
     }
 }
 

@@ -1,20 +1,14 @@
-<div class="breadcrumbs grid-container fluid details">
-  <div class="grid-x grid-margin-x">
-    <div class="small-12 medium-12 cell">
-      <%= render "shared/back_link" %>
-    </div>
+<%= render "shared/problem", problem: @problem, header: "header01.png" %>
+<div class="grid-container">
+  <div class="text-width">
+    <section class="page-section">
+      <div class="grid-x">
+
+        <h5>
+          ¿Qué te pareció la implementación del proyecto? ¿Crees que hay algo que se pudo hacer mejor? Al terminar el proceso aquí tendrás un espacio para dejar tu opinión y compartirla con la comunidad.
+        </h5>
+        <%= link_to "Evaluar", new_project_evaluation_path(:problem_id => @problem.id) %>
+      </div>
+    </section>
   </div>
 </div>
-
-<section class="page-section">
-  <div class="grid-container">
-    <div class="grid-x">
-      <%= render "shared/problem", problem: @problem %>
-
-      <h5>
-        ¿Qué te pareció la implementación del proyecto? ¿Crees que hay algo que se pudo hacer mejor? Al terminar el proceso aquí tendrás un espacio para dejar tu opinión y compartirla con la comunidad.
-      </h5>
-      <%= link_to "Evaluar", new_project_evaluation_path(:problem_id => @problem.id) %>
-    </div>
-  </div>
-</section>

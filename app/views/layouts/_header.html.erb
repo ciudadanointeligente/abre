@@ -4,14 +4,13 @@
     <div class="top-bar">
       <!-- Logo -->
       <%= link_to root_path, class: "show-for-small-only", accesskey: "0" do %>
-        <%= image_tag(image_path_for('logo-header.svg'), class: 'movil-logo', alt: t("layouts.header.logo")) %>
+        <%= image_tag(image_path_for('logo-header.svg'), class: 'logo-mobile', alt: t("layouts.header.logo")) %>
         <!-- <span class="header-title"> <%= Setting['municipality_name'] %> </span> -->
       <% end %>
       <!-- Toogle -->
-      <span data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right">
-        <span class="menu-icon dark" data-toggle></span>
-        <span class="menu-text gray"> <%= t("application.menu")%> </span>
-      </span>
+      <div data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right mobile-menu">
+        <i class="far fa-bars"></i>
+      </div>
 
       <div id="responsive-menu">
         <div class="top-bar-title">
