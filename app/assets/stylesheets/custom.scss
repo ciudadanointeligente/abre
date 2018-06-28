@@ -51,6 +51,13 @@ h5 {
   }
 }
 
+h6 {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: $gray-one;
+}
+
 .bajada {
     margin-top: -1rem;
 }
@@ -665,6 +672,7 @@ header {
 .is-dropdown-submenu {
   min-width: 300px;
   border: none;
+  background: #F7FBFF;
 }
 
 .dropdown.menu .is-submenu-item a {

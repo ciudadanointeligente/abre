@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <h5>
+        <h6>
           <%= @problem.call_to_action %>.
           <% if @problem.valid %>
             <% if !@problem.challenge_poll %>
@@ -57,7 +57,7 @@
           <% else %>
             Ha finalizado el tiempo de recepción de propuestas, pero te invitamos a participar de los <%= link_to "Talleres de Diseño", project_design_events_path(@problem.project, :problem_id => @problem.id) %>
           <% end %>
-        </h5>
+        </h6>
         <div id="proposals-list">
           <div class="grid-x grid-margin-x">
             <% @proposals_challenge.each_with_index do |proposal, index| %>
