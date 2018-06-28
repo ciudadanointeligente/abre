@@ -1,59 +1,43 @@
-<!-- Breadcrumbs -->
-<div class="grid-container fluid">
-  <nav aria-label="Aquí estás:" role="navigation">
-    <ul class="breadcrumbs">
-      <li><%= link_to "Inicio", root_path %></li>
-      <li><%= link_to "Desafíos", problems_path %></li>
-      <li><span class="disabled">Desafío:</span> <%= link_to @problem.title, proposals_path(:challenge => @problem.id) %></a></li>
-      <li>Seguimiento</li>
-    </ul>
-  </nav>
-</div>
-<!-- End breadcrumbs -->
-
-<section class="page-section">
-  <div class="grid-container">
-    <div class="grid-x">
-      <%= render "shared/problem", problem: @problem %>
-      <div class="mt-60 mb-60">
-        <h5 class="mb-60">Mediante los reportes la comunidad podrá saber en qué estado se encuentra la implementación de la solución co-creada en los talleres de diseño.</h5>
-        <% @reports.each do |report| %>
-
-        <h5 class="small blue"> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h5>
-        <p><%= report.description.html_safe %></p>
-
-        <% if report.pictures.any? %>
-        <!-- Carousel -->
-        <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-          <div class="orbit-wrapper">
-            <div class="orbit-controls">
-              <button class="orbit-previous"><span class="show-for-sr">Anterior</span>&#9664;&#xFE0E;</button>
-              <button class="orbit-next"><span class="show-for-sr">Siguiente</span>&#9654;&#xFE0E;</button>
-            </div>
-
-
-            <ul class="orbit-container">
-              <li class="is-active orbit-slide">
-                <div class="grid-x">
-              <% report.pictures.each_with_index do |pic, index| %>
-                  <% if ((index)%3==0 && index != 0) %>
-                 <li class="orbit-slide"> <div class="grid-x grid-margin-x">
-                  <% end %>
-                  <div class="cell small-12 medium-4">
-                    <%= image_tag pic.image.url %>
+<%= render "shared/problem", problem: @problem, header: "header04.png" %>
+<div class="grid-container">
+  <div class="text-width">
+    <section>
+      <div class="grid-x">
+        <div class="mt-60 mb-60">
+          <h5 class="mb-60">Mediante los reportes la comunidad podrá saber en qué estado se encuentra la implementación de la solución co-creada en los talleres de diseño.</h5>
+          <% @reports.each do |report| %>
+          <h5 class="small blue"> Reporte <%= report.created_at.strftime("%d.%m.%Y") %> </h5>
+          <p><%= report.description.html_safe %></p>
+              <% if report.pictures.any? %>
+              <!-- Carousel -->
+              <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+                <div class="orbit-wrapper">
+                  <div class="orbit-controls">
+                    <button class="orbit-previous"><span class="show-for-sr">Anterior</span>&#9664;&#xFE0E;</button>
+                    <button class="orbit-next"><span class="show-for-sr">Siguiente</span>&#9654;&#xFE0E;</button>
                   </div>
-                  <% end %>
-              </div> </li>
-            </ul>
-          </div>
+
+
+                  <ul class="orbit-container">
+                    <li class="is-active orbit-slide">
+                      <div class="grid-x">
+                    <% report.pictures.each_with_index do |pic, index| %>
+                        <% if ((index)%3==0 && index != 0) %>
+                       <li class="orbit-slide"> <div class="grid-x grid-margin-x">
+                        <% end %>
+                        <div class="cell small-12 medium-4">
+                          <%= image_tag pic.image.url %>
+                        </div>
+                        <% end %>
+                    </div> </li>
+                  </ul>
+                </div>
+              </div>
+            <% end %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
       </div>
-    <% end %>
-
+    </section>
   </div>
-  </div>
-
-  <hr>
-
-</section>
+</div>
