@@ -1251,6 +1251,20 @@ footer a i {
     content: '';
   }
 }
+.challenge-menu > li > a:hover {
+  border-bottom: 13px solid lighten($brand, 20%);
+  color: $brand;
+  &::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    bottom: -13px;
+    width: 13px;
+    height: 13px;
+    background: $brand;
+    border-radius: 10px;
+  }
+}
 
 .challenge-menu.menu .active > a {
     border-bottom: 13px solid lighten($brand, 20%);
