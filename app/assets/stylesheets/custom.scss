@@ -1053,7 +1053,6 @@ header {
 }
 
 
-
 // Proposals
 
 .proposal-type {
@@ -1292,6 +1291,27 @@ footer a i {
 
 .challenge-menu li {
     width: 25%;
+}
+
+// Challenge menu mobile
+
+.challenge-menu-mobile .menu.vertical {
+    background: #F7FBFF;
+    margin: 0;
+    padding: 0;
+}
+
+.challenge-menu-mobile .menu li, .challenge-menu-mobile .menu.horizontal li {
+    width: 100%;
+}
+
+.challenge-menu-mobile .dropdown.menu .is-submenu-item a {
+    padding: 1rem;
+    width: 100%;
+}
+
+.challenge-menu-mobile .menu.vertical li {
+    margin-bottom: 0;
 }
 
 

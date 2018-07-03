@@ -1,6 +1,6 @@
 <div class="grid-container">
 
-  <%= render "shared/problem", problem: @problem %>
+  <%= render "shared/problem", problem: @problem, header: "header02.png" %>
 
   <br>
   <h3 class="text-left"> Formulario de Evaluación <span class="float-right"> 2/3 </span> </h3>
@@ -11,7 +11,6 @@
   <%= simple_form_for @evaluation, url: wizard_path do |f| %>
 
   <h5> Evalúa , donde 1 es “pésimo” y 7 “excelente”, cada una de las etapas en las que participaste: </h5>
-  <br>
 
     <% if @evaluation.proposal_participation %>
       <div class="row">

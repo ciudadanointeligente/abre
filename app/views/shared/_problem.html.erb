@@ -23,8 +23,34 @@
   <h2 class="white mb-90"> <%= problem.title %> </h2>
   <h5 class="subtitle"> <%= problem.summary %> </h5>
 
+  <!-- Menu interno mobile -->
+  <div class="challenge-menu-mobile show-for-small-only">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li>
+        <a href="#"><%= defined?(stage) ? stage : "Etapa" %></a>
+        <ul class="menu">
+          <% if problem.challenge_proposal %>
+            <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %>"><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+            <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+          <% elsif problem.challenge_design %>
+            <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
+            <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+          <% elsif problem.challenge_poll %>
+            <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+            <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> "><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+          <% else %>
+            <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+            <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> "><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
+            <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> "><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+            <li class="<%= current_page?(project_evaluations_path(problem.project)) ?'active':'' %> "><%= link_to "Evaluación", project_evaluations_path(problem.project, :problem_id => problem.id) %></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <!-- Menu interno desafio -->
-  <ul class="menu expanded challenge-menu mb-60 mt-60">
+  <ul class="menu expanded challenge-menu mb-60 mt-60 show-for-medium">
     <% if problem.challenge_proposal %>
       <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
       <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
