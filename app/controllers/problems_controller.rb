@@ -14,5 +14,15 @@ class ProblemsController < ApplicationController
   end
 
 
+private
+
+def load_geozones
+  @geozones = Geozone.all.order(name: :asc)
+end
+
+def set_geozone
+  @resource.geozone = Geozone.find(params[resource_name.to_sym].try(:[], :geozone_id)) if params[resource_name.to_sym].try(:[], :geozone_id).present?
+end
+
 
 end

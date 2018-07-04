@@ -19,7 +19,6 @@
     <h1 class="white">Desafíos</h1>
     <div class="text-right mt-60">
       <ul class="menu">
-        <!-- TODO que estos checkbox funcionen -->
         <% @active_filters.each do |filter| %>
             <li class="checkbox">
               <% if @current_filter == filter %>
@@ -45,7 +44,6 @@
                   <label for="right-label" class="text-right">Filtrar por</label>
                 </div>
                 <div class="cell small-8">
-                  <!-- TODO filtro por etapa -->
                   <%= select_tag "status_filters", "<option selected disabled>Etapa</option><option>Propuestas</option><option>Diseño</option><option>Implementación</option><option>Evaluación</option>".html_safe %>
                 </div>
               </div>
@@ -57,12 +55,11 @@
                 </div>
                 <div class="cell small-8">
                   <!-- TODO filtro por comunidad afectada -->
-                  <select>
+                  <select name="geozone_filters" id="geozone_filters">
                     <option value="location">Comunidad afectada</option>
-                    <option value="proposal">Levantamiento Propuestas</option>
-                    <option value="design">Talleres de diseño</option>
-                    <option value="implementation">Implementación</option>
-                    <option value="evaluation">Evaluación</option>
+                    <% Geozone.all.each do |geozone| %>
+                      <option> <%= geozone.name %> </option>
+                    <% end %>
                   </select>
                 </div>
               </div>
@@ -83,21 +80,40 @@
 <script>
     $(function(){
       $('#status_filters').bind('change', function () {
-          var status = $(this).val();
-          if (status == "Implementación") {
-            status = "implementation";
-          } else if (status == "Diseño") {
-            status = "design";
-          } else if (status == "Propuestas") {
-            status = "proposal";
-          } else {
-            status = "evaluation"
-          }
-          var url = "/problems?filter=" + status + "&page=1"
-          if (url) {
-              window.location.replace(url);
-          }
-          return false;
+        var status = $(this).val();
+        console.log(status);
+        if (status == "Implementación") {
+          status = "implementation";
+        } else if (status == "Diseño") {
+          status = "design";
+        } else if (status == "Propuestas") {
+          status = "proposal";
+        } else {
+          status = "evaluation"
+        }
+        var url = "/problems?filter=" + status + "&page=1"
+        if (url) {
+            window.location.replace(url);
+        }
+        return false;
+      });
+      $('#geozone_filters').bind('change', function () {
+        var status = $(this).val();
+        console.log(status);
+        if (status == "Implementación") {
+          status = "implementation";
+        } else if (status == "Diseño") {
+          status = "design";
+        } else if (status == "Propuestas") {
+          status = "proposal";
+        } else {
+          status = "evaluation"
+        }
+        var url = "/problems?filter=" + status + "&page=1"
+        if (url) {
+            window.location.replace(url);
+        }
+        return false;
       });
     });
 </script>
