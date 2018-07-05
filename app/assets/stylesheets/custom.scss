@@ -1295,6 +1295,10 @@ footer a i {
 
 // Challenge menu mobile
 
+.challenge-menu-mobile {
+    margin: 1rem 0;
+}
+
 .challenge-menu-mobile .menu.vertical {
     background: #F7FBFF;
     margin: 0;
@@ -1314,6 +1318,16 @@ footer a i {
     margin-bottom: 0;
 }
 
+.challenge-menu-mobile .dropdown.menu > li.is-dropdown-submenu-parent > a {
+    padding: 1rem;
+    background: $brand;
+    color: white;
+    border-radius: 3px;
+}
+
+.challenge-menu-mobile .menu .active > a {
+  background: $gray-four;
+}
 
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 

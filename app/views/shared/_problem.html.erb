@@ -24,10 +24,10 @@
   <h5 class="subtitle"> <%= problem.summary %> </h5>
 
   <!-- Menu interno mobile -->
-  <div class="challenge-menu-mobile show-for-small-only">
+  <div id="challenge-menu-mobile" class="challenge-menu-mobile show-for-small-only">
     <ul class="dropdown menu" data-dropdown-menu>
       <li>
-        <a href="#"><%= defined?(stage) ? stage : "Etapa" %></a>
+        <a href="#challenge-menu-mobile"><%= defined?(stage) ? stage : "Etapa" %> <span class="pull-right"> <i class="far fa-chevron-down"></i></span></a>
         <ul class="menu">
           <% if problem.challenge_proposal %>
             <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %>"><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
