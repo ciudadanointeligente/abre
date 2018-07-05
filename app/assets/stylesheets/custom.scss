@@ -20,7 +20,7 @@ h2 {
   font-size: 36px;
   text-transform: uppercase;
   font-family: $body-font-family-title;
-  margin: 2vw 0;
+  margin: 0.5rem 0;
 }
 
 h3 {
@@ -128,12 +128,12 @@ p {
   font-size: 12px;
 }
 
-.epigraph {
-  margin-bottom: -20px;
-}
-
 .epigraph-small {
   margin-bottom: 0px;
+}
+
+.epigraph .has-tip {
+    color: white;
 }
 
 .subtitle {
@@ -1022,8 +1022,18 @@ header {
     margin-bottom: 136px;
 }
 
-.page-with-header .breadcrumbs {
-  margin-bottom: 150px;
+.page-with-header {
+  min-height: 300px;
+  position: relative;
+  margin-bottom: 6rem;
+  & .breadcrumbs {
+    position: absolute;
+    top: 0;
+  }
+  & #challenge-title {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 // challenges

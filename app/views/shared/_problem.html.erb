@@ -10,63 +10,69 @@
 <!-- End header -->
 <div class="grid-container page-with-header">
   <div class="text-width">
-  <!-- Breadcrumbs -->
-    <nav aria-label="Aquí estás:" role="navigation">
-      <ul class="breadcrumbs white">
-        <li><%= link_to "Inicio", root_path %></li>
-        <li><%= link_to "Desafíos", problems_path %></li>
-        <li><%= problem.title %></li>
-      </ul>
-    </nav>
-  <!-- End breadcrumbs -->
-  <div class="small white epigraph">DESAFÍO PARA <%= problem.geozones_name%></div>
-  <h2 class="white mb-90"> <%= problem.title %> </h2>
-  <h5 class="subtitle"> <%= problem.summary %> </h5>
-
-  <!-- Menu interno mobile -->
-  <div id="challenge-menu-mobile" class="challenge-menu-mobile show-for-small-only">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li>
-        <a href="#challenge-menu-mobile"><%= defined?(stage) ? stage : "Etapa" %> <span class="pull-right"> <i class="far fa-chevron-down"></i></span></a>
-        <ul class="menu">
-          <% if problem.challenge_proposal %>
-            <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %>"><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
-            <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
-          <% elsif problem.challenge_design %>
-            <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
-            <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
-          <% elsif problem.challenge_poll %>
-            <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
-            <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> "><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
-          <% else %>
-            <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
-            <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> "><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
-            <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> "><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
-            <li class="<%= current_page?(project_evaluations_path(problem.project)) ?'active':'' %> "><%= link_to "Evaluación", project_evaluations_path(problem.project, :problem_id => problem.id) %></li>
-          <% end %>
+    <!-- Breadcrumbs -->
+      <nav aria-label="Aquí estás:" role="navigation">
+        <ul class="breadcrumbs white">
+          <li><%= link_to "Inicio", root_path %></li>
+          <li><%= link_to "Desafíos", problems_path %></li>
+          <li><%= problem.title %></li>
         </ul>
-      </li>
-    </ul>
+      </nav>
+    <!-- End breadcrumbs -->
+    <div id="challenge-title">
+      <div class="small white epigraph">DESAFÍO PARA <span data-tooltip tabindex="1" title="<%= problem.geozones_name%>">scarabaeus<%= problem.geozones_name%></span></div>
+      <h2 class="white"> <%= problem.title %> </h2>
+    </div>
   </div>
+</div>
+<div class="grid-container">
+  <div class="text-width">
+    <h5 class="subtitle"> <%= problem.summary %> </h5>
 
-  <!-- Menu interno desafio -->
-  <ul class="menu expanded challenge-menu mb-60 mt-60 show-for-medium">
-    <% if problem.challenge_proposal %>
-      <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
-      <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
-    <% elsif problem.challenge_design %>
-      <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
-      <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
-    <% elsif problem.challenge_poll %>
-      <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line"><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
-      <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
-    <% else %>
-      <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line"><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
-      <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
-      <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
-      <li class="<%= current_page?(project_evaluations_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Evaluación", project_evaluations_path(problem.project, :problem_id => problem.id) %></li>
-    <% end %>
-  </ul>
+    <!-- Menu interno mobile -->
+    <div id="challenge-menu-mobile" class="challenge-menu-mobile show-for-small-only">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li>
+          <a href="#challenge-menu-mobile"><%= defined?(stage) ? stage : "Etapa" %> <span class="pull-right"> <i class="far fa-chevron-down"></i></span></a>
+          <ul class="menu">
+            <% if problem.challenge_proposal %>
+              <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %>"><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+              <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+            <% elsif problem.challenge_design %>
+              <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
+              <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+            <% elsif problem.challenge_poll %>
+              <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+              <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> "><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+            <% else %>
+              <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+              <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> "><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
+              <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> "><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+              <li class="<%= current_page?(project_evaluations_path(problem.project)) ?'active':'' %> "><%= link_to "Evaluación", project_evaluations_path(problem.project, :problem_id => problem.id) %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Menu interno desafio -->
+    <ul class="menu expanded challenge-menu mb-60 mt-60 show-for-medium">
+      <% if problem.challenge_proposal %>
+        <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line "><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+        <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+      <% elsif problem.challenge_design %>
+        <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
+        <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+      <% elsif problem.challenge_poll %>
+        <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line"><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+        <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+      <% else %>
+        <li class="<%= (current_page?(proposals_path)||current_page?(problem_path(problem))||current_page?(new_proposal_path))  ?'active':'' %> small-without-line"><%= link_to "Propuestas", proposals_path(:challenge => problem.id) %></li>
+        <li class="<%= current_page?(project_design_events_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Talleres de Diseño", project_design_events_path(problem.project, :problem_id => problem.id) %></li>
+        <li class="<%= (current_page?(project_reports_path(problem.project))) ?'active':'' %> small-without-line"><%= link_to "Seguimiento", project_reports_path(problem.project, :problem_id => problem.id) %></li>
+        <li class="<%= current_page?(project_evaluations_path(problem.project)) ?'active':'' %> small-without-line"><%= link_to "Evaluación", project_evaluations_path(problem.project, :problem_id => problem.id) %></li>
+      <% end %>
+    </ul>
 
   </div>
 </div>
