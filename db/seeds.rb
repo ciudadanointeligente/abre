@@ -90,7 +90,7 @@ admin.create_administrator
 admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
 
 (1..5).each do |i|
-  user = create_user("user#{i}@consul.dev")
+  user = create_user("user#{i}@tumunicipio.org")
   level = [1, 2, 3].sample
   if level >= 2
     user.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_number: Faker::Number.number(10), document_type: "1" )
@@ -205,7 +205,7 @@ puts "Desafío en etapa de propuestas con propuestas creado ✅"
 
 
 # Desafío donde el proceso de recepción y votación de propuestas ya se concluyó, pero aún no se crea un taller de diseño.
-challenge3 = create_challenge(admin, 16.day.ago, 3.day.ago, "Desafío donde el proceso de recepción y votación de propuestas ya se concluyó, pero aún no se crea un taller de diseño.")
+challenge3 = create_challenge(admin, 16.day.ago, 3.day.ago, "Propuestas ok, aún no se crea un taller de diseño.")
 proposal3a = create_proposal(challenge3)
 proposal3b = create_proposal(challenge3)
 proposal3c = create_proposal(challenge3)
@@ -214,7 +214,7 @@ proposal3e = create_proposal(challenge3)
 puts "Desafío donde el proceso de recepción y votación de propuestas ya se concluyó, pero aún no se crea un taller de diseño creado ✅"
 
 # Desafío en etapa de talleres; en preparación del primer taller
-challenge4 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de talleres; en preparación del primer taller")
+challenge4 = create_challenge(admin, 30.day.ago, 10.day.ago, "Etapa de talleres; en preparación del primer taller")
 proposal4a = create_proposal(challenge4)
 proposal4b = create_proposal(challenge4)
 proposal4c = create_proposal(challenge4)
@@ -225,7 +225,7 @@ puts "Desafío en etapa de talleres; en preparación del primer taller ✅"
 
 
 # Desafío en etapa de talleres; con un taller realizado y otro no
-challenge5 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de talleres; con un taller realizado y otro no")
+challenge5 = create_challenge(admin, 30.day.ago, 10.day.ago, "Etapa de talleres; con un taller realizado y otro no")
 proposal5a = create_proposal(challenge5)
 proposal5b = create_proposal(challenge5)
 proposal5c = create_proposal(challenge5)
@@ -245,23 +245,23 @@ designevent5b = create_design_event(challenge5.project, '')
 puts "Desafío en etapa de talleres; con un taller realizado y otro no ✅"
 
 # Desafío en etapa de implementación sin reportes
-challenge6 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de implementación, con 1 o más reportes")
+challenge6 = create_challenge(admin, 30.day.ago, 10.day.ago, "Etapa de implementación, con 1 o más reportes")
 designevent6a = create_design_event(challenge6.project)
 challenge6.project.update(implementation_starts_at: Date.today - 4, implementation_ends_at: Date.today + 23, responsible_neighbour_name: Faker::Name.name)
 puts "Desafío en etapa de implementación sin reportes ✅"
 
 # Desafío en etapa de implementación, con 1 o más reportes
-challenge7 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de implementación, con 1 o más reportes")
+challenge7 = create_challenge(admin, 30.day.ago, 10.day.ago, "Etapa de implementación, con 1 o más reportes")
 designevent7a = create_design_event(challenge7.project)
 challenge7.project.update(implementation_starts_at: Date.today - 4, implementation_ends_at: Date.today + 23, responsible_neighbour_name: Faker::Name.name)
 report7 = create_report(challenge7.project)
 
 # Desafío (Abre B) con alternativa de propuestas (subir + levantamiento) + implementación
-challenge8 = create_challenge(admin, 4.day.ago, 10.day.from_now, "Desafío (Abre B) con alternativa de propuestas (subir + levantamiento) + implementación")
+challenge8 = create_challenge(admin, 4.day.ago, 10.day.from_now, "Alternativa B de propuestas + implementación")
 challenge8.update(challenge_proposal: 1)
 
 # Desafío (Abre C) con alternativa de talleres + implementación
-challenge9 = create_challenge(admin, 4.day.ago, 10.day.from_now, "Desafío (Abre C) con alternativa de talleres + implementación")
+challenge9 = create_challenge(admin, 4.day.ago, 10.day.from_now, "Alternativa C de talleres + implementación")
 challenge9.update(challenge_design: 1)
 
 # Desafío en etapa de evaluación, sin evaluaciones
@@ -270,7 +270,7 @@ designevent10a = create_design_event(challenge10.project)
 challenge10.project.update(implementation_starts_at: Date.today - 4, implementation_ends_at: Date.today - 1, responsible_neighbour_name: Faker::Name.name)
 
 # Desafío en etapa de talleres; con los dos talleres realizados
-challenge10 = create_challenge(admin, 30.day.ago, 10.day.ago, "Desafío en etapa de talleres; con los dos talleres realizados")
+challenge10 = create_challenge(admin, 30.day.ago, 10.day.ago, "Etapa de talleres; con los dos talleres realizados")
 proposal10a = create_proposal(challenge10)
 proposal10b = create_proposal(challenge10)
 proposal10c = create_proposal(challenge10)
@@ -320,7 +320,7 @@ challenge13.project.update(
   implementation_ends_at: Date.today - 4,
   responsible_neighbour_name: Faker::Name.name,
   evaluation_starts_at: Date.today - 3,
-  evaluation_ends_at: Date.today - 1)
+  evaluation_ends_at: Date.today - 1 )
 evaluation13a = create_evaluation(challenge13.project)
 evaluation13a = create_evaluation(challenge13.project)
 evaluation13a = create_evaluation(challenge13.project)

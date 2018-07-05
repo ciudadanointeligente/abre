@@ -16,6 +16,8 @@ class Problem < ActiveRecord::Base
 
   paginates_per 8
 
+  validates :title, length: { in: 1..60 }
+
   scope :expired,  -> { where('status = ?', 'Cerrado') }
   scope :active,  -> { where('status != ?', "Cerrado") }
 

@@ -1,4 +1,11 @@
 
+<% if !user_signed_in? %>
+  <div class="js-support-allowed">
+<% else %>
+  <div>
+<% end %>
+
+  <%= link_to ' Ver más', namespaced_proposal_path(proposal), class: "button tiny secondary" %>
   <span class="in-favor">
     <!-- Si el usuario ya voto mostrar RRSS -->
     <% if voted_for?(@proposal_votes, proposal) %>
@@ -11,7 +18,6 @@
         </div>
       <% else %>
         <div class="bg-blue padding">
-
           <%= t("proposals.proposal.already_supported") %>
         </div>
       <% end %>
@@ -22,13 +28,15 @@
             title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
             <%= t("proposals.proposal.support") %>
       <% end %>
-    <!-- Si el usuario no está registrado -->
+    <!-- Si el usuario no está registrado que le aparezca el botón, pero no funcione -->
     <% else %>
       <div class="button primary button-support <%= button_support_class %>">
         <%= t("proposals.proposal.support") %>
       </div>
     <% end %>
   </span>
+
+</div>
 
   <% if user_signed_in? && current_user.organization? %>
     <div class="participation-not-allowed" style='display:none' aria-hidden="false">
@@ -37,22 +45,18 @@
       </p>
     </div>
   <% elsif user_signed_in? && !proposal.supported_by?(current_user) %>
-    <div tabindex="0">
       <div class="participation-not-allowed" style='display:none' aria-hidden="false">
         <p>
           <%= t("votes.verified_only",
               verify_account: link_to(t("votes.verify_account"), verification_path )).html_safe %>
         </p>
       </div>
-    </div>
   <% elsif !user_signed_in? %>
-    <div tabindex="0">
-      <div class="supports votes participation-not-allowed bg-light-gray" style='display:none' aria-hidden="false">
-        <p class="text-center">
+    <div class="supports votes js-support-not-allowed bg-light-gray" style='display:none' aria-hidden="false">
+      <div class="text-center"> No registrado
         <%= t("votes.unauthenticated",
           signin: link_to(t("votes.signin"), new_user_session_path),
           signup: link_to(t("votes.signup"), new_user_registration_path)).html_safe %>
-        </p>
       </div>
     </div>
   <% end %>

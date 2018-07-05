@@ -11,9 +11,10 @@
 <main>
 
   <%= render "shared/problem", problem: @problem, header: "header02.png" %>
+  <section class="">
+
   <div class="grid-container">
     <div class="text-width">
-  <section class="">
         <div id="proposals" class="proposals-list">
           <div class="padding">
             <div class="search-results">
@@ -65,7 +66,6 @@
               </div><div class="grid-x grid-margin-x">
               <% end %>
               <%= render "proposals/proposal", proposal: proposal %>
-
             <% end %>
           </div>
           <%= paginate @proposals %>
@@ -73,6 +73,5 @@
       </div>
     </div>
   </section>
-
 
 </main>
