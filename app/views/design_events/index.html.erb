@@ -9,6 +9,7 @@
           <h5 class="mb-60">Próximamente</h5>
         <% end %>
         <% @design_events.order(:starts_at).each do |d| %>
+        <h5><%= d.name %></h5>
         <p class="details">
           <i class="fa fa-calendar"> </i> <%= d.starts_at.strftime("%d/%m/%Y %H:%M") %>
           <span class="line-text">|</span> <i class="fa fa-map-marker"> </i> <%= d.place %>
@@ -20,10 +21,12 @@
           <%= link_to "Registro del taller", d.document.url%>
           <% end %>
         </p>
-
+        <hr>
         <p>
           <% if !d.summary.empty? %> <%= d.summary %>
-          <% else %> <%= d.description %>  <% end %>
+          <% else %>
+          <%= d.description %>
+          <% end %>
         </p>
 
         <% if d.pictures.any? %>
@@ -39,13 +42,13 @@
 
                 <ul class="orbit-container">
                   <li class="is-active orbit-slide">
-                    <div class="grid-x">
+                    <div class="grid-x grid-margin-x">
                   <% d.pictures.each_with_index do |pic, index| %>
                       <% if ((index)%2==0 && index != 0) %>
                      <li class="orbit-slide"> <div class="grid-x grid-margin-x">
                       <% end %>
                       <div class="cell small-12 medium-6">
-                        <%= image_tag pic.image.url %>
+                        <%= image_tag pic.image.url , class: 'orbit-image' %>
                       </div>
                       <% end %>
                   </div> </li>
